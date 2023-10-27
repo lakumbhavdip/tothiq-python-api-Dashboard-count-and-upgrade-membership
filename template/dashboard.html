@@ -1,0 +1,1626 @@
+{% include "header.html" %}
+
+<div class="content d-flex flex-column p-0 mb-20" id="kt_content">
+  <div class="post d-flex flex-column-fluid mb-10" id="kt_post">
+    <div id="kt_content_container" class="container-fluid">
+      <div class="row py-10">
+        <div class="col">
+          <span class="d-block fs-1 fw-bolder">
+            <!-- <h1>Welcome, {{ username }}</h1> -->Dashboard -
+            <span class="text-primary">{{ username }}</span>
+          </span>
+        </div>
+      </div>
+
+
+      <div class="row gy-5 g-xl-8">
+        <div class="col-xl-4">
+          <div class="card mb-10">
+            <div class="card-header align-items-center border-0">
+              <h3 class="card-title align-items-start flex-column">
+                <span class="fw-bolder mb-2 text-dark">Individual</span>
+              </h3>
+              <div class="row">
+                <div class="col-xl-12 col-md-6 p-1 col-xxl-6">
+                  <div class="mb-0">
+                    <label class="form-label">Start Date</label>
+                    <input class="form-control form-control-solid" placeholder="Pick date range"
+                      id="kt_daterangepicker_5" onchange=" filter_invite()" name="start_datetime" type="date" />
+                  </div>
+                </div>
+                <div class="col-xl-12 col-md-6 p-1 col-xxl-6">
+                  <div class="">
+                    <label class="form-label">End Date</label>
+                    <input class="form-control form-control-solid" placeholder="Pick date range"
+                      id="kt_daterangepicker_6" onchange=" filter_invite()" name="end_datetime" type="date" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row g-5 mb-10">
+                <div class="col-md-6 col-xxl-4">
+                  <div class="ms-2 mb-3">
+                    <span class="fw-bolder  fs-4 text-dark">Free</span>
+                  </div>
+                  <div class="border border-3 rounded p-1">
+                    <div class="flex-grow-1">
+                      <span class="fw-bolder fs-6 text-primary" id="i_free_count">{{user_instance1|length}}</span>
+                    </div>
+                    <div hidden id="i_free">
+                      {% for i in user_instance1 %}
+                        <p>{{i.created_at|date:"d-m-Y H:i"}}</p>
+                      {%endfor%}
+                    </div>
+                    <div class="mixed-widget-7-chart card-rounded-bottom" data-kt-chart-color="primary"
+                      style="height: 80px; min-height: 80px;">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xxl-4">
+                  <div class="ms-2 mb-3">
+                    <span class="fw-bolder fs-4 text-dark">Basic</span>
+                  </div>
+                  <div class="border border-3 rounded p-1">
+                    <div class="flex-grow-1">
+                      <span class="fw-bolder fs-6 text-primary" id="i_basic_count">{{user_instance2|length}}</span>
+                    </div>
+
+                    <div hidden id="i_basic">
+                      {% for i in user_instance2 %}
+                        <p>{{i.created_at|date:"d-m-Y H:i"}}</p>
+                      {%endfor%}
+
+                    </div>
+                    <div class="mixed-widget-7-chart card-rounded-bottom" data-kt-chart-color="info"
+                      style="height: 80px; min-height: 80px;">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xxl-4">
+                  <div class="ms-2 mb-3">
+                    <span class="fw-bolder fs-4 text-dark">Premium</span>
+                  </div>
+                  <div class="border border-3 rounded p-1">
+                    <div class="flex-grow-1">
+                      <span class="fw-bolder fs-6 text-primary" id="i_premium_count">{{user_instance3|length}}</span>
+                    </div>
+                    <div hidden id="i_premium">
+                      {% for i in user_instance3 %}
+                        <p>{{i.created_at|date:"d-m-Y H:i"}}</p>
+                      {%endfor%}
+
+                    </div>
+                    <div class="mixed-widget-7-chart card-rounded-bottom" data-kt-chart-color="primary"
+                      style="height: 80px; min-height: 80px;">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xxl-4">
+                  <div class="ms-2 mb-3">
+                    <span class="fw-bolder fs-4 text-dark">Gold</span>
+                  </div>
+                  <div class="border border-3 rounded p-1">
+                    <div class="flex-grow-1">
+                      <span class="fw-bolder fs-6 text-primary" id="i_gold_count">{{user_instance7|length}}</span>
+                    </div>
+                    <div hidden id="i_gold">
+                      {% for i in user_instance7 %}
+                        <p>{{i.created_at|date:"d-m-Y H:i"}}</p>
+                      {%endfor%}
+
+                    </div>
+                    <div class="mixed-widget-7-chart card-rounded-bottom" data-kt-chart-color="primary"
+                      style="height: 80px; min-height: 80px;">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xxl-4">
+                  <div class="ms-2 mb-3">
+                    <span class="fw-bolder fs-4 text-dark">Platinum</span>
+                  </div>
+                  <div class="border border-3 rounded p-1">
+                    <div class="flex-grow-1">
+                      <span class="fw-bolder fs-6 text-primary" id="i_platinum_count">{{user_instance8|length}}</span>
+                    </div>
+                    <div hidden id="i_platinum">
+                      {% for i in user_instance8 %}
+                        <p>{{i.created_at|date:"d-m-Y H:i"}}</p>
+                      {%endfor%}
+
+                    </div>
+                    <div class="mixed-widget-7-chart card-rounded-bottom" data-kt-chart-color="primary"
+                      style="height: 80px; min-height: 80px;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% for iprtr in percentage_reviews %}
+              {% if forloop.first %}
+              <div class="d-flex flex-column w-100 mb-7">
+                <div class="d-flex flex-stack mb-2 justify-content-between">
+                  <h6>Free Revenue</h6>
+                  <span class="text-muted fs-7 fw-bold"  id="i_free_p">{{ iprtr }}</span>
+                </div>
+                <div class="progress h-6px w-100">
+                  <div class="progress-bar bg-primary" role="progressbar"  id="i_free_pp" style="width: {{ iprtr }}" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              {% endif %}
+              {% if forloop.counter == 2 %}
+              <div class="d-flex flex-column w-100 mb-7">
+                <div class="d-flex flex-stack mb-2 justify-content-between">
+                  <h6>Basic Revenue</h6>
+                  <!-- <span class="text-muted fs-7 fw-bold">50%</span> -->
+                  <span class="text-muted fs-7 fw-bold"  id="i_basic_p">{{ iprtr }}</span>
+                </div>
+                <div class="progress h-6px w-100">
+                  <div class="progress-bar bg-info" role="progressbar"  id="i_basic_pp" style="width: {{ iprtr }}" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              {% endif %}
+              {% if forloop.counter == 3 %}
+              <div class="d-flex flex-column w-100 mb-5">
+                <div class="d-flex flex-stack mb-2 justify-content-between">
+                  <h6>Premium Revenue</h6>
+                  <!-- <span class="text-muted fs-7 fw-bold">50%</span> -->
+                  <span class="text-muted fs-7 fw-bold"  id="i_premium_p">{{ iprtr }}</span>
+                </div>
+                <div class="progress h-6px w-100">
+                  <div class="progress-bar bg-primary" role="progressbar"  id="i_premium_pp" style="width: {{ iprtr }}" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              {% endif %}
+              {% if forloop.counter == 4 %}
+              <div class="d-flex flex-column w-100 mb-5">
+                <div class="d-flex flex-stack mb-2 justify-content-between">
+                  <h6>Gold Revenue</h6>
+                  <!-- <span class="text-muted fs-7 fw-bold">50%</span> -->
+                  <span class="text-muted fs-7 fw-bold"  id="i_gold_p">{{ iprtr }}</span>
+                </div>
+                <div class="progress h-6px w-100">
+                  <div class="progress-bar bg-primary" role="progressbar"  id="i_gold_pp" style="width: {{ iprtr }}" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+
+                </div>
+              </div>
+              {% endif %}
+              {% if forloop.counter == 5 %}
+              <div class="d-flex flex-column w-100 mb-5">
+                <div class="d-flex flex-stack mb-2 justify-content-between">
+                  <h6>Platinum Revenue</h6>
+                  <!-- <span class="text-muted fs-7 fw-bold">50%</span> -->
+                  <span class="text-muted fs-7 fw-bold" id="i_platinum_p">{{ iprtr }}</span>
+                </div>
+                <div class="progress h-6px w-100">
+                  <div class="progress-bar bg-primary" role="progressbar"  id="i_platinum_pp" style="width: {{ iprtr }}" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              {% endif %}
+
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header align-items-center border-0">
+              <h3 class="card-title align-items-start flex-column">
+                <span class="fw-bolder mb-2 text-dark">Business</span>
+              </h3>
+              <div class="row">
+                <div class="col-xl-12 col-md-6 p-1 col-xxl-6">
+                  <div class="mb-0">
+                    <label class="form-label">Start Date</label>
+                    <input class="form-control form-control-solid" placeholder="Pick date range"
+                      id="kt_daterangepicker_1" onchange="filter_business()" name="start_datetime" type="date" />
+                  </div>
+                </div>
+                <div class="col-xl-12 col-md-6 p-1 col-xxl-6">
+                  <div class="">
+                    <label class="form-label">End Date</label>
+                    <input class="form-control form-control-solid" placeholder="Pick date range"
+                      id="kt_daterangepicker_2" onchange="filter_business()" name="end_datetime" type="date" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row g-5 mb-10">
+                <div class="col-md-6 col-xxl-4">
+                  <div class="ms-2 mb-3">
+                    <span class="fw-bolder  fs-3 text-dark">Free</span>
+                  </div>
+                  <div class="border border-3 rounded p-1">
+                    <div class="flex-grow-1">
+                      <span class="fw-bolder fs-6 text-primary"  id="b_free_count">{{user_instance4|length}}</span>
+                    </div>
+                    <div hidden id="b_free">
+                      {% for i in user_instance4 %}
+                        <p>{{i.created_at|date:"d-m-Y H:i"}}</p>
+                      {%endfor%}
+                      </div>
+                    <div class="mixed-widget-7-chart card-rounded-bottom" data-kt-chart-color="primary"
+                      style="height: 80px; min-height: 80px;">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xxl-4">
+                  <div class="ms-2 mb-3">
+                    <span class="fw-bolder fs-3 text-dark">Basic</span>
+                  </div>
+                  <div class="border border-3 rounded p-1">
+                    <div class="flex-grow-1">
+                      <span class="fw-bolder fs-6 text-primary"  id="b_basic_count">{{user_instance5|length}}</span>
+                    </div>
+                    <div hidden id="b_basic">
+                      {% for i in user_instance5 %}
+                        <p>{{i.created_at|date:"d-m-Y H:i"}}</p>
+                      {%endfor%}
+                      </div>
+                    <div class="mixed-widget-7-chart card-rounded-bottom" data-kt-chart-color="info"
+                      style="height: 80px; min-height: 80px;">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xxl-4">
+                  <div class="ms-2 mb-3">
+                    <span class="fw-bolder fs-3 text-dark">Premium</span>
+                  </div>
+                  <div class="border border-3 rounded p-1">
+                    <div class="flex-grow-1">
+                      <span class="fw-bolder fs-6 text-primary"  id="b_premium_count">{{user_instance6|length}}</span>
+                    </div>
+                    <div hidden id="b_premium">
+                      {% for i in user_instance6 %}
+                        <p>{{i.created_at|date:"d-m-Y H:i"}}</p>
+                      {%endfor%}
+                      </div>
+                    <div class="mixed-widget-7-chart card-rounded-bottom" data-kt-chart-color="primary"
+                      style="height: 80px; min-height: 80px;">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xxl-4">
+                  <div class="ms-2 mb-3">
+                    <span class="fw-bolder fs-3 text-dark">Gold</span>
+                  </div>
+                  <div class="border border-3 rounded p-1">
+                    <div class="flex-grow-1">
+                      <span class="fw-bolder fs-6 text-primary"  id="b_gold_count">{{user_instance9|length}}</span>
+                    </div>
+                    <div hidden id="b_gold">
+                      {% for i in user_instance9 %}
+                        <p>{{i.created_at|date:"d-m-Y H:i"}}</p>
+                      {%endfor%}
+                      </div>
+                    <div class="mixed-widget-7-chart card-rounded-bottom" data-kt-chart-color="primary"
+                      style="height: 80px; min-height: 80px;">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xxl-4">
+                  <div class="ms-2 mb-3">
+                    <span class="fw-bolder fs-3 text-dark">Platinum</span>
+                  </div>
+                  <div class="border border-3 rounded p-1">
+                    <div class="flex-grow-1">
+                      <span class="fw-bolder fs-6 text-primary" id="b_platinum_count">{{user_instance10|length}}</span>
+                    </div>
+                    <div hidden id="b_platinum">
+                      {% for i in user_instance10 %}
+                        <p>{{i.created_at|date:"d-m-Y H:i"}}</p>
+                      {%endfor%}
+                    </div>
+                    <div class="mixed-widget-7-chart card-rounded-bottom" data-kt-chart-color="primary"
+                      style="height: 80px; min-height: 80px;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="d-flex flex-column w-100 mb-7">
+                      <div class="d-flex flex-stack mb-2 justify-content-between">
+                        <h6>Free Revenue</h6>
+                        <span class="text-muted fs-7 fw-bold">50%</span>
+                      </div>
+                      <div class="progress h-6px w-100">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-column w-100 mb-7">
+                      <div class="d-flex flex-stack mb-2 justify-content-between">
+                        <h6>Basic Revenue</h6>
+                        <span class="text-muted fs-7 fw-bold">50%</span>
+                      </div>
+                      <div class="progress h-6px w-100">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-column w-100 mb-5">
+                      <div class="d-flex flex-stack mb-2 justify-content-between">
+                        <h6>Premium Revenue</h6>
+                        <span class="text-muted fs-7 fw-bold">50%</span>
+                      </div>
+                      <div class="progress h-6px w-100">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-column w-100 mb-5">
+                      <div class="d-flex flex-stack mb-2 justify-content-between">
+                        <h6>Gold Revenue</h6>
+                        <span class="text-muted fs-7 fw-bold">50%</span>
+                      </div>
+                      <div class="progress h-6px w-100">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-column w-100 mb-5">
+                      <div class="d-flex flex-stack mb-2 justify-content-between">
+                        <h6>Platinum Revenue</h6>
+                        <span class="text-muted fs-7 fw-bold">50%</span>
+                      </div>
+                      <div class="progress h-6px w-100">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div> -->
+              {% for iprtr in percentage_reviews1 %}
+              {% if forloop.first %}
+              <div class="d-flex flex-column w-100 mb-7">
+                <div class="d-flex flex-stack mb-2 justify-content-between">
+                  <h6>Free Revenue</h6>
+                  <span class="text-muted fs-7 fw-bold" id="b_free_p">{{ iprtr }}</span>
+                </div>
+                <div class="progress h-6px w-100">
+                  <div class="progress-bar bg-primary" role="progressbar" id="b_free_pp" style="width: {{ iprtr }}" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              {% endif %}
+              {% if forloop.counter == 2 %}
+              <div class="d-flex flex-column w-100 mb-7">
+                <div class="d-flex flex-stack mb-2 justify-content-between">
+                  <h6>Basic Revenue</h6>
+                  <!-- <span class="text-muted fs-7 fw-bold">50%</span> -->
+                  <span class="text-muted fs-7 fw-bold" id="b_basic_p">{{ iprtr }}</span>
+                </div>
+                <div class="progress h-6px w-100">
+                  <div class="progress-bar bg-info" role="progressbar"  id="b_basic_pp" style="width: {{ iprtr }}" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              {% endif %}
+              {% if forloop.counter == 3 %}
+              <div class="d-flex flex-column w-100 mb-5">
+                <div class="d-flex flex-stack mb-2 justify-content-between">
+                  <h6>Premium Revenue</h6>
+                  <!-- <span class="text-muted fs-7 fw-bold">50%</span> -->
+                  <span class="text-muted fs-7 fw-bold" id="b_premium_p">{{ iprtr }}</span>
+                </div>
+                <div class="progress h-6px w-100">
+                  <div class="progress-bar bg-primary" role="progressbar" id="b_premium_pp" style="width: {{ iprtr }}" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              {% endif %}
+              {% if forloop.counter == 4 %}
+              <div class="d-flex flex-column w-100 mb-5">
+                <div class="d-flex flex-stack mb-2 justify-content-between">
+                  <h6>Gold Revenue</h6>
+                  <!-- <span class="text-muted fs-7 fw-bold">50%</span> -->
+                  <span class="text-muted fs-7 fw-bold" id="b_gold_p">{{ iprtr }}</span>
+                </div>
+                <div class="progress h-6px w-100">
+                  <div class="progress-bar bg-primary" role="progressbar" id="b_gold_pp" style="width: {{ iprtr }}" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+
+                </div>
+              </div>
+              {% endif %}
+              {% if forloop.counter == 5 %}
+              <div class="d-flex flex-column w-100 mb-5">
+                <div class="d-flex flex-stack mb-2 justify-content-between">
+                  <h6>Platinum Revenue</h6>
+                  <!-- <span class="text-muted fs-7 fw-bold">50%</span> -->
+                  <span class="text-muted fs-7 fw-bold" id="b_platinum_p">{{ iprtr }}</span>
+                </div>
+                <div class="progress h-6px w-100">
+                  <div class="progress-bar bg-primary" role="progressbar" id="b_platinum_pp" style="width: {{ iprtr }}" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              {% endif %}
+
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8">
+          <div class="">
+            <div class="row">
+              <div class="col-md-2">
+                <div class="card">
+                  <div class="card-body p-2">
+                    <div>
+                      <span class="fs-8">Sales with</span>
+                      <span class="fs-8 d-block">coupons</span>
+                      <span class="fs-4 fw-bolder d-block">KD {{with_coupon_total_net_amount|floatformat:2}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="card">
+                  <div class="card-body p-2">
+                    <div>
+                      <span class="fs-8">Sales without</span>
+                      <span class="fs-8 d-block">coupons</span>
+                      <span class="fs-4 fw-bolder d-block">KD {{without_coupon_total_net_amount|floatformat:2}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="card">
+                  <div class="card-body p-2">
+                    <div>
+                      <span class="fs-8">Net revenue with</span>
+                      <span class="fs-8 d-block">Net coupons</span>
+                      <span class="fs-4 fw-bolder d-block">KD 4536</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="card">
+                  <div class="card-body p-2">
+                    <div>
+                      <span class="fs-8">Discount from</span>
+                      <span class="fs-8 d-block">coupons</span>
+                      <span class="fs-4 fw-bolder d-block">KD {{discount_from_coupon_results|floatformat:2}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body p-2">
+                    <div class="mb-2">
+                      <span class="fw-bold fs-6">Sub Users</span>
+                      <select class="form-select form-select-sm form-select-solid p-2">
+                        <option value="">All</option>
+                        <option value="2">Individual</option>
+                        <option value="3">Business</option>
+                      </select>
+                    </div>
+                    <div class="">
+                      <span class="fw-bold fs-6">Manager</span>
+                      <select class="form-select form-select-sm form-select-solid">
+                        <option value="1">All</option>
+                        <option value="2">Accounting</option>
+                        <option value="3">Developing</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card mt-5 p-5">
+              <div class="card-body p-0 d-flex justify-content-between flex-column overflow-hidden"
+                style="position: relative;">
+                <!--begin::Hidden-->
+                <div class="d-flex justify-content-between align-items-center border-0">
+                  <div class="d-flex">
+                    <div class="d-flex">
+                      <span class="py-0 px-4 bg-primary me-2 rounded"></span>
+                      <span>
+                        <h6 class="mt-2">Coupon</h6>
+                      </span>
+                    </div>
+                    <div class="d-flex ms-4">
+                      <span class="py-0 px-4 bg-secondary me-2 rounded"></span>
+                      <span>
+                        <h6 class="mt-2">No Coupon</h6>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <input type="date" class="form-control form-control-sm form-control-solid">
+                    <button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary">
+                      <i class="fas fa-filter fs-4"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="mixed-widget-10-chart" data-kt-color="primary" style="height: 175px; min-height: 183px;">
+
+                </div>
+              </div>
+
+            </div>
+            <div class="card mt-5">
+              <div class="card-header d-flex justify-content-between align-items-center border-0 p-5">
+                <h3 class="card-title align-items-start flex-column">
+                  <span class="fw-bolder mb-2 text-dark">Notification</span>
+                </h3>
+                <div class="d-flex">
+                  <div class="pe-3">
+                    <input type="date" class="form-control form-control-sm form-control-solid">
+                  </div>
+                  <div class="">
+                    <select class="form-select form-select-sm">
+                      <option value="">Impression</option>
+                      <option value="2">Option 1</option>
+                      <option value="3">Option 2</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body p-5 pt-0">
+                <div class="row">
+                  <div class="col">
+                    <div class="border rounded p-1 mixed-widget-10-chart" data-kt-color="Secondary"
+                      style="height: 175px; min-height: 183px;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card mt-5">
+
+              <div class="card-body">
+                <div class="d-flex justify-content-between mb-5 align-items-center">
+                  <h3>Admin Internal Users</h3>
+                  <a id="kt_drawer_chat_toggle_1" class="btn btn-sm btn-primary ">Add New</a>
+                </div>
+                <div class="table-responsive">
+                  <!--begin::Table-->
+                  <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                    <!--begin::Table head-->
+                    <thead>
+                      <tr class="fw-bolder text-muted">
+                        <th class="">Name</th>
+                        <th class="">Email Address</th>
+                        <th class="">Role</th>
+                        <th class="">Created</th>
+                        <th class="">Status</th>
+                        <th class=" ">Actions</th>
+                      </tr>
+                    </thead>
+                    <!--end::Table head-->
+                    <!--begin::Table body-->
+                    <tbody>
+                      {% for su in super_users %}
+                      <tr>
+                        <td>{{su.full_name}}</td>
+                        <td>{{su.email}}</td>
+                        <td>admin</td>
+                        <td>{{su.created_at|date:"d-m-Y" }}</td>
+                        <td>{{su.active_status}}</td>
+                        <td>
+                          <button class="btn btn-outline-light btn-rounded" data-mdb-ripple-color="dark" id="kt_drawer_chat_toggle_35_{{ forloop.counter }}"><i class="fas fa-wrench fs-5 ms-4"></i></button>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                     
+
+                    </tbody>
+                    <!--end::Table body-->
+                  </table>
+                  <!--end::Table-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="kt_scrolltop" class="scrolltop mb-3" data-kt-scrolltop="true">
+  <span class="svg-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+      <path
+        d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+        fill="black" />
+    </svg>
+  </span>
+</div>
+
+
+
+<div id="kt_drawer_chat_1" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat"
+    data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}"
+    data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_drawer_chat_toggle_1"
+    data-kt-drawer-close="#kt_drawer_chat_close">
+    <!--begin::Messenger-->
+    <div class="card w-100 rounded-0" id="kt_drawer_chat_messenger">
+        <div class="card-body">
+            <div class="modal-header d-flex justify-content-between">
+                <h3 class="text-capitalize">Add User</h3>
+                <div class="btn btn-sm btn-icon btn-active-light-primary" id="kt_drawer_chat_close">
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                transform="rotate(-45 6 17.3137)" fill="black" />
+                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                fill="black" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <form method=post onsubmit="return validateForm()" action="{% url 'superadminapp:creat_tothiq_user' %}">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label">Name</label>
+                        <input type="text" class="form-control form-control-solid addname" placeholder="Name"
+                            name="name" required onblur="validateInput(this, 'nameValidationMessage')" />
+                        <span id="nameValidationMessage" class="validation-message text-danger"></span>
+                    </div>
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label">Contact Number</label>
+                        <input type="text" class="form-control form-control-solid addnumber" placeholder="Contact Number"
+                            name="Number" required maxlength="10" onblur="validateInput(this, 'numberValidationMessage')" />
+                        <span id="numberValidationMessage" class="validation-message text-danger"></span>
+                    </div>
+                    <div class="mb-10">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <input type="email" class="form-control form-control-solid" placeholder="Email"
+                            name="email"required id="superuseremail" onkeyup="validate_email()"   onblur="validateInput1(this, 'nameValidationMessage')" />
+                            <p class="error" id="email_validation_msg_superuser" style="display: none;  color: red;"></p>
+                        <div id="email-status"></div>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input addselectall" type="checkbox" value="true" id="flexCheckDefault_templet"
+                            name="create_template">
+                        <label class="form-check-label" for="flexCheckDefault_templet">
+                           All
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input addallcheck" type="checkbox" value="true" id="flexCheckDefault_edite"
+                            name="edit_tempalte">
+                        <label class="form-check-label" for="flexCheckDefault_edite"> 
+                            Able to create template
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input addallcheck" type="checkbox" value="true" id="flexCheckDefault_edite"
+                            name="edit_tempalte">
+                        <label class="form-check-label" for="flexCheckDefault_edite"> 
+                            Able to edit template
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input addallcheck" type="checkbox" value="true" id="flexCheckDefault_assign"
+                            name="assign_custom_package">
+                        <label class="form-check-label" for="flexCheckDefault_assign">
+                            Able to assign custom package to users
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input addallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to activate and block business users
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input addallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to edit the label
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input addallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to create coupons
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input addallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to edit coupons 
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input addallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to create categories
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input addallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to edit categories
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input addallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to Invite users
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input addallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to Invite business
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input addallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label addallcheck" for="flexCheckDefault_able">
+                            Able to download reports
+                        </label>
+                    </div>
+                    <h5>Login Credentials</h5>
+                    <div class="form-check mt-5 mb-20">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Generate automatically and send contact person email
+                        </label>
+                    </div>
+                    <!-- <div class="row">
+                                <div class="col-6">
+                                    <div class="mb-0">
+                                        <label class="form-label">Start Date & Time</label>
+                                        <input class="form-control form-control-solid" placeholder="Pick date rage"
+                                            id="kt_daterangepicker_3" />
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="">
+                                        <label class="form-label">End Date & Time</label>
+                                        <input class="form-control form-control-solid" placeholder="Pick date rage"
+                                            id="kt_daterangepicker_4" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col-6 ">
+                                    <h6 class="mt-7">
+                                        Total number Of coupons availabe</h6>
+                                    <div class="d-flex mt-3 mb-5">
+                                        <a href="#" class="btn btn-sm btn-primary me-10">Unlimited</a>
+                                        <a href="#"><button class="btn btn-sm btn-primary" disabled>
+                                                Limited</button></a>
+                                    </div>
+                                    <h6>Limited Coupon Per Customer</h6>
+                                    <div class="form-check form-switch form-check-custom form-check-solid my-2">
+                                        <input class="form-check-input " type="checkbox" value=""
+                                            id="flexSwitchChecked" />
+                                        <label class="form-check-label" for="flexSwitchChecked">
+                                            Limited Coupon per Customer
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="my-5">Coupon Banner image</h6>
+                                    <img src="./images/img_default.jpg" class="w-50 h-50" alt="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-check-label" for="flexSwitchChecked">
+                                    Discount Details
+                                </label>
+                                <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="4"
+                                    placeholder="Enter Description..."></textarea>
+                            </div>
+                            <div class="row my-7">
+                                <div class="col-6">
+                                    <label class="form-check-label" for="flexSwitchChecked">
+                                        Discount Type
+                                    </label>
+                                    <select class="form-select form-select-sm form-select-solid" data-control="select2"
+                                        data-placeholder="%Percentage" data-allow-clear="true" multiple="multiple">
+                                        <option></option>
+                                        <option value="1">50%</option>
+                                        <option value="2">80%</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-check-label" for="flexSwitchChecked">
+                                        Discount if for
+                                    </label>
+                                    <select class="form-select form-select-sm form-select-solid" data-control="select2"
+                                        data-placeholder="%Percentage" data-allow-clear="true" multiple="multiple">
+                                        <option></option>
+                                        <option value="1">New Subscription</option>
+                                        <option value="2">Old Subscription</option>
+                                        <option value="3">Both</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="exampleFormControlInput1" class="form-label">Enter Value</label>
+                                    <input type="text" class="form-control form-control-solid" placeholder="%" />
+                                </div>
+                            </div>
+                            <div class="form-check my-5">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Send Alert to all existing users
+                                </label>
+                            </div> -->
+                    <div class="pt-3 text-end">
+                        <button type="submit" id="creatsuperuser" class="btn btn-primary btn-sm " name="Create" value="Create" onclick="validateForm()">Create</button>
+                        <!-- <a type="button" class="btn btn-primary btn-sm " href="{% url 'superadminapp:Tothiq_User' %}">Create</a> -->
+                        <button type="submit" id="creat_send_superuser" class="btn btn-primary btn-sm mx-5" name="Create & Send"
+                            value="Create & Send" onclick="validateForm()">Create & Send</button>
+                        <!-- <a type="button" class="btn btn-primary btn-sm mx-5" href="#." Disable>Create & Send</a> -->
+                        <button type="reset" class="btn btn-primary btn-sm" value="Clear">Clear</button>
+                        <!-- <a type="button" class="btn btn-primary btn-sm" href="#.">Clear</a> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- for edite model -->
+{% for item in super_users %}
+<div id="kt_drawer_chat_35_{{ forloop.counter }}" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat"
+    data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}"
+    data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_drawer_chat_toggle_35_{{ forloop.counter }}"
+    data-kt-drawer-close="#kt_drawer_chat_close">
+    <!--begin::Messenger-->
+    <div class="card w-100 rounded-0" id="kt_drawer_chat_messenger">
+        <div class="card-body">
+            <div class="modal-header d-flex justify-content-between">
+                <h3 class="text-capitalize">Edit User</h3>
+                <div class="btn btn-sm btn-icon btn-active-light-primary" id="kt_drawer_chat_close">
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                transform="rotate(-45 6 17.3137)" fill="black" />
+                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                fill="black" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <form method=post action="{% url 'superadminapp:tothiq_user_update' %}">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="mb-5">
+                        <!-- <input type="text" hidden value="{{item.id}}" name="id"> -->
+                        <label for="exampleFormControlInput1" class="form-label">Name</label>
+                        <input type="text" class="form-control form-control-solid" placeholder=""
+                            name="name" value="{{ item.full_name }}" />  
+                    </div>
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label">Contact Number</label>
+                        <input type="text" maxlength="10" class="form-control form-control-solid" placeholder=""
+                            name="Number" value="{{ item.phone_number }}" />
+                    </div>
+                    <div class="mb-10">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <input type="text" id="superuseremailupdate" class="form-control form-control-solid validate-email-update"
+                         placeholder="" name="email" value="{{ item.email }}" data-old-email="{{ item.email }}" onkeyup="validate_email_update(this)" />
+
+                            <p class="email_validation_msg_superuser_update" id="email_validation_msg_superuser_update"  style="display: none;  color: red;"></p>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input updateselectall" type="checkbox" value="true" id="flexCheckDefault_templet" name="create_template">
+                        <label class="form-check-label" for="flexCheckDefault_templet">
+                           <strong>Select All</strong>
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input updateallcheck" type="checkbox" value="true" id="flexCheckDefault_edite"
+                            name="edit_tempalte">
+                        <label class="form-check-label" for="flexCheckDefault_edite"> 
+                            Able to create template
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input updateallcheck" type="checkbox" value="true" id="flexCheckDefault_edite"
+                            name="edit_tempalte">
+                        <label class="form-check-label" for="flexCheckDefault_edite"> 
+                            Able to edit template
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input updateallcheck" type="checkbox" value="true" id="flexCheckDefault_assign"
+                            name="assign_custom_package">
+                        <label class="form-check-label" for="flexCheckDefault_assign">
+                            Able to assign custom package to users
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input updateallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to activate and block business users
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input updateallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to edit the label
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input updateallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to create coupons
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input updateallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to edit coupons 
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input updateallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to create categories
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input updateallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to edit categories
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input updateallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to Invite users
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input updateallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                            Able to Invite business
+                        </label>
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input updateallcheck" type="checkbox" value="true" id="flexCheckDefault_able"
+                            name="activate_block_business_users">
+                        <label class="form-check-label" for="flexCheckDefault_able">
+                        
+                            Able to download reports
+                        </label>
+                    </div>
+                    <h5>Login Credentials</h5>
+                    <div class="form-check mt-5 mb-20">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Generate automatically and send contact person email
+                        </label>
+                    </div>
+                    <div class="pt-3 text-center mt-5">
+                        <button type="submit" id="updatesuperuser" class="btn btn-primary me-5 updatesuperuser" value="{{item.id}}" name="id">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+
+<!-- for date filter in invite  -->
+<script>
+  function filter_invite(){
+    var startDate = new Date(document.getElementById("kt_daterangepicker_5").value);
+    var endDate = new Date(document.getElementById("kt_daterangepicker_6").value);
+
+    var iFreeDiv = document.getElementById("i_free");
+    var iFreeDivparagraphs = iFreeDiv.getElementsByTagName("p");
+
+    var i_free = 0;
+
+    for (var i = 0; i < iFreeDivparagraphs.length; i++) {
+      var dateColumn = iFreeDivparagraphs[i];
+
+
+
+      if (dateColumn) {
+        
+        var dateParts = dateColumn.innerText.split(' ');
+       
+        var dateParts2 = dateParts[0].split('-');
+        if (dateParts[1]){
+        var timeParts = dateParts[1].split(':');
+        }
+        var day = parseInt(dateParts2[0]);
+        var month = parseInt(dateParts2[1]) - 1; // Months are zero-based
+        var year = parseInt(dateParts2[2]);
+        var hour = parseInt(timeParts[0]);
+        var minute = parseInt(timeParts[1]);
+  
+        var dateValue = new Date(year, month, day, hour, minute);
+        if (dateValue >= startDate && dateValue <= endDate) {
+          i_free++;
+        }
+      }
+    }
+
+
+
+
+    var ibasicDiv = document.getElementById("i_basic");
+    var ibasicDivparagraphs = iFreeDiv.getElementsByTagName("p");
+
+    var i_basic = 0;
+
+    for (var i = 0; i < ibasicDivparagraphs.length; i++) {
+      var dateColumn = ibasicDivparagraphs[i];
+
+
+
+      if (dateColumn) {
+        
+        var dateParts = dateColumn.innerText.split(' ');
+       
+        var dateParts2 = dateParts[0].split('-');
+        if (dateParts[1]){
+        var timeParts = dateParts[1].split(':');
+        }
+        var day = parseInt(dateParts2[0]);
+        var month = parseInt(dateParts2[1]) - 1; // Months are zero-based
+        var year = parseInt(dateParts2[2]);
+        var hour = parseInt(timeParts[0]);
+        var minute = parseInt(timeParts[1]);
+  
+        var dateValue = new Date(year, month, day, hour, minute);
+        if (dateValue >= startDate && dateValue <= endDate) {
+          i_basic++;
+        }
+      }
+    }
+
+    var ipremiumDiv = document.getElementById("i_premium");
+    var ipremiumDivparagraphs = ipremiumDiv.getElementsByTagName("p");
+
+    var i_premium = 0;
+
+    for (var i = 0; i < ipremiumDivparagraphs.length; i++) {
+      var dateColumn = ipremiumDivparagraphs[i];
+
+
+
+      if (dateColumn) {
+        
+        var dateParts = dateColumn.innerText.split(' ');
+       
+        var dateParts2 = dateParts[0].split('-');
+        if (dateParts[1]){
+        var timeParts = dateParts[1].split(':');
+        }
+        var day = parseInt(dateParts2[0]);
+        var month = parseInt(dateParts2[1]) - 1; // Months are zero-based
+        var year = parseInt(dateParts2[2]);
+        var hour = parseInt(timeParts[0]);
+        var minute = parseInt(timeParts[1]);
+  
+        var dateValue = new Date(year, month, day, hour, minute);
+        if (dateValue >= startDate && dateValue <= endDate) {
+          i_premium++;
+        }
+      }
+    }
+
+
+    var igoldDiv = document.getElementById("i_gold");
+    var igoldDivparagraphs = igoldDiv.getElementsByTagName("p");
+
+    var i_gold = 0;
+
+    for (var i = 0; i < igoldDivparagraphs.length; i++) {
+      var dateColumn = igoldDivparagraphs[i];
+
+
+
+      if (dateColumn) {
+        
+        var dateParts = dateColumn.innerText.split(' ');
+       
+        var dateParts2 = dateParts[0].split('-');
+        if (dateParts[1]){
+        var timeParts = dateParts[1].split(':');
+        }
+        var day = parseInt(dateParts2[0]);
+        var month = parseInt(dateParts2[1]) - 1; // Months are zero-based
+        var year = parseInt(dateParts2[2]);
+        var hour = parseInt(timeParts[0]);
+        var minute = parseInt(timeParts[1]);
+  
+        var dateValue = new Date(year, month, day, hour, minute);
+        if (dateValue >= startDate && dateValue <= endDate) {
+          i_gold++;
+        }
+      }
+    }
+
+
+
+    var iplatinumDiv = document.getElementById("i_platinum");
+    var iplatinumDivparagraphs = iplatinumDiv.getElementsByTagName("p");
+
+    var i_platinum = 0;
+
+    for (var i = 0; i < iplatinumDivparagraphs.length; i++) {
+      var dateColumn = iplatinumDivparagraphs[i];
+
+
+
+      if (dateColumn) {
+        
+        var dateParts = dateColumn.innerText.split(' ');
+       
+        var dateParts2 = dateParts[0].split('-');
+        if (dateParts[1]){
+        var timeParts = dateParts[1].split(':');
+        }
+        var day = parseInt(dateParts2[0]);
+        var month = parseInt(dateParts2[1]) - 1; // Months are zero-based
+        var year = parseInt(dateParts2[2]);
+        var hour = parseInt(timeParts[0]);
+        var minute = parseInt(timeParts[1]);
+  
+        var dateValue = new Date(year, month, day, hour, minute);
+        if (dateValue >= startDate && dateValue <= endDate) {
+          i_platinum++;
+        }
+      }
+    }
+
+    document.getElementById("i_free_count").textContent = i_free;
+    document.getElementById("i_basic_count").textContent = i_basic;
+    document.getElementById("i_premium_count").textContent = i_premium;
+    document.getElementById("i_gold_count").textContent = i_gold;
+    document.getElementById("i_platinum_count").textContent = i_platinum;
+    var total = i_free + i_basic + i_premium + i_gold + i_platinum;
+    var percent_i_free = (i_free / total) * 100;
+    var percent_i_basic = (i_basic / total) * 100;
+    var percent_i_premium = (i_premium / total) * 100;
+    var percent_i_gold = (i_gold / total) * 100;
+    var percent_i_platinum = (i_platinum / total) * 100;
+    if (total==0){
+      percent_i_free=0
+      percent_i_basic=0
+      percent_i_premium=0
+      percent_i_gold=0
+      percent_i_platinum=0
+      document.getElementById("i_free_p").textContent = percent_i_free;
+      document.getElementById("i_basic_p").textContent = percent_i_basic;
+      document.getElementById("i_premium_p").textContent = percent_i_premium;
+      document.getElementById("i_gold_p").textContent = percent_i_gold;
+      document.getElementById("i_platinum_p").textContent = percent_i_platinum;
+
+      document.getElementById("i_free_pp").style.width =  percent_i_free+ "%";
+      document.getElementById("i_basic_pp").style.width = percent_i_basic+ "%";
+      document.getElementById("i_premium_pp").style.width = percent_i_premium+ "%";
+      document.getElementById("i_gold_pp").style.width = percent_i_gold+ "%";
+      document.getElementById("i_platinum_pp").style.width = percent_i_platinum+ "%";
+    }else{
+      document.getElementById("i_free_p").textContent = Math.round(percent_i_free);
+      document.getElementById("i_basic_p").textContent = Math.round(percent_i_basic);
+      document.getElementById("i_premium_p").textContent = Math.round(percent_i_premium);
+      document.getElementById("i_gold_p").textContent = Math.round(percent_i_gold);
+      document.getElementById("i_platinum_p").textContent = Math.round(percent_i_platinum);
+
+      document.getElementById("i_free_pp").style.width =  percent_i_free + "%";
+      document.getElementById("i_basic_pp").style.width = percent_i_basic + "%";
+      document.getElementById("i_premium_pp").style.width = percent_i_premium + "%";
+      document.getElementById("i_gold_pp").style.width = percent_i_gold + "%";
+      document.getElementById("i_platinum_pp").style.width = percent_i_platinum + "%";
+    }
+  }
+</script>
+
+
+
+<!-- for date filter in invite  -->
+<script>
+  function filter_business(){
+    var startDate = new Date(document.getElementById("kt_daterangepicker_1").value);
+    var endDate = new Date(document.getElementById("kt_daterangepicker_2").value);
+
+    var bFreeDiv = document.getElementById("b_free");
+    var bFreeDivparagraphs = bFreeDiv.getElementsByTagName("p");
+
+    var b_free = 0;
+
+    for (var i = 0; i < bFreeDivparagraphs.length; i++) {
+      var dateColumn = bFreeDivparagraphs[i];
+
+
+
+      if (dateColumn) {
+        
+        var dateParts = dateColumn.innerText.split(' ');
+       
+        var dateParts2 = dateParts[0].split('-');
+        if (dateParts[1]){
+        var timeParts = dateParts[1].split(':');
+        }
+        var day = parseInt(dateParts2[0]);
+        var month = parseInt(dateParts2[1]) - 1; // Months are zero-based
+        var year = parseInt(dateParts2[2]);
+        var hour = parseInt(timeParts[0]);
+        var minute = parseInt(timeParts[1]);
+  
+        var dateValue = new Date(year, month, day, hour, minute);
+        if (dateValue >= startDate && dateValue <= endDate) {
+          b_free++;
+        }
+      }
+    }
+
+
+
+
+    var bbasicDiv = document.getElementById("b_basic");
+    var bbasicDivparagraphs = bbasicDiv.getElementsByTagName("p");
+
+    var b_basic = 0;
+
+    for (var i = 0; i < bbasicDivparagraphs.length; i++) {
+      var dateColumn = bbasicDivparagraphs[i];
+
+
+
+      if (dateColumn) {
+        
+        var dateParts = dateColumn.innerText.split(' ');
+       
+        var dateParts2 = dateParts[0].split('-');
+        if (dateParts[1]){
+        var timeParts = dateParts[1].split(':');
+        }
+        var day = parseInt(dateParts2[0]);
+        var month = parseInt(dateParts2[1]) - 1; // Months are zero-based
+        var year = parseInt(dateParts2[2]);
+        var hour = parseInt(timeParts[0]);
+        var minute = parseInt(timeParts[1]);
+  
+        var dateValue = new Date(year, month, day, hour, minute);
+        if (dateValue >= startDate && dateValue <= endDate) {
+          b_basic++;
+        }
+      }
+    }
+
+    var bpremiumDiv = document.getElementById("b_premium");
+    var bpremiumDivparagraphs = bpremiumDiv.getElementsByTagName("p");
+
+    var b_premium = 0;
+
+    for (var i = 0; i < bpremiumDivparagraphs.length; i++) {
+      var dateColumn = bpremiumDivparagraphs[i];
+
+
+
+      if (dateColumn) {
+        
+        var dateParts = dateColumn.innerText.split(' ');
+       
+        var dateParts2 = dateParts[0].split('-');
+        if (dateParts[1]){
+        var timeParts = dateParts[1].split(':');
+        }
+        var day = parseInt(dateParts2[0]);
+        var month = parseInt(dateParts2[1]) - 1; // Months are zero-based
+        var year = parseInt(dateParts2[2]);
+        var hour = parseInt(timeParts[0]);
+        var minute = parseInt(timeParts[1]);
+  
+        var dateValue = new Date(year, month, day, hour, minute);
+        if (dateValue >= startDate && dateValue <= endDate) {
+          b_premium++;
+        }
+      }
+    }
+
+
+    var bgoldDiv = document.getElementById("b_gold");
+    var bgoldDivparagraphs = bgoldDiv.getElementsByTagName("p");
+
+    var b_gold = 0;
+
+    for (var i = 0; i < bgoldDivparagraphs.length; i++) {
+      var dateColumn = bgoldDivparagraphs[i];
+
+
+
+      if (dateColumn) {
+        
+        var dateParts = dateColumn.innerText.split(' ');
+       
+        var dateParts2 = dateParts[0].split('-');
+        if (dateParts[1]){
+        var timeParts = dateParts[1].split(':');
+        }
+        var day = parseInt(dateParts2[0]);
+        var month = parseInt(dateParts2[1]) - 1; // Months are zero-based
+        var year = parseInt(dateParts2[2]);
+        var hour = parseInt(timeParts[0]);
+        var minute = parseInt(timeParts[1]);
+  
+        var dateValue = new Date(year, month, day, hour, minute);
+        if (dateValue >= startDate && dateValue <= endDate) {
+          b_gold++;
+        }
+      }
+    }
+
+
+
+    var bplatinumDiv = document.getElementById("b_platinum");
+    var bplatinumDivparagraphs = bplatinumDiv.getElementsByTagName("p");
+
+    var b_platinum = 0;
+
+    for (var i = 0; i < bplatinumDivparagraphs.length; i++) {
+      var dateColumn = bplatinumDivparagraphs[i];
+
+
+
+      if (dateColumn) {
+        
+        var dateParts = dateColumn.innerText.split(' ');
+       
+        var dateParts2 = dateParts[0].split('-');
+        if (dateParts[1]){
+        var timeParts = dateParts[1].split(':');
+        }
+        var day = parseInt(dateParts2[0]);
+        var month = parseInt(dateParts2[1]) - 1; // Months are zero-based
+        var year = parseInt(dateParts2[2]);
+        var hour = parseInt(timeParts[0]);
+        var minute = parseInt(timeParts[1]);
+  
+        var dateValue = new Date(year, month, day, hour, minute);
+        if (dateValue >= startDate && dateValue <= endDate) {
+          b_platinum++;
+        }
+      }
+    }
+
+    document.getElementById("b_free_count").textContent = b_free;
+    document.getElementById("b_basic_count").textContent = b_basic;
+    document.getElementById("b_premium_count").textContent = b_premium;
+    document.getElementById("b_gold_count").textContent = b_gold;
+    document.getElementById("b_platinum_count").textContent = b_platinum;
+    var total = b_free + b_basic + b_premium + b_gold + b_platinum;
+    var percent_b_free = (b_free / total) * 100;
+    var percent_b_basic = (b_basic / total) * 100;
+    var percent_b_premium = (b_premium / total) * 100;
+    var percent_b_gold = (b_gold / total) * 100;
+    var percent_b_platinum = (b_platinum / total) * 100;
+    if (total==0){
+      percent_b_free=0
+      percent_b_basic=0
+      percent_b_premium=0
+      percent_b_gold=0
+      percent_b_platinum=0
+      document.getElementById("b_free_p").textContent = percent_b_free;
+      document.getElementById("b_basic_p").textContent = percent_b_basic;
+      document.getElementById("b_premium_p").textContent = percent_b_premium;
+      document.getElementById("b_gold_p").textContent = percent_b_gold;
+      document.getElementById("b_platinum_p").textContent = percent_b_platinum;
+
+      document.getElementById("b_free_pp").style.width =  percent_b_free+ "%";
+      document.getElementById("b_basic_pp").style.width = percent_b_basic+ "%";
+      document.getElementById("b_premium_pp").style.width = percent_b_premium+ "%";
+      document.getElementById("b_gold_pp").style.width = percent_b_gold+ "%";
+      document.getElementById("b_platinum_pp").style.width = percent_b_platinum+ "%";
+    }else{
+      document.getElementById("b_free_p").textContent = Math.round(percent_b_free);
+      document.getElementById("b_basic_p").textContent = Math.round(percent_b_basic);
+      document.getElementById("b_premium_p").textContent = Math.round(percent_b_premium);
+      document.getElementById("b_gold_p").textContent = Math.round(percent_b_gold);
+      document.getElementById("b_platinum_p").textContent = Math.round(percent_b_platinum);
+
+      document.getElementById("b_free_pp").style.width =  percent_b_free + "%";
+      document.getElementById("b_basic_pp").style.width = percent_b_basic + "%";
+      document.getElementById("b_premium_pp").style.width = percent_b_premium + "%";
+      document.getElementById("b_gold_pp").style.width = percent_b_gold + "%";
+      document.getElementById("b_platinum_pp").style.width = percent_b_platinum + "%";
+    }
+  }
+</script>
+
+
+
+<!-- validation message in input -->
+<script>
+  function validateInput(input, messageElementId) {
+      const value = input.value.trim();
+      const messageElement = document.getElementById(messageElementId);
+  
+      if (value === '') {
+          messageElement.textContent = 'This field is required.';
+          input.classList.add('is-invalid');
+          return false; // Return false for invalid input
+      } else {
+          messageElement.textContent = '';
+          input.classList.remove('is-invalid');
+          return true; // Return true for valid input
+      }
+  }
+  
+  function validateForm() {
+      // Validate all input fields
+      const nameInput = document.querySelector('.addname');
+      const numberInput = document.querySelector('.addnumber');
+  
+      const isNameValid = validateInput(nameInput, 'nameValidationMessage');
+      const isNumberValid = validateInput(numberInput, 'numberValidationMessage');
+  
+      // Check if all input fields are valid
+      if (isNameValid && isNumberValid) {
+          return true; // Allow form submission
+      } else {
+          return false; // Prevent form submission
+      }
+  }
+  
+</script>
+<!-- validation message in input -->
+
+
+<script>
+  ClassicEditor
+    .create(document.querySelector('#ckeditor_1'))
+    .then(editor => {
+      console.log(editor);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  ClassicEditor
+    .create(document.querySelector('#ckeditor_2'))
+    .then(editor => {
+      console.log(editor);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  ClassicEditor
+    .create(document.querySelector('#ckeditor_3'))
+    .then(editor => {
+      console.log(editor);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+</script>
+<script>
+  $("#business-tab").click(function () {
+    $("div#myTabContent1").hide();
+    $("div#myTabContent2").show();
+  });
+  $("#individual-tab").click(function () {
+    $("div#myTabContent1").show();
+    $("div#myTabContent2").hide();
+  });
+  $(document).ready(function () {
+    $('#addresstype').on('change', function () {
+      var demovalue = $(this).val();
+      $("div.myDiv").hide();
+      $("#show" + demovalue).show();
+    });
+    $('#addresstype1').on('change', function () {
+      var demovalue1 = $(this).val();
+      $("div.myDiv1").hide();
+      $("#show" + demovalue1).show();
+    });
+  });
+  // var profileborder = "border-danger";
+  $(".userprofile").addClass("border-danger");
+  // function changeuserborder() {
+  //     $(".userprofile").removeClass(profileborder);
+  //     var profileborder = "border-success";
+  // }
+  $("#userheaderchange").click(function () {
+    $(".userprofile").removeClass("border-danger");
+    $(".userprofile").addClass("border-success");
+    $("#headererror").addClass("d-none");
+
+  });
+</script>
+<script>
+  $.fn.equalHeights = function () {
+    var max_height = 0;
+    $(this).each(function () {
+      max_height = Math.max($(this).height(), max_height);
+    });
+    $(this).each(function () {
+      $(this).height(max_height);
+    });
+  };
+
+  $(document).ready(function () {
+    $('.userdasboardbox ul li a .card').equalHeights();
+  });
+</script>
+<script>
+  $("#kt_daterangepicker_3").daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    minYear: 1901,
+    maxYear: parseInt(moment().format("YYYY"), 12)
+  }, function (start, end, label) {
+    var years = moment().diff(start, "years");
+    alert("You are " + years + " years old!");
+  }
+  );
+</script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+<script>
+  function configureDateRange(startId, endId) {
+    var currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() - 1); 
+    var datePickerStart = document.getElementById(startId);
+    datePickerStart.setAttribute("max", currentDate.toISOString().split('T')[0]);
+
+    var startDatePicker = document.getElementById(startId);
+    var endDatePicker = document.getElementById(endId);
+
+    startDatePicker.addEventListener("change", function () {
+      var selectedStartDate = new Date(startDatePicker.value);
+      var minEndDate = new Date(selectedStartDate);
+      minEndDate.setDate(minEndDate.getDate() + 1); 
+
+      var minEndDateFormatted = minEndDate.toISOString().split("T")[0];
+      endDatePicker.setAttribute("min", minEndDateFormatted);
+
+      var allOptions = endDatePicker.querySelectorAll("option");
+      for (var i = 0; i < allOptions.length; i++) {
+        allOptions[i].removeAttribute("disabled");
+      }
+
+      for (var d = new Date(); d < selectedStartDate; d.setDate(d.getDate() + 1)) {
+        var formattedDate = d.toISOString().split("T")[0];
+        var option = endDatePicker.querySelector(`[value="${formattedDate}"]`);
+        if (option) {
+          option.setAttribute("disabled", "true");
+        }
+      }
+
+      if (new Date(endDatePicker.value) < minEndDate) {
+        endDatePicker.value = minEndDateFormatted;
+      }
+    });
+  }
+
+  configureDateRange("kt_daterangepicker_1", "kt_daterangepicker_2");
+
+  configureDateRange("kt_daterangepicker_5", "kt_daterangepicker_6");
+</script>
+
+
+
+
+{% include "footer.html" %}

@@ -1,0 +1,468 @@
+{% include "header.html" %}
+
+
+<div class="content d-flex flex-column p-0 vh-100" id="kt_content">
+  <div class="post d-flex flex-column-fluid" id="kt_post">
+    <div id="kt_content_container" class="container-fluid">
+      <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+        <!--begin::Toolbar container-->
+        <div id="kt_app_toolbar_container" class="app-container px-3 d-flex flex-stack">
+          <!--begin::Page title-->
+          <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+            <!--begin::Title-->
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Finance
+              Reports</h1>
+            <!--end::Title-->
+          </div>
+          <!--end::Page title-->
+          <!--begin::Actions-->
+          <div class="d-flex align-items-center gap-2 gap-lg-3">
+          </div>
+          <!--end::Actions-->
+        </div>
+        <!--end::Toolbar container-->
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-end">
+              <div class="mb-0 p-3">
+                  <label class="form-label p-2">Start Date</label>
+                  <input class="form-control form-control-solid" style="background-color: white;" placeholder="Pick start date" id="startDate" name="start_datetime" type="date" />
+              </div>
+              <div class="mb-0 p-3">
+                  <label class="form-label p-2">End Date</label>
+                  <input class="form-control form-control-solid" style="background-color: white;" placeholder="Pick end date" id="endDate" name="end_datetime" type="date" />
+              </div>
+              <div class="mb-0 p-3">
+                  <button id="filterButton" class="btn btn-sm btn-primary" onclick="filterTableByDate()">Submit</button>
+              </div>
+          </div>
+          <div class="row user_blocks mb-5 mt-5 d-flex">
+            <div
+              class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-245px py-3 px-4 me-6 mb-3">
+              <!--begin::Label-->
+              <div class="fw-semibold fs-5 text-center">{{total_net}} KD</div>
+              <!--end::Label-->
+              <!--begin::Number-->
+              <div class="d-flex align-items-center" style="justify-content: center;">
+                <div class="fs-5 fw-bold counted text-center " data-kt-countup="true" data-kt-countup-value="4500"
+                  data-kt-countup-prefix="$" data-kt-initialized="1">Total Revenue</div>
+              </div>
+              <!--end::Number-->
+
+            </div>
+            <!--end::Stat-->
+            <!--begin::Stat-->
+            <div
+              class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-245px py-5 px-10 me-6 mb-3">
+              <!--begin::Label-->
+              <div class="fw-semibold fs-5 text-center">{{basic_net}} KD</div>
+              <!--end::Label-->
+              <!--begin::Number-->
+              <div class="d-flex align-items-center" style="justify-content: center;">
+                <div class="fs-5 fw-bold counted text-center" data-kt-countup="true" data-kt-countup-value="75"
+                  data-kt-initialized="1">Basic Package Revenue</div>
+              </div>
+              <!--end::Number-->
+
+            </div>
+            <!--end::Stat-->
+            <!--begin::Stat-->
+            <div
+              class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-245px py-3 px-4 me-6 mb-3">
+              <!--begin::Label-->
+              <div class="fw-semibold fs-5 text-center">{{premium_net}} KD</div>
+              <!--end::Label-->
+              <!--begin::Number-->
+              <div class="d-flex align-items-center" style="justify-content: center;">
+                <div class="fs-5 fw-bold counted text-center" data-kt-countup="true" data-kt-countup-value="60"
+                  data-kt-countup-prefix="%" data-kt-initialized="1">Premium Package Revenue</div>
+              </div>
+              <!--end::Number-->
+            </div>
+            <div
+              class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-245px py-3 px-4 me-6 mb-3">
+              <!--begin::Label-->
+              <div class="fw-semibold fs-5 text-center" style="justify-content: center;">{{contracts_net}} KD</div>
+              <!--end::Label-->
+              <!--begin::Number-->
+              <div class="d-flex align-items-center" style="justify-content: center;">
+                <div class="fs-5 fw-bold counted text-center" data-kt-countup="true" data-kt-countup-value="60"
+                  data-kt-countup-prefix="%" data-kt-initialized="1">Contracts Revenue</div>
+              </div>
+              <!--end::Number-->
+            </div>
+            <div
+              class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-245px py-3 px-4 me-6 mb-3">
+              <!--begin::Label-->
+              <div class="fw-semibold fs-5 text-center" style="justify-content: center;">{{users_net}} KD</div>
+              <!--end::Label-->
+              <!--begin::Number-->
+              <div class="d-flex align-items-center" style="justify-content: center;">
+                <div class="fs-5 fw-bold counted text-center" data-kt-countup="true" data-kt-countup-value="60"
+                  data-kt-countup-prefix="%" data-kt-initialized="1">Users Revenue</div>
+              </div>
+              <!--end::Number-->
+            </div>
+          </div>
+
+          <div class="row user_blocks d-flex p-5">
+            <div
+              class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-245px py-3 px-4 me-6 mb-3">
+              <!--begin::Label-->
+              <div class="fw-semibold fs-5 text-center" style="justify-content: center;">{{total_dis}} KD</div>
+              <!--end::Label-->
+              <!--begin::Number-->
+              <div class="d-flex align-items-center" style="justify-content: center;">
+                <div class="fs-5 fw-bold counted text-center" data-kt-countup="true" data-kt-countup-value="60"
+                  data-kt-countup-prefix="%" data-kt-initialized="1" style="justify-content: center;">Total Discount</div>
+              </div>
+              <!--end::Number-->
+            </div>
+            <div
+              class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-245px py-3 px-4 me-6 mb-3">
+              <!--begin::Label-->
+              <div class="fw-semibold fs-5 text-center" style="justify-content: center;">{{basic_dis}} KD</div>
+              <!--end::Label-->
+              <!--begin::Number-->
+              <div class="d-flex align-items-center" style="justify-content: center;">
+                <div class="fs-5 fw-bold counted text-center" data-kt-countup="true" data-kt-countup-value="60"
+                  data-kt-countup-prefix="%" data-kt-initialized="1" >Discount on Basic Package</div>
+              </div>
+              <!--end::Number-->
+            </div>
+            <div
+              class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-245px py-3 px-4 me-6 mb-3">
+              <!--begin::Label-->
+              <div class="fw-semibold fs-5 text-center" style="justify-content: center;">{{premium_dis}} KD</div>
+              <!--end::Label-->
+              <!--begin::Number-->
+              <div class="d-flex align-items-center" style="justify-content: center;">
+                <div class="fs-5 fw-bold counted text-center" data-kt-countup="true" data-kt-countup-value="60"
+                  data-kt-countup-prefix="%" data-kt-initialized="1">Discount on Premium Package</div>
+              </div>
+              <!--end::Number-->
+            </div>
+            <div
+              class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-245px py-3 px-4 me-6 mb-3">
+              <!--begin::Label-->
+              <div class="fw-semibold fs-5 text-center" style="justify-content: center;">{{contracts_dis}} KD</div>
+              <!--end::Label-->
+              <!--begin::Number-->
+              <div class="d-flex align-items-center" style="justify-content: center;">
+                <div class="fs-5 fw-bold counted text-center" data-kt-countup="true" data-kt-countup-value="60"
+                  data-kt-countup-prefix="%" data-kt-initialized="1">Discount on Contracts</div>
+              </div>
+              <!--end::Number-->
+            </div>
+            <div
+              class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-245px py-3 px-4 me-6 mb-3">
+              <!--begin::Label-->
+              <div class="fw-semibold fs-5 text-center" style="justify-content: center;">{{users_dis}} KD</div>
+              <!--end::Label-->
+              <!--begin::Number-->
+              <div class="d-flex align-items-center" style="justify-content: center;">
+                <div class="fs-5 fw-bold counted text-center" data-kt-countup="true" data-kt-countup-value="60"
+                  data-kt-countup-prefix="%" data-kt-initialized="1">Users on Contracts</div>
+              </div>
+              <!--end::Number-->
+            </div>
+          </div>
+
+          <div class="d-flex  justify-content-end ">
+            <div class="mb-0 p-3">
+              <a id="kt_drawer_chat_toggle_1" class="btn btn-sm btn-primary " onclick="exportToExcel1()">Download</a>
+            </div>
+          </div>
+          <div class="d-flex  justify-content-end ">
+            <div id="kt_ecommerce_report_sales_table_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+              <div class="table-responsive">
+                <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer"
+                  id="kt_ecommerce_report_sales_table_financereportmytable">
+                  <!--begin::Table head-->
+                  <thead>
+                    <!--begin::Table row-->
+                    <tr class="text-start text-dark-400 fw-bold fs-7 text-uppercase gs-0" id="chk-th">
+                      <th class=" sorting" tabindex="0" aria-controls="kt_ecommerce_report_sales_table" rowspan="1"
+                        colspan="1" aria-label="Date: activate to sort column ascending"
+                        style="width: 232.65px;  vertical-align: top;">ID</th>
+                      <th class="text-start sorting" tabindex="0" aria-controls="kt_ecommerce_report_sales_table"
+                        rowspan="1" colspan="1" aria-label="Products Sold: activate to sort column ascending"
+                        style="width: 253.975px;  vertical-align: top;">Name</th>
+                      <th class="text-start sorting" tabindex="0" aria-controls="kt_ecommerce_report_sales_table"
+                        rowspan="1" colspan="1" aria-label="Products Sold: activate to sort column ascending"
+                        style="width: 253.975px;  vertical-align: top;">Amount</th>
+                      <th class="text-start sorting" tabindex="0" aria-controls="kt_ecommerce_report_sales_table"
+                        rowspan="1" colspan="1" aria-label="Products Sold: activate to sort column ascending"
+                        style="width: 253.975px;  vertical-align: top;">Discount</th>
+                      <th class="text-start  sorting" tabindex="0" aria-controls="kt_ecommerce_report_sales_table"
+                        rowspan="1" colspan="1" aria-label="Total: activate to sort column ascending"
+                        style="width: 200.55px;  vertical-align: top;">Payment Method</th>
+                      <th class="text-start  sorting" tabindex="0" aria-controls="kt_ecommerce_report_sales_table"
+                        rowspan="1" colspan="1" aria-label="Total: activate to sort column ascending"
+                        style="width: 200.55px;  vertical-align: top;">Purchase Type</th>
+                      <th class="text-start  sorting" tabindex="0" aria-controls="kt_ecommerce_report_sales_table"
+                        rowspan="1" colspan="1" aria-label="Total: activate to sort column ascending"
+                        style="width: 200.55px;  vertical-align: top;">TR ID</th>
+                      <th class="text-start  sorting" tabindex="0" aria-controls="kt_ecommerce_report_sales_table"
+                        rowspan="1" colspan="1" aria-label="Total: activate to sort column ascending"
+                        style="width: 200.55px;  vertical-align: top;">Payment status</th>
+                      <th class="text-start  sorting" tabindex="0" aria-controls="kt_ecommerce_report_sales_table"
+                        rowspan="1" colspan="1" aria-label="Total: activate to sort column ascending"
+                        style="width: 200.55px;  vertical-align: top;">Registered Date</th>
+                    </tr>
+                    <!--end::Table row-->
+                  </thead>
+                  <tbody class="fw-semibold text-gray-600">
+                    {% for f_r in f_reports %}
+                    <tr class="odd" id="chk-th">
+                      <!-- <td class=" pe-0">{{f_r.id}}</td> -->
+                      <td class=" pe-0">{{forloop.counter}}</td>
+                      <td class=" pe-0">{{f_r.user}}</td>
+                      <td class=" pe-0">{{f_r.payment_amount|floatformat:2}}</td>
+                      <td class=" pe-0">{{f_r.discount_amount|floatformat:2}}</td>
+                      <td class=" pe-0">{{f_r.payment_method}}</td>
+                      <td class=" pe-0">{{f_r.payment_type|title }}</td>
+                      <td class=" pe-0">{{f_r.tr_id}}</td>
+                      <td class=" pe-0">{{f_r.payment_status}}</td>
+                      <td class=" pe-0">{{f_r.created_at | date:'d-m-Y'}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="kt_scrolltop" class="scrolltop mb-3" data-kt-scrolltop="true">
+      <span class="svg-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+          <path
+            d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+            fill="black" />
+        </svg>
+      </span>
+    </div>
+
+    <script>
+      ClassicEditor
+        .create(document.querySelector('#ckeditor_1'))
+        .then(editor => {
+          console.log(editor);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      ClassicEditor
+        .create(document.querySelector('#ckeditor_2'))
+        .then(editor => {
+          console.log(editor);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      ClassicEditor
+        .create(document.querySelector('#ckeditor_3'))
+        .then(editor => {
+          console.log(editor);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    </script>
+    <script>
+      // $(document).ready(function () {
+      //     $(".companyform").click(function () {
+      //         var test = $(this).val();
+      //         if(test =='yes'){
+      //             $("div.desc2").hide();
+      //             $("div.desc1").show();
+      //         }else{
+      //             $("div.desc1").hide();
+      //             $("div.desc2").show();
+
+      //         }
+      //     });
+      // });
+      $("#business-tab").click(function () {
+        $("div#myTabContent1").hide();
+        $("div#myTabContent2").show();
+      });
+      $("#individual-tab").click(function () {
+        $("div#myTabContent1").show();
+        $("div#myTabContent2").hide();
+      });
+      $(document).ready(function () {
+        $('#addresstype').on('change', function () {
+          var demovalue = $(this).val();
+          $("div.myDiv").hide();
+          $("#show" + demovalue).show();
+        });
+        $('#addresstype1').on('change', function () {
+          var demovalue1 = $(this).val();
+          $("div.myDiv1").hide();
+          $("#show" + demovalue1).show();
+        });
+      });
+      // var profileborder = "border-danger";
+      $(".userprofile").addClass("border-danger");
+      // function changeuserborder() {
+      //     $(".userprofile").removeClass(profileborder);
+      //     var profileborder = "border-success";
+      // }
+      $("#userheaderchange").click(function () {
+        $(".userprofile").removeClass("border-danger");
+        $(".userprofile").addClass("border-success");
+        $("#headererror").addClass("d-none");
+
+      });
+    </script>
+    <script>
+      $.fn.equalHeights = function () {
+        var max_height = 0;
+        $(this).each(function () {
+          max_height = Math.max($(this).height(), max_height);
+        });
+        $(this).each(function () {
+          $(this).height(max_height);
+        });
+      };
+
+      $(document).ready(function () {
+        $('.userdasboardbox ul li a .card').equalHeights();
+      });
+    </script>
+    <script src="https://unpkg.com/file-saver/dist/FileSaver.min.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/file-saver/dist/FileSaver.min.js"></script>
+    <script>
+      function exportToExcel1() {
+          const table = document.getElementById('kt_ecommerce_report_sales_table_financereportmytable');
+          const wb = XLSX.utils.table_to_book(table, { sheet: 'SheetJS' });
+          const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
+  
+          function s2ab(s) {
+              const buf = new ArrayBuffer(s.length);
+              const view = new Uint8Array(buf);
+              for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xff;
+              return buf;
+          }
+  
+          const fileName = 'table_data.xlsx';
+          saveAs(new Blob([s2ab(wbout)], { type: 'application/octet-stream' }), fileName);
+      }
+    </script>
+  
+
+    
+<!-- datatable -->
+<script>
+  $(document).ready(function() {
+      var table = $('#kt_ecommerce_report_sales_table_financereportmytable').DataTable({
+          dom: 'lrtip', // Exclude "f" for search bar
+          "pagingType": 'full_numbers',
+          "paging": true,         // Enable pagination
+          "pageLength": 10,      // Number of items per page
+          "lengthMenu": [5,10, 25, 50, 75, 100], // Dropdown for changing page length
+          "ordering": true      // Disable column sorting (optional)
+      });
+      $('.dataTables_filter input').attr('class', 'form-control form-control-sm ');
+      $('.dataTables_filter input').attr('placeholder', 'Search...');
+      $('.dataTables_filter label').contents().first().remove();
+      
+      $('#Search').on('keyup', function() {
+          var searchText = $(this).val();
+          table.search(searchText).draw();
+      });
+
+      // Store the current page in sessionStorage whenever the page changes
+      //start comment
+      table.on('page.dt', function () {
+          sessionStorage.setItem('yourDataTablePage', table.page.info().page);
+      });
+      //end comment
+
+      // Retrieve the last page and set it when the page loads
+      //start comment
+      var savedPage = sessionStorage.getItem('yourDataTablePage');
+      if (savedPage !== null) {
+          table.page(parseInt(savedPage)).draw(false);
+      }
+      //end comment
+  });
+</script>
+<!-- datatable -->
+
+    <!-- enddate not selected befor start date -->
+    <script>
+      const startDateInput = document.getElementById("startDate");
+      const endDateInput = document.getElementById("endDate");
+
+      endDateInput.addEventListener("change", function() {
+          const startDate = new Date(startDateInput.value);
+          const endDate = new Date(endDateInput.value);
+
+          if (endDate < startDate) {
+            
+              endDateInput.value = ""; 
+          }
+      });
+
+      startDateInput.addEventListener("change", function() {
+        const startDate = new Date(startDateInput.value);
+        const endDate = new Date(endDateInput.value);
+
+        if (endDate < startDate) {
+          
+            endDateInput.value = ""; 
+        }
+    });
+    </script>
+    <!-- enddate not selected befor start date -->
+    <!-- search filter between dates -->
+    <script>
+      function filterTableByDate() {
+          var startDate = new Date(document.getElementById("startDate").value);
+          var endDate = new Date(document.getElementById("endDate").value);
+          
+          var table = document.getElementById("kt_ecommerce_report_sales_table_financereportmytable");
+          var rows = table.getElementsByTagName("tr");
+       
+          for (var i = 1; i < rows.length; i++) { 
+              var dateColumn = rows[i].getElementsByTagName('td')[8]; 
+
+              if (dateColumn) {
+                          
+                var dateParts = dateColumn.innerText.split(' ');
+              
+                var dateParts2 = dateParts[0].split('-');
+                if (dateParts[1]){
+                var timeParts = dateParts[1].split(':');
+                }
+                var day = parseInt(dateParts2[0]);
+                var month = parseInt(dateParts2[1]) - 1; // Months are zero-based
+                var year = parseInt(dateParts2[2]);
+                
+          
+                var dateValue = new Date(year, month, day);
+          
+
+                if (dateValue >= startDate && dateValue <= endDate) {
+                      rows[i].style.display = ""; // Show rows within the date range
+                  } else {
+                      rows[i].style.display = "none"; // Hide rows outside the date range
+                  }
+                } else {
+                    // Handle the case when dateColumn is undefined, e.g., show a warning or skip the row.
+                    console.log("Date column not found in row ", i);
+            }
+          }
+      }
+    </script>
+
+    <!-- search filter between dates -->
+    {% include "footer.html" %}

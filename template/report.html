@@ -1,0 +1,820 @@
+{% include "header.html" %}
+
+<div class="content d-flex flex-column p-0 vh-100" id="kt_content">
+  <div class="post d-flex flex-column-fluid" id="kt_post">
+    <div id="kt_content_container" class="container-fluid">
+      <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+        <!--begin::Toolbar container-->
+        <div id="kt_app_toolbar_container" class="app-container px-3 d-flex flex-stack">
+          <!--begin::Page title-->
+          <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+            <!--begin::Title-->
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">User Reports</h1>
+            <!--end::Title-->
+          </div>
+          <!--end::Page title-->
+          <!--begin::Actions-->
+          <div class="d-flex align-items-center gap-2 gap-lg-3">
+          </div>
+          <!--end::Actions-->
+        </div>
+        <!--end::Toolbar container-->
+      </div>
+      <div class="card">
+        <div class="card-body">
+        <div class="d-flex justify-content-end">
+          <div class="mb-0 p-3" >
+            <label class="form-label p-2">Start Date</label>
+            <input class="form-control form-control-solid" style="background-color: white;" placeholder="Pick start date" id="startDate" name="start_datetime" type="date" />
+          </div>
+          <div class="mb-0 p-3" >
+            <label class="form-label p-2">End Date</label>
+            <input class="form-control form-control-solid"  style="background-color: white;" placeholder="Pick end date" id="endDate" name="end_datetime" type="date" />
+          </div>
+          <div class="mb-0 p-3">
+            <button id="filterButton" class="btn btn-sm btn-primary" onclick="filterTableByDate()">Submit</button>
+          </div>
+        </div> 
+        <div class="row user_blocks p-2 mt-5  d-flex">
+          <div
+            class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-125px py-3 px-4 me-6 mb-3" style="border-color: black;">
+            <!--begin::Label-->
+            {% with row_count=user|length %}
+            <div class="fw-semibold fs-5 text-center" id="total_user">{{ row_count }}</div>
+            <!--end::Label-->
+            <!--begin::Number-->
+            <div class="d-flex align-items-center" style="justify-content: center;">
+              <div class="fs-5 fw-bold counted " data-kt-countup="true" data-kt-countup-value="4500"
+                data-kt-countup-prefix="$" data-kt-initialized="1">Total Users</div>
+            </div>
+            <!--end::Number-->
+
+          </div>
+          <!--end::Stat-->
+          <!--begin::Stat-->
+          <div
+            class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-125px py-3 px-4 me-6 mb-3">
+            <!--begin::Label-->
+            <div class="fw-semibold fs-5 text-center" id="Individual_Users">{{individual}}</div>
+            <!--end::Label-->
+            <!--begin::Number-->
+            <div class="d-flex align-items-center" style="justify-content: center;">
+              <div class="fs-5 fw-bold counted" data-kt-countup="true" data-kt-countup-value="75"
+                data-kt-initialized="1">Individual Users</div>
+            </div>
+            <!--end::Number-->
+
+          </div>
+          <!--end::Stat-->
+          <!--begin::Stat-->
+          <div
+            class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-125px py-3 px-4 me-6 mb-3">
+            <!--begin::Label-->
+            <div class="fw-semibold fs-5 text-center" id="Business_Users">{{bus}}</div>
+            <!--end::Label-->
+            <!--begin::Number-->
+            <div class="d-flex align-items-center" style="justify-content: center;">
+              <div class="fs-5 fw-bold counted" data-kt-countup="true" data-kt-countup-value="60"
+                data-kt-countup-prefix="%" data-kt-initialized="1">Business Users</div>
+            </div>
+            <!--end::Number-->
+          </div>
+          <div
+            class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-125px py-3 px-4 me-6 mb-3">
+            <!--begin::Label-->
+            <div class="fw-semibold fs-5 text-center" style="justify-content: center;" id="Business_Admin">{{admin}}</div>
+            <!--end::Label-->
+            <!--begin::Number-->
+            <div class="d-flex align-items-center" style="justify-content: center;">
+              <div class="fs-5 fw-bold counted" data-kt-countup="true" data-kt-countup-value="60"
+                data-kt-countup-prefix="%" data-kt-initialized="1">Business Admin</div>
+            </div>
+            <!--end::Number-->
+          </div>
+        </div>
+        <div class="row p-2 user_blocks d-flex">
+          <div
+            class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-125px py-3 px-4 me-6 mb-3">
+            <!--begin::Label-->
+            <div class="fw-semibold fs-5 text-center" style="justify-content: center;" id="free">{{free}}</div>
+            <!--end::Label-->
+            <!--begin::Number-->
+            <div class="d-flex align-items-center" style="justify-content: center;">
+              <div class="fs-5 fw-bold counted" data-kt-countup="true" data-kt-countup-value="60"
+                data-kt-countup-prefix="%" data-kt-initialized="1">Free Users</div>
+            </div>
+            <!--end::Number-->
+          </div>
+          <div
+            class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-125px py-3 px-4 me-6 mb-3">
+            <!--begin::Label-->
+            <div class="fw-semibold fs-5 text-center" style="justify-content: center;" id="basic">{{Basic}}</div>
+            <!--end::Label-->
+            <!--begin::Number-->
+            <div class="d-flex align-items-center" style="justify-content: center;">
+              <div class="fs-5 fw-bold counted" data-kt-countup="true" data-kt-countup-value="60"
+                data-kt-countup-prefix="%" data-kt-initialized="1">Basic Users</div>
+            </div>
+            <!--end::Number-->
+          </div>
+          <div
+            class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-125px py-3 px-4 me-6 mb-3">
+            <!--begin::Label-->
+            <div class="fw-semibold fs-5 text-center" style="justify-content: center;" id="Premium">{{Premium}}</div>
+            <!--end::Label-->
+            <!--begin::Number-->
+            <div class="d-flex align-items-center" style="justify-content: center;">
+              <div class="fs-5 fw-bold counted" data-kt-countup="true" data-kt-countup-value="60"
+                data-kt-countup-prefix="%" data-kt-initialized="1">Premium Users</div>
+            </div>
+            <!--end::Number-->
+          </div>
+          <div
+            class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-125px py-3 px-4 me-6 mb-3">
+            <!--begin::Label-->
+            <div class="fw-semibold fs-5 text-center" style="justify-content: center;" id="Gold">{{Gold}}</div>
+            <!--end::Label-->
+            <!--begin::Number-->
+            <div class="d-flex align-items-center" style="justify-content: center;">
+              <div class="fs-5 fw-bold counted" data-kt-countup="true" data-kt-countup-value="60"
+                data-kt-countup-prefix="%" data-kt-initialized="1">Gold Users</div>
+            </div>
+            <!--end::Number-->
+          </div>
+          <div
+            class="col-2 border border-gray-300 bg-white border-dashed border-secondary rounded min-w-125px py-3 px-4 me-6 mb-3">
+            <!--begin::Label-->
+            <div class="fw-semibold fs-5 text-center" style="justify-content: center;" id="Platinum">{{Platinum}}</div>
+            <!--end::Label-->
+            <!--begin::Number-->
+            <div class="d-flex align-items-center" style="justify-content: center;">
+              <div class="fs-5 fw-bold counted" data-kt-countup="true" data-kt-countup-value="60"
+                data-kt-countup-prefix="%" data-kt-initialized="1">Platinum Users</div>
+            </div>
+            <!--end::Number-->
+          </div>
+        </div>
+    
+      <div class="row justify-content-end">
+        <div class="col-md-2 col-12   pd-2">
+          <select class="form-select form-select-sm form-select-solid" data-control="select4"
+            data-placeholder="user type"  data-allow-clear="true"  onchange="filterTableByUserType()" name="discount_for_user" id="userType">
+            <option  selected disabled>Select User Type</option>
+            <option value="1">All Users</option>
+            <option value="2">Individual Users</option>
+            <option value="3">Business Users</option>
+            <option value="4">Business Admin</option>
+          </select>
+        </div>
+          <div class="col-md-2 col-12 pd-2">
+            <select class="form-select form-select-sm form-select-solid" data-control="select3"
+            data-placeholder="All user" data-allow-clear="true" name="discount_for_user" style="width: 200px;" onchange="filterTableByMembership()" id="membership">
+            <option  selected disabled>Select User Membership</option>
+            <option value="1">All</option>
+            <option value="2">Free Users</option>
+            <option value="3">Basic Users</option>
+            <option value="4">Premium Users</option>
+            <option value="5">Gold Users</option>
+            <option value="6">Platinum Users</option>
+          </select>
+          </div>
+          
+          <div class=" col-md-2 col-12 pd-2"> </div>
+          <div class=" col-md-2 col-12 pd-2"> </div>
+          <div class=" col-md-2 col-12 pd-2"> 
+            <input type="text" class="form-control mx-5 " onkeyup="searchFunction()" style="font-size: 16px; height: 30px; width: 240px;" placeholder="Search" id="Search" />
+          </div>
+
+          <div class="col-md-2 col-12">
+              <div class="d-flex  justify-content-end ">
+               
+                 <a id="kt_drawer_chat_toggle_1" class="btn btn-sm btn-primary "   onclick="exportToExcel()">Download</a>
+               
+              </div>
+          </div>
+      </div>
+          <div class="d-flex " style="overflow-x: auto;">
+            <div id="kt_ecommerce_report_sales_table_wrapper"
+                        class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="table-responsive">
+                          <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer" id="myTable">
+                                <!--begin::Table head-->
+                                <thead>
+                                    <!--begin::Table row-->
+                                    <tr class="text-start text-dark-400 fw-bold fs-7 text-uppercase gs-0" id="chk-th">
+                                        <th class=" sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Date: activate to sort column ascending"
+                                            style="width: 232.65px;  vertical-align: top;">ID</th>
+                                        <th class="text-start sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Products Sold: activate to sort column ascending"
+                                            style="width: 253.975px;  vertical-align: top;">Name</th>
+                                        <th class="text-start sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Products Sold: activate to sort column ascending"
+                                            style="width: 253.975px;  vertical-align: top;">Email</th>
+                                        <th class="text-start sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Products Sold: activate to sort column ascending"
+                                            style="width: 253.975px;  vertical-align: top;">Mobile Number</th>
+                                        <th class="text-start  sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Total: activate to sort column ascending"
+                                            style="width: 200.55px;  vertical-align: top;">Civil id</th>
+                                        <th class="text-start  sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Total: activate to sort column ascending"
+                                            style="width: 200.55px;  vertical-align: top;">Membership</th>
+                                        <th class="text-start  sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Total: activate to sort column ascending"
+                                            style="width: 200.55px;  vertical-align: top;">Created Contracts</th>
+                                        <th class="text-start  sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Total: activate to sort column ascending"
+                                            style="width: 200.55px;  vertical-align: top;">Remaining Contracts</th>
+                                            <th class="text-start  sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Total: activate to sort column ascending"
+                                            style="width: 200.55px;  vertical-align: top;">Registered Date</th>
+                                    </tr>
+                                    <!--end::Table row-->
+                                </thead>
+                                <tbody class="fw-semibold text-gray-600">
+                                  
+                                {% for i, contract_count,remainig_contract in user_with_contracts %}
+
+                                  <tr class="odd" id="chk-th" style="display: none;">
+                                    <!-- <td class=" pe-0" value="{{i.id}}">{{i.id}}</td> -->
+                                    <td class=" pe-0" value="{{i.id}}">{{forloop.counter}}</td>
+                                    <td class=" pe-0">{{i.full_name}}</td>
+                                    <td class=" pe-0">{{i.email}}</td>
+                                    <td class=" pe-0">{{i.phone_number}}</td>
+                                    <td class=" pe-0">{{i.civil_id}}</td>
+                                    <td class=" pe-0" hidden value="{{i.user_type}}">{{i.user_type}}</td>
+                                    <td class=" pe-0" id="memebership-{{i.id}}">{{i.membership_type}}</td>
+                                    <td class=" pe-0">{{contract_count}}</td>
+                                    <td class=" pe-0">{{remainig_contract}}</td>
+                                    <td class=" pe-0" >{{i.created_at|date:"d-m-Y H:i"}}</td>
+                                  </tr>
+                                  
+                                  {% endfor %}
+                                 {% endwith %}
+                                 
+                               
+                                 
+                                </tbody>
+                          </table>
+                      </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="kt_scrolltop" class="scrolltop mb-3" data-kt-scrolltop="true">
+  <span class="svg-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+      <path
+        d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+        fill="black" />
+    </svg>
+  </span>
+</div>
+<script>
+  ClassicEditor
+    .create(document.querySelector('#ckeditor_1'))
+    .then(editor => {
+      console.log(editor);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  ClassicEditor
+    .create(document.querySelector('#ckeditor_2'))
+    .then(editor => {
+      console.log(editor);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  ClassicEditor
+    .create(document.querySelector('#ckeditor_3'))
+    .then(editor => {
+      console.log(editor);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+</script>
+<script>
+  // $(document).ready(function () {
+  //     $(".companyform").click(function () {
+  //         var test = $(this).val();
+  //         if(test =='yes'){
+  //             $("div.desc2").hide();
+  //             $("div.desc1").show();
+  //         }else{
+  //             $("div.desc1").hide();
+  //             $("div.desc2").show();
+
+  //         }
+  //     });
+  // });
+  $("#business-tab").click(function () {
+    $("div#myTabContent1").hide();
+    $("div#myTabContent2").show();
+  });
+  $("#individual-tab").click(function () {
+    $("div#myTabContent1").show();
+    $("div#myTabContent2").hide();
+  });
+  $(document).ready(function () {
+    $('#addresstype').on('change', function () {
+      var demovalue = $(this).val();
+      $("div.myDiv").hide();
+      $("#show" + demovalue).show();
+    });
+    $('#addresstype1').on('change', function () {
+      var demovalue1 = $(this).val();
+      $("div.myDiv1").hide();
+      $("#show" + demovalue1).show();
+    });
+  });
+  // var profileborder = "border-danger";
+  $(".userprofile").addClass("border-danger");
+  // function changeuserborder() {
+  //     $(".userprofile").removeClass(profileborder);
+  //     var profileborder = "border-success";
+  // }
+  $("#userheaderchange").click(function () {
+    $(".userprofile").removeClass("border-danger");
+    $(".userprofile").addClass("border-success");
+    $("#headererror").addClass("d-none");
+
+  });
+</script>
+<script>
+  $.fn.equalHeights = function () {
+    var max_height = 0;
+    $(this).each(function () {
+      max_height = Math.max($(this).height(), max_height);
+    });
+    $(this).each(function () {
+      $(this).height(max_height);
+    });
+  };
+
+  $(document).ready(function () {
+    $('.userdasboardbox ul li a .card').equalHeights();
+  });
+</script>
+<script src="https://unpkg.com/file-saver/dist/FileSaver.min.js"></script>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+<script src="https://unpkg.com/file-saver/dist/FileSaver.min.js"></script>
+<script>
+  function exportToExcel() {
+    const table = document.getElementById('myTable');
+    const rows = table.getElementsByTagName('tr');
+
+    // Filter hidden cells in each row
+    for (let i = 0; i < rows.length; i++) {
+      const cells = rows[i].getElementsByTagName('td');
+      for (let j = cells.length - 1; j >= 0; j--) {
+        if (cells[j].hasAttribute('hidden')) {
+          // Remove hidden cells from the row
+          rows[i].removeChild(cells[j]);
+        }
+      }
+    }
+
+    const wb = XLSX.utils.table_to_book(table, { sheet: 'SheetJS' });
+    const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
+
+    function s2ab(s) {
+      const buf = new ArrayBuffer(s.length);
+      const view = new Uint8Array(buf);
+      for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xff;
+      return buf;
+    }
+
+    const fileName = 'table_data.xlsx';
+    saveAs(new Blob([s2ab(wbout)], { type: 'application/octet-stream' }), fileName);
+  }
+</script>
+
+<!-- filter byb date  -->
+
+<script>
+  function count(s,e){
+    var startDate = s;
+    var endDate = e;
+
+    var table = document.getElementById("myTable");
+    var rows = table.getElementsByTagName("tr");
+
+    var total = 0;
+    var individual = 0;
+    var busneciss = 0;
+    var business_admin = 0;
+
+
+    var free = 0;
+    var basic = 0;
+    var Premium = 0;
+    var Gold = 0;
+    var Platinum = 0;
+
+    for (var i = 0; i < rows.length; i++){
+      var dateColumn = rows[i].getElementsByTagName('td')[9];
+      var cells = rows[i].getElementsByTagName('td');
+      var isHiddenRow = false;
+      var membership = rows[i].getElementsByTagName('td')[6];
+      
+      if(membership){
+        var membershipType = membership.textContent;
+      }
+
+      for (let j = 0; j < cells.length; j++) {
+        var isHiddenCell = cells[j].hasAttribute('hidden');
+        
+
+        if(isHiddenCell){
+          
+          if (dateColumn) {
+        
+            var dateParts = dateColumn.innerText.split(' ');
+           
+            var dateParts2 = dateParts[0].split('-');
+            if (dateParts[1]){
+            var timeParts = dateParts[1].split(':');
+            }
+            var day = parseInt(dateParts2[0]);
+            var month = parseInt(dateParts2[1]) - 1; // Months are zero-based
+            var year = parseInt(dateParts2[2]);
+            var hour = parseInt(timeParts[0]);
+            var minute = parseInt(timeParts[1]);
+      
+            var dateValue = new Date(year, month, day, hour, minute);
+      
+            if (dateValue >= startDate && dateValue <= endDate) {
+              console.log(membershipType)
+              console.log("......................")
+              total++;
+              if(cells[j].textContent== "Individual User"||cells[j].textContent== "individual_user" ){
+                individual++;
+                document.getElementById("Individual_Users").textContent = individual;
+              }else{document.getElementById("Individual_Users").textContent = individual;}
+              if(cells[j].textContent== "business_user" || cells[j].textContent== "Business User" ){
+                busneciss++;
+                document.getElementById("Business_Users").textContent = busneciss;
+              }else{document.getElementById("Business_Users").textContent = busneciss;}
+              if(cells[j].textContent== "Business Admin" || cells[j].textContent== "business_admin" ){
+                business_admin++;
+                document.getElementById("Business_Admin").textContent = business_admin;
+              }else{document.getElementById("Business_Admin").textContent = business_admin;}
+                document.getElementById("total_user").textContent = total;  
+
+                if(membershipType=="free" || membershipType=="Free"){
+                  free++;
+                  document.getElementById("free").textContent = free;
+                }else{  document.getElementById("free").textContent = free; }
+                
+                if (membershipType=="Basic" || membershipType=="basic" ){
+                  basic++;
+                 
+                  document.getElementById("basic").textContent = basic;
+                }else{document.getElementById("basic").textContent = basic;}
+                
+                if(membershipType=="Premium" || membershipType=="premium" ){
+                  Premium++;
+                  document.getElementById("Premium").textContent = Premium;
+                }else{document.getElementById("Premium").textContent = Premium;}
+                
+                if(membershipType=="Gold" || membershipType=="gold"  ){
+                  Gold++;
+                  document.getElementById("Gold").textContent = Gold;
+                }else{document.getElementById("Gold").textContent = Gold;}
+                
+                if(membershipType=="Platinum" || membershipType=="platinum"){
+                  Platinum++;
+                  document.getElementById("Platinum").textContent = Platinum;
+                }else{ document.getElementById("Platinum").textContent = Platinum;}
+            }
+        }
+      }
+    }
+  }
+  }
+
+
+  function filterTableByDate() {
+
+    var startDate = new Date(document.getElementById("startDate").value);
+    var endDate = new Date(document.getElementById("endDate").value);
+    
+    var table = document.getElementById("myTable");
+    var rows = table.getElementsByTagName("tr");
+    
+    count(startDate,endDate);
+    console.log(count(startDate,endDate));
+
+    for (var i = 0; i < rows.length; i++) {
+      var dateColumn = rows[i].getElementsByTagName('td')[9];
+      
+      if (dateColumn) {
+        
+        var dateParts = dateColumn.innerText.split(' ');
+       
+        var dateParts2 = dateParts[0].split('-');
+        if (dateParts[1]){
+        var timeParts = dateParts[1].split(':');
+        }
+        var day = parseInt(dateParts2[0]);
+        var month = parseInt(dateParts2[1]) - 1; // Months are zero-based
+        var year = parseInt(dateParts2[2]);
+        var hour = parseInt(timeParts[0]);
+        var minute = parseInt(timeParts[1]);
+  
+        var dateValue = new Date(year, month, day, hour, minute);
+  
+        if (dateValue >= startDate && dateValue <= endDate) {
+          rows[i].style.display = ""; // Show rows within the date range
+          
+        } else {
+          rows[i].style.display = "none"; // Hide rows outside the date range
+        }
+      } else {
+        // Handle the case when dateColumn is undefined, e.g., show a warning or skip the row.
+        console.log("Date column not found in row ", i);
+      }
+      
+    }
+   
+    
+  }
+  </script>
+  
+<!-- for dropdown filter -->
+<!-- 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    // When the dropdown value changes
+    $("#userType").change(function () {
+      var selectedValue = $(this).val();
+
+      // Show all rows initially
+      $("tbody tr").show();
+
+      // If the selected value is not "All user"
+      if (selectedValue !== "1") {
+        // Loop through each row
+        $("tbody tr").each(function () {
+          var userType = $(this).find("td:nth-child(6)").text(); // Assuming user_type is in the 6th column
+
+          // Hide the row if it doesn't match the selected value
+          if (selectedValue === "2" && userType !== "Individual Users") {
+            $(this).hide();
+          } else if (selectedValue === "3" && userType !== "Business Users") {
+            $(this).hide();
+          }
+        });
+      }
+    });
+  });
+</script> -->
+
+<!-- <script>
+  function filterTableByUserType() {
+    var selectedvalue = document.getElementById("userType");
+    var usertype = selectedvalue.value;
+    var table = document.getElementById('myTable');
+    var rows = table.getElementsByTagName('tr'); // Fixed variable name from 'row' to 'rows'
+
+    for (let i = 1; i < rows.length; i++) {
+      var cells = rows[i].getElementsByTagName('td');
+      var isHiddenRow = true;
+
+      for (let j = 0; j < cells.length; j++) {
+        var isHiddenCell = cells[j].hasAttribute('hidden');
+        if (isHiddenCell) {
+          // Log the hidden <td> element
+            if (usertype === "1") {
+              isHiddenRow = false; // The row meets the condition, so it should be displayed
+              break; // No need to check other cells in the row if the condition is met
+            }
+          if (usertype === "2" && cells[j].innerText === "Individual User") {
+            isHiddenRow = false; // The row meets the condition, so it should be displayed
+            break; // No need to check other cells in the row if the condition is met
+          }
+          if (usertype === "3" && cells[j].innerText === "Business User") {
+            isHiddenRow = false; // The row meets the condition, so it should be displayed
+            break; // No need to check other cells in the row if the condition is met
+          }
+          if (usertype === "4" && cells[j].innerText === "Business Admin") {
+            isHiddenRow = false; // The row meets the condition, so it should be displayed
+            break; // No need to check other cells in the row if the condition is met
+          }
+        }
+      }
+
+      if (isHiddenRow) {
+        rows[i].style.display = 'none'; // Hide the row if the condition is not met
+      } else {
+        rows[i].style.display = ''; // Display the row if the condition is met
+      }
+    }
+  }
+</script>
+
+
+
+<script>
+  function filterTableByMembership() {
+    var selectedvalue = document.getElementById("membership");
+    var usertype = selectedvalue.value;
+    var table = document.getElementById('myTable');
+    var rows = table.getElementsByTagName('tr'); // Fixed variable name from 'row' to 'rows'
+
+    for (let i = 1; i < rows.length; i++) {
+      var cells = rows[i].getElementsByTagName('td');
+      var isHiddenRow = true;
+
+      for (let j = 0; j < cells.length; j++) {
+        var isHiddenCell = cells[j].hasAttribute('id');
+        if (isHiddenCell) {
+          // Log the hidden <td> element
+            if (usertype === "1" && cells[j].innerText === "Free") {
+              isHiddenRow = false; // The row meets the condition, so it should be displayed
+              break; // No need to check other cells in the row if the condition is met
+            }
+          if (usertype === "2" && cells[j].innerText === "Basic") {
+            isHiddenRow = false; // The row meets the condition, so it should be displayed
+            break; // No need to check other cells in the row if the condition is met
+          }
+          if (usertype === "3" && cells[j].innerText === "Premium") {
+            isHiddenRow = false; // The row meets the condition, so it should be displayed
+            break; // No need to check other cells in the row if the condition is met
+          }
+          if (usertype === "4" && cells[j].innerText === "Gold") {
+            isHiddenRow = false; // The row meets the condition, so it should be displayed
+            break; // No need to check other cells in the row if the condition is met
+          }
+          if (usertype === "5" && cells[j].innerText === "Platinum") {
+            isHiddenRow = false; // The row meets the condition, so it should be displayed
+            break; // No need to check other cells in the row if the condition is met
+          }
+        }
+      }
+
+      if (isHiddenRow) {
+        rows[i].style.display = 'none'; // Hide the row if the condition is not met
+      } else {
+        rows[i].style.display = ''; // Display the row if the condition is met
+      }
+    }
+  }
+</script>
+ -->
+
+<script>
+  function filterTableByUserType() {
+    var userTypeFilter = document.getElementById("userType").value;
+    var membershipFilter = document.getElementById("membership").value;
+    applyFilters(userTypeFilter, membershipFilter);
+  }
+
+  function filterTableByMembership() {
+    var userTypeFilter = document.getElementById("userType").value;
+    var membershipFilter = document.getElementById("membership").value;
+    applyFilters(userTypeFilter, membershipFilter);
+  }
+
+  function applyFilters(userTypeFilter, membershipFilter) {
+    var table = document.getElementById('myTable');
+    var rows = table.getElementsByTagName('tr');
+  
+    for (let i = 1; i < rows.length; i++) {
+      var cells = rows[i].getElementsByTagName('td');
+      var isHiddenRow = false;
+      var userText = '';
+      var membershipText = '';
+  
+      for (let j = 0; j < cells.length; j++) {
+        var isHiddenCell = cells[j].hasAttribute('hidden');
+        var isidcell = cells[j].hasAttribute('id');
+        if (isHiddenCell && !userText) {
+          userText = cells[j].innerText;
+        }
+  
+        if (isidcell && !membershipText) {
+          membershipText = cells[j].innerText; // Use innerText to extract membership data
+        }
+      }
+  
+      if (
+        (userTypeFilter === null || checkUserType(userTypeFilter, userText)) &&
+        (membershipFilter === null || checkMembership(membershipFilter, membershipText))
+      ) {
+        isHiddenRow = false;
+        console.log(membershipText)
+      } else {
+        isHiddenRow = true;
+      }
+  
+      rows[i].style.display = isHiddenRow ? 'none' : '';
+    }
+  }
+
+  function checkUserType(filter, userText) {
+    return (
+      filter === "1" ||
+      (filter === "2" && userText === "Individual User") ||
+      (filter === "3" && userText === "Business User") ||
+      (filter === "4" && userText === "Business Admin")
+    );
+  }
+
+  function checkMembership(filter, membershipText) {
+    return (
+      filter === "1" ||
+      (filter === "2" && membershipText === "free") ||
+      (filter === "2" && membershipText === "Free") ||
+      (filter === "3" && membershipText === "basic") ||
+      (filter === "3" && membershipText === "Basic") ||
+      (filter === "4" && membershipText === "premium") ||
+      (filter === "4" && membershipText === "Premium") ||
+      (filter === "5" && membershipText === "gold") ||
+      (filter === "5" && membershipText === "Gold") ||
+      (filter === "6" && membershipText === "platinum")||
+      (filter === "6" && membershipText === "Platinum")
+    );
+  }
+</script> 
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterInput = document.getElementById('Search');
+    const tableBody = document.querySelector('#myTable tbody');
+    const rows = tableBody.getElementsByTagName('tr');
+
+    filterInput.addEventListener('keyup', function() {
+      const filterValue = filterInput.value.toLowerCase();
+
+      for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        let rowVisible = false;
+
+        for (let j = 0; j < cells.length; j++) {
+          const cellText = cells[j].textContent || cells[j].innerText;
+
+          if (cellText.toLowerCase().indexOf(filterValue) > -1) {
+            rowVisible = true;
+            break;
+          }
+        }
+
+        rows[i].style.display = rowVisible ? '' : 'none';
+      }
+    });
+  });
+</script>
+
+<script>
+  var busnesscount = document.getElementById('busneciss').value;
+
+  var divtag = document.querySelector('#cout_b');
+  divtag.textContent = busnesscount;
+</script>
+
+ <!-- enddate not selected befor start date -->
+ <script>
+  const startDateInput = document.getElementById("startDate");
+  const endDateInput = document.getElementById("endDate");
+
+  endDateInput.addEventListener("change", function() {
+      const startDate = new Date(startDateInput.value);
+      const endDate = new Date(endDateInput.value);
+
+      if (endDate < startDate) {
+        
+          endDateInput.value = ""; 
+      }
+  });
+
+  startDateInput.addEventListener("change", function() {
+    const startDate = new Date(startDateInput.value);
+    const endDate = new Date(endDateInput.value);
+
+    if (endDate < startDate) {
+      
+        endDateInput.value = ""; 
+    }
+});
+</script>
+<!-- enddate not selected befor start date -->
+
+{% include "footer.html" %}

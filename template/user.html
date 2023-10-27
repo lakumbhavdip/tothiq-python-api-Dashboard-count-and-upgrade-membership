@@ -1,0 +1,1663 @@
+
+{% include "header.html" %}
+
+<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+    <!--begin::Toolbar container-->
+    <div id="kt_app_toolbar_container" class="app-container px-7 d-flex flex-stack">
+        <!--begin::Page title-->
+        <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+            <!--begin::Title-->
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0 mb-11">Users
+                
+            </h1>
+            <!--end::Title-->
+            {% for message in messages %}
+                <div class="alert alert-primary mt-1 messageclass hide-after-delay" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+          
+            <div class="user_blocks d-flex">
+                <div
+                    class="border border-gray-300 bg-white border-dashed border-secondary rounded min-w-125px py-3 px-4 me-6 mb-3">
+                    <!--begin::Number-->
+                    <div class="d-flex align-items-center">
+                        <div class="fs-5 fw-bold counted" data-kt-countup="true" data-kt-countup-value="4500"
+                            data-kt-countup-prefix="$" data-kt-initialized="1">Total Users</div>
+                    </div>
+                    <!--end::Number-->
+                    <!--begin::Label-->
+                    <div class="fw-semibold fs-5">{{ count_Total }}</div>
+                    <!--end::Label-->
+                </div>
+                <!--end::Stat-->
+                <!--begin::Stat-->
+                <div
+                    class="border border-gray-300 bg-white border-dashed border-secondary rounded min-w-125px py-3 px-4 me-6 mb-3">
+                    <!--begin::Number-->
+                    <div class="d-flex align-items-center">
+                        <div class="fs-5 fw-bold counted" data-kt-countup="true" data-kt-countup-value="75"
+                            data-kt-initialized="1">Individual Users</div>
+                    </div>
+                    <!--end::Number-->
+                    <!--begin::Label-->
+                    <div class="fw-semibold fs-5">{{ count_I }}</div>
+                    <!--end::Label-->
+                </div>
+                <!--end::Stat-->
+                <!--begin::Stat-->
+                <div
+                    class="border border-gray-300 bg-white border-dashed border-secondary rounded min-w-125px py-3 px-4 me-6 mb-3">
+                    <!--begin::Number-->
+                    <div class="d-flex align-items-center">
+                        <div class="fs-5 fw-bold counted" data-kt-countup="true" data-kt-countup-value="60"
+                            data-kt-countup-prefix="%" data-kt-initialized="1">Business Users</div>
+                    </div>
+                    <!--end::Number-->
+                    <!--begin::Label-->
+                    <div class="fw-semibold fs-5">{{ count_B }}</div>
+                    <!--end::Label-->
+                </div>
+                <div
+                    class="border border-gray-300 bg-white border-dashed border-secondary rounded min-w-125px py-3 px-4 me-6 mb-3">
+                    <!--begin::Number-->
+                    <div class="d-flex align-items-center">
+                        <div class="fs-5 fw-bold counted" data-kt-countup="true" data-kt-countup-value="60"
+                            data-kt-countup-prefix="%" data-kt-initialized="1">Business Admin</div>
+                    </div>
+                    <!--end::Number-->
+                    <!--begin::Label-->
+                    <div class="fw-semibold fs-5">{{ count_A }}</div>
+                    <!--end::Label-->
+                </div>
+            </div>
+        </div>
+        <!--end::Page title-->
+        <!--begin::Actions-->
+        <div class="d-flex align-items-center gap-2 gap-lg-3">
+        </div>
+        <!--end::Actions-->
+    </div>
+    <!--end::Toolbar container-->
+</div>
+<div class="card mx-5 mt-5">
+    <div class="d-flex row py-3 flex-wrap align-items-center">
+        <div class="align-items-center col-9 cursor-pointer" id="alphabet-filter">
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="All">All</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="A">A</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="B">B</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="C">C</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="D">D</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="E">E</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="F">F</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="G">G</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="H">H</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="I">I</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="J">J</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="K">K</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="L">L</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="M">M</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="N">N</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="O">O</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="P">P</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="Q">Q</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="R">R</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="S">S</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="T">T</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="U">U</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="V">V</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="W">W</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="X">X</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="Y">Y</a>
+            <a href="#" class="mx-3 text-dark text-hover-primary" data-filter="Z">Z</a>
+        </div>
+        <div class="col-3 d-flex justify-content-end">
+            <form data-kt-search-element="form" class="d-none d-lg-block mb-5 me-4 mb-lg-0 position-relative"
+                autocomplete="off">
+                <span class="svg-icon svg-icon-2 svg-icon-gray-700 position-absolute top-50 translate-middle-y ms-4 ">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect opacity="0.5" x="17.0365" y="13.1223" width="8.15546" height="2" rx="1"
+                            transform="rotate(45 17.0365 15.1223)" fill="currentColor">
+                        </rect>
+                        <path
+                            d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </span>
+                <input type="text" class="form-control form-control-solid h-40px bg-body ps-13 fs-7 w-100 text-center" name="search"
+                    value="" placeholder="Search" data-kt-search-element="input" id="filterInput">
+            </form>
+        </div>
+        <!-- <button class="col-2 btn btn-primary btn-sm" >Search</button> -->
+        <!-- <i class="col-1 fas fa-filter fa-2x text-dark d-flex justify-content-center align-items-center"></i> -->
+    </div>
+</div>
+<div class="content d-flex flex-column p-0" id="kt_content">
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <div id="kt_content_container" class="w-100 p-0 m-5 container-fluid">
+            <div class="kt_content_containe_inr d-flex justify-content-between my-5 card">
+                <div class="card-body d-flex">
+                    <div class="fv-row  col-8">
+                        <ul
+                            class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold text-center">
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary fs-4 fw-bolder text-dark py-1 active"
+                                    data-bs-toggle="tab" id="individual-tab" onclick="reloadPage()"
+                                    href="#Individualform">Individual
+                                    User</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary fs-4 fw-bolder text-dark py-1"
+                                    data-bs-toggle="tab" id="business-tab" onclick="reloadPage()"
+                                    href="#Businessform">Business
+                                    User</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary fs-4 fw-bolder text-dark py-1"
+                                    data-bs-toggle="tab" id="businessadmin-tab" onclick="reloadPage()"
+                                    href="#Businessadminform">Business
+                                    Admin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary fs-4 fw-bolder text-dark py-1"
+                                    data-bs-toggle="tab" id="inviteduser-tab" onclick="reloadPage()"
+                                    href="#invitedusers">Invited User</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary fs-4 fw-bolder text-dark py-1"
+                                    data-bs-toggle="tab" id="-tab" onclick="reloadPage()"
+                                    href="#invitedbusiness">Invited Business</a>
+                            </li>
+
+                           <!-- 
+                            <li class="nav-item" style="margin-left: 180px;">
+                                <a id="kt_drawer_chat_toggle_1" class="btn btn-sm btn-primary " style="margin-left: auto;">Invite User</a>
+                            </li>
+                            <li class="nav-item" style="margin-left: auto;">
+                                <a id="kt_drawer_chat_toggle_2" class="btn btn-sm btn-primary " style="margin-left: auto;">Invite Business</a>
+                            </li> -->
+
+                            <!-- <li class="nav-item">
+                                <a id="kt_drawer_chat_toggle_1" class="btn btn-sm btn-primary " style="margin-left: 500px;">Create Business Admin</a>
+                            </li> -->
+                        </ul>
+                    </div>
+                    <div class="left_sidebtn col-4 " >
+                        <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold text-center d-flex justify-content-end">
+                        <li class="nav-item">
+                            <a id="kt_drawer_chat_toggle_1" class="btn btn-sm btn-primary " style="margin-left: auto;">Invite User</a>
+                        </li>
+                        <li class="nav-item ms-2">
+                            <a id="kt_drawer_chat_toggle_2" class="btn btn-sm btn-primary " style="margin-left: auto;">Invite Business</a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content mb-20" id="myTabContent">
+                <div class="tab-pane fade show active card" id="Individualform" role="tabpanel">
+                    <div class=" card-body">
+                        <div id="kt_ecommerce_report_sales_table_wrpeapr"
+                            class="dataTables_wrapper dt-bootstrap4 no-footer">
+                            <div class="table-responsive">
+                                <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer"
+                                    id="reelTable">
+                                    <!--begin::Table head-->
+                                    <thead>
+                                        <!--begin::Table row-->
+                                        <tr class="text-start text-dark-400 fw-bold fs-7 text-uppercase gs-0">
+                                            <th class=" sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Date: activate to sort column ascending">TOTHIQ ID</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Name</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Email</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Contact
+                                                Number</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Status
+                                            </th>
+                                            <th class="text-start  sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Total: activate to sort column ascending">Created Date & Time</th>
+                                        </tr>
+                                        <!--end::Table row-->
+                                    </thead>
+                                    <!--end::Table head-->
+                                    <!--begin::Table body-->
+                                    <tbody class="fw-semibold text-gray-600">
+                                        {% for i in users %}
+                                        <!--begin::Table row-->
+                                        <tr class="odd">
+                                            <!--begin::Date=-->
+                                            <!-- <td data-order="2023-09-22T00:00:00+05:30">{{ i.id }}</td> -->
+                                            <td data-order="2023-09-22T00:00:00+05:30">{{ forloop.counter }}</td>
+                                            <!--end::Date=-->
+                                            <!--begin::No Orders=-->
+                                            <td class=" pe-0"><a href="/user_individual_user_details/{{i.id}}" class="">{{ i.full_name }}</a></td>
+                                            <!--end::No Orders=-->
+                                            <!--begin::Products sold=-->
+                                            <td class=" pe-0">{{ i.email }}</td>
+                                            <!--end::Products sold=-->
+                                            <!--begin::Tax=-->
+                                            <td class=" pe-0">{{ i.phone_number }}</td>
+                                            <!--end::Tax=-->
+                                            <!--begin::Total=-->
+                                            <td class=" pe-0">
+                                                <!-- {{ i.active_status }} -->
+                                                {%if i.active_status == "active"%}<i class="fa-solid fa-check" style="color: green;font-size: 24px;"></i> {%elif i.active_status == "blocked"%}<i class="fa-solid fa-minus-circle" style="color: red; font-size: 24px;"></i>
+                                                {%endif%}
+                                                <!-- {%if i.active_status == "active"%}<i class="fa-solid fa-check" style="color: green;font-size: 24px;"></i>{%elif i.active_status == "inactive"%}<i class="fa-solid fa-ban" style="color: red; font-size: 24px;"></i>{%endif%} -->
+                                            </td>
+                                            <td class="">{{ i.created_at|date:"d-m-Y | H:i " }}</td>
+                                            <!--end::Total=-->
+                                        </tr>
+                                        {% endfor %}
+                                        <!-- <tr class="even"> -->
+                                        <!--begin::Date=-->
+                                        <!-- <td data-order="2023-09-22T00:00:00+05:30"> #198412</td> -->
+                                        <!--end::Date=-->
+                                        <!--begin::No Orders=-->
+                                        <!-- <td class=" pe-0"><a href="#." class="">Aabidoon Aabinus -->
+                                        <!-- Pabel</a></td> -->
+                                        <!--end::No Orders=-->
+                                        <!--begin::Products sold=-->
+                                        <!-- <td class=" pe-0">Aabinus@421212gmail.com</td> -->
+                                        <!--end::Products sold=-->
+                                        <!--begin::Tax=-->
+                                        <!-- <td class=" pe-0">+965-1234567</td> -->
+                                        <!--end::Tax=-->
+                                        <!--begin::Total=-->
+                                        <!-- <td class=" pe-0">Premium</td> -->
+                                        <!-- <td class="">12-12-2022</td> -->
+                                        <!--end::Total=-->
+                                        <!-- </tr> -->
+
+                                    </tbody>
+                                    <!--end::Table body-->
+                                </table>
+                            </div>
+                        </div>
+                        <!-- <table class="table border border-gray-400 mb-20">
+                                    <tr class="fw-bolder  border-bottom  border-gray-400 text-center">
+                                        <th class="border-end  border-gray-400 ">TOTHIQID</th>
+                                        <th class="border-end  border-gray-400 ">Full Name</th>
+                                        <th class="border-end  border-gray-400 ">Email Address</th>
+                                        <th class="border-end  border-gray-400 ">Contact Number</th>
+                                        <th class="border-end  border-gray-400 ">Membership</th>
+                                        <th>Create Date</th>
+                                    </tr>
+                                    <tr class="border-bottom  border-gray-400 text-center">
+                                        <td class="border-end  border-gray-400 ">#198305</td>
+                                        <td class="border-end  border-gray-400 "><a
+                                                href="user_individual_user_details" class="">Aabel Baasiqaat
+                                                Baazighah</a></td>
+                                        <td class="border-end  border-gray-400 ">aabel.baasi@gmail.com</td>
+                                        <td class="border-end  border-gray-400 ">+965-1234567</td>
+                                        <td class="border-end  border-gray-400 ">Free</td>
+                                        <td>13-11-2022</td>
+                                    </tr>
+                                    <tr class="border-bottom border-gray-400 text-center">
+                                        <td class="border-end  border-gray-400 "> #198412</td>
+                                        <td class="border-end  border-gray-400 "><a href="#." class="">Aabidoon Aabinus
+                                                Pabel</a></td>
+                                        <td class="border-end  border-gray-400 ">Aabinus@421212gmail.com</td>
+                                        <td class="border-end  border-gray-400 ">+965-1234567</td>
+                                        <td class="border-end  border-gray-400 ">Premium</td>
+                                        <td>12-12-2022</td>
+                                    </tr>
+                                </table> -->
+                                {% if users.has_other_pages %}
+                                <ul class="pagination pagination-outline d-flex justify-content-end">
+                                    {% if users.has_previous %}
+                                    <li class="page-item previous m-1"><a
+                                            href="?page={{ users.previous_page_number }}&user=individual" class="page-link"><i
+                                                class="previous"></i></a></li>
+                                    <li class="page-item  m-1"><a href="?page={{  users.number|add:'-1'  }}" class="page-link">{{  users.number|add:'-1'  }}</a></li>
+                                    {% else %}
+                                    <li class="page-item previous disabled m-1"><a href="#" class="page-link"><i
+                                                class="previous"></i></a></li>
+                                    
+                                    {% endif %}
+                                    <li class="page-item active m-1"><a href="?page={{  users.number  }}" class="page-link">{{  users.number  }}</a></li>
+                           
+        
+                                    {% if users.has_next %}
+                                    <li class="page-item  m-1"><a href="?page={{  users.number|add:'1'  }}" class="page-link">{{  users.number|add:'1'  }}</a></li>
+                                    <li class="page-item next m-1"><a href="?page={{ users.next_page_number }}&user=individual"
+                                            class="page-link"><i class="next"></i></a></li>
+                                    {% else %}
+                                    <li class="page-item next disabled m-1"><a href="#" class="page-link"><i
+                                                class="next"></i></a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                                {% endif %}
+                    </div>
+                </div>
+                <div class="tab-pane fade card" id="Businessform" role="tabpanel">
+                    <div class=" card-body">
+                        <div id="kt_ecommerce_report_sales_table_wrapper"
+                            class="dataTables_wrapper dt-bootstrap4 no-footer">
+                            <div class="table-responsive">
+                                <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer"
+                                    id="kt_ecommerce_report_sales_table">
+                                    <!--begin::Table head-->
+                                    <thead>
+                                        <!--begin::Table row-->
+                                        <tr class="text-start text-dark-400 fw-bold fs-7 text-uppercase gs-0">
+                                            <th class=" sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Date: activate to sort column ascending">TOTHIQ ID</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Name</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Company Name</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Email</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Contact
+                                                Number</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Status
+                                            </th>
+                                            <th class="text-start  sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Total: activate to sort column ascending">Created Date & Time</th>
+                                        </tr>
+                                        <!--end::Table row-->
+                                    </thead>
+                                    <!--end::Table head-->
+                                    <!--begin::Table body-->
+                                    <tbody class="fw-semibold text-gray-600">
+                                        <!--begin::Table row-->
+                                        {% for i in business_users %}
+                                        <tr class="odd">
+                                            <!--begin::Date=-->
+                                            <!-- <td data-order="2023-09-22T00:00:00+05:30">{{i.id}}</td> -->
+                                            <td data-order="2023-09-22T00:00:00+05:30">{{ forloop.counter }}</td>
+                                            <!--end::Date=-->
+                                            <!--begin::No Orders=-->
+                                            <td class=" pe-0"><a href="/user_business_user_details/{{i.id}}"
+                                                class="">{{i.full_name }}</a></td>
+                                        <td class=" pe-0">{{i.company_name}}</td>
+                                            <!--end::No Orders=-->
+                                            <!--begin::Products sold=-->
+                                            <td class=" pe-0">{{i.email}}</td>
+                                            <!--end::Products sold=-->
+                                            <!--begin::Tax=-->
+                                            <td class=" pe-0">{{i.phone_number}}</td>
+                                            <!--end::Tax=-->
+                                            <!--begin::Total=-->
+                                            <td class=" pe-0">
+                                                <!-- {{ i.active_status }} -->
+                                                {%if i.active_status == "active"%}<i class="fa-solid fa-check" style="color: green;font-size: 24px;"></i>{%elif i.active_status == "inactive"%}<i class="fa-solid fa-ban" style="color: red; font-size: 24px;"></i>{%endif%}
+                                            </td>
+                                            <td class="">{{i.created_at|date:"d-m-Y | H:i "}}</td>
+                                            <!--end::Total=-->
+                                        </tr>
+                                        {% endfor %}
+
+                                        <!-- <tr class="even"> -->
+                                        <!--begin::Date=-->
+                                        <!-- <td data-order="2023-09-22T00:00:00+05:30"> #198412</td> -->
+                                        <!--end::Date=-->
+                                        <!--begin::No Orders=-->
+                                        <!-- <td class=" pe-0"><a href="user_business_user_details" class="">Creativity -->
+                                        <!-- Solutions</a></td> -->
+                                        <!--end::No Orders=-->
+                                        <!--begin::Products sold=-->
+                                        <!-- <td class=" pe-0">Aabinus@421212gmail.com</td> -->
+                                        <!--end::Products sold=-->
+                                        <!--begin::Tax=-->
+                                        <!-- <td class=" pe-0">+965-1234567</td> -->
+                                        <!--end::Tax=-->
+                                        <!--begin::Total=-->
+                                        <!-- <td class=" pe-0">Premium</td> -->
+                                        <!-- <td class="">12-12-2022</td> -->
+                                        <!--end::Total=-->
+                                        <!-- </tr> -->
+
+                                    </tbody>
+                                    <!--end::Table body-->
+                                </table>
+                            </div>
+                        </div>
+                        <!-- <table class="table border border-gray-400 mb-20">
+                                    <tr class="fw-bolder  border-bottom  border-gray-400 text-center">
+                                        <th class="border-end  border-gray-400 ">TOTHIQID</th>
+                                        <th class="border-end  border-gray-400 "> Business Name</th>
+                                        <th class="border-end  border-gray-400 ">Admin Email Address</th>
+                                        <th class="border-end  border-gray-400 ">Contact Number</th>
+                                        <th class="border-end  border-gray-400 ">Membership</th>
+                                        <th>Create Date</th>
+                                    </tr>
+                                    <tr class="border-bottom  border-gray-400 text-center">
+                                        <td class="border-end  border-gray-400 ">B198305</td>
+                                        <td class="border-end  border-gray-400 "><a
+                                                href="user_business_user_details" class="">Microsolution Kuwait</a>
+                                        </td>
+                                        <td class="border-end  border-gray-400 ">aabel.baasi@gmail.com</td>
+                                        <td class="border-end  border-gray-400 ">+965-1234567</td>
+                                        <td class="border-end  border-gray-400 ">Free</td>
+                                        <td>13-11-2022</td>
+                                    </tr>
+                                    <tr class="border-bottom border-gray-400 text-center">
+                                        <td class="border-end  border-gray-400 "> B198412</td>
+                                        <td class="border-end  border-gray-400 "><a
+                                                href="user_business_user_details" class="">Creativity Solutions</a>
+                                        </td>
+                                        <td class="border-end  border-gray-400 ">Aabinus@421212gmail.com</td>
+                                        <td class="border-end  border-gray-400 ">+965-1234567</td>
+                                        <td class="border-end  border-gray-400 ">Premium</td>
+                                        <td>12-12-2022</td>
+                                    </tr>
+                                </table> -->
+                                {% if business_users.has_other_pages %}
+                                <ul class="pagination pagination-outline d-flex justify-content-end">
+                                    {% if business_users.has_previous %}
+                                    <li class="page-item previous m-1"><a
+                                            href="?pageB={{ business_users.previous_page_number }}&user=business"
+                                            class="page-link"><i class="previous"></i></a></li>
+                                    <li class="page-item  m-1"><a href="?pageB={{ business_users.number|add:'-1' }}&user=business" class="page-link">{{ business_users.number|add:'-1' }}</a></li>
+                                    {% else %}
+                                    <li class="page-item previous disabled m-1"><a href="#" class="page-link"><i
+                                                class="previous"></i></a></li>
+                                    {% endif %}
+                                    <li class="page-item active m-1"><a href="?pageB={{ business_users.number }}&user=business" class="page-link">{{ business_users.number }}</a></li>
+                                  
+                                    {% if business_users.has_next %}
+                                    <li class="page-item  m-1"><a href="?pageB={{ business_users.number|add:'1' }}&user=business" class="page-link">{{ business_users.number|add:'1' }}</a></li>
+                                    <li class="page-item next m-1"><a
+                                            href="?pageB={{ business_users.next_page_number }}&user=business"
+                                            class="page-link"><i class="next"></i></a></li>
+                                    {% else %}
+                                    <li class="page-item next disabled m-1"><a href="#" class="page-link"><i
+                                                class="next"></i></a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                                {% endif %}
+                    </div>
+                </div>
+                <div class="tab-pane fade card" id="Businessadminform" role="tabpanel">
+                    <div class=" card-body">
+                        <div id="kt_ecommerce_report_sales_table_wrapper"
+                            class="dataTables_wrapper dt-bootstrap4 no-footer">
+                            <div class="table-responsive">
+                                <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer"
+                                    id="admin">
+                                    <!--begin::Table head-->
+                                    <thead>
+                                        <!--begin::Table row-->
+                                        <tr class="text-start text-dark-400 fw-bold fs-7 text-uppercase gs-0">
+                                            <th class=" sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Date: activate to sort column ascending">TOTHIQ ID</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Company
+                                                Name</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Email</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Contact
+                                                Number</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Status
+                                            </th>
+                                            <th class="text-start  sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Total: activate to sort column ascending">Created Date & Time</th>
+                                        </tr>
+                                        <!--end::Table row-->
+                                    </thead>
+                                    <!--end::Table head-->
+                                    <!--begin::Table body-->
+                                    <tbody class="fw-semibold text-gray-600">
+                                        <!--begin::Table row-->
+                                        {% for i in business_admin %}
+                                        <tr class="odd">
+                                            <!--begin::Date=-->
+                                            <!-- <td data-order="2023-09-22T00:00:00+05:30">{{ i.id }}</td> -->
+                                            <td data-order="2023-09-22T00:00:00+05:30">{{ forloop.counter }}</td>
+                                            <!--end::Date=-->
+                                            <!--begin::No Orders=-->
+                                            <td class=" pe-0"><a  href="/user_business_admin_details/{{i.id}}" class="">{{ i.company_name }}</a></td>
+                                            <!--end::No Orders=-->
+                                            <!--begin::Products sold=-->
+                                            <td class=" pe-0">{{ i.email }}</td>
+                                            <!--end::Products sold=-->
+                                            <!--begin::Tax=-->
+                                            <td class=" pe-0">{{ i.phone_number }}</td>
+                                            <!--end::Tax=-->
+                                            <!--begin::Total=-->
+                                            <td class=" pe-0">
+                                                <!-- {{ i.active_status }} -->
+                                                {%if i.active_status == "active"%}<i class="fa-solid fa-check" style="color: green;font-size: 24px;"></i>{%elif i.active_status == "inactive"%}<i class="fa-solid fa-ban" style="color: red; font-size: 24px;"></i>{%endif%}
+                                            </td>
+                                            <td class="">{{ i.created_at|date:"d-m-Y | H:i " }}</td>
+                                                <!--end::Total=-->
+                                        </tr>
+                                        {% endfor %}
+
+                                        <!-- <tr class="even"> -->
+                                        <!--begin::Date=-->
+                                        <!-- <td data-order="2023-09-22T00:00:00+05:30"> #198412</td> -->
+                                        <!--end::Date=-->
+                                        <!--begin::No Orders=-->
+                                        <!-- <td class=" pe-0"><a href="user_business_admin_details" class="">Creativity -->
+                                        <!-- Solutions</a></td> -->
+                                        <!--end::No Orders=-->
+                                        <!--begin::Products sold=-->
+                                        <!-- <td class=" pe-0">Aabinus@421212gmail.com</td> -->
+                                        <!--end::Products sold=-->
+                                        <!--begin::Tax=-->
+                                        <!-- <td class=" pe-0">+965-1234567</td> -->
+                                        <!--end::Tax=-->
+                                        <!--begin::Total=-->
+                                        <!-- <td class=" pe-0">Premium</td> -->
+                                        <!-- <td class="">12-12-2022</td> -->
+                                        <!--end::Total=-->
+                                        <!-- </tr> -->
+
+                                    </tbody>
+                                    <!--end::Table body-->
+                                </table>
+                            </div>
+                        </div>
+                        <!-- <table class="table border border-gray-400 mb-20">
+                                    <tr class="fw-bolder  border-bottom  border-gray-400 text-center">
+                                        <th class="border-end  border-gray-400 ">TOTHIQID</th>
+                                        <th class="border-end  border-gray-400 "> Business Name</th>
+                                        <th class="border-end  border-gray-400 ">Admin Email Address</th>
+                                        <th class="border-end  border-gray-400 ">Contact Number</th>
+                                        <th class="border-end  border-gray-400 ">Membership</th>
+                                        <th>Create Date</th>
+                                    </tr>
+                                    <tr class="border-bottom  border-gray-400 text-center">
+                                        <td class="border-end  border-gray-400 ">B198305</td>
+                                        <td class="border-end  border-gray-400 "><a
+                                                href="user_business_admin_details" class="">Microsolution Kuwait</a>
+                                        </td>
+                                        <td class="border-end  border-gray-400 ">aabel.baasi@gmail.com</td>
+                                        <td class="border-end  border-gray-400 ">+965-1234567</td>
+                                        <td class="border-end  border-gray-400 ">Free</td>
+                                        <td>13-11-2022</td>
+                                    </tr>
+                                    <tr class="border-bottom border-gray-400 text-center">
+                                        <td class="border-end  border-gray-400 "> B198412</td>
+                                        <td class="border-end  border-gray-400 "><a
+                                                href="user_business_admin_details" class="">Creativity Solutions</a>
+                                        </td>
+                                        <td class="border-end  border-gray-400 ">Aabinus@421212gmail.com</td>
+                                        <td class="border-end  border-gray-400 ">+965-1234567</td>
+                                        <td class="border-end  border-gray-400 ">Premium</td>
+                                        <td>12-12-2022</td>
+                                    </tr>
+                                </table> -->
+                                {% if business_admin.has_other_pages %}
+                                <ul class="pagination pagination-outline d-flex justify-content-end">
+                                    {% if business_admin.has_previous %}
+                                    <li class="page-item previous m-1"><a
+                                            href="?pageA={{ business_admin.previous_page_number }}&user=businessadmin"
+                                            class="page-link"><i class="previous"></i></a></li>
+                                    <li class="page-item  m-1"><a href="?pageA={{  business_admin.number|add:'-1' }}&user=businessadmin"
+                                                class="page-link">{{ business_admin.number|add:'-1'}}</a></li>
+                                    {% else %}
+                                    <li class="page-item previous disabled m-1"><a href="#" class="page-link"><i
+                                                class="previous"></i></a></li>
+                                    {% endif %}
+                                    <li class="page-item active m-1"><a href="?pageA={{  business_admin.number }}&user=businessadmin"
+                                        class="page-link">{{ business_admin.number}}</a></li>
+                                 
+                                    {% if business_admin.has_next %}
+                                    <li class="page-item  m-1"><a href="?pageA={{  business_admin.number|add:'1' }}&user=businessadmin"
+                                        class="page-link">{{ business_admin.number|add:'1'}}</a></li>
+                                    <li class="page-item next m-1"><a
+                                            href="?pageA={{ business_admin.next_page_number }}&user=businessadmin"
+                                            class="page-link"><i class="next"></i></a></li>
+                                    {% else %}
+                                    <li class="page-item next disabled m-1"><a href="#" class="page-link"><i
+                                                class="next"></i></a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                                {% endif %}
+                    </div>
+                </div>
+                <div class="tab-pane fade card" id="invitedbusiness" role="tabpanel">
+                    <div class=" card-body">
+                        <div id="kt_ecommerce_report_sales_table_wrapper"
+                            class="dataTables_wrapper dt-bootstrap4 no-footer">
+                            <div class="table-responsive">
+                                <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer"
+                                    id="business">
+                                    <!--begin::Table head-->
+                                    <thead>
+                                        <!--begin::Table row-->
+                                        <tr class="text-start text-dark-400 fw-bold fs-7 text-uppercase gs-0">
+                                            <th class=" sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Date: activate to sort column ascending">TOTHIQ ID</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Company
+                                                Name</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Email</th>
+                                            <!-- <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Contact
+                                                Number</th> -->
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Status
+                                            </th>
+                                            <th class="text-start sorting" tabindex="0"      aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Products Sold: activate to sort column ascending">Invite link
+                                            </th>
+                                            <th class="text-start  sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Total: activate to sort column ascending">Invited Date & Time</th>
+                                        </tr>
+                                        <!--end::Table row-->
+                                    </thead>
+                                    <!--end::Table head-->
+                                    <!--begin::Table body-->
+                                    <tbody class="fw-semibold text-gray-600">
+                                        <!--begin::Table row-->
+                                        {% for i in invited_business_admin %}
+                                        <tr class="odd">
+                                            <!--begin::Date=-->
+                                            <!-- <td data-order="2023-09-22T00:00:00+05:30">{{ i.id }}</td> -->
+                                            <td data-order="2023-09-22T00:00:00+05:30">{{ forloop.counter }}</td>
+                                            <!--end::Date=-->
+                                            <!--begin::No Orders=-->
+                                            <td class=" pe-0">{{ i.company_name }}</td>
+                                            <!--end::No Orders=-->
+                                            <!--begin::Products sold=-->
+                                            <td class=" pe-0">{{ i.email }}</td>
+                                            <!--end::Products sold=-->
+                                            <!--begin::Tax=-->
+                                            <!-- <td class=" pe-0">{{ i.phone_number }}</td> -->
+                                            <!--end::Tax=-->
+                                            <!--begin::Total=-->
+                                            <td class=" pe-0">
+                                                <i class="fa-solid fa-ban" style="color: red; font-size: 24px;"></i>
+                                                <!-- {{ i.active_status }} -->
+                                                <!-- {%if i.active_status == "active"%}<i class="fa-solid fa-check" style="color: green;font-size: 24px;"></i>{%elif i.active_status == "inactive"%}<i class="fa-solid fa-ban" style="color: red; font-size: 24px;"></i>{%endif%} -->
+                                            </td>
+
+                                           
+
+                                            <td class="pe-0 invitelink">
+                                                <span>https://versionreview.com/tothiqweb/en/</span>
+                                                <i class="fas fa-copy p-4" style="cursor: pointer;"></i>
+                                            </td>
+                                            <td class="">{{ i.created_at|date:"d-m-Y | H:i " }}</td>
+                                                <!--end::Total=-->
+                                        </tr>
+                                        {% endfor %}
+
+                                        <!-- <tr class="even"> -->
+                                        <!--begin::Date=-->
+                                        <!-- <td data-order="2023-09-22T00:00:00+05:30"> #198412</td> -->
+                                        <!--end::Date=-->
+                                        <!--begin::No Orders=-->
+                                        <!-- <td class=" pe-0"><a href="user_business_admin_details" class="">Creativity -->
+                                        <!-- Solutions</a></td> -->
+                                        <!--end::No Orders=-->
+                                        <!--begin::Products sold=-->
+                                        <!-- <td class=" pe-0">Aabinus@421212gmail.com</td> -->
+                                        <!--end::Products sold=-->
+                                        <!--begin::Tax=-->
+                                        <!-- <td class=" pe-0">+965-1234567</td> -->
+                                        <!--end::Tax=-->
+                                        <!--begin::Total=-->
+                                        <!-- <td class=" pe-0">Premium</td> -->
+                                        <!-- <td class="">12-12-2022</td> -->
+                                        <!--end::Total=-->
+                                        <!-- </tr> -->
+
+                                    </tbody>
+                                    <!--end::Table body-->
+                                </table>
+                            </div>
+                        </div>
+                        <!-- <table class="table border border-gray-400 mb-20">
+                                    <tr class="fw-bolder  border-bottom  border-gray-400 text-center">
+                                        <th class="border-end  border-gray-400 ">TOTHIQID</th>
+                                        <th class="border-end  border-gray-400 "> Business Name</th>
+                                        <th class="border-end  border-gray-400 ">Admin Email Address</th>
+                                        <th class="border-end  border-gray-400 ">Contact Number</th>
+                                        <th class="border-end  border-gray-400 ">Membership</th>
+                                        <th>Create Date</th>
+                                    </tr>
+                                    <tr class="border-bottom  border-gray-400 text-center">
+                                        <td class="border-end  border-gray-400 ">B198305</td>
+                                        <td class="border-end  border-gray-400 "><a
+                                                href="user_business_admin_details" class="">Microsolution Kuwait</a>
+                                        </td>
+                                        <td class="border-end  border-gray-400 ">aabel.baasi@gmail.com</td>
+                                        <td class="border-end  border-gray-400 ">+965-1234567</td>
+                                        <td class="border-end  border-gray-400 ">Free</td>
+                                        <td>13-11-2022</td>
+                                    </tr>
+                                    <tr class="border-bottom border-gray-400 text-center">
+                                        <td class="border-end  border-gray-400 "> B198412</td>
+                                        <td class="border-end  border-gray-400 "><a
+                                                href="user_business_admin_details" class="">Creativity Solutions</a>
+                                        </td>
+                                        <td class="border-end  border-gray-400 ">Aabinus@421212gmail.com</td>
+                                        <td class="border-end  border-gray-400 ">+965-1234567</td>
+                                        <td class="border-end  border-gray-400 ">Premium</td>
+                                        <td>12-12-2022</td>
+                                    </tr>
+                                </table> -->
+                                {% if business_admin.has_other_pages %}
+                                <ul class="pagination pagination-outline d-flex justify-content-end">
+                                    {% if business_admin.has_previous %}
+                                    <li class="page-item previous m-1"><a
+                                            href="?pageA={{ business_admin.previous_page_number }}&user=businessadmin"
+                                            class="page-link"><i class="previous"></i></a></li>
+                                    <li class="page-item  m-1"><a href="?pageA={{  business_admin.number|add:'-1' }}&user=businessadmin"
+                                                class="page-link">{{ business_admin.number|add:'-1'}}</a></li>
+                                    {% else %}
+                                    <li class="page-item previous disabled m-1"><a href="#" class="page-link"><i
+                                                class="previous"></i></a></li>
+                                    {% endif %}
+                                    <li class="page-item active m-1"><a href="?pageA={{  business_admin.number }}&user=businessadmin"
+                                        class="page-link">{{ business_admin.number}}</a></li>
+                                 
+                                    {% if business_admin.has_next %}
+                                    <li class="page-item  m-1"><a href="?pageA={{  business_admin.number|add:'1' }}&user=businessadmin"
+                                        class="page-link">{{ business_admin.number|add:'1'}}</a></li>
+                                    <li class="page-item next m-1"><a
+                                            href="?pageA={{ business_admin.next_page_number }}&user=businessadmin"
+                                            class="page-link"><i class="next"></i></a></li>
+                                    {% else %}
+                                    <li class="page-item next disabled m-1"><a href="#" class="page-link"><i
+                                                class="next"></i></a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                                {% endif %}
+                    </div>
+                </div>
+                <div class="tab-pane fade card" id="invitedusers" role="tabpanel">
+                    <div class=" card-body">
+                        <div id="kt_ecommerce_report_sales_table_wrapper"
+                            class="dataTables_wrapper dt-bootstrap4 no-footer">
+                            <div class="table-responsive">
+                                <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer"
+                                    id="user">
+                                    <!--begin::Table head-->
+                                    <thead>
+                                        <!--begin::Table row-->
+                                        <tr class="text-start text-dark-400 fw-bold fs-7 text-uppercase gs-0">
+                                            <th class=" sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Date: activate to sort column ascending">TOTHIQ ID</th>
+                                            <!-- <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Company
+                                                Name</th> -->
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Email</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Contact
+                                                Number</th>
+                                            <th class="text-start sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Products Sold: activate to sort column ascending">Status
+                                            </th>
+                                            <th class="text-start sorting" tabindex="0"      aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Products Sold: activate to sort column ascending">Invite link
+                                            </th>
+
+
+                                            <th class="text-start  sorting" tabindex="0"
+                                                aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                                aria-label="Total: activate to sort column ascending">Invited Date & Time</th>
+                                        </tr>
+                                        <!--end::Table row-->
+                                    </thead>
+                                    <!--end::Table head-->
+                                    <!--begin::Table body-->
+                                    <tbody class="fw-semibold text-gray-600">
+                                        <!--begin::Table row-->
+                                        {% for i in invited_users_data %}
+                                            
+                                                <tr class="odd">
+                                                    <!--begin::Date=-->
+                                                    <!-- <td data-order="2023-09-22T00:00:00+05:30">{{ i.id }}</td> -->
+                                                    <td data-order="2023-09-22T00:00:00+05:30">{{ forloop.counter }}</td>
+                                                    <!--end::Date=-->
+                                                    <!--begin::No Orders=-->
+                                                    <!-- <td class=" pe-0"><a  href="/user_business_admin_details/{{i.id}}" class="">{{ i.company_name }}</a></td> -->
+                                                    <!--end::No Orders=-->
+                                                    <!--begin::Products sold=-->
+                                                    <td class=" pe-0">{{ i.email }}</td>
+                                                    <!--end::Products sold=-->
+                                                    <!--begin::Tax=-->
+                                                    <td class=" pe-0">{{ i.civil_id }}</td>
+                                                    <!--end::Tax=-->
+                                                    <!--begin::Total=-->
+                                                    <td class=" pe-0">
+                                                        <i class="fa-solid fa-ban" style="color: red; font-size: 24px;">
+                                                            <div class="input-group">
+                                                                <!-- <a href="https://versionreview.com/tothiqweb/en/">Copy</a> -->
+                                                                
+                                                            </div>
+                                                        </i>
+                                                        <!-- {{ i.active_status }} -->
+                                                        <!-- {%if i.active_status == "active"%}<i class="fa-solid fa-check" style="color: green;font-size: 24px;"></i>{%elif i.active_status == "inactive"%}<i class="fa-solid fa-ban" style="color: red; font-size: 24px;"></i>{%endif%} -->
+                                                    </td>
+                                                    <!-- <td class=" pe-0"><input type="url" class="form-control form-control-solid h-50 p-2 w-50"  id="copyInput" value="https://versionreview.com/tothiqweb/en/" required name="WebsiteURL" readonly />
+
+                                                        <button class="btn btn-primary btn-sm p-2 h-50" data-clipboard-target="#copyInput">Copy</button></td> -->
+                                                        <td class="pe-0 invitelink">
+                                                            <span>https://versionreview.com/tothiqweb/en/</span>
+                                                            <i class="fas fa-copy p-4" style="cursor: pointer;"></i>
+                                                        </td>
+                                                    <td class="">{{ i.created_at|date:"d-m-Y | H:i " }}</td>
+                                                        <!--end::Total=-->
+                                                </tr>
+                                            
+                                        {% endfor %}
+
+                                        <!-- <tr class="even"> -->
+                                        <!--begin::Date=-->
+                                        <!-- <td data-order="2023-09-22T00:00:00+05:30"> #198412</td> -->
+                                        <!--end::Date=-->
+                                        <!--begin::No Orders=-->
+                                        <!-- <td class=" pe-0"><a href="user_business_admin_details" class="">Creativity -->
+                                        <!-- Solutions</a></td> -->
+                                        <!--end::No Orders=-->
+                                        <!--begin::Products sold=-->
+                                        <!-- <td class=" pe-0">Aabinus@421212gmail.com</td> -->
+                                        <!--end::Products sold=-->
+                                        <!--begin::Tax=-->
+                                        <!-- <td class=" pe-0">+965-1234567</td> -->
+                                        <!--end::Tax=-->
+                                        <!--begin::Total=-->
+                                        <!-- <td class=" pe-0">Premium</td> -->
+                                        <!-- <td class="">12-12-2022</td> -->
+                                        <!--end::Total=-->
+                                        <!-- </tr> -->
+
+                                    </tbody>
+                                    <!--end::Table body-->
+                                </table>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="kt_drawer_chat_1" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat"
+    data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}"
+    data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_drawer_chat_toggle_1"
+    data-kt-drawer-close="#kt_drawer_chat_close">
+    <!--begin::Messenger-->
+    <div class="card w-100 rounded-0" id="kt_drawer_chat_messenger">
+        <div class="card-body">
+            <form method="post" action="{% url 'superadminapp:invite_user' %}" id="updateForm">
+                {% csrf_token %}
+                <div class="modal-header d-flex justify-content-between">
+                    <h3 class="text-capitalize">Invite User</h3>
+                    <div class="btn btn-sm btn-icon btn-active-light-primary" id="kt_drawer_chat_close">
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                    transform="rotate(-45 6 17.3137)" fill="black" />
+                                <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                    fill="black" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-10">
+                        <label for="exampleFormControlInput1" class="form-label required">Civil id</label>
+                        <input type="text" class="form-control form-control-solid w-100 "  placeholder="Enter Civil id"
+                            name="Civil_id" pattern="[0-9]*" minlength="12" maxlength="12" required />
+                    </div>
+                    <div class="mb-10">
+                        <label for="exampleFormControlInput1" class="form-label required">Email</label>
+                        <input type="email" class="form-control form-control-solid w-100"
+                            placeholder="Enter Email" id="invited_user_email" onkeyup="validate_email()" required name="EmailAddress" />
+                        <p class="error" id="email_validation_msg" style="display: none;  color: red;"></p>
+                    </div>
+                    <div class="pt-3 text-center">
+                        <button type="submit" id="invite_butten" class="btn btn-primary btn-sm">Invite</button>
+                    </div>
+                </div>
+            </form>    
+        </div>
+    </div>
+</div>
+<div id="kt_drawer_chat_2" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat"
+    data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}"
+    data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_drawer_chat_toggle_2"
+    data-kt-drawer-close="#kt_drawer_chat_close">
+    <!--begin::Messenger-->
+    <div class="card w-100 rounded-0" id="kt_drawer_chat_messenger">
+        <div class="card-body">
+            <form method="post" action="{% url 'superadminapp:invite_business' %}" id="updateForm">
+                {% csrf_token %}
+                <div class="modal-header d-flex justify-content-between">
+                    <h3 class="text-capitalize">Invite Business</h3>
+                    <div class="btn btn-sm btn-icon btn-active-light-primary" id="kt_drawer_chat_close">
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                    transform="rotate(-45 6 17.3137)" fill="black" />
+                                <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                    fill="black" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-10">
+                        <label for="exampleFormControlInput1" class="form-label required">Company Name</label>
+                        <input type="text" class="form-control form-control-solid w-100" placeholder="Enter Company Name"
+                            name="CompanyName" required/>
+                    </div>
+                    <div class="mb-10">
+                        <label for="exampleFormControlInput1" class="form-label required">Email</label>
+                        <input type="email" class="form-control form-control-solid w-100"
+                            placeholder="Enter Email"  id="invited_Business_email" required onkeyup="validate_email_business()" name="EmailAddress" />
+                        <p class="error" id="email_validation_msg_business" style="display: none;  color: red;"></p>
+                        <div id="email-status"></div>
+
+                    </div>
+                    <div class="pt-3 text-center">
+                        <button type="submit" id="invitebusiness" class="btn btn-primary btn-sm">Invite</button>
+                    </div>
+                </div>
+            </form>    
+        </div>
+    </div>
+</div>
+
+
+<div id="kt_scrolltop" class="scrolltop mb-3" data-kt-scrolltop="true">
+    <span class="svg-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+            <path
+                d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+                fill="black" />
+        </svg>
+    </span>
+</div>
+
+
+
+ <!-- for indivisul user  pagination search and page data limt -->
+
+ <!-- <script>
+    $(document).ready(function() {
+        var table = $('#reelTable').DataTable({
+            dom: 'lrtip', // Exclude "f" for search bar
+            "pagingType": 'full_numbers',
+            "paging": true,         // Enable pagination
+            "pageLength": 10,      // Number of items per page
+            "lengthMenu": [5,10, 25, 50, 75, 100], // Dropdown for changing page length
+            "ordering": true      // Disable column sorting (optional)
+            // Set placeholder for the search bar
+        
+        }); 
+        $('.dataTables_filter input').attr('class', 'form-control mx-5');
+        $('.dataTables_filter input').attr('placeholder', 'Search...');
+        $('.dataTables_filter label').contents().first().remove();
+        $('#filterInput').on('keyup', function() {
+            var searchText = $(this).val();
+            table.search(searchText).draw();
+        });
+    });
+</script> -->
+<script>
+    $(document).ready(function () {
+        const datatable = $('#reelTable').DataTable({
+            dom: 'lrtip',
+            "pagingType": 'full_numbers',
+            "paging": true,
+            "pageLength": 10,
+            "lengthMenu": [5, 10, 25, 50, 75, 100],
+            "ordering": true
+        });
+
+        function removeActiveClass() {
+            $('#alphabet-filter a').removeClass('text-primary');
+        }
+
+        $('.dataTables_filter input').attr('class', 'form-control mx-5');
+        $('.dataTables_filter input').attr('placeholder', 'Search...');
+        $('.dataTables_filter label').contents().first().remove();
+
+        $('#filterInput').on('keyup', function () {
+            var searchText = $(this).val();
+            datatable.search(searchText).draw();
+        });
+
+        $('#alphabet-filter a[data-filter="All"]').addClass('text-primary');
+
+
+        $('#alphabet-filter a').on('click', function (e) {
+            e.preventDefault();
+
+            const filterLetter = $(this).data('filter');
+
+            removeActiveClass();
+
+            datatable.search('').draw();
+            $('#filterInput').val('');
+
+            if (filterLetter === 'All') {
+                $(this).addClass('text-primary');
+                datatable.search('').column(1).search('').draw();
+            } else {
+                $(this).addClass('text-primary');
+                datatable.column(1).search(`^${filterLetter}`, true, false).draw();
+            }
+        });
+    });
+</script>
+
+<!-- for individual user  pagination search and page data limt -->
+
+<!-- for business user  pagination search and page data limt -->
+  <!-- <script>
+    $(document).ready(function() {
+        var table = $('#kt_ecommerce_report_sales_table').DataTable({
+            dom: 'lrtip', // Exclude "f" for search bar
+            "pagingType": 'full_numbers',
+            "paging": true,         // Enable pagination
+            "pageLength": 10,      // Number of items per page
+            "lengthMenu": [5,10, 25, 50, 75, 100], // Dropdown for changing page length
+            "ordering": true      // Disable column sorting (optional)
+            // Set placeholder for the search bar
+        
+        }); 
+        $('.dataTables_filter input').attr('class', 'form-control mx-5');
+        $('.dataTables_filter input').attr('placeholder', 'Search...');
+        $('.dataTables_filter label').contents().first().remove();
+        $('#filterInput').on('keyup', function() {
+            var searchText = $(this).val();
+            table.search(searchText).draw();
+        });
+    });
+</script> -->
+<script>
+    $(document).ready(function () {
+        // DataTable initialization
+        const datatable = $('#kt_ecommerce_report_sales_table').DataTable({
+            dom: 'lrtip',
+            "pagingType": 'full_numbers',
+            "paging": true,
+            "pageLength": 10,
+            "lengthMenu": [5, 10, 25, 50, 75, 100],
+            "ordering": true
+        });
+
+        $('.dataTables_filter input').attr('class', 'form-control mx-5');
+        $('.dataTables_filter input').attr('placeholder', 'Search...');
+        $('.dataTables_filter label').contents().first().remove();
+
+        $('#filterInput').on('keyup', function () {
+            var searchText = $(this).val();
+            datatable.search(searchText).draw();
+        });
+
+        $('#alphabet-filter a').on('click', function (e) {
+            e.preventDefault();
+
+            const filterLetter = $(this).data('filter');
+
+            datatable.search('').draw();
+            $('#filterInput').val('');
+
+             if (filterLetter === 'All') {
+                datatable.search('').column(1).search('').draw();
+            } else {
+                datatable.column(1).search(`^${filterLetter}`, true, false).draw();
+            }
+        });
+    });
+</script>
+<!-- for pagination search and page data limt -->
+
+
+<!-- for busnessadmin pagination search and page data limt -->
+
+  <!-- <script>
+    $(document).ready(function() {
+        var table =$('#admin').DataTable({
+            dom: 'lrtip', // Exclude "f" for search bar
+            "pagingType": 'full_numbers',
+            "paging": true,         // Enable pagination
+            "pageLength": 10,      // Number of items per page
+            "lengthMenu": [5,10, 25, 50, 75, 100], // Dropdown for changing page length
+            "ordering": true      // Disable column sorting (optional)
+            // Set placeholder for the search bar
+        
+        }); 
+        $('.dataTables_filter input').attr('class', 'form-control mx-5');
+        $('.dataTables_filter input').attr('placeholder', 'Search...');
+        $('.dataTables_filter label').contents().first().remove();
+        $('#filterInput').on('keyup', function() {
+            var searchText = $(this).val();
+            table.search(searchText).draw();
+        });
+    });
+</script> -->
+<script>
+    $(document).ready(function () {
+        // DataTable initialization
+        const datatable = $('#admin').DataTable({
+            dom: 'lrtip',
+            "pagingType": 'full_numbers',
+            "paging": true,
+            "pageLength": 10,
+            "lengthMenu": [5, 10, 25, 50, 75, 100],
+            "ordering": true
+        });
+
+        $('.dataTables_filter input').attr('class', 'form-control mx-5');
+        $('.dataTables_filter input').attr('placeholder', 'Search...');
+        $('.dataTables_filter label').contents().first().remove();
+
+        $('#filterInput').on('keyup', function () {
+            var searchText = $(this).val();
+            datatable.search(searchText).draw();
+        });
+
+        $('#alphabet-filter a').on('click', function (e) {
+            e.preventDefault();
+
+            const filterLetter = $(this).data('filter');
+
+            datatable.search('').draw();
+            $('#filterInput').val('');
+
+             if (filterLetter === 'All') {
+                datatable.search('').column(1).search('').draw();
+            } else {
+                datatable.column(1).search(`^${filterLetter}`, true, false).draw();
+            }
+        });
+    });
+</script>
+ <!-- for pagination search and page data limt -->
+
+<!-- for inviteuser pagination search and page data limt -->
+
+  <!-- <script>
+    $(document).ready(function() {
+        var table =$('#admin').DataTable({
+            dom: 'lrtip', // Exclude "f" for search bar
+            "pagingType": 'full_numbers',
+            "paging": true,         // Enable pagination
+            "pageLength": 10,      // Number of items per page
+            "lengthMenu": [5,10, 25, 50, 75, 100], // Dropdown for changing page length
+            "ordering": true      // Disable column sorting (optional)
+            // Set placeholder for the search bar
+        
+        }); 
+        $('.dataTables_filter input').attr('class', 'form-control mx-5');
+        $('.dataTables_filter input').attr('placeholder', 'Search...');
+        $('.dataTables_filter label').contents().first().remove();
+        $('#filterInput').on('keyup', function() {
+            var searchText = $(this).val();
+            table.search(searchText).draw();
+        });
+    });
+</script> -->
+<script>
+    $(document).ready(function () {
+        // DataTable initialization
+        const datatable = $('#user').DataTable({
+            dom: 'lrtip',
+            "pagingType": 'full_numbers',
+            "paging": true,
+            "pageLength": 10,
+            "lengthMenu": [5, 10, 25, 50, 75, 100],
+            "ordering": true
+        });
+
+        $('.dataTables_filter input').attr('class', 'form-control mx-5');
+        $('.dataTables_filter input').attr('placeholder', 'Search...');
+        $('.dataTables_filter label').contents().first().remove();
+
+        $('#filterInput').on('keyup', function () {
+            var searchText = $(this).val();
+            datatable.search(searchText).draw();
+        });
+
+        $('#alphabet-filter a').on('click', function (e) {
+            e.preventDefault();
+
+            const filterLetter = $(this).data('filter');
+
+            datatable.search('').draw();
+            $('#filterInput').val('');
+
+             if (filterLetter === 'All') {
+                datatable.search('').column(1).search('').draw();
+            } else {
+                datatable.column(1).search(`^${filterLetter}`, true, false).draw();
+            }
+        });
+    });
+</script>
+ <!-- for pagination search and page data limt -->
+
+<!-- for inviteuser pagination search and page data limt -->
+
+  <!-- <script>
+    $(document).ready(function() {
+        var table =$('#admin').DataTable({
+            dom: 'lrtip', // Exclude "f" for search bar
+            "pagingType": 'full_numbers',
+            "paging": true,         // Enable pagination
+            "pageLength": 10,      // Number of items per page
+            "lengthMenu": [5,10, 25, 50, 75, 100], // Dropdown for changing page length
+            "ordering": true      // Disable column sorting (optional)
+            // Set placeholder for the search bar
+        
+        }); 
+        $('.dataTables_filter input').attr('class', 'form-control mx-5');
+        $('.dataTables_filter input').attr('placeholder', 'Search...');
+        $('.dataTables_filter label').contents().first().remove();
+        $('#filterInput').on('keyup', function() {
+            var searchText = $(this).val();
+            table.search(searchText).draw();
+        });
+    });
+</script> -->
+<script>
+    $(document).ready(function () {
+        // DataTable initialization
+        const datatable = $('#business').DataTable({
+            dom: 'lrtip',
+            "pagingType": 'full_numbers',
+            "paging": true,
+            "pageLength": 10,
+            "lengthMenu": [5, 10, 25, 50, 75, 100],
+            "ordering": true
+        });
+
+        $('.dataTables_filter input').attr('class', 'form-control mx-5');
+        $('.dataTables_filter input').attr('placeholder', 'Search...');
+        $('.dataTables_filter label').contents().first().remove();
+
+        $('#filterInput').on('keyup', function () {
+            var searchText = $(this).val();
+            datatable.search(searchText).draw();
+        });
+
+        $('#alphabet-filter a').on('click', function (e) {
+            e.preventDefault();
+
+            const filterLetter = $(this).data('filter');
+
+            datatable.search('').draw();
+            $('#filterInput').val('');
+
+             if (filterLetter === 'All') {
+                datatable.search('').column(1).search('').draw();
+            } else {
+                datatable.column(1).search(`^${filterLetter}`, true, false).draw();
+            }
+        });
+    });
+</script>
+ <!-- for pagination search and page data limt -->
+
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_1'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_2'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_3'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#addresstype').on('change', function () {
+            var demovalue = $(this).val();
+            $("div.myDiv").hide();
+            $("#show" + demovalue).show();
+        });
+        $('#addresstype1').on('change', function () {
+            var demovalue1 = $(this).val();
+            $("div.myDiv1").hide();
+            $("#show" + demovalue1).show();
+        });
+    });
+    // var profileborder = "border-danger";
+    $(".userprofile").addClass("border-danger");
+    // function changeuserborder() {
+    //     $(".userprofile").removeClass(profileborder);
+    //     var profileborder = "border-success";
+    // }
+    $("#userheaderchange").click(function () {
+        $(".userprofile").removeClass("border-danger");
+        $(".userprofile").addClass("border-success");
+        $("#headererror").addClass("d-none");
+
+    });
+</script>
+<script>
+    $.fn.equalHeights = function () {
+        var max_height = 0;
+        $(this).each(function () {
+            max_height = Math.max($(this).height(), max_height);
+        });
+        $(this).each(function () {
+            $(this).height(max_height);
+        });
+    };
+
+    $(document).ready(function () {
+        $('.userdasboardbox ul li a .card').equalHeights();
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const filterInput = document.getElementById('filterInput');
+        const reelTable = document.getElementById('reelTable');
+        const rows = reelTable.getElementsByTagName('tr');
+
+        filterInput.addEventListener('keyup', function () {
+            const filterValue = filterInput.value.toLowerCase();
+
+            for (let i = 0; i < rows.length; i++) {
+                const full_name = rows[i].getElementsByTagName('td')[1];
+                if (full_name) {
+                    const FullNameValue = full_name.textContent || full_name.innerText;
+                    if (FullNameValue.toLowerCase().indexOf(filterValue) > -1) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const filterInput = document.getElementById('filterInput');
+        const reelTable = document.getElementById('kt_ecommerce_report_sales_table');
+        const rows = reelTable.getElementsByTagName('tr');
+
+        filterInput.addEventListener('keyup', function () {
+            const filterValue = filterInput.value.toLowerCase();
+
+            for (let i = 0; i < rows.length; i++) {
+                const full_name = rows[i].getElementsByTagName('td')[1];
+                if (full_name) {
+                    const fullnameValue = full_name.textContent || full_name.innerText;
+                    if (fullnameValue.toLowerCase().indexOf(filterValue) > -1) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const filterInput = document.getElementById('filterInput');
+        const reelTable = document.getElementById("kt_ecommerce_report_sales_table_admin");
+        const rows = reelTable.getElementsByTagName('tr');
+
+        filterInput.addEventListener('keyup', function () {
+            const filterValue = filterInput.value.toLowerCase();
+
+            for (let i = 0; i < rows.length; i++) {
+                const full_name = rows[i].getElementsByTagName('td')[1];
+                if (full_name) {
+                    const FullNameValue = full_name.textContent || full_name.innerText;
+                    if (FullNameValue.toLowerCase().indexOf(filterValue) > -1) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('user');
+    if (myParam) {
+        if (myParam == 'business') {
+            $('#individual-tab').removeClass('active');
+            $('#Individualform').removeClass('active show');
+
+            $('#businessadmin-tab').removeClass('active');
+            $('#Businessadminform').removeClass('active show');
+
+            $('#business-tab').addClass('active');
+            $('#Businessform').addClass('active show');
+
+
+            /*const individualTab = document.getElementById('individual-tab');
+            individualTab.classList.remove('active');
+
+            const individualForm = document.getElementById('Individualform');
+            individualForm.classList.remove('active show');
+
+            const businessTab = document.getElementById('business-tab');
+            businessTab.classList.add('active');
+
+            const businessForm = document.getElementById('Businessform');
+            businessForm.classList.add('active show');*/
+        } else if (myParam == 'individual') {
+
+            $('#individual-tab').removeClass('active');
+            $('#Individualform').removeClass('active show');
+
+            $('#business-tab').removeClass('active');
+            $('#Businessform').removeClass('active show');
+
+            $('#businessadmin-tab').removeClass('active');
+            $('#Businessadminform').removeClass('active show');
+
+            $('#individual-tab').addClass('active');
+            $('#Individualform').addClass('active show');
+
+        } else {
+
+            $('#individual-tab').removeClass('active');
+            $('#Individualform').removeClass('active show');
+
+            $('#business-tab').removeClass('active');
+            $('#Businessform').removeClass('active show');
+
+            $('#businessadmin-tab').addClass('active');
+            $('#Businessadminform').addClass('active show');
+        }
+    }
+</script>
+
+<script>
+$(document).ready(function() {
+    $("#emailInput").on("input", function() {
+        var email = $(this).val();
+        $.ajax({
+            url: "invite_business", // Replace with the actual URL to check email existence
+            method: "POST",
+            data: { email: email },
+            success: function(response) {
+                if (response === "exists") {
+                    $("#email-status").html("<p class='text-danger'>Email already exists.</p>");
+                    $("#invitebusiness").prop("disabled", true);
+                } else {
+                    $("#email-status").html("");
+                    $("#invitebusiness").prop("disabled", false);
+                }
+            }
+        });
+    });
+});
+</script>
+
+<!-- validattion  email -->
+<script>
+    function validate_email(){
+      var curent_password = document.getElementById("invited_user_email").value
+        console.log(curent_password)
+       // Send the password to the server for validation using AJAX
+       fetch('/validate_Email/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': '{{ csrf_token }}',  // If you are using CSRF protection
+        },
+        body: JSON.stringify({ password: curent_password }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.is_valid) {
+            const errorMsg = document.getElementById('email_validation_msg');
+            document.getElementById('invite_butten').removeAttribute('disabled');
+            errorMsg.style.display = 'none';
+            return false;
+        } else {
+          const errorMsg = document.getElementById('email_validation_msg');
+          errorMsg.textContent = 'This email is already in use.';
+          errorMsg.style.display = 'block';
+          document.getElementById('invite_butten').setAttribute('disabled', 'disabled');
+          console.log("notmache")
+
+          return false;
+        }
+      })
+      .catch(error => {
+        console.error('Error occurred:', error);
+      });
+    }
+  </script>
+
+  <script>
+    function validate_email_business(){
+      var curent_password = document.getElementById("invited_Business_email").value
+        console.log(curent_password)
+       // Send the password to the server for validation using AJAX
+       fetch('/validate_Email/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': '{{ csrf_token }}',  // If you are using CSRF protection
+        },
+        body: JSON.stringify({ password: curent_password }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.is_valid) {
+            const errorMsg = document.getElementById('email_validation_msg_business');
+            document.getElementById('invitebusiness').removeAttribute('disabled');
+            errorMsg.style.display = 'none';
+            return false;
+        } else {
+          const errorMsg = document.getElementById('email_validation_msg_business');
+          errorMsg.textContent = 'This email is already in use.';
+          errorMsg.style.display = 'block';
+          document.getElementById('invitebusiness').setAttribute('disabled', 'disabled');
+          console.log("notmache")
+
+          return false;
+        }
+      })
+      .catch(error => {
+        console.error('Error occurred:', error);
+      });
+    }
+  </script>
+<!-- validattion  email -->
+
+<!-- link copy  -->
+
+<script>
+    const copyIcons = document.querySelectorAll('.invitelink i');
+
+    copyIcons.forEach(copyIcon => {
+        copyIcon.addEventListener('click', () => {
+            const linkText = copyIcon.previousElementSibling; // Get the corresponding span element
+            const textToCopy = linkText.textContent.trim(); // Get and trim the text
+            const dummyInput = document.createElement('input');
+            document.body.appendChild(dummyInput);
+            dummyInput.setAttribute('value', textToCopy);
+            dummyInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummyInput);
+            
+            // Replace the copy icon with a checkmark icon
+            copyIcon.classList.remove('fa-copy');
+            copyIcon.classList.add('fas', 'fa-check', 'text-success');
+            
+            // Reset the icon to the old "fa-copy" icon after 3 seconds
+            setTimeout(() => {
+                copyIcon.classList.remove('fas', 'fa-check', 'text-success');
+                copyIcon.classList.add('fas', 'fa-copy', 'p-4');
+            }, 3000); // 3000 milliseconds = 3 seconds
+        });
+    });
+    
+</script>
+<!-- link copy  -->
+
+{% include "footer.html" %}

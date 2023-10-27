@@ -1,0 +1,1060 @@
+{% include "header.html" %}
+{% load static %}
+
+{% load custom_filters %}
+<div class="content d-flex flex-column p-0 mb-20 position-relative vh-100" id="kt_content">
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <div id="kt_content_container" class="container-fluid">
+            <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+                <!--begin::Toolbar container-->
+                <div id="kt_app_toolbar_container" class="app-container px-3 d-flex flex-stack">
+                    <!--begin::Page title-->
+                    <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                        <!--begin::Title-->
+                        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+                            Coupons </h1>
+                        <!--end::Title-->
+                    </div>
+                    {% for message in messages %}
+                    <div class="alert alert-primary mt-1 messageclass hide-after-delay" role="alert">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    <!--end::Page title-->
+                    <!--begin::Actions-->
+                    <div class="d-flex align-items-center gap-2 gap-lg-3">
+                        <!--begin::Secondary button-->
+
+                        <!--end::Secondary button-->
+                        <!--begin::Primary button-->
+                        <a id="kt_drawer_chat_toggle_1" class="btn btn-sm btn-primary ">Create Coupon</a>
+                        <!--end::Primary button-->
+                    </div>
+                    <!--end::Actions-->
+                </div>
+                <!--end::Toolbar container-->
+            </div>
+            <div class="kt_content_containe_inr d-flex justify-content-between my-5 card position-relative">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p class="mb-0"><b></b></p>
+                        <input type="text" class="form-control w-25 " onkeyup="searchFunction()" id="Search"
+                            placeholder="Search" />
+                        <!-- <input type="text" class="form-control mx-5 " onkeyup="searchFunction()"
+                        placeholder="Search Label" id="Search" /> -->
+                    </div>
+                    <div id="kt_ecommerce_report_sales_table_wrapper"
+                        class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="table-responsive">
+                            <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer"
+                                id="kt_ecommerce_report_sales_table_mytable">
+                                <!--begin::Table head-->
+                                <thead>
+                                    <!--begin::Table row-->
+                                    <tr class="text-start text-dark-400 fw-bold fs-7 text-uppercase gs-0">
+                                        <th class=" sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Date: activate to sort column ascending">Coupon Name</th>
+                                        <th class="text-start sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Products Sold: activate to sort column ascending">Coupon Code
+                                        </th>
+                                        <th class="text-start sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Products Sold: activate to sort column ascending">Status</th>
+                                        <th class="text-start sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Products Sold: activate to sort column ascending">Total</th>
+                                        <th class="text-start sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Products Sold: activate to sort column ascending">Used</th>
+                                        <th class="text-start  sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Total: activate to sort column ascending">Unused</th>
+                                        <th class="text-start  sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Total: activate to sort column ascending">Start Date</th>
+                                        <th class="text-start  sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Total: activate to sort column ascending">End Date</th>
+                                        <th class="text-start  sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Total: activate to sort column ascending">Action</th>
+                                    </tr>
+                                    <!--end::Table row-->
+                                </thead>
+                                <!--end::Table head-->
+                                <!--begin::Table body-->
+                                <tbody class="fw-semibold text-gray-600">
+                                    <!--begin::Table row-->
+                                    {% for i in page_obj %}
+                                    <tr class="odd">
+                                        <td data-order="2023-09-22T00:00:00+05:30">{{i.coupon_name}}</td>
+                                        <td class=" pe-0">{{i.coupon_code}}</td>
+                                        <td class=" pe-0">{{i.active_status}}</td>
+                                        <td class=" pe-0">{{i.total_coupons}}</td>
+                                        <!-- <td class=" pe-0">{{i.used}}</td> -->
+                                        <td class=" pe-0">0</td>
+                                        <td class=" pe-0">0</td>
+                                        <!-- <td class=" pe-0">{{i.unused}}</td> -->
+                                        <td class=" pe-0">{{i.start_datetime|date:"d-m-Y  "}}</td>
+                                        <td class=" pe-0">{{i.end_datetime|date:"d-m-Y  "}}</td>
+
+                                        <td class=""><button id="kt_drawer_chat_toggle_2_{{ forloop.counter }}"
+                                            class="editButton btn btn-outline-light btn-rounded" data-id="{{i.coupon_code}}"><i class="material-icons" style="font-size: 24px;">edit</i></button></td>
+
+                                    </tr>
+                                    {% endfor %}
+
+                                    
+                                </tbody>
+                                <!--end::Table body-->
+                            </table>
+                        </div>
+                    </div>
+                    <!-- {% if page_obj.has_other_pages %} -->
+                    <ul class="pagination pagination-outline d-flex justify-content-end">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item previous m-1"><a href="?page={{ page_obj.previous_page_number }}"
+                                class="page-link"><i class="previous"></i></a></li>
+                        {% else %}
+                        <li class="page-item previous disabled m-1"><a href="#" class="page-link"><i
+                                    class="previous"></i></a></li>
+                        {% endif %}
+                        {% for page in page_obj.paginator.page_range %}
+                        {% if page_obj.number == page %}
+                        <li class="page-item active m-1"><a href="#" class="page-link">{{ page }}</a></li>
+                        {% else %}
+                        <li class="page-item m-1"><a href="?page={{ page }}" class="page-link">{{ page }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                        <li class="page-item next m-1"><a href="?page={{ page_obj.next_page_number }}"
+                                class="page-link"><i class="next"></i></a></li>
+                        {% else %}
+                        <li class="page-item next disabled m-1"><a href="#" class="page-link"><i class="next"></i></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <!-- {% endif %}  -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="kt_drawer_chat_1" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat"
+    data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}"
+    data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_drawer_chat_toggle_1"
+    data-kt-drawer-close="#kt_drawer_chat_close">
+    <!--begin::Messenger-->
+    <form method="post" action="{% url 'superadminapp:Coupon_Management_Details' %}" enctype="multipart/form-data"
+        id="updateForm11">
+        {% csrf_token %}
+        <div class="card w-100 rounded-0" id="kt_drawer_chat_messenger">
+            <div class="card-body">
+                <div class="modal-header d-flex justify-content-between">
+                    <h3 class="text-capitalize">Create Coupon</h3>
+                    <div class="btn btn-sm btn-icon btn-active-light-primary" id="kt_drawer_chat_close">
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                    transform="rotate(-45 6 17.3137)" fill="black" />
+                                <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                    fill="black" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label required"> Name (ENGLISH)</label>
+                        <input type="text" class="form-control form-control-solid" placeholder="Name"
+                            name="coupon_name" required/>
+                    </div>
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label required"> Name (عربي)</label>
+                        <input type="text" class="form-control form-control-solid text-right" placeholder="أدخل اسم القسيمة"
+                            name="coupon_name_arabic" required />
+                    </div>
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label required">Coupon Code</label>
+                        <input type="text" class="form-control form-control-solid" max="999999999999" placeholder="Enter Coupon Code" name="coupon_code" required/>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                          <div class="mb-0">
+                            <label class="form-label required">Start Date & Time</label>
+                            <input type="text" class="form-control form-control-solid" placeholder="Pick date and time"
+                              id="kt_daterangepicker_3" name="start_datetime" required>
+                              <div id="startDatetimeValidation" class="text-danger"></div> 
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="">
+                            <label class="form-label required">End Date & Time</label>
+                            <input type="text" class="form-control form-control-solid" placeholder="Pick date and time"
+                              id="kt_daterangepicker_4" name="end_datetime" disabled required>
+                              <div id="endDatetimeValidation" class="text-danger"></div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6 ">
+                            <h6 class="mt-7">
+                                Total number Of coupons available</h6>
+                            <!-- <div class="d-flex mt-3 mb-5">
+                            <a href="#" class="btn btn-sm btn-primary me-10 btn-xxl" id="unlimitedBtn" >Unlimited</a>
+                            <a href="#"><button class="btn btn-sm btn-primary btn-xxl" id="limitedBtn">Limited</button></a>
+                        </div>  -->
+                            <div class="d-flex mt-3 mb-5">
+                                <i href="#" class="btn btn-sm btn-primary me-10 btn-xxl"
+                                    id="unlimitedBtn"  style="font-style: normal;">Unlimited</i>
+                                <i href="#" class="btn btn-sm btn-primary btn-xxl" id="limitedBtn"  style="font-style: normal;">Limited</i>
+                            </div>
+                        </div>
+                        <div class="col-6 p-5">
+                            <div class="form-outline">
+                                <label class="form-label mt-2 " for="typeNumber">
+                                    <h6>Total number Of coupons</h6>
+                                </label>
+                                <input type="number" onkeyup="set_max()" id="typeNumber" pattern="[0-9]*" placeholder="Total number Of coupons available"
+                                    class="form-control form-control-sm form-control-solid" min="0" disabled
+                                    name="limited_number_input" />
+                            </div>
+                            <!-- number input tag -->
+
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <!-- <div class="col-6">
+                        <h6>Limited Coupon Per Customer</h6>
+                        <div class="form-check form-switch form-check-custom form-check-solid my-2">
+                            <input class="form-check-input " type="checkbox" value="" id="flexSwitchChecked" />
+                            <label class="form-check-label" for="flexSwitchChecked">
+                                Limited Coupon per Customer
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6"><div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label">Limited Cupon Code</label>
+                        <input type="text" class="form-control form-control form-control-solid mt-1" placeholder="Type Here" disabled/>
+                    </div></div> -->
+                        <div class="col-6">
+                            <h6>Limited Coupon Per Customer</h6>
+                            <div class="form-check form-switch form-check-custom form-check-solid my-2">
+                                <input class="form-check-input" type="checkbox" value="" id="flexSwitchChecked"
+                                    pattern="[0-9]*" onchange="toggleInputFieldcreat()" />
+                                <label class="form-check-label" for="flexSwitchChecked">
+                                    Limited Coupon per Customer
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-5">
+                                <label for="exampleFormControlInput1" class="form-label"> Limited Coupon per Customer</label>
+                                <input type="number" pattern="[0-9]*" name="limited_coupon_code"
+                                    class="form-control form-control form-control-solid mt-1" placeholder="Coupon per Customer"
+                                    id="couponCodeInput" disabled />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <label class="form-label">Coupon Banner image</label>
+                        <div class="col-12 justify-content-center">
+                            <!--  -->
+                            <!-- <img src="/static/images/img_default.jpg" class=" border border-dashed border-2 border-secondary" id="coupon_pic" alt="Image not Loaded"> -->
+                            <!-- <img src="/static/images/img_default.jpg" width="100%" height="200"
+                                class="border border-dashed border-2 border-secondary " id="coupon_pic"
+                                alt="Image not Loaded"> -->
+                                <img src="{% static 'images/img_default.jpg' %}" alt="Maintenance Mode Image" width="400px"
+                                height="150px" class="border border-dashed border-secondary" id="coupon_pic" p-15>
+                            <p id="imgvalidation" class="img-size-validation" style=" color: red; ">Allowed files .png, .jpg, .jpeg, .webp | Image size : 400px X 150px | Max 2MB.</p>
+                            <input type="file" id="couponimageInput1" class="img-size-validation-input" name="couponimageInput" accept="image/*"
+                                style="display: none;" required="True" name="banner_image"  onchange="validateImage(this)">
+                            <label for="couponimageInput1" class="btn btn-primary mt-5 mx-3 btn">Select an Image</label>
+                            <p id="errorMessage11" style="display: none; color: red; padding: 3px">Please select an image.</p>
+                            
+
+
+                            <!--  -->
+                        </div>
+                    </div>
+                    <div class="col-12 mt-4">
+                        <label class="form-check-label" for="flexSwitchChecked">
+                            User Type
+                        </label>
+                        <select class="form-select form-select-sm form-select-solid" data-control="select2"
+                            data-placeholder="All user" data-allow-clear="true" name="discount_for" onchange="populate(this.id)" id="userType" data-minimum-results-for-search="Infinity">
+                            <option value="1" selected>All user</option>
+                            <option value="2">Individual Users</option>
+                            <option value="3">Business Users</option>
+                        </select>
+                    </div>
+                    <div class="col-12 mt-4" id="select_all">
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                        <select class="form-control form-control-solid" data-control="select2"
+                            data-placeholder="Select user" data-allow-clear="true" multiple="multiple" name="selected_user" >
+                            <option value="0" selected>Select All</option>
+                            {%for item in user%}
+                            <option value="{{ item.id }}">{{ item.full_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-12 mt-4" id="individual_User" style="display: none;" >
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                        <select class="form-control form-control-solid" data-control="select2"
+                            data-placeholder="Select individual user" data-allow-clear="true" multiple="multiple" name="selected_user">
+                            <option value="0">Select All</option>
+                            {%for item in user%}
+                                {% if item.user_type == "Individual User"%}
+                                    <option value=" {{item.id}} ">{{ item.full_name }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-12 mt-4" id="Business_Users" style="display: none;" >
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                        <select class="form-control form-control-solid" data-control="select2"
+                            data-placeholder="Select Business Users" data-allow-clear="true" multiple="multiple" name="selected_user" >
+                            <option value="0">Select All</option>
+                            {%for item in user%}
+                                {% if item.user_type == "Business User"%}
+                                    <option value="{{ item.id }}">{{ item.full_name }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group mt-5">
+                        <label class="form-check-label" for="flexSwitchChecked">
+                            Coupon Details (ENGLISH)
+                        </label>
+                        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="4"
+                            placeholder="Enter Details..." name="coupon_details" required></textarea>
+                    </div>
+                    <div class="form-group mt-5">
+                        <label class="form-check-label" for="flexSwitchChecked">
+                             Coupon Details (عربي)
+                        </label>
+                        <textarea class="form-control rounded-0 text-right" id="exampleFormControlTextarea1" rows="4"
+                            placeholder="تفاصيل القسيمة..." name="coupon_details_arabic" required></textarea>
+                    </div>
+                    <div class="row my-7">
+                        <div class="col-6">
+                            <label class="form-check-label required" for="flexSwitchChecked">
+                                Discount Type
+
+                            </label>
+                            <!-- <input type="text" class="form-control form-control-solid" pattern="[0-9]*"
+                                name="discount_type" />
+                        </div> -->
+                                    <select class="form-select form-select-sm form-select-solid " data-control="select2"
+                                    data-placeholder=" " data-allow-clear="true" data-minimum-results-for-search="Infinity" name="discount_type">
+                                    <option value="percentage">Percentage</option>
+                                    <option value="fixed_price">Fixed price</option>
+                                </select>
+                        </div>
+                        <div class="col-6 mt-6">
+                            <div class="mb-10">
+                                <input type="number" class="percentage-input form-control form-control-solid"
+                                    name="couponrate" value=""
+                                    placeholder="Rate" min="0" required/>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-check-label" for="flexSwitchChecked">
+                                Discount if for
+                            </label>
+                            <select class="form-select form-select-sm form-select-solid" data-control="select2"
+                                data-placeholder=" " data-allow-clear="true" multiple="multiple" name="discount_for_user_type" >
+                                <option></option>
+                                <option value="membership">Membership</option>
+                                <option value="contracts">Contract</option>
+                                <option value="users">User</option>
+                                <option value="all" selected>All</option>
+                            </select>
+                        </div>
+
+                        
+                    </div>
+                    <div class="row">
+                       
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Send Alert to all existing users
+                        </label>
+                    </div>
+
+                    <div class="pt-3 text-center">
+                        <button type="submit" id="submitButton" class="btn btn-primary btn-sm img-size-validation-submit-button" onclick="checkImageUploaded()">Create</button>
+                        <input type="reset" class="btn btn-primary btn-sm" id="customResetButton" value="Clear">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- {% comment %} edit button form of coupon {% endcomment %} -->
+<!-- Scrollable modal -->
+{% for i in page_obj %}
+<div id="kt_drawer_chat_2_{{ forloop.counter }}" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat"
+    data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}"
+    data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_drawer_chat_toggle_2_{{ forloop.counter }}"
+    data-kt-drawer-close="#kt_drawer_chat_close">
+    <!--begin::Messenger-->
+
+    <div class="card w-100 rounded-0" id="kt_drawer_chat_messenger">
+        <div class="card-body">
+            <div class="modal-header d-flex justify-content-between">
+                <h3 class="text-capitalize">Update Coupon</h3>
+                <div class="btn btn-sm btn-icon btn-active-light-primary" id="kt_drawer_chat_close">
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                transform="rotate(-45 6 17.3137)" fill="black" />
+                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                fill="black" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data" action="{% url 'superadminapp:update_cupen' %}">
+                    {% csrf_token %}
+                    <input type="text" name="id" id="ID" hidden value="{{i.id}}">
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label"> Name (ENGLISH)</label>
+                        <input type="text" class="form-control form-control-solid" placeholder="Name"
+                            value="{{i.coupon_name}}" name="coupon_name" id="editCoupon" max="999999999999"/>
+                    </div>
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label"> Name (عربي)</label>
+                        <input type="text" class="form-control form-control-solid text-right" placeholder="اسم"
+                            value="{{i.coupon_name_arabic}}" name="coupon_name_arabic" id="editCoupon" />
+                    </div>
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label">Coupon Code</label>
+                        <input type="text" class="form-control form-control-solid" placeholder="Type Here"
+                            value="{{i.coupon_code}}" maxlength="12" name="coupon_code" id="editCouponCode"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-0">
+                                <label class="form-label">Start Date & Time</label>
+                                 <input type="text" class="form-control form-control-solid" placeholder="Pick date and time" id="kt_daterangepicker_5" name="start_datetime" value="{{i.start_datetime|date:'Y-m-d\TH:i' }}" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="">
+                                <label class="form-label">End Date & Time</label>
+                                <input type="text" class="form-control form-control-solid" placeholder="Pick date and time" id="kt_daterangepicker_6" name="end_datetime" value="{{ i.end_datetime|date:'Y-m-d\TH:i' }}"  required>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
+                          <h6 class="mt-7">Total number Of coupons available</h6>
+                          <div class="d-flex mt-3 mb-5">
+                            <a href="#" class="btn btn-sm btn-primary me-10 btn-xxl unlimitedBtn" onclick="toggleInputField(false,'{{i.id}}')">Unlimited</a>
+                            <a href="#" class="btn btn-sm btn-primary btn-xxl limitedBtn" onclick="toggleInputField(true,'{{i.id}}')">Limited</a>
+                          </div>
+                        </div>
+                        <div class="col-6 p-5">
+                          <div class="form-outline">
+                            <label class="form-label mt-2" for="typeNumber">
+                              <h6>Total number Of coupons</h6>
+                            </label>
+                            <input type="number" onkeyup="set_max_edite('{{i.id}}')" class="form-control form-control-sm form-control-solid " id="typeNumber-{{i.id}}"
+                                   pattern="[0-9]*" placeholder="Enter number" min="0"{%if i.total_coupons %} value="{{i.total_coupons}}"{% else %} disabled {% endif %} name="limited_number_input" />
+                          </div>
+                        </div>
+                      </div>
+                    <div class="row mt-5">
+                        <!-- <div class="col-6">
+                        <h6>Limited Coupon Per Customer</h6>
+                        <div class="form-check form-switch form-check-custom form-check-solid my-2">
+                            <input class="form-check-input " type="checkbox" value="" id="flexSwitchChecked" />
+                            <label class="form-check-label" for="flexSwitchChecked">
+                                Limited Coupon per Customer
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6"><div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label">Limited Cupon Code</label>
+                        <input type="text" class="form-control form-control form-control-solid mt-1" placeholder="Type Here" disabled/>
+                    </div></div> -->
+                        <div class="col-6">
+                            <h6>Limited Coupon Per Customer</h6>
+                            <div class="form-check form-switch form-check-custom form-check-solid my-2">
+                                <input class="form-check-input" type="checkbox" value="" id="update-{{i.id}}"
+                                    pattern="[0-9]*" onchange="toggleInputField1('{{ i.id }}')"  {%if i.limited_coupon_per_Customer %} checked {% endif %}/>
+                                <label class="form-check-label" for="update-{{i.id}}">
+                                    Limited Coupon per Customer
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-5">
+                                <label for="exampleFormControlInput1" class="form-label"> Limited Coupon per Customer</label>
+                                <input type="number" class="form-control form-control form-control-solid mt-1 limitedcode"
+                                    placeholder="Type Here" id="limitedcode-{{i.id}}" {%if i.total_coupons %} max="{{i.total_coupons}}"{% endif %} name="limited_coupon_code" {%if i.limited_coupon_per_Customer %} value="{{i.limited_coupon_per_Customer}}"{% else %} disabled {% endif %} />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <label class="form-label">Coupon Banner image</label>
+                        <div class="col-12 justify-content-center">
+                        {% if i.banner_image and i.banner_image.url %}
+                        <img src="{{ i.banner_image.url }}" alt="Maintenance Mode Image" width="400px"
+                            height="150px" class="border border-dashed border-secondary" id="temp_pic-{{i.id}}">
+                        {% else %}
+                        <img src="{% static 'images/img_default.jpg' %}" alt="Maintenance Mode Image" width="400px" height="150px" class="border border-dashed border-secondary" id="temp_pic-{{i.id}}">
+                        {% endif %}
+                        <p id="imgvalidation1" class="coupon-update-img-size-validation" style="color: red;"></p>
+
+                        <input type="file" class="imgInp" id="imageInput-{{i.id}}"   {% if i.banner_image and i.banner_image.url %} value="{{ i.banner_image.url }}" {% endif %} name="mmwpiimageInput" accept="image/*" style="display: none;" onchange="validateImage1(this)">
+                       
+                        <label for="imageInput-{{i.id}}" class="btn imgInp btn-primary mt-7 mx-3 btn-sm">Select an Image</label>
+
+                        </div>
+                    </div>                        
+                    <div class="col-12 mt-4">
+                        <label class="form-label" for="flexSwitchChecked">
+                            User Type
+                        </label> 
+                        <select class="form-select form-select-sm form-select-solid" data-control="select2"
+                            data-placeholder="All user" data-allow-clear="true" name="discount_for" onchange="populate2(this.id,'{{i.id}}')" id="userType_{{i.id}}" data-minimum-results-for-search="Infinity" >
+                            <option value="1" {% if i.discount_for_user_type == "1" %}selected{% endif %}>All user</option>
+                            <option value="2" {% if i.discount_for_user_type == "2" %}selected{% endif %}>Individual Users</option>
+                            <option value="3" {% if i.discount_for_user_type == "3" %}selected{% endif %}>Business Users</option>
+                        </select>
+                    </div>                    
+                    <div class="col-12 mt-4" id="select_all_{{i.id}}">
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                            <select class="form-control form-control-solid" data-control="select2"
+                            data-placeholder="Select user" data-allow-clear="true" multiple="multiple" name="selected_user">
+                            
+                            <option value="0" {% with a=i.selected_users|literal_eval %}{% if 0 in a and i.discount_for_user_type == "1" %}  selected {% endif %}  {%endwith%}  >Select All</option>
+                            
+                            {% for item in user %}
+                            <option value="{{ item.id }}"{% with a=i.selected_users|literal_eval %} {% if item.id in a %}  selected{% endif %}    {%endwith%}    >{{ item.full_name }} </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="col-12 mt-4" id="individual_User_{{i.id}}" style="display: none;" >
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                     
+                        <select class="form-control form-control-solid" data-control="select2"
+                                data-placeholder="Select individual user" data-allow-clear="true" multiple="multiple" name="selected_user">
+                                <option value="0" {% with a=i.selected_users|literal_eval %}{% if 0 in a and i.discount_for_user_type == "2" %}  selected {% endif %}  {%endwith%}  >Select All</option>
+                            
+                                {% for item in user %}
+                           
+                                {% if item.user_type == "Individual User"%}
+                               
+                                <option value="{{ item.id }}" {% with a=i.selected_users|literal_eval %} {% if item.id in a %} selected{% endif %}  {%endwith%} >{{ item.full_name }}</option>
+                                {% endif %}
+                           
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-12 mt-4" id="Business_Users_{{i.id}}" style="display: none;" >
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                       
+                      <select class="form-control form-control-solid" data-control="select2"
+                                data-placeholder="Select Business user" data-allow-clear="true" multiple="multiple" name="selected_user">
+                                <option value="0" {% with a=i.selected_users|literal_eval %}{% if 0 in a and i.discount_for_user_type == "3"  %}  selected {% endif %}  {%endwith%}  >Select All</option>
+                            
+                                {% for item in user %}
+                        
+                                {% if item.user_type == "Business User"%}
+                                
+                                <option value="{{ item.id }}" {% with a=i.selected_users|literal_eval %} {% if item.id in a %} selected{% endif %}  {%endwith%} >{{ item.full_name }}</option>
+                                {% endif %}
+                        
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group mt-5">
+                        <label class="form-check-label" for="flexSwitchChecked">
+                            Coupon Details (ENGLISH)
+                        </label>
+                        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="4"
+                            placeholder="Coupon Details... " name="coupon_details">{{i.coupon_details}}</textarea>
+                    </div>
+                    <div class="form-group mt-5">
+                        <label class="form-check-label" for="flexSwitchChecked">
+                             Coupon Details (عربي)
+                        </label>
+                        <textarea class="form-control rounded-0 text-right" id="exampleFormControlTextarea1" rows="4"
+                            placeholder="Enter Details..." name="coupon_details_arabic">{{i.coupon_details_arabic}}</textarea>
+                    </div>
+                    <div class="row my-7">
+                        <div class="col-6 ">
+                            <label class="form-check-label" for="flexSwitchChecked">
+                                Discount Type
+
+                            </label>
+                            <!-- <input type="text" class="form-control form-control-solid" value="{{i.discount_type}}"
+                                placeholder="%Percentage" name="discount_type" /> -->
+                                <select class="form-select form-select-sm form-select-solid" data-control="select2"
+                                    data-placeholder=" " data-allow-clear="true" data-minimum-results-for-search="Infinity" name="discount_type">
+                                    <option value="percentage">Percentage</option>
+                                    <option value="fixed_price">Fixed price</option>
+                                </select>
+                        </div>
+                        <div class="col-6 mt-6">
+                            <div class="mb-10">
+                                <input type="number" class="percentage-input form-control form-control-solid"
+                                     name="couponrate" 
+                                     {% if i.discount_rate %}
+                                     value="{{i.discount_rate}}"
+                                     {% endif %} placeholder="Rate" min="0"/>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <label class="form-check-label" for="flexSwitchChecked">
+                                Discount it for
+                            </label>
+                            <select class="form-select form-select-sm form-select-solid" data-control="select2"
+                                data-placeholder=" " data-allow-clear="true" multiple="multiple" name="discount_for_user_type">
+                                <option></option>
+                                <option value="membership" {% if "membership" in i.discount_for %}selected{% endif %}>Membership
+                                </option>
+                                <option value="contracts" {% if "contracts" in i.discount_for %}selected{% endif %}>Contract
+                                </option>
+                                <option value="users" {% if "users" in i.discount_for %}selected{% endif %}>User
+                                </option>
+                                <option  value="all" {% if "all" in i.discount_for %}selected{% endif %}>All</option>
+            
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                       
+                    </div>
+                    <div class="form-check my-5">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Send Alert to all existing users
+                        </label>
+                    </div>
+                    <!-- <div class="row">
+                                <div class="col-5 mt-5">
+                                    <label class="form-check-label" for="flexCheckChecked">Select Notification
+                                        Type</label>
+                                    <select class="form-select form-select-sm form-select-solid" data-control="select2"
+                                        data-placeholder="Select an option">
+                                        <option></option>
+                                        <option value="1">Renewal Notification</option>
+                                        <option value="2">New Notification</option>
+                                    </select>
+                                </div>
+                                <div class="col-5 mt-5">
+                                    <label class="form-check-label" for="flexCheckChecked">Select Recipient</label>
+                                    <select class="form-select form-select-sm form-select-solid" data-control="select2"
+                                        data-placeholder="Select an option">
+                                        <option></option>
+                                        <option value="1">Everyone</option>
+                                        <option value="2">Individual User</option>
+                                        <option value="3">Business User</option>
+                                    </select>
+                                </div>
+                                <div class="col-2 position-relative">
+                                    <div class="position-absolute start-75 bottom-0">
+                                        <i class="fas fa-camera-retro fa-2x text-dark"></i>
+                                    </div>
+                                    <img src="./images/img_default.jpg" class="w-100" alt="">
+                                </div>
+                            </div>
+                            <div class="mb-5">
+                                <label for="exampleFormControlInput1" class="form-label">Notification Title</label>
+                                <input type="email" class="form-control form-control-solid" placeholder="Type Here" />
+                            </div>
+                            <div class="form-group mb-5">
+                                <label for="exampleFormControlInput1" class="form-label">Description</label>
+                                <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="4"
+                                    placeholder="Type Here"></textarea>
+                            </div> -->
+
+                    <div class="pt-3 text-center">
+                        <button type="submit" class="btn btn-primary btn-sm notsubmitupdateButton"  id="submitupdateButton" value="Update">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<div id="kt_scrolltop" class="scrolltop mb-3" data-kt-scrolltop="true">
+    <span class="svg-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+            <path
+                d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+                fill="black" />
+        </svg>
+    </span>
+</div>
+
+<!-- Image Validation -->
+<script>
+    function validateImage() {
+        const input = document.getElementById("couponimageInput1"); // Select the file input by ID
+        const submitButton = document.getElementById("submitButton");
+  
+        const allowedExtensions = ["png", "jpg", "jpeg", "webp"];
+        const maxSize = 2 * 1024 * 1024; // 2MB
+        const maxWidth = 400;
+        const maxHeight = 150;
+    
+        const file = input.files[0];
+        const fileName = file.name.toLowerCase();
+        const fileSize = file.size;
+        const image = new Image();
+    
+        image.src = URL.createObjectURL(file);
+    
+        image.onload = function () {
+            if (fileSize > maxSize) {
+                displayValidationMessage("File size exceeds 2MB");
+                submitButton.disabled = true; // Disable the submit button
+            } else if (image.width !== maxWidth && image.height !== maxHeight) {
+                displayValidationMessage("Image dimensions should be 400px X 150px or smaller");
+                submitButton.disabled = true; 
+
+           
+            } else if (!allowedExtensions.some(ext => fileName.endsWith(ext))) {
+                displayValidationMessage("Allowed file types are .png, .jpg, .jpeg, .webp");
+                submitButton.disabled = true; // Disable the submit button
+            } else {
+                hideValidationMessage();
+                submitButton.disabled = false; // Enable the submit button
+            }
+        };
+    }
+    
+    function displayValidationMessage(message) {
+        const imgValidation = document.getElementById("imgvalidation");
+        imgValidation.textContent = message;
+        imgValidation.style.display = "block";
+    }
+    
+    function hideValidationMessage() {
+        const imgValidation = document.getElementById("imgvalidation");
+        imgValidation.style.display = "none";
+    }
+</script>
+
+<script>
+    function validateImage1(input) {
+        const submitButton = input.closest('.bg-body').querySelector(".notsubmitupdateButton");
+
+        const allowedExtensions = ["png", "jpg", "jpeg", "webp"];
+        const maxSize = 2 * 1024 * 1024; // 2MB
+        const maxWidth = 400;
+        const maxHeight = 100;
+
+        const file = input.files[0];
+
+        if (!file) {
+            displayValidationMessage1(input.closest('.bg-body'), "No image selected");
+            submitButton.disabled = true;
+            return;
+        }
+
+        const fileName = file.name.toLowerCase();
+        const fileSize = file.size;
+        const image = new Image();
+
+        image.src = URL.createObjectURL(file);
+
+        image.onload = function () {
+            if (fileSize > maxSize) {
+                displayValidationMessage1(input.closest('.bg-body'), "File size exceeds 2MB");
+                submitButton.disabled = true; 
+
+            } else if (image.width !== maxWidth && image.height !== maxHeight) {
+                displayValidationMessage1(input.closest('.bg-body'), "Image dimensions should be 400px X 150px");
+                submitButton.disabled = true; 
+            } else if (!allowedExtensions.some(ext => fileName.endsWith(ext))) {
+                displayValidationMessage1(input.closest('.bg-body'), "Allowed file types are .png, .jpg, .jpeg, .webp");
+                submitButton.disabled = true; 
+            } else {
+                hideValidationMessage1(input.closest('.bg-body'));
+                submitButton.disabled = false; 
+            }
+        };
+    }
+
+    function displayValidationMessage1(container, message) {
+        const imgValidation = container.querySelector(".coupon-update-img-size-validation");
+        imgValidation.textContent = message;
+        imgValidation.style.display = "block";
+    }
+
+    function hideValidationMessage1(container) {
+        const imgValidation = container.querySelector(".coupon-update-img-size-validation");
+        imgValidation.textContent = ''; 
+        imgValidation.style.display = "none";
+    }
+</script>
+<!-- Image Validation -->
+
+ <!-- for pagination search and page data limt -->
+ <script>
+    $(document).ready(function() {
+        var table = $('#kt_ecommerce_report_sales_table_mytable').DataTable({
+            dom: 'lrtip', // Exclude "f" for search bar
+            "pagingType": 'full_numbers',
+            "paging": true,         // Enable pagination
+            "pageLength": 10,      // Number of items per page
+            "lengthMenu": [5,10, 25, 50, 75, 100], // Dropdown for changing page length
+            "ordering": true      // Disable column sorting (optional)
+            // Set placeholder for the search bar
+        
+        }); 
+        $('.dataTables_filter input').attr('class', 'form-control form-control-sm ');
+        $('.dataTables_filter input').attr('placeholder', 'Search...');
+        $('.dataTables_filter label').contents().first().remove();
+
+        $('#Search').on('keyup', function() {
+            var searchText = $(this).val();
+            table.search(searchText).draw();
+        });
+       
+    });
+</script>
+ <!-- for pagination search and page data limt -->
+
+<!-- Enable text input when limited coupon code  True -->
+<script>
+    function toggleInputField1(i) {
+        var id = i
+        console.log(id)
+        var checkbox = document.getElementById("update-" + id);
+        var inputField = document.getElementById("limitedcode-" + id);
+
+        if (checkbox.checked) {
+            inputField.removeAttribute('disabled');
+          }else {
+            inputField.setAttribute('disabled', 'disabled');
+          }
+    }
+</script>
+<!-- Enable text input when limited coupon True -->
+<script>
+    const unlimitedBtn = document.getElementById('unlimitedBtn');
+    const limitedBtn = document.getElementById('limitedBtn');
+    const typeNumberInput = document.getElementById('typeNumber');
+
+    limitedBtn.addEventListener('click', function () {
+        // Enable the number input
+        typeNumberInput.disabled = false;
+        unlimitedBtn.style.backgroundColor = "#0b3856";
+        limitedBtn.style.backgroundColor = "#0095E8";
+    });
+
+    unlimitedBtn.addEventListener('click', function () {
+        typeNumberInput.disabled = true;
+        limitedBtn.style.backgroundColor = "#0b3856";
+        unlimitedBtn.style.backgroundColor = "#0095E8";
+    });
+</script>
+<script>
+    function toggleInputField(isLimited,i) {
+      const inputField = document.getElementById('typeNumber-' + i);
+  
+      if (isLimited) {
+        inputField.removeAttribute('disabled','value');
+      } else {
+        inputField.setAttribute('disabled', 'disabled');
+      }
+    }
+  </script>
+<!-- for impg lode in creat -->
+<script>
+    document.getElementById("couponimageInput1").addEventListener("change", function () {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById("coupon_pic").src = e.target.result;
+        };
+        reader.readAsDataURL(this.files[0]);
+    });
+
+</script>
+<script>
+    document.getElementById("customResetButton").addEventListener("click", function () {
+        document.getElementById("coupon_pic").src = "/static/images/img_default.jpg";
+        document.getElementById("couponimageInput1").value = "";
+    });
+</script>
+<!-- for search  -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const filterInput = document.getElementById('Search');
+        const reelTable = document.getElementById('kt_ecommerce_report_sales_table mytable');
+        const rows = reelTable.getElementsByTagName('tr');
+
+        filterInput.addEventListener('keyup', function () {
+            const filterValue = filterInput.value.toLowerCase();
+
+            for (let i = 0; i < rows.length; i++) {
+                const full_name = rows[i].getElementsByTagName('td')[0];
+                if (full_name) {
+                    const FullNameValue = full_name.textContent || full_name.innerText;
+                    if (FullNameValue.toLowerCase().indexOf(filterValue) > -1) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+        });
+    });
+</script>
+<!-- image not uploaded -->
+<script>
+    function checkImageUploaded() {
+        var imageInput = document.getElementById("couponimageInput1");
+        var errorMessage = document.getElementById("errorMessage11");
+        
+        if (imageInput.files.length === 0) {
+            errorMessage.style.display = "block";
+            return false; 
+        } else {
+            errorMessage.style.display = "none";
+            return true; 
+        }
+    }
+    document.getElementById("couponimageInput1").addEventListener("change", function() {
+        var errorMessage = document.getElementById("errorMessage11");
+        errorMessage.style.display = "none";
+    });
+</script>
+<!-- image not uploaded -->
+<!-- validation input coupon per coustomer -->
+<script>
+    function set_max(){
+       const max = document.getElementById('typeNumber').value
+       console.log(max)
+       console.log("......................")
+       document.getElementById('couponCodeInput').setAttribute("max", max)
+    }
+</script>
+<script>
+    function set_max_edite(id){
+
+        const max = document.getElementById('typeNumber-'+id).value
+        console.log(max)
+        console.log("......................")
+        document.getElementById('limitedcode-'+id).setAttribute("max", max)
+        if (document.getElementById('limitedcode-'+id)){
+            console.log(document.getElementById('limitedcode-'+id).max)
+            console.log("...........inif ...........")
+        }
+     }
+</script>
+<!-- validation input coupon per coustomer -->
+
+<!-- date not select before current time -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js"></script>
+
+<!-- date not select before current time -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js"></script>
+<script>
+  flatpickr('#kt_daterangepicker_5', {
+    enableTime: true,
+    dateFormat: 'Y-m-d H:i',  
+    minDate: "today",
+    onChange: function(selectedDates, dateStr) {
+      console.log('Selected Start Date and Time:', dateStr);
+    }
+  });
+
+  flatpickr('#kt_daterangepicker_6', {
+    enableTime: true,
+    dateFormat: 'Y-m-d H:i',  
+    minDate: "today",
+    onChange: function(selectedDates, dateStr) {
+      console.log('Selected End Date and Time:', dateStr);
+    }
+  });
+</script>
+
+<script>
+    const startPicker = flatpickr('#kt_daterangepicker_3', {
+      enableTime: true,
+      dateFormat: 'Y-m-d H:i',
+      minDate: "today",
+      onChange: function (selectedDates, dateStr) {
+        console.log('Selected Start Date and Time:', dateStr);
+        if (dateStr) {
+          const minEndDate = new Date(selectedDates[0]);
+          
+          endPicker.set("minDate", minEndDate);
+          endPicker.set("minTime", minEndDate); 
+          document.getElementById('kt_daterangepicker_4').removeAttribute('disabled');
+        } else {
+          endPicker.clear();
+          document.getElementById('kt_daterangepicker_4').setAttribute('disabled', 'disabled');
+        }
+      }
+    });
+    const endPicker = flatpickr('#kt_daterangepicker_4', {
+      enableTime: true,
+      dateFormat: 'Y-m-d H:i',
+      disabled: true,
+      onChange: function (selectedDates, dateStr) {
+        console.log('Selected End Date and Time:', dateStr);
+      }
+    });
+</script>
+<!-- date not select before current time -->
+
+<script>
+    document.getElementById('updateForm11').addEventListener('submit', function (event) {
+        var startDate = document.getElementById('kt_daterangepicker_3').value;
+        var endDate = document.getElementById('kt_daterangepicker_4').value;
+        var startDatetimeValidation = document.getElementById('startDatetimeValidation');
+        var endDatetimeValidation = document.getElementById('endDatetimeValidation');
+
+        // Clear previous validation messages
+        startDatetimeValidation.textContent = '';
+        endDatetimeValidation.textContent = '';
+
+        if (startDate === '') {
+            startDatetimeValidation.textContent = 'Start Date & Time is required.';
+            event.preventDefault(); // Prevent form submission
+        }
+
+        if (endDate === '') {
+            endDatetimeValidation.textContent = 'End Date & Time is required.';
+            event.preventDefault(); // Prevent form submission
+        }
+    });
+</script>
+{% include "footer.html" %}

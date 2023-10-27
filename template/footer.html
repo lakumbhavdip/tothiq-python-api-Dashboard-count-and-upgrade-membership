@@ -1,0 +1,565 @@
+{% block content %}
+{% endblock %}
+{% load static %}
+<div class="footer py-4 d-flex flex-lg-column app-footer position-fixed bottom-0 end-0 w-100" id="kt_footer">
+  <!--begin::Container-->
+  <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-end">
+    <!--begin::Copyright-->
+    <div class="text-dark order-2 order-md-1">
+      
+      <span class="text-muted fw-bold me-1">© 2023</span>
+      <!-- <a href="{% url 'superadminapp:Tothiq_User' %}" target="_blank" class="text-gray-800 text-hover-primary">tothiq.com</a> -->
+      <a href="{% url 'superadminapp:Tothiq_User' %}" target="_blank" class="text-gray-800 text-hover-primary">{{ profile_data.crtx }}</a>
+    </div>
+    <!--end::Copyright-->
+  </div>
+  <!--end::Container-->
+</div>
+</div>
+
+
+
+<!-- <script>
+  var hostUrl = "../static/";
+</script>
+<script src="/static/plugins/global/plugins.bundle.js"></script>
+<script src="/static/js/scripts.bundle.js"></script>
+<script src="/static/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+<script src="/static/js/custom/widgets.js"></script>
+<script src="/static/js/custom/apps/chat/chat.js"></script>
+<script src="/static/js/custom/modals/create-app.js"></script>
+<script src="/static/js/custom/modals/upgrade-plan.js"></script>
+<script src="/static/plugins/custom/ckeditor/ckeditor-classic.bundle.js"></script>
+<script src="/static/plugins/custom/ckeditor/ckeditor-inline.bundle.js"></script>
+<script src="/static/plugins/custom/ckeditor/ckeditor-balloon.bundle.js"></script>
+<script src="/static/plugins/custom/ckeditor/ckeditor-balloon-block.bundle.js"></script>
+<script src="/static/plugins/custom/ckeditor/ckeditor-document.bundle.js"></script>
+<script src="../static/plugins/custom/ckeditor/ckeditor-balloon-block.bundle.js"></script>
+<script src="../static/plugins/custom/ckeditor/ckeditor-document.bundle.js"></script> -->
+
+
+<script>var hostUrl = "{% static '../static/' %}";</script>
+<script src="{% static '../static/plugins/global/plugins.bundle.js' %}"></script>
+<script src="{% static '../static/js/scripts.bundle.js' %}"></script>
+<!-- <script src="{% static '/static/plugins/custom/fullcalendar/fullcalendar.bundle.js' %}"></script> -->
+<script src="{% static '../static/js/custom/widgets.js' %}"></script>
+<script src="{% static '../static/js/custom/apps/chat/chat.js' %}"></script>
+<script src="{% static '../static/js/custom/modals/create-app.js' %}"></script>
+<script src="{% static '../static/js/custom/modals/upgrade-plan.js' %}"></script>
+<script src="{% static '../static/plugins/custom/ckeditor/ckeditor-classic.bundle.js' %}"></script>
+<script src="{% static '../static/plugins/custom/ckeditor/ckeditor-inline.bundle.js' %}"></script>
+<script src="{% static '../static/plugins/custom/ckeditor/ckeditor-balloon.bundle.js' %}"></script>
+<script src="{% static '../static/plugins/custom/ckeditor/ckeditor-balloon-block.bundle.js' %}"></script>
+<script src="{% static '../static/plugins/custom/ckeditor/ckeditor-document.bundle.js' %}"></script>
+<!-- <script src="{% static '/static/plugins/custom/ckeditor/ckeditor-balloon-block.bundle.js' %}"></script>
+<script src="{% static '/static/plugins/custom/ckeditor/ckeditor-document.bundle.js' %}"></script> -->
+<script src="{% static '../static/js/data table/datatables.min.js' %}"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<script>
+$(document).ready(function() {
+  $(".report").click(function() {
+    $("#reportsmenu").toggleClass("show");
+  });
+});
+</script>
+
+<!-- report dropdown in header -->
+<script>
+  $(document).ready(function() {
+    $('#reportsDropdownButton').click(function() {
+      $('#reportsDropdownMenu').toggle();
+    });
+  });
+</script>
+<!-- report dropdown in header -->
+
+<!-- setting dropdown in header -->
+<script>
+  $(document).ready(function() {
+    $('#settingDropdownButton').click(function() {
+      $('#settingsDropdownMenu').toggle();
+    });
+  });
+</script>
+<!-- setting dropdown in header -->
+
+
+<script>
+  function populate(s){
+    var optionSelect = document.getElementById(s);
+    var selectedOption = optionSelect.value;
+
+    if(selectedOption == "1"){
+      var divElement = document.getElementById("select_all");
+      divElement.removeAttribute("style");
+      var divElement1 = document.getElementById("individual_User");
+      divElement1.style.cssText = "display: none;";
+      var divElement2 = document.getElementById("Business_Users");
+      divElement2.style.cssText = "display: none;";
+    }
+    else if(selectedOption == "2"){
+      var divElement = document.getElementById("individual_User");
+      divElement.removeAttribute("style");
+      var divElement1 = document.getElementById("select_all");
+      divElement1.style.cssText = "display: none;";
+      var divElement2 = document.getElementById("Business_Users");
+      divElement2.style.cssText = "display: none;";
+    }
+    else if(selectedOption == '3'){
+      var divElement = document.getElementById("Business_Users");
+      divElement.removeAttribute("style");
+      var divElement1 = document.getElementById("individual_User");
+      divElement1.style.cssText = "display: none;";
+      var divElement2 = document.getElementById("select_all");
+      divElement2.style.cssText = "display: none;";
+    }
+  }
+</script>
+
+
+<script>
+  function populate2(s,i){
+    var id = i
+    console.log(id,"........................")
+    var optionSelect = document.getElementById(s);
+    var selectedOption = optionSelect.value;
+
+    if(selectedOption == "1"){
+      console.log(id,"..............1..........")
+      var divElement = document.getElementById("select_all_"+id);
+      divElement.removeAttribute("style");
+      var divElement1 = document.getElementById("individual_User_"+id);
+      divElement1.style.cssText = "display: none;";
+      var divElement2 = document.getElementById("Business_Users_"+id);
+      divElement2.style.cssText = "display: none;";
+    }
+    else if(selectedOption == "2"){
+      console.log(id,"................2........")
+      var divElement = document.getElementById("individual_User_"+id);
+      divElement.removeAttribute("style");
+      var divElement1 = document.getElementById("select_all_"+id);
+      divElement1.style.cssText = "display: none;";
+      var divElement2 = document.getElementById("Business_Users_"+id);
+      divElement2.style.cssText = "display: none;";
+    }
+    else if(selectedOption == '3'){
+      console.log(id,"................3........")
+      var divElement = document.getElementById("Business_Users_"+id);
+      divElement.removeAttribute("style");
+      var divElement1 = document.getElementById("individual_User_"+id);
+      divElement1.style.cssText = "display: none;";
+      var divElement2 = document.getElementById("select_all_"+id);
+      divElement2.style.cssText = "display: none;";
+    }
+  }
+</script>
+
+<script>
+  function toggleInputFieldcreat() {
+      var checkbox = document.getElementById("flexSwitchChecked");
+      var inputField = document.getElementById("couponCodeInput");
+      if (checkbox.checked) {
+          inputField.disabled = false;
+      } else {
+          inputField.disabled = true;
+      }
+  }
+</script>
+
+
+<script>
+  const imageInputs = document.querySelectorAll('.imgInp');
+  imageInputs.forEach(function(imageInput) {
+    imageInput.addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      const imagePreview = document.getElementById('temp_pic-' + imageInput.id.split('-')[1]);
+
+      reader.addEventListener('load', function() {
+        imagePreview.src = reader.result;
+      });
+
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    });
+  });
+</script>
+
+<!-- search button -->
+<script>
+  function myFunction() {
+    var input, filter, i, txtValue;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("changeCursorBtn");
+    li = ul.getElementsByTagName('li');
+
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+</script>
+<!-- search button -->
+
+<!-- category -->
+<script>
+  function toggleContent(itemId) {
+      const toggleContent = document.getElementById(`toggle-content-${itemId}`);
+      toggleContent.style.display = toggleContent.style.display === 'none' ? 'block' : 'none';
+    }
+  function fetchCategoryId(categoryId,categoryname) {
+      $.ajax({
+          url: "{% url 'superadminapp:Category' %}",
+          data: {
+              category_id: categoryId,
+              category_name: categoryname,
+              csrfmiddlewaretoken: "{{ csrf_token }}"
+          },
+          type : "get",
+          dataType: "json",
+          success: function(data) {
+              console.log(response);
+              $("")
+          },
+          error: function(xhr, errmsg, err) {
+              console.log(xhr.status + ": " + xhr.responseText);
+          }
+      });
+  }
+</script>
+
+<!-- for search bar in category -->
+<script>
+  function searchTable() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("Search");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("kt_ecommerce_report_sales_table");
+      tr = table.getElementsByTagName("tr");
+
+      for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td");
+          for (var j = 0; j < td.length; j++) {
+              if (td[j]) {
+                  txtValue = td[j].textContent || td[j].innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                      tr[i].style.display = "";
+                      break;
+                  } else {
+                      tr[i].style.display = "none";
+                  }
+              }
+          }
+      }
+  }
+</script>
+<!-- category -->
+
+<!-- Hide message after few second in template page -->
+<script>
+  $(document).ready(function() {
+    $(".hide-after-delay").each(function() {
+      var messageElement = $(this);
+		  setTimeout(function() {
+        messageElement.fadeOut();
+		  }, 3000); 
+		});
+  });  
+</script>
+<!-- Hide message after few second in template page -->
+
+<!-- image not input  -->
+<script>
+  function checkFileUpload() {
+      const fileInput = document.getElementById('imageInput');
+      const errorMessage = document.getElementById('errorMessage');
+
+      if (!fileInput.value) {
+          errorMessage.style.display = 'block';
+      } else {
+          errorMessage.style.display = 'none';
+      }
+  }
+</script>
+<!-- image not input  -->
+
+<script>
+  function toggleDivDisabled(isLimited) {
+      var limitedDiv = document.getElementById('limitedDiv');
+      limitedDiv.disabled = ! isLimited;
+  }
+</script>
+
+<!-- for tothiq user srearch  -->
+<script>
+  function filterTable3() {
+    let input, filter, table, tr, td, j;
+    input = document.getElementById('Searcht');
+    filter = input.value.toUpperCase();
+    table = document.getElementById('kt_ecommerce_report_sales_table Tothiq');
+    tr = table.getElementsByTagName('tr');
+    let msg = document.getElementById("no-data");
+    let found = false;
+
+    for (j = 0; j < tr.length; j++) {
+        td = tr[j].getElementsByTagName("td");
+        let matchFound = false;
+
+        if (td.length > 0) {
+            for (let i = 0; i < td.length; i++) {
+                let cellValue = td[i].innerHTML;
+                if (cellValue && cellValue.toUpperCase().indexOf(filter) > -1) {
+                    matchFound = true;
+                    break;
+                }
+            }
+
+            if (matchFound) {
+                tr[j].style.display = "";
+                found = true;
+            } else {
+                tr[j].style.display = "none";
+            }
+        }
+    }
+
+    if (!found) {
+        msg.innerHTML = "Not found";
+    } else {
+        msg.innerHTML = "";
+    }
+}
+
+// Trigger search function with a slight delay on input event
+document.getElementById('Search').addEventListener('input', searchFunction);
+</script>
+<!-- for tothiq user srearch  -->
+
+<!-- fro edite active_status in tothiq user  -->
+<script>
+  function fetchId2(u_Id,u_active_status) {
+
+    // Make an AJAX request to the Django view
+    $.ajax({
+        url: "{% url 'superadminapp:Tothiq_User' %}",
+        data: {
+            user_id: u_Id,
+            active_status: u_active_status,
+            csrfmiddlewaretoken: "{{ csrf_token }}"
+        },
+        type : "get",
+        dataType: "json",
+        success: function(data) {
+            // Handle the response from the Django view
+            console.log(response);
+            $("")
+            
+        },
+        error: function(xhr, errmsg, err) {
+            console.log(xhr.status + ": " + xhr.responseText);
+        }
+
+    });
+    setTimeout(function() {
+      location.reload();
+    }, 300);
+  }
+
+</script>
+
+<script>
+  function fetchId(u_Id) {
+
+    // Make an AJAX request to the Django view
+    $.ajax({
+        url: "{% url 'superadminapp:tothiq_user_update' %}",
+        data: {
+            update_user_id: u_Id,
+            csrfmiddlewaretoken: "{{ csrf_token }}"
+        },
+        type : "get",
+        dataType: "json",
+        success: function(data) {
+            // Handle the response from the Django view
+            console.log(response);
+            $("")
+            
+        },
+        error: function(xhr, errmsg, err) {
+            console.log(xhr.status + ": " + xhr.responseText);
+        }
+
+    });
+
+  }
+
+</script>
+<!-- fro edite active_status in tothiq user  -->
+
+<!-- drop down for profile -->
+<script>
+  const formFields = document.querySelectorAll("#kt_drawer_chat_messenger input, #kt_drawer_chat_messenger button");
+
+  formFields.forEach((field) => {
+    field.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+        $("#wizard-picture").change(function(){
+            readURL(this);
+        });
+    });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+    
+            reader.onload = function (e) {
+                $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+<!-- drop down for profile -->
+
+
+<!-- for chek password -->
+<script>
+  function checkPassword(){
+    var old_password = "{{ footer_data.password }}"
+   
+    var curent_password = document.getElementById("curent_password").value
+  
+     // Send the password to the server for validation using AJAX
+     fetch('/validate_password/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': '{{ csrf_token }}',  // If you are using CSRF protection
+      },
+      body: JSON.stringify({ password: curent_password }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.is_valid) {
+        document.getElementById('update_btn').removeAttribute('disabled');
+            console.log("correct")
+      } else {
+        const errorMsg = document.getElementById('error-msg');
+        errorMsg.textContent = 'Current Password is not valid.';
+        errorMsg.style.display = 'block';
+       // document.getElementById('curent_password').style.backgroundColor = "#FFCCCB";
+        document.getElementById('update_btn').setAttribute('disabled', 'disabled');
+        console.log("notmache")
+      }
+    })
+    .catch(error => {
+      console.error('Error occurred:', error);
+    });
+  }
+
+</script>
+<script>
+  function curent_password_bg(){
+    const errorMsg = document.getElementById('error-msg');
+    errorMsg.style.display = 'none';
+    document.getElementById('curent_password').style.backgroundColor = "";
+  }
+</script>
+<!-- for chek password -->
+
+<!-- validattion  email -->
+<script>
+  function validate_email_update(inputElement) {
+      var emailInput = inputElement.value;
+      var oldEmail = inputElement.getAttribute('data-old-email');
+      var errorMsg = inputElement.parentElement.querySelector('.email_validation_msg_superuser_update');
+      var errorMsgPhone = document.querySelector('.phone_validation_msg_superuser_update');
+      var submitButton = inputElement.closest('form').querySelector('.updatesuperuser');
+      
+      if (emailInput === '') {
+        errorMsg.textContent = 'This field is required.';
+        errorMsg.style.display = 'block';
+        submitButton.setAttribute('disabled', 'disabled');
+        return;
+      }
+   
+      if (phoneInput === '') {
+        errorMsgPhone.textContent = 'This field is required.';
+        errorMsgPhone.style.display = 'block';
+        submitButton.setAttribute('disabled', 'disabled');
+        return;
+      }
+   
+      
+      if (emailInput === oldEmail) {
+          errorMsg.style.display = 'none'; 
+          submitButton.removeAttribute('disabled');
+          return; 
+      }
+      
+      fetch('/validate_Email_super_user_update/', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': '{{ csrf_token }}',
+          },
+          body: JSON.stringify({ emailinupdate: emailInput }),
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.is_valid) {
+              errorMsg.style.display = 'none';
+              submitButton.removeAttribute('disabled');
+          } else {
+              errorMsg.textContent = 'This email is already in use.';
+              errorMsg.style.display = 'block';
+              submitButton.setAttribute('disabled', 'disabled');
+          }
+      })
+      .catch(error => {
+          console.error('Error occurred:', error);
+      });
+  }
+  
+
+
+  function validate_phone_update(inputElement) {
+    var phoneInput = inputElement.value;
+    var errorMsgPhone = inputElement.parentElement.querySelector('.phone_validation_msg_superuser_update');
+    var submitButton = inputElement.closest('form').querySelector('.updatesuperuser');
+
+    if (phoneInput === '') {
+        errorMsgPhone.textContent = 'This field is required.';
+        errorMsgPhone.style.display = 'block';
+        submitButton.setAttribute('disabled', 'disabled');
+        return;
+    }
+
+    if (/^\d{10}$/.test(phoneInput)) {
+        errorMsgPhone.style.display = 'none';
+        submitButton.removeAttribute('disabled');
+    } else {
+        errorMsgPhone.textContent = 'Invalid phone number. Please enter 10 digits.';
+        errorMsgPhone.style.display = 'block';
+        submitButton.setAttribute('disabled', 'disabled');
+    }
+    }
+</script>
+<!-- validattion  email -->
+
+
+</body>
+
+</html>

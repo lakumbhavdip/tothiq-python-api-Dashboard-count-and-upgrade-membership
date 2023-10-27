@@ -1,0 +1,340 @@
+{% include "header.html" %}
+
+<div class="content d-flex flex-column p-0 mb-20 vh-100" id="kt_content">
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <div id="kt_content_container" class="container-fluid">
+            <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+                <!--begin::Toolbar container-->
+                <div id="kt_app_toolbar_container" class="app-container px-3 d-flex flex-stack">
+                    <!--begin::Page title-->
+                    <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                        <!--begin::Title-->
+                        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+                            Labels </h1>
+                        <!--end::Title-->
+                        {% for message in messages %}
+                        <div class="alert alert-primary mt-1 messageclass hide-after-delay" role="alert">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!--end::Toolbar container-->
+            </div>
+            <div class="kt_content_containe_inr d-flex justify-content-between my-5 card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-10">
+                        <div>
+                            <h3></h3>
+                        </div>
+                        <div class="d-flex">
+                           
+                            <input type="text" class="form-control mx-5 "  placeholder="Search" id="filterInput" />
+                           
+                        </div>
+                    </div>
+                    <div id="kt_ecommerce_report_sales_table_wrapper"
+                        class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="table-responsive">
+                            <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer"
+                                id="labelTable">
+                                <!--begin::Table head-->
+                                <thead>
+                                    <!--begin::Table row-->
+                                    <tr class="text-start text-dark-400 fw-bold fs-7 text-uppercase gs-0">
+                                        <th class=" sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Date: activate to sort column ascending">Label Code</th>
+                                        <!-- <th class="text-start sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Products Sold: activate to sort column ascending"
+                                            style="width: 253.975px;" hidden>Unique Label</th> -->
+                                        <th class="text-start sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Products Sold: activate to sort column ascending"
+                                            style="width: 253.975px;">Label (ENGLISH)</th>
+                                        <th class="text-end sorting" tabindex="0"
+                                        aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                        aria-label="Products Sold: activate to sort column ascending"
+                                        style="width: 253.975px;">Label (عربي)</th>
+                                        <th class="text-start  sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_report_sales_table" rowspan="1" colspan="1"
+                                            aria-label="Total: activate to sort column ascending"
+                                            style="width: 200.55px;">Action</th>
+                                    </tr>
+                                    <!--end::Table row-->
+                                </thead>
+                                <!--end::Table head-->
+                                <!--begin::Table body-->
+                                <tbody class="fw-semibold text-gray-600">
+                                    <!--begin::Table row-->
+                                    {% for i in page_obj %}
+                                    <tr class="odd">
+                                        <!--begin::Date=-->
+                                        <td data-order="2023-09-22T00:00:00+05:30">{{ forloop.counter }}</td>
+                                        <!--end::Date=-->
+                                        <!--begin::No Orders=-->
+                                        <!-- <td class=" pe-0" hidden>{{ i.code }}</td> -->
+                                        <!--end::No Orders=-->
+                                        <!--begin::Products sold=-->
+                                        <td class=" pe-0">{{ i.english }}</td>
+                                        <!--end::Products sold=-->
+                                        <!--begin::Tax=-->
+                                        <td class="pe-0 arabic-font" style="direction: rtl; ">{{ i.arabic }}</td>
+                                        <!--end::Tax=-->
+                                        <!--begin::Total=-->
+                                        <td class=""><a type="button" class="editButton" id="kt_drawer_chat_toggle_1_{{ forloop.counter }}"><i class="material-icons">edit</i> </a></td>
+                                        <!--end::Total=-->
+                                    </tr>
+                                    {% endfor %}
+                                    
+                                </tbody>
+                                <!--end::Table body-->
+                            </table>
+                        </div>
+                    </div>
+                    {% if page_obj.has_other_pages %}
+                    <ul class="pagination pagination-outline d-flex justify-content-end">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item previous m-1"><a href="?page={{ page_obj.previous_page_number }}"
+                                class="page-link"><i class="previous"></i></a></li>
+                              
+                        {% else %}
+                        <li class="page-item previous disabled m-1"><a href="#" class="page-link"><i
+                                    class="previous"></i></a></li>
+                        {% endif %}
+
+                        {% for page in page_obj.paginator.page_range %}
+                        {% if page_obj.number == page %}
+                        <li class="page-item active m-1"><a href="#" class="page-link">{{ page }}</a></li>
+                        {% else %}
+                        <li class="page-item m-1"><a href="?page={{ page }}" class="page-link">{{ page }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+
+                        {% if page_obj.has_next %}
+                        
+                        <li class="page-item next m-1"><a href="?page={{ page_obj.next_page_number }}"
+                                class="page-link"><i class="next"></i></a></li>
+                        {% else %}
+                        <li class="page-item next disabled m-1"><a href="#" class="page-link"><i class="next"></i></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% for i in page_obj %}
+<div id="kt_drawer_chat_1_{{ forloop.counter }}" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat"
+    data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}"
+    data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_drawer_chat_toggle_1_{{ forloop.counter }}"
+    data-kt-drawer-close="#kt_drawer_chat_close">
+    <!--begin::Messenger-->
+    <div class="card w-100 rounded-0" id="kt_drawer_chat_messenger">
+        <div class="card-body">
+            <div class="modal-header d-flex justify-content-between">
+                <h3 class="text-capitalize">Update Label</h3>
+                <div class="btn btn-sm btn-icon btn-active-light-primary" id="kt_drawer_chat_close">
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                transform="rotate(-45 6 17.3137)" fill="black" />
+                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                fill="black" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data" action="{% url 'superadminapp:Update_Label' %}">
+                    {% csrf_token %}
+                    <input type="text" name="label_id" hidden value="{{i.id}}">
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label"> Label (ENGLISH)</label>
+                        <input type="text" class="form-control form-control-solid" placeholder="Name"
+                            value="{{i.english}}" name="updated_English" id="editCoupon" max="999999999999"/>
+                    </div>
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label"> Label (عربي)</label>
+                        <input type="text" class="form-control form-control-solid text-right" placeholder="اسم"
+                            value="{{i.arabic}}" name="updated_Arabic" id="editCoupon" />
+                    </div>
+                    <div class="pt-3 text-center">
+                        <button type="submit" class="btn btn-primary btn-sm notsubmitupdateButton"  id="submitupdateButton" value="Update">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+
+<div id="kt_scrolltop" class="scrolltop mb-3" data-kt-scrolltop="true">
+    <span class="svg-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+            <path
+                d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+                fill="black" />
+        </svg>
+    </span>
+</div>
+
+
+ <!-- for pagination search and page data limt -->
+ <script>
+    $(document).ready(function() {
+        var table = $('#labelTable').DataTable({
+            dom: 'lrtip', // Exclude "f" for search bar
+            "pagingType": 'full_numbers',
+            "paging": true,         // Enable pagination
+            "pageLength": 10,      // Number of items per page
+            "lengthMenu": [5,10, 25, 50, 75, 100], // Dropdown for changing page length
+            "ordering": true      // Disable column sorting (optional)
+        });
+        $('.dataTables_filter input').attr('class', 'form-control form-control-sm ');
+        $('.dataTables_filter input').attr('placeholder', 'Search...');
+        $('.dataTables_filter label').contents().first().remove();
+        $('#filterInput').on('keyup', function() {
+            var searchText = $(this).val();
+            table.search(searchText).draw();
+        });
+        
+        // Store the current page in sessionStorage whenever the page changes
+        table.on('page.dt', function () {
+            sessionStorage.setItem('yourDataTablePage', table.page.info().page);
+        });
+
+        // Retrieve the last page and set it when the page loads
+        var savedPage = sessionStorage.getItem('yourDataTablePage');
+        if (savedPage !== null) {
+            table.page(parseInt(savedPage)).draw(false);
+        }
+
+    });
+</script>
+ <!-- for pagination search and page data limt -->
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_1'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_2'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_3'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    // $(document).ready(function () {
+    //     $(".companyform").click(function () {
+    //         var test = $(this).val();
+    //         if(test =='yes'){
+    //             $("div.desc2").hide();
+    //             $("div.desc1").show();
+    //         }else{
+    //             $("div.desc1").hide();
+    //             $("div.desc2").show();
+
+    //         }
+    //     });
+    // });
+    $("#business-tab").click(function () {
+        $("div#myTabContent1").hide();
+        $("div#myTabContent2").show();
+    });
+    $("#individual-tab").click(function () {
+        $("div#myTabContent1").show();
+        $("div#myTabContent2").hide();
+    });
+    $(document).ready(function () {
+        $('#addresstype').on('change', function () {
+            var demovalue = $(this).val();
+            $("div.myDiv").hide();
+            $("#show" + demovalue).show();
+        });
+        $('#addresstype1').on('change', function () {
+            var demovalue1 = $(this).val();
+            $("div.myDiv1").hide();
+            $("#show" + demovalue1).show();
+        });
+    });
+    // var profileborder = "border-danger";
+    $(".userprofile").addClass("border-danger");
+    // function changeuserborder() {
+    //     $(".userprofile").removeClass(profileborder);
+    //     var profileborder = "border-success";
+    // }
+    $("#userheaderchange").click(function () {
+        $(".userprofile").removeClass("border-danger");
+        $(".userprofile").addClass("border-success");
+        $("#headererror").addClass("d-none");
+
+    });
+</script>
+<script>
+    $.fn.equalHeights = function () {
+        var max_height = 0;
+        $(this).each(function () {
+            max_height = Math.max($(this).height(), max_height);
+        });
+        $(this).each(function () {
+            $(this).height(max_height);
+        });
+    };
+
+    $(document).ready(function () {
+        $('.userdasboardbox ul li a .card').equalHeights();
+    });
+</script>
+<script>
+    $("#kt_daterangepicker_3").daterangepicker({
+        singleDatePicker: true,
+        timePicker: true,
+        singleDatePicker: true,
+        showDropdowns: true,
+        opens: "center",
+        drops: "up",
+        locale: {
+            format: "YYYY-MM-DD hh:mm A"
+        }
+    }
+    );
+</script>
+<script>
+    $("#kt_daterangepicker_4").daterangepicker({
+        singleDatePicker: true,
+        timePicker: true,
+        singleDatePicker: true,
+        showDropdowns: true,
+        opens: "center",
+        drops: "up",
+        locale: {
+            format: "YYYY-MM-DD hh:mm A"
+        }
+    }
+    );
+</script>
+{% include "footer.html" %}

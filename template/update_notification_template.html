@@ -1,0 +1,147 @@
+{% include "header.html" %}
+<div class="content d-flex flex-column p-0 mb-20" id="kt_content">
+	<div class="" id="">
+		<div id="kt_content_container">
+			<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+				<!--begin::Toolbar container-->
+				<div id="kt_app_toolbar_container" class="app-container px-7 d-flex flex-stack">
+					<!--begin::Page title-->
+					<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+						<!--begin::Title-->
+						<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+							Edit Notification Template</h1>
+                           
+						<!--end::Title-->
+					</div>
+					<!--end::Page title-->
+					<!--begin::Actions-->
+					<div class="d-flex align-items-center gap-2 gap-lg-3">
+						<!--begin::Secondary button-->
+
+						<!--end::Secondary button-->
+						<!--begin::Primary button-->
+
+						<!--end::Primary button-->
+					</div>
+					<!--end::Actions-->
+				</div>
+				<!--end::Toolbar container-->
+			</div>
+            
+
+
+			<form method="post" class="row register " enctype="multipart/form-data"
+            action="{% url 'superadminapp:update_notification_template' id=data.id %}">
+				{% csrf_token %}
+				<div class="kt_content_containe_inr d-flex justify-content-between m-5 card">
+					<div class="card-body">
+						{% for message in messages %}
+						<div class="alert alert-danger" role="alert">
+							{{ message }}
+						</div>
+						{% endfor %}
+
+
+						<div class="d-flex justify-content-between align-items-center">
+                            <h4 >Template Information</h4>
+                        <div>
+								<button type="submit" value="SAVE" class="btn btn-primary me-3 btn-sm">UPDATE</button>
+
+                                <a href="{% url 'superadminapp:get_notification_template' %}"
+                                class="btn btn-sm btn-outline btn-outline-dashed btn-outline-primary btn-active-light-danger" style="background-color: red; color: white;">Cancel</a>
+
+							</div>
+						</div>
+
+						<div class="row ">
+                            <input type="text" class="form-control form-control-solid" value="{{ data.id }}" placeholder="Title"
+                            name="eid" hidden />
+							<div class="col-9">
+								<div class="fv-row mb-10 ">
+									<label class="form-label fs-6 fw-bolder text-dark w-100 mt-5">
+										<div class="d-flex justify-content-between">
+											<h5>Notification Code</h5>
+										</div>
+									</label>
+									<input class="form-control form-control-lg form-control-solid border-secondary"
+										 type="text"placeholder="Notification Code" value="{{ data.notification_code }}" name="notification_code" autocomplete="off" />
+								</div>
+								<div class="fv-row mb-10 ">
+									<label class="form-label fs-6 fw-bolder text-dark w-100 mt-5">
+										<div class="d-flex justify-content-between">
+											<h5>Notification Subject (EN)</h5>
+										</div>
+									</label>
+									<input class="form-control form-control-lg form-control-solid border-secondary"
+										 type="text"placeholder="Notification Subject" value="{{ data.notification_subject }}" name="notification_subject" autocomplete="off" />
+								</div>
+								<div class="fv-row mb-10 ">
+									<label class="form-label fs-6 fw-bolder text-dark w-100 mt-5">
+										<div class="d-flex justify-content-between">
+											<h5>Notification Subject (AR)</h5>
+										</div>
+									</label>
+									<input class="form-control form-control-lg form-control-solid border-secondary text-right"
+										 type="text" placeholder="Notification Subject" name="notification_subject_arabic" value="{{ data.notification_subject_arabic }}" autocomplete="off" />
+								</div>
+                            </div>
+							<div class="row">
+								<div class="col-6">
+									<div class="mb-10">
+										<p for="exampleFormControlInput1" class="form-label">Notification Content (EN)</p>
+										<textarea class="form-control form-control-solid" name="notification_content" required>{{ data.notification_content}}</textarea>
+									</div>
+								</div>
+								<div class="col-6">
+									
+									<div class="mb-10">
+										<p for="exampleFormControlInput2" class="form-label text-end">Notification Content (AR)</p>
+										<textarea class="form-control form-control-solid" name="notification_content_arabic" required>{{ data.notification_content_arabic}}</textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+						</div>
+					</div>
+				</div>
+			</form>
+
+		</div>
+	</div>
+</div>
+
+<!-- END Modal Invite Contact  -->
+
+<!--end::Modals-->
+<!--begin::Scrolltop-->
+<div id="kt_scrolltop" class="scrolltop mb-3" data-kt-scrolltop="true">
+	<span class="svg-icon">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+			<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+			<path
+				d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+				fill="black" />
+		</svg>
+	</span>
+</div>
+
+
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('notification_content', {
+		height: 350,
+        toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | heading | blockquote'
+    });
+</script>
+
+<script>
+    CKEDITOR.replace('notification_content_arabic', {
+        height: 350,
+        toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | heading | blockquote',
+        contentsLangDirection: 'rtl', // Set the direction to RTL
+        language: 'ar' // Set the language to Arabic
+    });
+</script>
+
+{% include "footer.html" %}

@@ -1,0 +1,580 @@
+{% include "header.html" %}
+{% load static %}
+
+<div class="content d-flex flex-column p-0 mb-20" id="kt_content">
+	<div class="" id="">
+		<div id="kt_content_container">
+			<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+				<!--begin::Toolbar container-->
+				<div id="kt_app_toolbar_container" class="app-container px-7 d-flex flex-stack">
+					<!--begin::Page title-->
+					<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+						<!--begin::Title-->
+						<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+							Create Template</h1>
+						<!--end::Title-->
+					</div>
+					<!--end::Page title-->
+					<!--begin::Actions-->
+					<div class="d-flex align-items-center gap-2 gap-lg-3">
+						<!--begin::Secondary button-->
+
+						<!--end::Secondary button-->
+						<!--begin::Primary button-->
+
+						<!--end::Primary button-->
+					</div>
+					<!--end::Actions-->
+				</div>
+				<!--end::Toolbar container-->
+			</div>
+
+			<form method="post" class="row register" enctype="multipart/form-data" action="{% url 'superadminapp:Template_Create' %}"   onsubmit="return mebershipvalidateForm()" >
+				{% csrf_token %}
+
+				<div class="kt_content_containe_inr d-flex justify-content-between m-5 card">
+					<div class="card-body">
+						{% for message in messages  %}
+						<div class="alert alert-danger" role="alert">
+							{{ message }}
+						</div>
+						{% endfor %}
+						<div class="d-flex justify-content-between align-items-center">
+							<h4>Template Information</h4>
+							<div>
+								<button type="submit" value="SAVE" class="btn btn-primary me-3 btn-sm img-size-validation-temp-submit-button" onclick="checkImageUploaded();" >Save & Next</button>
+								<a href="{% url 'superadminapp:Template'%}" class="btn btn-sm"
+									style=" background-color: red; color: white;">Cancel</a>
+								<!-- <a href="{% url 'superadminapp:Template' %}"
+									class="btn btn-sm btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger btn-danger" >Cancel</a> -->
+							</div>
+						</div>
+
+						<div class="row ">
+							<div class="col-9">
+								<div class="fv-row mb-10 ">
+									<label class="form-label fs-6 fw-bolder text-dark w-100 mt-5">
+										<div class="d-flex justify-content-between">
+											<h5 class="required">Template Title (ENGLISH)</h5>
+										</div>
+									</label>
+									<input id="templatetitle1" class="form-control form-control-lg form-control-solid border-secondary" required="True" type="text" name="templatetitle" placeholder="Enter Template Title" autocomplete="off" pattern="^(?!.*\s{2,})(?!\s*$).{3,100}" title="Value must be between 3 and 100 characters."/>
+									<!-- <span class="error">Value must be between 3 and 100 characters and should not consist of only spaces.</span> -->
+								</div>
+								<div class="fv-row mb-10 ">
+									<label class="form-label fs-6 fw-bolder text-dark w-100 mt-5">
+										<div class="d-flex justify-content-between">
+											<h5 class="required">Template Title (عربي)</h5>
+										</div>
+									</label>
+									<input id="templatetitle_arabic" class="form-control form-control-lg form-control-solid border-secondary text-right" required="True"
+										type="text" name="templatetitlearabic" placeholder="أدخل عنوان القالب"
+										autocomplete="off" maxlength="100" pattern="^(?!.*\s{2,})(?!\s*$).{3,100}" title="Value must be between 3 and 100 characters."/>
+										<!-- <p id="error-message-ar" class="error-message text-danger"></p> -->
+								</div>
+								<div class="fv-row mb-10 ">
+									<label class="form-label fs-6 fw-bolder text-dark w-100 required">Category</label>
+									
+										<select name="categoryname" required="true" class="form-select form-control form-control-lg form-control-solid border-secondary Category" id="temp_upload">
+											
+										<option value="" disabled selected>Select a category</option>
+										{% for cat in cat_table %}
+										<option value="{{cat.category_name}}">{{cat.category_name}}</option>
+										{% endfor %}
+										</select>
+								</div>
+								
+								<div>
+									<h4>Template Availability</h4>
+									<div id="membershipvalidations" style="color: red;"></div> 
+
+									<div class="d-flex mt-5 mb-10">
+										<div>
+											<h6>Individual Membership</h6>
+											<div class="form-check mt-5">
+												<input class="form-check-input" type="checkbox" readonly value="true" name="ind_free"   onclick="validateCheckbox('ind_free', 'You cannot modify this membership.');"
+													id="flexCheckChecked">
+												<label class="form-check-label" for="ind_free">
+													Free Membership
+												</label>
+											</div>
+											<div class="form-check mt-5">
+												<input class="form-check-input" type="checkbox" readonly value="true" name="ind_basic"  onclick="validateCheckbox('ind_basic', 'You cannot modify this membership.');"
+													id="flexCheckChecked">
+												<label class="form-check-label" for="ind_basic">
+													Basic Membership
+												</label>
+											</div>
+											<div class="form-check mt-5">
+												<input class="form-check-input" type="checkbox" readonly value="true" name="ind_pre"  onclick="validateCheckbox('ind_pre', 'You cannot modify this membership.');"
+													id="flexCheckChecked">
+												<label class="form-check-label" for="ind_pre">
+													Premium Membership
+												</label>
+											</div>
+										</div>
+										<div class="ms-20">
+											<h6>Business Membership</h6>
+											<div class="form-check mt-5">
+												<input class="form-check-input"  type="checkbox" readonly value="true" name="bus_free"  onclick="validateCheckbox('bus_free', 'You cannot modify this membership.');"
+													id="flexCheckChecked">
+												<label class="form-check-label" for="bus_free">
+													Free Membership
+												</label>
+											</div>
+											<div class="form-check mt-5">
+												<input class="form-check-input" type="checkbox" readonly value="true" name="bus_basic"  onclick="validateCheckbox('bus_basic', 'You cannot modify this membership.');"
+													id="flexCheckChecked">
+												<label class="form-check-label" for="bus_basic">
+													Basic Membership
+												</label>
+											</div>
+											<div class="form-check mt-5">
+												<input class="form-check-input" type="checkbox" readonly value="true" name="bus_pre"  onclick="validateCheckbox('bus_pre', 'You cannot modify this membership.');"
+													id="flexCheckChecked">
+												<label class="form-check-label" for="bus_pre">
+													Premium Membership
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-3 p-10">
+								<h4 class="required">Template Cover Image</h4>
+								<p class="mx-3"></p>
+								<!-- <img src="../static/images/img_default.jpg" 
+									class="w-100 border border-dashed border-2 border-secondary" id="temp_pic" alt="Image not Load"> -->
+								<p id="temp-create-img-size-validation" style="color: red;">Allowed files .png, .jpg, .jpeg, .webp | Image size : 400px X 600px | Max 2MB.</p>
+								<img src="{% static 'images/img_default.jpg' %}"  class="w-100 h-300px border border-dashed border-2 border-secondary" id="temp_pic" alt="Image not Loaded">
+								<div id="validationMessage" class=" mt-2" style="display: none; color: red;">Please upload an image.</div>
+								<input type="file" id="imageInput" name="imageInput" accept="image/*" style="display: none;" required="True"  onchange="validateImage123()">
+								<label for="imageInput" class="btn btn-primary mt-5 mx-3 btn-sm"  onclick="checkFileUpload()">Select an Image</label>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-6">
+								<div>
+									<h4 class="mb-5 required ">Description (ENGLISH)</h4>
+									<div class="form-group">
+										<textarea class="form-control rounded" id="description_english" name="temp_des" rows="7"
+											placeholder="Enter Description" oninput="validateTextarea(this, 'descriptionError_english')" required></textarea>
+										<p id="descriptionError_english" class="error text-danger"></p>
+									</div>
+								</div>
+							</div>
+							<div class="col-6">
+								<div>
+									<h4 class="mb-5 required text-end">Description (عربي)</h4>
+									<div class="form-group">
+										<textarea class="form-control rounded text-right" id="description_arabic" name="temp_des_arabic" rows="7"
+											placeholder="أدخل الوصف" oninput="validateTextarea(this, 'descriptionError_arabic')" required></textarea>
+										<p id="descriptionError_arabic" class="error text-danger"></p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- <div>
+							<h4 class="mb-5 required">Description</h4>
+							<div class="form-group">
+								<textarea class="form-control rounded" id="exampleFormControlTextarea1" name="temp_des" rows="7"
+								placeholder="Enter Description" required="True" type="text" pattern="^(?!.*\s{2,})(?!\s*$).{3,500}"  title="Value must be between 3 and 500 characters and should not consist of only spaces." oninvalid="setCustomValidity('Please enter a valid description.')"
+								onchange="try{setCustomValidity('')}catch(e){}"></textarea>
+							</div>
+						</div> -->
+
+						<!-- <div class="row">
+							<div class="col-6">
+								<div>
+									<h3>Description (ENGLISH)</h3>
+									<div id="iframeContainer">
+										<div id="loadingOverlay" class="loader-container">
+											<div class="loader"></div>
+											<span class="loading-text">Loading...</span>
+										</div>
+										<iframe id="myIframe" src="https://versionreview.com/tothiq/template-editor.php?id={{old.id}}" style="min-width: 100%; height: 900px; overflow: hidden;"></iframe>
+									</div>
+								</div>
+							</div>
+							<div class="col-6">
+								<div>
+									<h3 class="text-end">Description (عربي)</h3>
+									<div id="iframeContainer">
+										<div id="loadingOverlay1" class="loader-container">
+											<div class="loader"></div>
+											<span class="loading-text">Loading...</span>
+										</div>
+										<iframe id="myIframe1" src="https://versionreview.com/tothiq/template-editor-arabic.php?id={{old.id}" style="min-width: 100%; height: 900px; overflow: hidden;"></iframe>
+									</div>
+								</div>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</form>	
+		</div>
+	</div>
+</div>
+<div class="modal fade " id="invitecontactmodal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+	tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered modal-xs">			
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Invite User</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form class="form w-100">
+					<div class=" d-flex flex-wrap">
+						<div class="fv-row p-5 col-12">
+							<label class="form-label required fs-6 fw-bolder text-dark">Email Address</label>
+							<input class="form-control form-control-lg form-control-solid" type="email"
+								placeholder="Email Address" autocomplete="off" />
+						</div>
+					</div>
+					<div class="text-center btncolorblue pt-10">
+						<a href="contacts.php" class="btn btncolorblues mb-5">Invite User</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END Modal Invite Contact  -->
+
+<!--end::Modals-->
+<!--begin::Scrolltop-->
+<div id="kt_scrolltop" class="scrolltop mb-3" data-kt-scrolltop="true">
+	<span class="svg-icon">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+			<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+			<path
+				d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+				fill="black" />
+		</svg>
+	</span>
+</div>
+
+<script>
+	function validateTextarea(textarea, errorId) {
+		const pattern = /^(?!.*\s{2,})(?!\s*$)[\s\S]{3,500}$/; // Allow any character, including spaces
+		const validationMessage = document.getElementById(errorId);
+
+		if (!pattern.test(textarea.value)) {
+			validationMessage.textContent = 'Value must be between 3 and 500 characters.';
+			textarea.setCustomValidity('Please enter a valid description.');
+		} else {
+			validationMessage.textContent = '';
+			textarea.setCustomValidity('');
+		}
+	}
+	function validateForm() {
+		const titleInput = document.getElementById('templatetitle_english');
+		const descriptionEnglishTextarea = document.getElementById('description_english');
+		const descriptionArabicTextarea = document.getElementById('description_arabic');
+	
+		// Validate the title
+		const titlePattern = /^[A-Za-z ]{3,100}$/;
+		const titleError = document.getElementById('titleError');
+		if (!titlePattern.test(titleInput.value)) {
+			titleError.textContent = 'Title must be between 3 and 100 English characters and should not consist of only spaces.';
+			titleInput.setCustomValidity('Please enter a valid title.');
+		} else {
+			titleError.textContent = '';
+			titleInput.setCustomValidity('');
+		}
+	
+		// Validate the English description
+		validateTextarea(descriptionEnglishTextarea, 'descriptionError_english');
+	
+		// Validate the Arabic description
+		validateTextarea(descriptionArabicTextarea, 'descriptionError_arabic');
+	
+		// Check form validity
+		const isFormValid = titleInput.checkValidity() &&
+			descriptionEnglishTextarea.checkValidity() &&
+			descriptionArabicTextarea.checkValidity();
+	
+		if (isFormValid) {
+			// The form is valid; you can submit it here
+			// For testing purposes, you can alert a message or remove this part
+			alert('Form is valid. Submitting...');
+		}
+	
+		// Prevent form submission if not valid
+		return isFormValid;
+	}
+	
+</script>
+  
+
+<!-- Start image input script in template create page -->
+<script>
+    let temp_pic = document.getElementById("temp_pic");
+    let imageInput = document.getElementById("imageInput");
+    let temp_imgValidation = document.getElementById("temp-create-img-size-validation");
+    let temp_submitButton = document.querySelector(".img-size-validation-temp-submit-button");
+
+    imageInput.onchange = function () {
+        let file = imageInput.files[0];
+        let reader = new FileReader();
+
+        reader.onload = function (e) {
+            temp_pic.src = e.target.result;
+            
+            const allowedExtensions = ["png", "jpg", "jpeg", "webp"];
+            const maxSize = 2 * 1024 * 1024; // 2MB
+            const maxWidth = 400;
+            const maxHeight = 600;
+
+            const fileName = file.name.toLowerCase();
+            const fileSize = file.size;
+            const image = new Image();
+
+            image.src = e.target.result;
+
+            image.onload = function () {
+                if (fileSize > maxSize) {
+                    displayValidationMessagetempcreate(temp_imgValidation, "File size exceeds 2MB");
+                    temp_submitButton.disabled = true; // Disable the submit button
+                } else if (image.width !== maxWidth && image.height !== maxHeight) {
+                    displayValidationMessagetempcreate(temp_imgValidation, "Image dimensions should be 400px X 600px or smaller");
+                    temp_submitButton.disabled = true; // Disable the submit button
+                } else if (!allowedExtensions.some(ext => fileName.endsWith(ext))) {
+                    displayValidationMessagetempcreate(temp_imgValidation, "Allowed file types are .png, .jpg, .jpeg, .webp");
+                    temp_submitButton.disabled = true; // Disable the submit button
+                } else {
+                    hideValidationMessagetempcreate(temp_imgValidation);
+                    temp_submitButton.disabled = false; // Enable the submit button
+                }
+            };
+        };
+
+        reader.readAsDataURL(file);
+    };
+
+    function displayValidationMessagetempcreate(element, message) {
+        element.textContent = message;
+        element.style.color = "red";
+    }
+
+    function hideValidationMessagetempcreate(element) {
+        element.textContent = "";
+    }
+</script>
+<!-- End image input script in template create page -->
+
+
+<script>
+	ClassicEditor
+		.create(document.querySelector('#ckeditor_1'))
+		.then(editor => {
+			console.log(editor);
+		})
+		.catch(error => {
+			console.error(error);
+		});
+	ClassicEditor
+		.create(document.querySelector('#ckeditor_2'))
+		.then(editor => {
+			console.log(editor);
+		})
+		.catch(error => {
+			console.error(error);
+		});
+	ClassicEditor
+		.create(document.querySelector('#ckeditor_3'))
+		.then(editor => {
+			console.log(editor);
+		})
+		.catch(error => {
+			console.error(error);
+		});
+</script>
+
+<script>
+	$("#business-tab").click(function () {
+		$("div#myTabContent1").hide();
+		$("div#myTabContent2").show();
+	});
+	$("#individual-tab").click(function () {
+		$("div#myTabContent1").show();
+		$("div#myTabContent2").hide();
+	});
+	$(document).ready(function () {
+		$('#addresstype').on('change', function () {
+			var demovalue = $(this).val();
+			$("div.myDiv").hide();
+			$("#show" + demovalue).show();
+		});
+		$('#addresstype1').on('change', function () {
+			var demovalue1 = $(this).val();
+			$("div.myDiv1").hide();
+			$("#show" + demovalue1).show();
+		});
+	});
+	$(".userprofile").addClass("border-danger");
+	$("#userheaderchange").click(function () {
+		$(".userprofile").removeClass("border-danger");
+		$(".userprofile").addClass("border-success");
+		$("#headererror").addClass("d-none");
+
+	});
+</script>
+<script>
+	$.fn.equalHeights = function () {
+		var max_height = 0;
+		$(this).each(function () {
+			max_height = Math.max($(this).height(), max_height);
+		});
+		$(this).each(function () {
+			$(this).height(max_height);
+		});
+	};
+
+	$(document).ready(function () {
+		$('.userdasboardbox ul li a .card').equalHeights();
+	});
+</script>
+
+<!-- image not uploaded -->
+<script>
+    // Function to hide the validation message
+    function hideValidationMessage() {
+      const validationMessage = document.getElementById("validationMessage");
+      validationMessage.style.display = "none";
+    }
+    
+    // Function to show the validation message
+    function showValidationMessage() {
+      const validationMessage = document.getElementById("validationMessage");
+      validationMessage.style.display = "block";
+    }
+
+    // Function to check if an image is uploaded when the SAVE button is clicked
+    function checkImageUploaded() {
+      const imageInput = document.getElementById("imageInput");
+      if (!imageInput.files || imageInput.files.length === 0) {
+        showValidationMessage();
+        return false; // Stop form submission
+      }
+
+      return true; // Proceed with form submission
+    }
+    // Add event listener to the file input to hide the validation message when a file is selected
+    document.getElementById("imageInput").addEventListener("change", hideValidationMessage);
+  </script>
+<!-- image not uploaded -->
+<!-- add loading animnation for ckeditor  -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var iframe = document.getElementById('myIframe');
+        var loadingOverlay = document.getElementById('loadingOverlay');
+
+        iframe.onload = function() {
+            loadingOverlay.style.display = 'none';
+            iframe.style.display = 'block';
+        };
+
+        iframe.src = iframe.src; // This triggers a reload of the iframe to show the loading overlay
+        loadingImage.style.display = 'block'; // Show the loading image initially
+        iframe.style.display = 'none'; // Hide the iframe initially
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var iframe1 = document.getElementById('myIframe1');
+        var loadingOverlay1 = document.getElementById('loadingOverlay1');
+
+        iframe1.onload = function() {
+            loadingOverlay1.style.display = 'none';
+            iframe1.style.display = 'block';
+        };
+
+        iframe1.src = iframe1.src; // This triggers a reload of the iframe to show the loading overlay
+        loadingImage1.style.display = 'block'; // Show the loading image initially
+        iframe1.style.display = 'none'; // Hide the iframe initially
+    });
+</script>
+<!-- add loading animnation for ckeditor  -->
+
+
+<!-- membership check  -->
+<script>
+    function mebershipvalidateForm() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        var isChecked = false;
+    
+        checkboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                isChecked = true;
+            }
+        });
+    
+        var validationMessage = document.getElementById('membershipvalidations');
+    
+        if (!isChecked) {
+            validationMessage.textContent = "Please select at least one Template Availability.";
+            return false; 
+        } else {
+            validationMessage.textContent = ""; 
+        }
+    
+        return true; 
+    }
+</script>
+
+
+
+<script>
+    function validateCheckbox(checkboxName, validationMessage) {
+		var checkbox = document.getElementsByName(checkboxName)[0];
+		var validationDiv = document.getElementById('membershipvalidations');
+		if (checkbox.checked) {
+		  checkbox.checked = false;
+		  validationDiv.innerText = validationMessage;
+		} else {
+		  checkbox.checked = true;
+		  validationDiv.innerText = validationMessage;
+		}
+	  }
+  </script>
+
+  
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    $("#temp_upload").change(function () {
+        var selectedCategory = $(this).val();
+		console.log(selectedCategory,"-----------------------")
+        $.ajax({
+            url: "{% url 'superadminapp:Template_Create_Membership' %}",
+            type: "POST",
+            data: {
+                'category_name': selectedCategory,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function (data) {
+                // Update checkboxes based on the response
+                $('[name="ind_free"]').prop('checked', data.cat_ind_free);
+                $('[name="ind_basic"]').prop('checked', data.cat_ind_basic);
+                $('[name="ind_pre"]').prop('checked', data.cat_ind_prem);
+                $('[name="bus_free"]').prop('checked', data.cat_bus_free);
+                $('[name="bus_basic"]').prop('checked', data.cat_bus_basic);
+                $('[name="bus_pre"]').prop('checked', data.cat_bus_prem);
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+    });
+});
+</script>
+<!-- membership check  -->
+
+
+
+{% include "footer.html" %}
+

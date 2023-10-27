@@ -1,0 +1,971 @@
+{% include "header.html" %}
+{% load static %}
+{% load custom_filters %}
+
+<div class="content d-flex flex-column p-0 mb-10 vh-100" id="kt_content">
+  <div class="post d-flex flex-column-fluid" id="kt_post">
+    <div id="kt_content_container" class="container-fluid ">
+      <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+        <!--begin::Toolbar container-->
+        <div id="kt_app_toolbar_container" class="app-container px-3 d-flex flex-stack">
+          <!--begin::Page title-->
+          <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+            <!--begin::Title-->
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Notifications
+            </h1>
+            {% for message in messages %}
+            <div class="alert alert-primary mt-1 messageclass hide-after-delay" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+            <!--end::Title-->
+          </div>
+           
+          <!--end::Page title-->
+          <!--begin::Actions-->
+          <div class="d-flex align-items-center gap-2 gap-lg-3">
+          </div>
+          <!--end::Actions-->
+        </div>
+        <!--end::Toolbar container-->
+      </div>
+      <div class="text-end">
+          <a id="kt_drawer_chat_toggle_1" 
+          class="btn btn-primary btn-sm text-capitalize">Create
+          Notification</a>
+      </div>
+  <!--end::Primary button-->
+        <div  class="table-responsive">
+            <div class="container-fluied" >
+                <div class="kt_content_containe_inr card my-5 px-5 p-5 m-3 ">
+           <table id="notification_table" style="background-color: transparent;">
+            <thead>
+                <tr>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody style="background-color: transparent;">
+                {% for not in notificatios %}
+                <tr>
+                    <td>
+                    <!-- <div id="notification-container"> -->
+                                <div class="row">
+                                    <div class="col-2 p-3">
+                                        <div class="pictures">
+                                            {% if not.image|has_missing_image %}
+                                                <img src="{{ not.image.url }}" class="picture-src w-240px h-100px" id="wizardPicturePreview">
+                                            {% else %}
+                                                <img src="{% static 'images/img_default.jpg' %}" class="picture-src w-240px h-100px" id="wizardPicturePreview">
+
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col-6 p-3">
+                                    <h4>  {{not.title}} </h4> <br>
+                                    <h6 class="text-gray-700 pe-7 message_notification" > {{not.message}}</h6>
+                                  
+                                    
+                                    </div>
+                                    <div class="col-2 p-2">
+                                        <div>
+                                            <div class="d-flex justify-content-left">
+                                                <!-- <label class="text-black"><b>{{ not.push_status|upper }} </b></label> -->
+                                                <label class="text-black"><b> {% if not.push_status == "cancel" %} CANCELLED {% else %} {{not.push_status|upper }} {% endif %}</b></label>
+                                            </div>
+                                            <div class="d-flex justify-content-left">
+                                                <p class="mt-8">Created At: <br> {{not.created_at|date:"d-m-Y | H:i"}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 p-2">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex justify-content-center">
+                                                {% if not.push_status == "pending" or not.push_status == "in-progress" %}
+                                                <button class="fa fa-ban fa-2x"
+                                                onclick="fetchIdnot('{{ not.id }}',' {{ not.push_status }}')"
+                                                aria-hidden="true"
+                                                style="color: red; background-color: transparent; border: none;">
+                                                </button>
+                                                {% endif %}
+                                            </div>
+                                            <div  id="myDiv" class="d-flex justify-content-end" >
+                                                <a id="kt_drawer_chat_toggles_{{ forloop.counter }}"  {% if not.push_status != "pending" and not.push_status != "in-progress" %} style="visibility: hidden; pointer-events: none;" {% endif %}>
+                                                    <i class="material-icons" style="cursor: pointer;">edit</i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <p class="mt-5 ">Scheduled At: <br> {{not.schedule_datetime|date:"d-m-Y | H:i"}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        <!-- </div> -->
+                    </td>
+                </tr>
+                
+                {% endfor %}
+            </tbody>
+            
+        </table>
+    </div>
+</div>
+        </div>
+        <!-- <div class="container">
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center" id="pagination"></ul>
+            </nav>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+
+<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+  <span class="svg-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+      <path
+        d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+        fill="black" />
+    </svg>
+  </span>
+</div>
+
+<div id="kt_drawer_chat_1" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat"
+    data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}"
+    data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_drawer_chat_toggle_1"
+    data-kt-drawer-close="#kt_drawer_chat_close">
+    <!--begin::Messenger-->
+    <div class="card w-100 rounded-0" id="kt_drawer_chat_messenger">
+        <div class="card-body">
+            <div class="modal-header d-flex justify-content-between">
+                <h3 class="text-capitalize">Create Notification</h3>
+                <div class="btn btn-sm btn-icon btn-active-light-primary" id="kt_drawer_chat_close">
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                transform="rotate(-45 6 17.3137)" fill="black" />
+                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                fill="black" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <form method=post action="{% url 'superadminapp:create_notifications' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1 " class="form-label required">Title (ENGLISH)</label>
+                        <input type="text" class="form-control form-control-solid" placeholder="Title"
+                            name="notifications_title" required />
+                    </div>
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label required">Title (عربي)</label>
+                        <input type="text" class="form-control form-control-solid  w-100 text-right" placeholder="العنوان العربي"
+                            name="notifications_title_arabic" required />
+                    </div>
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label required">Message (ENGLISH)</label>
+                        <textarea class="form-control form-control-solid" placeholder="Message" required minlength="3" rows="4" name="notifications_message"  pattern="^(?!.*\s{2,})(?!\s*$).{3,500}"  title="Value must be between 3 and 500 characters and should not consist of only spaces." 
+                        onchange="try{setCustomValidity('')}catch(e){}" required></textarea>
+                    </div>
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label required">Message (عربي)</label>
+                        <textarea type="text" class="form-control form-control-solid w-100 text-right" required rows="4" placeholder="رسالة عربية" name="notifications_message_arabic" minlength="3" pattern="^(?!.*\s{2,})(?!\s*$).{3,500}"  title="Value must be between 3 and 500 characters and should not consist of only spaces." 
+                        onchange="try{setCustomValidity('')}catch(e){}" required></textarea>
+                    </div>
+                    <label class="form-label mt-5">Notification image</label>
+                     <p id="not-create-img-size-validation" style="color: red;">Allowed files .png, .jpg, .jpeg, .webp | Image size : 400px X 100px | Max 2MB.</p>
+                    <img src="{% static 'images/img_default.jpg' %}" alt="Maintenance Mode Image" class="border border-dashed border-secondary" id="temp_pic" width="400" height="200"> <br>
+
+                    <input type="file" id="new_imageInput" name="notificationimage" accept="image/*" style="display: none;" required>
+                    <label for="new_imageInput" class="btn btn-primary mt-7 mx-3 btn-sm">Select an Image</label>
+                    <p id="errorMessage11" style="display: none; color: red; padding: 3px">Please select an image.</p>
+                    <div id="errorContainer"></div>
+
+                    <div class="col-12 mt-4">
+                        <label class="form-check-label" for="flexSwitchChecked">
+                            User Type
+                        </label>
+                        <select class="form-select form-select-sm form-select-solid" data-control="select2"
+                            data-placeholder="All Users" data-allow-clear="true" name="notification_for_user" onchange="notifications_populate(this.id)" id="userType">
+                            <option value="1" selected>All Users</option>
+                            <option value="2">Individual Users</option>
+                            <option value="3">Business Users</option>
+                            <option value="4">Business Admin</option>
+                            <!-- <option value="5">Sub Admin</option> -->
+                        </select>
+                    </div>
+                    
+                    <div class="col-12 mt-4" id="select_all">
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                        <select class="form-select form-control form-control-solid" data-control="select2"
+                            data-placeholder="Select Users" data-allow-clear="true" multiple="multiple" name="selected_user" >
+                            <option value="0">Select All</option>
+                            {%for item in user%}
+                            <option value="{{ item.id }}">{{ item.full_name }}</option>
+                            {% endfor %}
+                            <!-- {%for item in subuser%}
+                            <option value="{{ item.id }}">{{ item.full_name }}</option>
+                            {% endfor %} -->
+                        </select>
+                    </div>
+
+
+                    <div class="col-12 mt-4" id="individual_User" style="display: none;" >
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                        <select class="form-select form-control form-control-solid" data-control="select2"
+                            data-placeholder="Select individual user" data-allow-clear="true" multiple="multiple" name="selected_user" >
+                            <option value="0">Select All</option>
+                            {%for item in user%}
+                                {% if item.user_type == "Individual User"%}
+                                    <option value=" {{item.id}} ">{{ item.full_name }} </option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-12 mt-4" id="Business_Users" style="display: none;" >
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                        <select class="form-select form-control form-control-solid" data-control="select2"
+                            data-placeholder="Select Business Users" data-allow-clear="true" multiple="multiple" name="selected_user" >
+                            <option value="0">Select All</option>
+                            {%for item in user%}
+                                {% if item.user_type == "Business User"%}
+                                    <option value="{{ item.id }}">{{ item.full_name }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-12 mt-4" id="Business_Admin" style="display: none;" >
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                        <select class="form-select form-control form-control-solid" data-control="select2"
+                            data-placeholder="Select Business Admin" data-allow-clear="true" multiple="multiple" name="selected_user" >
+                            <option value="0">Select All</option>
+                            {%for item in user%}
+                                {% if item.user_type == "Business Admin"%}
+                                    <option value="{{ item.id }}">{{ item.full_name }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-12 mt-4" id="Sub_Admin" style="display: none;" >
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                        <select class="form-select form-control form-control-solid" data-control="select2"
+                            data-placeholder="Select Sub Admin" data-allow-clear="true" multiple="multiple" name="selected_user" >
+                            <option value="0">Select All</option>
+                            {%for item in subuser%}
+                                    <option value="{{ item.id }}">{{ item.full_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-12 mt-4">
+                        <label class="form-check-label" for="flexSwitchChecked">
+                            Notification Type
+                        </label>
+                        <select class="form-select form-select form-select-sm form-select-solid" data-control="select2"
+                            data-placeholder="All user" data-allow-clear="true" name="Notification_Type"  id="userType" data-minimum-results-for-search="Infinity">
+                            <option value="Both" selected>Both</option>
+                            <option value="Email">Email</option>
+                            <option value="Push Notification">Push Notification</option>
+                        </select>
+                    </div>
+                      
+                    
+                    <div class="mb-5 mt-3">
+                        <label class="form-label">Schedule Date & Time</label>
+                        <input type="text" class="form-control form-control-solid" placeholder="Pick date and time"  name="datetime" id="datetime1" name="datetime" required>
+                    </div>
+                  
+                    
+                    <div class="pt-3 text-center">
+                        <button type="submit" class="btn btn-primary btn-sm"  onclick="checkImageUploaded()" name="Create" value="Create" id="submitButton">Submit</button>
+                        <!-- <a type="button" class="btn btn-primary btn-sm " href="{% url 'superadminapp:Tothiq_User' %}">Create</a> -->
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{ forloop.counter }}
+{% for i in notificatios %}
+<div id="kt_drawer_chats_{{ forloop.counter }}" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat"
+    data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}"
+    data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_drawer_chat_toggles_{{ forloop.counter }}"
+    data-kt-drawer-close="#kt_drawer_chat_close">
+    <!--begin::Messenger-->
+    <div class="card w-100 rounded-0" id="kt_drawer_chat_messenger">
+        <div class="card-body">
+            <div class="modal-header d-flex justify-content-between">
+                <h3 class="text-capitalize">Update Notification</h3>
+                <div class="btn btn-sm btn-icon btn-active-light-primary" id="kt_drawer_chat_close">
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                transform="rotate(-45 6 17.3137)" fill="black" />
+                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                fill="black" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <form method=post action="{% url 'superadminapp:update_notifications' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="modal-body">
+                    <input type="text" class="form-control form-control-solid" value="{{ i.id }}" placeholder="Title"
+                        name="nid" hidden />
+                    <div class="mb-5">
+                        <label for="exampleFormControlInput1" class="form-label">Title (ENGLISH)</label>
+                        <input type="text" class="form-control form-control-solid" value="{{i.title}}" placeholder="Title"
+                            name="notifications_title" required />
+                    </div>
+                    <div class="mb-8">
+                        <label for="exampleFormControlInput1" class="form-label">Title  (عربي)</label>
+                        <input type="text" class="form-control form-control-solid  w-100 text-right" 
+                            name="notifications_title_arabic"  value="{{i.title_arabic}}" />
+                    </div>
+
+                    <div class="mb-8">
+                        <label for="exampleFormControlInput1" class="form-label">Message (ENGLISH)</label>
+                        <textarea class="form-control form-control-solid" placeholder="Message" name="notifications_message" required rows="4" required>{{ i.message }}</textarea>
+                    </div>
+                      <div class="mb-8 newsbox">
+                        <label for="exampleFormControlInput1" class="form-label">Message (عربي)</label>
+                        <textarea type="text" class="form-control form-control-solid w-100 text-right" required rows="4" name="notifications_message_arabic" >{{ i.message_arabic }}</textarea>
+                    </div>
+                    <p id="not-update-img-size-validation" class="not-update-img-size-validation" style="color: red;"></p>
+                    {% if i.image and i.image.url %}
+                    <img src="{{ i.image.url }}" alt="Notifications Image" width="400"
+                        height="200"  class="border border-dashed border-secondary p-25" id="not_pic-{{i.id}}">
+                    {% else %}
+                    <img src="{% static 'images/img_default.jpg' %}" alt="Notifications Image" width="400"
+                        height="200" class="border border-dashed border-secondary" id="not_pic-{{i.id}}">
+                    {% endif %}
+                    <input type="file" class="notimgInp" id="notimageInput-{{i.id}}"   {% if i.image and i.image.url %} value="{{ i.image.url }}" {% endif %} name="notimageInput" accept="image/*" style="display: none;" onchange="validateImage123(this)">
+                    <label for="notimageInput-{{i.id}}" id="{{i.id}}" class="btn notimgInp btn-primary mt-7 mx-3 btn-sm">Select an Image</label>
+                    <div id="errorContainer"></div>
+                   
+                    <div class="col-12 mt-4">
+                        <label class="form-label" for="flexSwitchChecked">
+                            User Type 
+                        </label> 
+                        <select class="form-select form-select-sm form-select-solid" data-control="select2"
+                            data-placeholder="All user" data-allow-clear="true" name="notification_for_user" onchange="notifications_populate2(this.id,'{{i.id}}')" id="usertype_{{i.id}}">
+                            <option value="1" {% if i.user_type == "1" %} selected {% endif %}>All user</option>
+                            <option value="2" {% if i.user_type == "2" %} selected {% endif %}>Individual Users</option>
+                            <option value="3" {% if i.user_type == "3" %} selected {% endif %}>Business Users</option>
+                            <option value="4" {% if i.user_type == "4" %} selected {% endif %}>Business Admin</option>
+                            <!-- <option value="5" {% if i.user_type == "5" %} selected {% endif %}>Sub Admin</option> -->
+                        </select>
+                    </div>
+                    
+                    <div class="col-12 mt-4" id="select_all_{{i.id}}">
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                            <select class="form-select form-control form-control-solid" data-control="select2"
+                            data-placeholder="Select user" data-allow-clear="true" multiple="multiple" name="selected_user">
+                          
+                            <option value="0" {% with a=i.user_ids|literal_eval %}{% if 0 in a and i.user_type == "1" %}  selected {% endif %}  {%endwith%}  >Select All</option>
+                       
+                            {% for item in user %}
+                            <option value="{{ item.id }}"{% with a=i.user_ids|literal_eval %} {% if item.id in a %}  selected{% endif %}    {%endwith%}    >{{ item.full_name }} </option>
+                            {% endfor %}
+                            <!-- {%for item in subuser%}
+                            <option value="{{ item.id }}">{{ item.full_name }}</option>
+                            {% endfor %} -->
+                        </select>
+                    </div>
+
+
+                    <div class="col-12 mt-4" id="individual_User_{{i.id}}" style="display: none;" >
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                        <select class="form-select form-control form-control-solid" data-control="select2"
+                                data-placeholder="Select individual user" data-allow-clear="true" multiple="multiple" name="selected_user">
+                               
+                            <option value="0" {% with a=i.user_ids|literal_eval %}{% if 0 in a and i.user_type == "2" %}  selected {% endif %}  {%endwith%}  >Select All</option>
+                            {% for item in user %}
+                                {% if item.user_type == "Individual User"%}
+                                <option value="{{ item.id }}" {% with a=i.user_ids|literal_eval %} {% if item.id in a %} selected{% endif %}  {%endwith%} >{{ item.full_name }}</option>
+                                {% endif %}
+                           
+                            {% endfor %}
+                        </select>
+                    </div>
+
+
+                    <div class="col-12 mt-4" id="Business_Users_{{i.id}}" style="display: none;" >
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                      <select class="form-select form-control form-control-solid" data-control="select2"
+                                data-placeholder="Select Business user" data-allow-clear="true" multiple="multiple" name="selected_user">
+
+                            <option value="0" {% with a=i.user_ids|literal_eval %}{% if 0 in a and i.user_type == "3" %}  selected {% endif %}  {%endwith%}  >Select All</option>
+                            {% for item in user %}
+                                {% if item.user_type == "Business User"%}
+                                <option value="{{ item.id }}" {% with a=i.user_ids|literal_eval %} {% if item.id in a %} selected{% endif %}  {%endwith%} >{{ item.full_name }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-12 mt-4" id="Business_admin_{{i.id}}" style="display: none;" >
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                      <select class="form-select form-control form-control-solid" data-control="select2"
+                                data-placeholder="Select Sub Admin" data-allow-clear="true" multiple="multiple" name="selected_user">
+
+                            <option value="0" {% with a=i.user_ids|literal_eval %}{% if 0 in a and i.user_type == "4" %}  selected {% endif %}  {%endwith%}  >Select All</option>
+                            {% for item in user %}
+                        
+                                {% if item.user_type == "Business Admin"%}
+                                <option value="{{ item.id }}" {% with a=i.user_ids|literal_eval %} {% if item.id in a %} selected{% endif %}  {%endwith%} >{{ item.full_name }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    {% comment %} <div class="col-12 mt-4" id="Sub_admin_{{i.id}}" style="display: none;" >
+                        <label class="form-check-label" for="individualUserSelect">
+                            User
+                        </label>
+                      <select class="form-select form-control form-control-solid" data-control="select2"
+                                data-placeholder="Select Business user" data-allow-clear="true" multiple="multiple" name="selected_user">
+
+                            {% for item in subuser %}
+                      
+                                <option value="{{ item.id }}" {% with a=i.user_ids|literal_eval %} {% if item.id in a %} selected{% endif %}  {%endwith%} >{{ item.full_name }}</option>
+                        
+                            {% endfor %}
+                        </select>
+                    </div> {% endcomment %}
+
+                    <div class="col-12 mt-4">
+                        <label class="form-check-label" for="flexSwitchChecked">
+                            Notification Type
+                        </label>
+                        <select class="form-select form-select form-select-sm form-select-solid" data-control="select2"
+                            data-placeholder="All user" data-allow-clear="true" name="notification_type"  id="userType" data-minimum-results-for-search="Infinity">                            
+                            <option value="both" {% if i.notifications_type == "both" %} selected {% endif %}>Both</option>                         
+                            <option value="email" {% if i.notifications_type == "email" %} selected {% endif %}>Email</option>
+                            <option value="push-notification" {% if i.notifications_type == "push-notification" %} selected {% endif %}>Push Notification</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-5 mt-3">
+                        <label class="form-label">Schedule Date & Time</label>
+                        <input type="text" class="form-control form-control-solid" placeholder="Pick date and time" name="datetime" id="datetime" name="datetime" value="{{ i.schedule_datetime|date:'Y-m-d\TH:i' }}">
+                    </div>
+                    <div class="pt-3 text-center">
+                        <button type="submit" class="btn btn-primary btn-sm notsubmitupdateButton" id="notsubmitupdateButton" name="Create" value="Update">Update</button>
+                        <!-- <a type="button" class="btn btn-primary btn-sm " href="{% url 'superadminapp:Tothiq_User' %}">Create</a> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+<!-- update img validation  -->
+
+<script>
+    const notimageInputs = document.querySelectorAll('.notimgInp');
+    
+    notimageInputs.forEach(function(notimageInput) {
+        notimageInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        const imagePreview = document.getElementById('not_pic-' + notimageInput.id.split('-')[1]);
+    
+        reader.addEventListener('load', function() {
+            imagePreview.src = reader.result;
+        });
+    
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+        });
+    });
+</script>
+
+<script>
+    function validateImage123(input) {
+        const submitButton = input.closest('.bg-body').querySelector(".notsubmitupdateButton");
+
+        const allowedExtensions = ["png", "jpg", "jpeg", "webp"];
+        const maxSize = 2 * 1024 * 1024; // 2MB
+        const maxWidth = 400;
+        const maxHeight = 100;
+
+        const file = input.files[0];
+
+        if (!file) {
+            displayValidationMessage(input.closest('.bg-body'), "No image selected");
+            submitButton.disabled = true;
+            return;
+        }
+
+        const fileName = file.name.toLowerCase();
+        const fileSize = file.size;
+        const image = new Image();
+
+        image.src = URL.createObjectURL(file);
+
+        image.onload = function () {
+            if (fileSize > maxSize) {
+                displayValidationMessage(input.closest('.bg-body'), "File size exceeds 2MB");
+                submitButton.disabled = true; 
+            } else if (image.width !== maxWidth && image.height !== maxHeight) {
+                displayValidationMessage(input.closest('.bg-body'), "Image dimensions should be 400px X 100px or smaller");
+                submitButton.disabled = true; 
+            } else if (!allowedExtensions.some(ext => fileName.endsWith(ext))) {
+                displayValidationMessage(input.closest('.bg-body'), "Allowed file types are .png, .jpg, .jpeg, .webp");
+                submitButton.disabled = true; 
+            } else {
+                hideValidationMessage(input.closest('.bg-body'));
+                submitButton.disabled = false; 
+            }
+        };
+    }
+
+    function displayValidationMessage(container, message) {
+        const imgValidation = container.querySelector(".not-update-img-size-validation");
+        imgValidation.textContent = message;
+        imgValidation.style.display = "block";
+    }
+
+    function hideValidationMessage(container) {
+        const imgValidation = container.querySelector(".not-update-img-size-validation");
+        imgValidation.textContent = ''; 
+        imgValidation.style.display = "none";
+    }
+</script>
+
+
+<!-- update img validation  -->
+
+
+    
+<!-- Start image input script in Notification create page -->
+<script>
+    let not_pic = document.getElementById("temp_pic");
+    let imageInput = document.getElementById("new_imageInput");
+    let not_imgValidation = document.getElementById("not-create-img-size-validation");
+    let not_submitButton = document.querySelector(".img-size-validation-not-submit-button");
+
+    imageInput.onchange = function () {
+        let file = imageInput.files[0];
+        let reader = new FileReader();
+
+        reader.onload = function (e) {
+            not_pic.src = e.target.result;
+            
+            const allowedExtensions = ["png", "jpg", "jpeg", "webp"];
+            const maxSize = 2 * 1024 * 1024; // 2MB
+            const maxWidth = 400;
+            const maxHeight = 100;
+
+            const fileName = file.name.toLowerCase();
+            const fileSize = file.size;
+            const image = new Image();
+
+            image.src = e.target.result;
+
+            image.onload = function () {
+                if (fileSize > maxSize) {
+                    displayValidationMessagetempcreate(not_imgValidation, "File size exceeds 2MB");
+                    not_submitButton.disabled = true;  
+                } else if (image.width !== maxWidth && image.height !== maxHeight) {
+                    displayValidationMessagetempcreate(not_imgValidation, "Image dimensions should be 400px X 100px or smaller");
+                    not_submitButton.disabled = true;  
+                } else if (!allowedExtensions.some(ext => fileName.endsWith(ext))) {
+                    displayValidationMessagetempcreate(not_imgValidation, "Allowed file types are .png, .jpg, .jpeg, .webp");
+                    not_submitButton.disabled = true;  
+                } else {
+                    hideValidationMessagetempcreate(not_imgValidation);
+                    not_submitButton.disabled = false; 
+                }
+            };
+        };
+
+        reader.readAsDataURL(file);
+    };
+
+    function displayValidationMessagetempcreate(element, message) {
+        element.textContent = message;
+        element.style.color = "red";
+    }
+
+    function hideValidationMessagetempcreate(element) {
+        element.textContent = "";
+    }
+</script>
+<!-- End image input script in Notification create page -->
+
+<script>
+    $(document).ready(function () {
+        var itemsPerPage = 2; // Number of items per page
+        var notifications = document.querySelectorAll('#notification-container .container-fluid');
+
+        function displayItems(page) {
+            var startIndex = (page - 1) * itemsPerPage;
+            var endIndex = startIndex + itemsPerPage;
+
+            notifications.forEach(function (notification, index) {
+                if (index >= startIndex && index < endIndex) {
+                    notification.style.display = 'block';
+                } else {
+                    notification.style.display = 'none';
+                }
+            });
+        }
+
+        // Calculate the number of pages
+        var totalPages = Math.ceil(notifications.length / itemsPerPage);
+
+        // Create pagination links
+        for (var i = 1; i <= totalPages; i++) {
+            $('#pagination').append('<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>');
+        }
+
+        // Initial display
+        displayItems(1);
+
+        // Pagination click event
+        $('#pagination li a').on('click', function () {
+            var page = parseInt($(this).text());
+            displayItems(page);
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        const notificationElements = $('.message_notification');
+
+        notificationElements.each(function () {
+            const notificationElement = $(this);
+            const content = notificationElement.text().trim();
+            const wordCount = content.match(/\S+/g).length;
+
+            if (wordCount > 50) {
+                notificationElement.css('max-height', '5em');
+                notificationElement.css('overflow', 'hidden');
+                const toggleButton = $('<button  style="background-color: transparent; border:none; color:blue;" ><h2>...</h2></button>');
+                toggleButton.insertAfter(notificationElement);
+
+                toggleButton.click(function () {
+                    notificationElement.css('max-height', '');
+                    notificationElement.css('overflow', 'visible');
+                    toggleButton.hide();
+                });
+            }
+        });
+    });
+</script>
+
+<!-- for pagination  -->
+<script>
+    $(document).ready(function() {
+        var table = $('#notification_table').DataTable({
+            dom: 'lrtip', // Exclude "f" for search bar
+            "pagingType": 'full_numbers',
+            "paging": true,         // Enable pagination
+            "pageLength": 5,      // Number of items per page
+            "lengthMenu": [2,5,10, 25, 50, 75, 100], // Dropdown for changing page length
+            "ordering": false      // Disable column sorting (optional)
+            // Set placeholder for the search bar
+        
+        }); 
+        $('.dataTables_filter input').attr('class', 'form-control mx-5');
+        $('.dataTables_filter input').attr('placeholder', 'Search...');
+        $('.dataTables_filter label').contents().first().remove();
+        $('#notification_table').css('border', 'none');
+        $('#notification_table').css('background-color', 'transparent');
+
+        // Store the current page in sessionStorage whenever the page changes
+        table.on('page.dt', function () {
+            sessionStorage.setItem('yourDataTablePage', table.page.info().page);
+        });
+
+        // Retrieve the last page and set it when the page loads
+        var savedPage = sessionStorage.getItem('yourDataTablePage');
+        if (savedPage !== null) {
+            table.page(parseInt(savedPage)).draw(false);
+        }
+    });
+</script>
+<!-- for pagination  -->
+
+<!-- notification image -->
+<script>
+    document.getElementById('new_imageInput').addEventListener('change', function (event) {
+        var selectedImage = event.target.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            document.getElementById('temp_pic').src = e.target.result; 
+        }
+
+        reader.readAsDataURL(selectedImage);
+    });
+</script>
+<!-- notification image -->
+
+<!-- image not uploaded -->
+<script>
+    function checkImageUploaded() {
+        var imageInput = document.getElementById("new_imageInput");
+        var errorMessage = document.getElementById("errorMessage11");
+        
+        if (imageInput.files.length === 0) {
+            errorMessage.style.display = "block";
+            return false; // Prevent form submission
+        } else {
+            errorMessage.style.display = "none";
+            return true; // Allow form submission
+        }
+    }
+    
+    // Add an event listener to the image input to hide the error message when an image is selected
+    document.getElementById("new_imageInput").addEventListener("change", function() {
+        var errorMessage = document.getElementById("errorMessage11");
+        errorMessage.style.display = "none";
+    });
+    
+</script>
+<!-- image not uploaded -->
+
+<!-- dropdown for user select -->
+<script>
+    function notifications_populate(s){
+    var optionSelect = document.getElementById(s);
+    var selectedOption = optionSelect.value;
+
+    if(selectedOption == "1"){
+        console.log("----------------------------------1---------------------------------------------------------------------------")
+
+        var divElement = document.getElementById("select_all");
+        divElement.removeAttribute("style");
+        var divElement1 = document.getElementById("individual_User");
+        divElement1.style.cssText = "display: none;";
+        var divElement2 = document.getElementById("Business_Users");
+        divElement2.style.cssText = "display: none;";
+        var divElement3 = document.getElementById("Business_Admin");
+        divElement3.style.cssText = "display: none;";
+        var divElement4 = document.getElementById("Sub_Admin");
+        divElement4.style.cssText = "display: none;";
+    }
+    else if(selectedOption == "2"){
+        console.log("----------------------------------2---------------------------------------------------------------------------")
+
+        var divElement = document.getElementById("individual_User");
+        divElement.removeAttribute("style");
+        var divElement1 = document.getElementById("select_all");
+        divElement1.style.cssText = "display: none;";
+        var divElement2 = document.getElementById("Business_Users");
+        divElement2.style.cssText = "display: none;";
+        var divElement3 = document.getElementById("Business_Admin");
+        divElement3.style.cssText = "display: none;";
+        var divElement4 = document.getElementById("Sub_Admin");
+        divElement4.style.cssText = "display: none;";
+    }
+    else if(selectedOption == '3'){
+        console.log("----------------------------------3---------------------------------------------------------------------------")
+
+        var divElement = document.getElementById("Business_Users");
+        divElement.removeAttribute("style");
+        var divElement1 = document.getElementById("individual_User");
+        divElement1.style.cssText = "display: none;";
+        var divElement2 = document.getElementById("select_all");
+        divElement2.style.cssText = "display: none;";
+        var divElement3 = document.getElementById("Business_Admin");
+        divElement3.style.cssText = "display: none;";
+        var divElement4 = document.getElementById("Sub_Admin");
+        divElement4.style.cssText = "display: none;";
+    }
+    else if(selectedOption == '4'){
+    
+        var divElement = document.getElementById("Business_Admin");
+        divElement.removeAttribute("style");
+        var divElement1 = document.getElementById("select_all");
+        divElement1.style.cssText = "display: none;";
+        var divElement2 = document.getElementById("individual_User");
+        divElement2.style.cssText = "display: none;";
+        var divElement3 = document.getElementById("Business_Users");
+        divElement3.style.cssText = "display: none;";
+        var divElement4 = document.getElementById("Sub_Admin");
+        divElement4.style.cssText = "display: none;";
+    }
+    else if(selectedOption == '5'){
+    
+        var divElement = document.getElementById("Sub_Admin");
+        divElement.removeAttribute("style");
+        var divElement1 = document.getElementById("select_all");
+        divElement1.style.cssText = "display: none;";
+        var divElement2 = document.getElementById("individual_User");
+        divElement2.style.cssText = "display: none;";
+        var divElement3 = document.getElementById("Business_Users");
+        divElement3.style.cssText = "display: none;";
+        var divElement4 = document.getElementById("Business_Admin");
+        divElement4.style.cssText = "display: none;";
+    }
+    }
+</script>
+
+<script>
+    function notifications_populate2(s,i){
+    var id = i
+    console.log(id,"........................")
+    var optionSelect = document.getElementById(s);
+    var selectedOption = optionSelect.value;
+
+    if(selectedOption == "1"){
+        console.log(id,"..............1..........")
+        var divElement = document.getElementById("select_all_"+id);
+        divElement.removeAttribute("style");
+        var divElement1 = document.getElementById("individual_User_"+id);
+        divElement1.style.cssText = "display: none;";
+        var divElement2 = document.getElementById("Business_Users_"+id);
+        divElement2.style.cssText = "display: none;";
+        var divElement3 = document.getElementById("Business_admin_"+id);
+        divElement3.style.cssText = "display: none;";
+        var divElement4 = document.getElementById("Sub_admin_"+id);
+        divElement4.style.cssText = "display: none;";
+    }
+    else if(selectedOption == "2"){
+        console.log(id,"................2........")
+        var divElement = document.getElementById("individual_User_"+id);
+        divElement.removeAttribute("style");
+        var divElement1 = document.getElementById("select_all_"+id);
+        divElement1.style.cssText = "display: none;";
+        var divElement2 = document.getElementById("Business_Users_"+id);
+        divElement2.style.cssText = "display: none;";
+        var divElement3 = document.getElementById("Business_admin_"+id);
+        divElement3.style.cssText = "display: none;";
+        var divElement4 = document.getElementById("Sub_admin_"+id);
+        divElement4.style.cssText = "display: none;";
+    }
+    else if(selectedOption == '3'){
+        console.log(id,"................3........")
+        var divElement = document.getElementById("Business_Users_"+id);
+        divElement.removeAttribute("style");
+        var divElement1 = document.getElementById("individual_User_"+id);
+        divElement1.style.cssText = "display: none;";
+        var divElement2 = document.getElementById("select_all_"+id);
+        divElement2.style.cssText = "display: none;";
+        var divElement3 = document.getElementById("Business_admin_"+id);
+        divElement3.style.cssText = "display: none;";
+        var divElement4 = document.getElementById("Sub_admin_"+id);
+        divElement4.style.cssText = "display: none;";
+    }
+    else if(selectedOption == '4'){
+        console.log(id,"................4........")
+        var divElement = document.getElementById("Business_admin_"+id);
+        divElement.removeAttribute("style");
+        var divElement1 = document.getElementById("individual_User_"+id);
+        divElement1.style.cssText = "display: none;";
+        var divElement2 = document.getElementById("select_all_"+id);
+        divElement2.style.cssText = "display: none;";
+        var divElement3 = document.getElementById("Business_Users_"+id);
+        divElement3.style.cssText = "display: none;";
+        var divElement4 = document.getElementById("Sub_admin_"+id);
+        divElement4.style.cssText = "display: none;";
+    }
+    else if(selectedOption == '5'){
+        console.log(id,"................5........")
+        var divElement = document.getElementById("Sub_admin_"+id);
+        divElement.removeAttribute("style");
+        var divElement1 = document.getElementById("Business_admin_"+id);
+        divElement1.style.cssText = "display: none;";
+        var divElement2 = document.getElementById("Business_Users_"+id);
+        divElement2.style.cssText = "display: none;";
+        var divElement3 = document.getElementById("individual_User_"+id);
+        divElement3.style.cssText = "display: none;";
+        var divElement4 = document.getElementById("select_all_"+id);
+        divElement4.style.cssText = "display: none;";
+    }
+    
+    }
+</script>
+<!-- dropdown for user select -->
+
+
+<!-- change push status -->
+<script>
+    function fetchIdnot(u_id, push_status) {
+        $.ajax({
+            url: "{% url 'superadminapp:General Notifications' %}",
+            data: {
+                user_id: u_id,
+                active_status: push_status,
+                csrfmiddlewaretoken: "{{ csrf_token }}"
+            },
+            type: "get",
+            dataType: "json",
+            success: function(data) {
+                console.log(data);
+                // You can update your button or perform other actions based on the data here
+            },
+            error: function(xhr, errmsg, err) {
+                console.log(xhr.status + ": " + xhr.responseText);
+            }
+        });
+        setTimeout(function() {
+            location.reload();
+        }, 300);
+    }
+</script>
+<!-- change push status -->
+
+<!-- date not select before current time -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js"></script>
+<script>
+    flatpickr('#datetime', {
+    enableTime: true,
+    dateFormat: 'Y-m-d H:i',
+    minDate: "today",
+    onChange: function(selectedDates, dateStr) {
+    console.log('Selected Date and Time:', dateStr);
+    }
+});
+</script>
+<script>
+    var currentDate = new Date();
+    flatpickr('#datetime1', {
+    enableTime: true,
+    dateFormat: 'Y-m-d H:i',
+    minDate: "today",
+    defaultDate: currentDate,
+    onChange: function(selectedDates, dateStr) {
+    console.log('Selected Date and Time:', dateStr);
+    }
+});
+</script>
+<!-- date not select before current time -->
+
+{% include "footer.html" %}

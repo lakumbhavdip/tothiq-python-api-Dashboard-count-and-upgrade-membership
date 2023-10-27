@@ -1,0 +1,1676 @@
+[
+    {
+        "model": "masterapp.languages_label",
+        "pk": 747,
+        "fields": {
+            "code": "citizen_id_is_a_required_field.",
+            "english": "Citizen ID is a required field.",
+            "arabic": " "
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 748,
+        "fields": {
+            "code": "email_id_is_a_required_field.",
+            "english": "Email ID is a required field.",
+            "arabic": "\u062d\u0642\u0644 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 749,
+        "fields": {
+            "code": "a_user_with_this_citizen_id_already_exists.",
+            "english": "A user with this citizen ID already exists.",
+            "arabic": "\u0647\u0646\u0627\u0643 \u0634\u062e\u0635 \u0645\u0633\u062c\u0644 \u062d\u0627\u0644\u064a\u0627 \u0628\u0647\u0630\u0627 \u0627\u0644\u0631\u0642\u0645 \u0627\u0644\u0645\u062f\u0646\u064a."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 750,
+        "fields": {
+            "code": "successfully_registered.",
+            "english": "Successfully registered.",
+            "arabic": "\u062a\u0645\u062a \u0639\u0645\u0644\u064a\u0629 \u0627\u0644\u062a\u0633\u062c\u064a\u0644 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 751,
+        "fields": {
+            "code": "otp_is_a_required_field.",
+            "english": "OTP is a required field.",
+            "arabic": "\u0645\u0637\u0644\u0648\u0628 \u0631\u0645\u0632 \u0627\u0644\u062a\u062d\u0642\u0642."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 752,
+        "fields": {
+            "code": "login_succeeded.",
+            "english": "Login succeeded.",
+            "arabic": "\u062a\u0645\u062a \u0639\u0645\u0644\u064a\u0629 \u0627\u0644\u062f\u062e\u0648\u0644 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 753,
+        "fields": {
+            "code": "invalid_civil_id.",
+            "english": "Invalid Civil ID.",
+            "arabic": "\u0631\u0642\u0645 \u0627\u0644\u0628\u0637\u0627\u0642\u0629 \u0627\u0644\u0645\u062f\u0646\u064a\u0629 \u063a\u064a\u0631 \u0635\u062d\u064a\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 754,
+        "fields": {
+            "code": "profile_data_retrieved_successfully.",
+            "english": "Profile data retrieved successfully.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0645\u0644\u0641 \u0627\u0644\u0634\u062e\u0635\u064a \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 755,
+        "fields": {
+            "code": "profile_data_successfully_displayed.",
+            "english": "Profile data successfully displayed",
+            "arabic": "\u0639\u0631\u0636 \u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0645\u0644\u0641 \u0627\u0644\u0634\u062e\u0635\u064a \u062a\u0645 \u062c\u0644\u0628\u0647\u0627 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 756,
+        "fields": {
+            "code": "profile_updated_successfully.",
+            "english": "Profile updated successfully",
+            "arabic": "\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u0627\u0644\u0645\u0644\u0641 \u0627\u0644\u0634\u062e\u0635\u064a \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 757,
+        "fields": {
+            "code": "successfully_created_password.",
+            "english": "Successfully created password",
+            "arabic": "\u062a\u0645 \u0625\u0646\u0634\u0627\u0621 \u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 758,
+        "fields": {
+            "code": "image_not_found.",
+            "english": "Image not found",
+            "arabic": "\u0627\u0644\u0635\u0648\u0631\u0629 \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 759,
+        "fields": {
+            "code": "image_uploaded_successfully.",
+            "english": "Image uploaded successfully",
+            "arabic": "\u062a\u0645 \u062a\u062d\u0645\u064a\u0644 \u0627\u0644\u0635\u0648\u0631\u0629 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 760,
+        "fields": {
+            "code": "signature_image_not_found.",
+            "english": "Signature image not found",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0635\u0648\u0631\u0629 \u0627\u0644\u062a\u0648\u0642\u064a\u0639."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 761,
+        "fields": {
+            "code": "signature_image_uploaded_successfully.",
+            "english": "Signature image uploaded successfully",
+            "arabic": "\u062a\u0645 \u062a\u062d\u0645\u064a\u0644 \u0635\u0648\u0631\u0629 \u0627\u0644\u062a\u0648\u0642\u064a\u0639 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 762,
+        "fields": {
+            "code": "notification_list_retrieved_successfully.",
+            "english": "Notification list retrieved successfully",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0625\u0634\u0639\u0627\u0631\u0627\u062a \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 763,
+        "fields": {
+            "code": "notification_not_found.",
+            "english": "Notification not found",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0627\u0644\u0625\u0634\u0639\u0627\u0631."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 764,
+        "fields": {
+            "code": "notification_successfully_updated.",
+            "english": "Notification successfully updated.",
+            "arabic": "\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u0627\u0644\u0625\u0634\u0639\u0627\u0631\u0627\u062a \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 765,
+        "fields": {
+            "code": "invalid_data.",
+            "english": "Invalid data",
+            "arabic": "\u0628\u064a\u0627\u0646\u0627\u062a \u063a\u064a\u0631 \u0635\u0627\u0644\u062d\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 766,
+        "fields": {
+            "code": "notification_successfully_retrieved.",
+            "english": "Notification successfully retrieved.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0627\u0644\u0625\u0634\u0639\u0627\u0631\u0627\u062a \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 767,
+        "fields": {
+            "code": "notification_id_is_required.",
+            "english": "Notification ID is required",
+            "arabic": "\u0645\u0637\u0644\u0648\u0628 \u0645\u0639\u0631\u0641 \u0627\u0644\u0625\u0634\u0639\u0627\u0631."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 768,
+        "fields": {
+            "code": "status_is_required.",
+            "english": "Status is required",
+            "arabic": "\u0627\u0644\u062d\u0627\u0644\u0629 \u0645\u0637\u0644\u0648\u0628\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 769,
+        "fields": {
+            "code": "invalid_status_entry.",
+            "english": "Invalid status entry",
+            "arabic": "\u0625\u062f\u062e\u0627\u0644 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d \u0644\u0644\u062d\u0627\u0644\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 770,
+        "fields": {
+            "code": "notification_status_updated_successfully.",
+            "english": "Notification status updated successfully",
+            "arabic": "\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u062d\u0627\u0644\u0629 \u0627\u0644\u0625\u0634\u0639\u0627\u0631 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 771,
+        "fields": {
+            "code": "notification_does_not_exist.",
+            "english": "Notification does not exist",
+            "arabic": "\u0627\u0644\u0625\u0634\u0639\u0627\u0631 \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 772,
+        "fields": {
+            "code": "notification_successfully_deleted.",
+            "english": "Notification successfully deleted",
+            "arabic": "\u062a\u0645 \u062d\u0630\u0641 \u0627\u0644\u0625\u0634\u0639\u0627\u0631 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 773,
+        "fields": {
+            "code": "notification_has_already_been_deleted.",
+            "english": "Notification has already been deleted.",
+            "arabic": "\u062a\u0645 \u062d\u0630\u0641 \u0627\u0644\u0625\u0634\u0639\u0627\u0631 \u0645\u0633\u0628\u0642\u0627."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 774,
+        "fields": {
+            "code": "dashboard_data_retrieved_successfully.",
+            "english": "Dashboard data retrieved successfully",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0628\u064a\u0627\u0646\u0627\u062a \u0644\u0648\u062d\u0629 \u0627\u0644\u0645\u0639\u0644\u0648\u0645\u0627\u062a \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 775,
+        "fields": {
+            "code": "switch_account_details_successfully_retrieved.",
+            "english": "Switch account details successfully retrieved.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u062a\u0641\u0627\u0635\u064a\u0644 \u062a\u0628\u062f\u064a\u0644 \u0627\u0644\u062d\u0633\u0627\u0628 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 776,
+        "fields": {
+            "code": "user_id_is_required.",
+            "english": "User ID is required.",
+            "arabic": "\u0645\u0637\u0644\u0648\u0628 \u0625\u0633\u0645 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 777,
+        "fields": {
+            "code": "invalid_user_id.",
+            "english": "Invalid user ID.",
+            "arabic": "\u0625\u0633\u0645 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 778,
+        "fields": {
+            "code": "this_civil_id_cannot_be_added_to_my_address_book.",
+            "english": "This Civil ID cannot be added to my address book.",
+            "arabic": "\u0644\u0627 \u064a\u0633\u0645\u062d \u0628\u0625\u0636\u0627\u0641\u0629 \u0647\u0630\u0627 \u0627\u0644\u0631\u0642\u0645 \u0627\u0644\u0645\u062f\u0646\u064a \u0641\u064a \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0639\u0646\u0627\u0648\u064a\u0646 \u0627\u0644\u062e\u0627\u0635\u0629 \u0628\u0643."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 779,
+        "fields": {
+            "code": "this_user_has_already_been_added_to_my_address_book.",
+            "english": "This user has already been added to my address book.",
+            "arabic": "\u0644\u0642\u062f \u0623\u0636\u0641\u062a \u0645\u0633\u0628\u0642\u0627 \u0647\u0630\u0627 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u0641\u064a \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0639\u0646\u0627\u0648\u064a\u0646 \u0627\u0644\u062e\u0627\u0635\u0629 \u0628\u0643."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 780,
+        "fields": {
+            "code": "this_civil_id_has_been_added_to_your_address_book.",
+            "english": "This Civil ID has been added to your address book.",
+            "arabic": "\u062a\u0645\u062a \u0625\u0636\u0627\u0641\u0629 \u0647\u0630\u0627 \u0627\u0644\u0631\u0642\u0645 \u0627\u0644\u0645\u062f\u0646\u064a \u0641\u064a \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0639\u0646\u0627\u0648\u064a\u0646 \u0627\u0644\u062e\u0627\u0635\u0629 \u0628\u0643."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 781,
+        "fields": {
+            "code": "user_filtered_successfully.",
+            "english": "User filtered successfully.",
+            "arabic": "\u062a\u0645\u062a \u062a\u0635\u0641\u064a\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 782,
+        "fields": {
+            "code": "user_not_found.",
+            "english": "User not found.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 783,
+        "fields": {
+            "code": "an_invalid_civil_id_was_entered.",
+            "english": "An invalid Civil ID was entered.",
+            "arabic": "\u062a\u0645 \u0625\u062f\u062e\u0627\u0644 \u0631\u0642\u0645 \u0628\u0637\u0627\u0642\u0629 \u0645\u062f\u0646\u064a\u0629 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 784,
+        "fields": {
+            "code": "contact_list_successfully_retrieved.",
+            "english": "Contact list successfully retrieved.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u062c\u0647\u0627\u062a \u0627\u0644\u0625\u062a\u0635\u0627\u0644 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 785,
+        "fields": {
+            "code": "address_book_id_required.",
+            "english": "Address Book ID required.",
+            "arabic": "\u0645\u0637\u0644\u0648\u0628 \u0645\u0639\u0631\u0641 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0639\u0646\u0627\u0648\u064a\u0646."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 786,
+        "fields": {
+            "code": "invitee_successfully_deleted.",
+            "english": "Invitee successfully deleted.",
+            "arabic": "\u062a\u0645 \u062d\u0630\u0641 \u0627\u0644\u0645\u062f\u0639\u0648 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 787,
+        "fields": {
+            "code": "contact_id_required.",
+            "english": "Contact ID required.",
+            "arabic": "\u0645\u0637\u0644\u0648\u0628 \u0631\u0642\u0645 \u0633\u062c\u0644 \u0627\u0644\u0625\u062a\u0635\u0627\u0644."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 788,
+        "fields": {
+            "code": "contact_record_not_found.",
+            "english": "Contact record not found.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0633\u062c\u0644 \u0627\u0644\u0625\u062a\u0635\u0627\u0644."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 789,
+        "fields": {
+            "code": "this_contact_id_is_not_available_for_this_user.",
+            "english": "This Contact ID is not available for this user.",
+            "arabic": "\u0631\u0642\u0645 \u062c\u0647\u0629 \u0627\u0644\u0625\u062a\u0635\u0627\u0644 \u0627\u0644\u0645\u0632\u0648\u062f \u063a\u064a\u0631 \u0645\u062a\u0627\u062d \u0644\u0647\u0630\u0627 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 790,
+        "fields": {
+            "code": "contact_details_successfully_retrieved.",
+            "english": "Contact details successfully retrieved.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u062a\u0641\u0627\u0635\u064a\u0644 \u062c\u0647\u0627\u062a \u0627\u0644\u0625\u062a\u0635\u0627\u0644 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 791,
+        "fields": {
+            "code": "company_name_required.",
+            "english": "Company name required.",
+            "arabic": "\u0627\u0633\u0645 \u0627\u0644\u0634\u0631\u0643\u0629 \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 792,
+        "fields": {
+            "code": "a_record_with_the_same_company_name_or_email_address_already_exists.",
+            "english": "A record with the same company name or email address already exists.",
+            "arabic": "\u064a\u0648\u062c\u062f \u0625\u0633\u0645 \u0634\u0631\u0643\u0629 \u0623\u0648 \u0639\u0646\u0648\u0627\u0646 \u0628\u0631\u064a\u062f \u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a \u0645\u0633\u062c\u0644 \u0645\u0633\u0628\u0642\u0627."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 793,
+        "fields": {
+            "code": "registration_was_successful._a_confirmation_email_has_been_sent._please_check_your_email.",
+            "english": "Registration was successful. A confirmation email has been sent. Please check your email.",
+            "arabic": "\u0646\u062c\u062d\u062a \u0639\u0645\u0644\u064a\u0629 \u0627\u0644\u062a\u0633\u062c\u064a\u0644. \u0644\u0642\u062f \u0623\u0631\u0633\u0644\u0646\u0627 \u0644\u0643 \u0628\u0631\u064a\u062f\u064b\u0627 \u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\u064b\u0627 \u0644\u0644\u062a\u062d\u0642\u0642. \u0627\u0644\u0631\u062c\u0627\u0621 \u0645\u0631\u0627\u062c\u0639\u0629 \u0628\u0631\u064a\u062f\u0643 \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 794,
+        "fields": {
+            "code": "email_address_is_already_registered.",
+            "english": "Email address is already registered.",
+            "arabic": "\u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a \u0645\u0633\u062c\u0644 \u0645\u0633\u0628\u0642\u0627."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 795,
+        "fields": {
+            "code": "password_needs_to_be_created.",
+            "english": "Password needs to be created.",
+            "arabic": "\u0645\u0637\u0644\u0648\u0628 \u0625\u0646\u0634\u0627\u0621 \u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 796,
+        "fields": {
+            "code": "password_must_be_retyped.",
+            "english": "Password must be retyped.",
+            "arabic": "\u0645\u0637\u0644\u0648\u0628 \u0625\u0639\u0627\u062f\u0629 \u0643\u062a\u0627\u0628\u0629 \u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 797,
+        "fields": {
+            "code": "password_does_not_match.",
+            "english": "Password does not match.",
+            "arabic": "\u0643\u0644\u0645\u0627\u062a \u0627\u0644\u0645\u0631\u0648\u0631 \u063a\u064a\u0631 \u0645\u062a\u0637\u0627\u0628\u0642\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 798,
+        "fields": {
+            "code": "business_record_not_found.",
+            "english": "Business record not found.",
+            "arabic": "\u0633\u062c\u0644 \u0627\u0644\u0623\u0639\u0645\u0627\u0644 \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 799,
+        "fields": {
+            "code": "password_entry_required.",
+            "english": "Password entry required.",
+            "arabic": "\u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631 \u0645\u0637\u0644\u0648\u0628\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 800,
+        "fields": {
+            "code": "password_is_incorrect.",
+            "english": "Password is incorrect.",
+            "arabic": "\u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631 \u063a\u064a\u0631 \u0635\u062d\u064a\u062d\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 801,
+        "fields": {
+            "code": "business_profile_retrieved_successfully.",
+            "english": "Business profile retrieved successfully.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0645\u0644\u0641 \u0627\u0644\u0639\u0645\u0644 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 802,
+        "fields": {
+            "code": "business_profile_not_found.",
+            "english": "Business profile not found.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0645\u0644\u0641 \u0627\u0644\u0639\u0645\u0644."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 803,
+        "fields": {
+            "code": "missing_required_fields.",
+            "english": "Missing required fields.",
+            "arabic": "\u064a\u0631\u062c\u0649 \u0645\u0644\u0626 \u062c\u0645\u064a\u0639 \u0627\u0644\u062d\u0642\u0648\u0644 \u0627\u0644\u0645\u0637\u0644\u0648\u0628\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 804,
+        "fields": {
+            "code": "business_profile_updated_successfully.",
+            "english": "Business Profile updated successfully.",
+            "arabic": "\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u0645\u0644\u0641 \u0627\u0644\u0639\u0645\u0644 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 805,
+        "fields": {
+            "code": "department_name_is_required.",
+            "english": "Department name is required.",
+            "arabic": "\u0645\u0637\u0644\u0648\u0628 \u0625\u0633\u0645 \u0627\u0644\u0642\u0633\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 806,
+        "fields": {
+            "code": "business_information_not_found.",
+            "english": "Business information not found.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0623\u0639\u0645\u0627\u0644."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 807,
+        "fields": {
+            "code": "department_with_this_name_already_exists.",
+            "english": "Department with this name already exists.",
+            "arabic": "\u0642\u0633\u0645 \u0628\u0647\u0630\u0627 \u0627\u0644\u0625\u0633\u0645 \u0645\u0648\u062c\u0648\u062f \u0628\u0627\u0644\u0641\u0639\u0644."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 808,
+        "fields": {
+            "code": "cannot_create_user_for_general_department.",
+            "english": "Cannot create user for general department.",
+            "arabic": "\u0644\u0627 \u064a\u0645\u0643\u0646 \u0625\u0646\u0634\u0627\u0621 \u0645\u0633\u062a\u062e\u062f\u0645 \u0641\u064a \u0642\u0633\u0645 '\u0627\u0644\u0639\u0627\u0645'."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 809,
+        "fields": {
+            "code": "parent_department_not_found.",
+            "english": "Parent department not found.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0627\u0644\u0642\u0633\u0645 \u0627\u0644\u0631\u0626\u064a\u0633\u064a."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 810,
+        "fields": {
+            "code": "department_successfully_created.",
+            "english": "Department successfully created.",
+            "arabic": "\u062a\u0645 \u0625\u0646\u0634\u0627\u0621 \u0627\u0644\u0642\u0633\u0645 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 811,
+        "fields": {
+            "code": "department_list_retrieved_successfully.",
+            "english": "Department list retrieved successfully.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0642\u0633\u0645 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 812,
+        "fields": {
+            "code": "department_name_list_retrieved_successfully.",
+            "english": "Department name list retrieved successfully.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u0623\u0633\u0645\u0627\u0621 \u0627\u0644\u0642\u0633\u0645 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 813,
+        "fields": {
+            "code": "department_id_required.",
+            "english": "Department ID required.",
+            "arabic": "\u0645\u0637\u0644\u0648\u0628 \u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0642\u0633\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 814,
+        "fields": {
+            "code": "department_not_found.",
+            "english": "Department not found.",
+            "arabic": "\u0627\u0644\u0642\u0633\u0645 \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 815,
+        "fields": {
+            "code": "general_department_cannot_be_deleted.",
+            "english": "General department cannot be deleted",
+            "arabic": "\u0644\u0627 \u064a\u0645\u0643\u0646 \u062d\u0630\u0641 \u0627\u0644\u0642\u0633\u0645 \u0627\u0644\u0639\u0627\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 816,
+        "fields": {
+            "code": "department_successfully_deleted._all_associated_members_will_be_moved_to_the_general_department.",
+            "english": "Department successfully deleted. All associated members will be moved to the general department.",
+            "arabic": "\u062a\u0645 \u062d\u0630\u0641 \u0627\u0644\u0642\u0633\u0645 \u0628\u0646\u062c\u0627\u062d. \u062a\u0645 \u0646\u0642\u0644 \u062c\u0645\u064a\u0639 \u0627\u0644\u0623\u0639\u0636\u0627\u0621 \u0627\u0644\u0645\u0631\u062a\u0628\u0637\u064a\u0646 \u0625\u0644\u0649 \u0627\u0644\u0642\u0633\u0645 \u0627\u0644\u0639\u0627\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 817,
+        "fields": {
+            "code": "general_department_name_cannot_be_changed.",
+            "english": "General department name cannot be changed.",
+            "arabic": "\u0644\u0627 \u064a\u0645\u0643\u0646 \u062a\u063a\u064a\u064a\u0631 \u0625\u0633\u0645 \u0627\u0644\u0642\u0633\u0645 \u0627\u0644\u0639\u0627\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 818,
+        "fields": {
+            "code": "department_updated_successfully.",
+            "english": "Department updated successfully.",
+            "arabic": "\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u0627\u0644\u0642\u0633\u0645 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 819,
+        "fields": {
+            "code": "department_details_retrieved_successfully.",
+            "english": "Department details retrieved successfully.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u062a\u0641\u0627\u0635\u064a\u0644 \u0627\u0644\u0642\u0633\u0645 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 820,
+        "fields": {
+            "code": "user_has_already_been_added.",
+            "english": "User has already been added.",
+            "arabic": "\u062a\u0645\u062a \u0625\u0636\u0627\u0641\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u0645\u0633\u0628\u0642\u0627 \u0625\u0644\u0649 \u0627\u0644\u0639\u0645\u0644."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 821,
+        "fields": {
+            "code": "user_has_been_added_successfully.",
+            "english": "User has been added successfully.",
+            "arabic": "\u062a\u0645\u062a \u0625\u0636\u0627\u0641\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 822,
+        "fields": {
+            "code": "user_has_already_been_added_to_the_business_as_an_invitee.",
+            "english": "User has already been added to the business as an invitee.",
+            "arabic": "\u062a\u0645\u062a \u0625\u0636\u0627\u0641\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u0645\u0633\u0628\u0642\u0627 \u0625\u0644\u0649 \u0627\u0644\u0639\u0645\u0644 \u0643\u0645\u062f\u0639\u0648."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 823,
+        "fields": {
+            "code": "user_has_been_invited._invitation_has_been_sent_to_the_specified_email_address.",
+            "english": "User has been invited. Invitation has been sent to the specified email address.",
+            "arabic": "\u062a\u0645\u062a \u062f\u0639\u0648\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u0628\u0646\u062c\u0627\u062d. \u062a\u0645 \u0625\u0631\u0633\u0627\u0644 \u0627\u0644\u062f\u0639\u0648\u0629 \u0625\u0644\u0649 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a \u0627\u0644\u0645\u062d\u062f\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 824,
+        "fields": {
+            "code": "the_list_of_invited_users_was_successfully_retrieved.",
+            "english": "The list of invited users was successfully retrieved.",
+            "arabic": "\u062a\u0645 \u0625\u0633\u062a\u0631\u062f\u0627\u062f \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\u064a\u0646 \u0627\u0644\u0645\u062f\u0639\u0648\u064a\u0646 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 825,
+        "fields": {
+            "code": "folder_list_successfully_retrieved.",
+            "english": "Folder list successfully retrieved.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u062c\u0644\u062f\u0627\u062a \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 826,
+        "fields": {
+            "code": "folder_name_list_was_successfully_retrieved.",
+            "english": "Folder name list was successfully retrieved.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u0623\u0633\u0645\u0627\u0621 \u0627\u0644\u0645\u062c\u0644\u062f\u0627\u062a \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 827,
+        "fields": {
+            "code": "folder_id_is_required.",
+            "english": "Folder ID is required.",
+            "arabic": "\u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0645\u062c\u0644\u062f \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 828,
+        "fields": {
+            "code": "folder_not_found.",
+            "english": "Folder not found.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0627\u0644\u0645\u062c\u0644\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 829,
+        "fields": {
+            "code": "cannot_delete_general_folder.",
+            "english": "Cannot delete General folder.",
+            "arabic": "\u0644\u0627 \u064a\u0645\u0643\u0646 \u062d\u0630\u0641 \u0627\u0644\u0645\u062c\u0644\u062f \u0627\u0644\u0639\u0627\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 830,
+        "fields": {
+            "code": "folder_successfully_deleted._all_associated_contracts_will_be_moved_to_the_general_folder.",
+            "english": "Folder successfully deleted. All associated contracts will be moved to the General folder.",
+            "arabic": "\u062a\u0645 \u062d\u0630\u0641 \u0627\u0644\u0645\u062c\u0644\u062f \u0628\u0646\u062c\u0627\u062d. \u0633\u0648\u0641 \u064a\u062a\u0645 \u0646\u0642\u0644 \u062c\u0645\u064a\u0639 \u0627\u0644\u0639\u0642\u0648\u062f \u0627\u0644\u0645\u0631\u062a\u0628\u0637\u0629 \u0625\u0644\u0649 \u0627\u0644\u0645\u062c\u0644\u062f \u0627\u0644\u0639\u0627\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 831,
+        "fields": {
+            "code": "folder_name_is_required.",
+            "english": "Folder name is required.",
+            "arabic": "\u0625\u0633\u0645 \u0627\u0644\u0645\u062c\u0644\u062f \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 832,
+        "fields": {
+            "code": "arabic_folder_name_is_required.",
+            "english": "Arabic folder name is required.",
+            "arabic": "\u0645\u0637\u0644\u0648\u0628 \u0625\u0633\u0645 \u0627\u0644\u0645\u062c\u0644\u062f \u0628\u0627\u0644\u0644\u063a\u0629 \u0627\u0644\u0639\u0631\u0628\u064a\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 833,
+        "fields": {
+            "code": "folder_not_found.",
+            "english": "Folder not found.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0627\u0644\u0645\u062c\u0644\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 834,
+        "fields": {
+            "code": "cannot_rename_general_folder.",
+            "english": "Cannot rename General folder.",
+            "arabic": "\u0644\u0627 \u064a\u0645\u0643\u0646 \u062a\u063a\u064a\u064a\u0631 \u0625\u0633\u0645 \u0627\u0644\u0645\u062c\u0644\u062f \u0627\u0644\u0639\u0627\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 835,
+        "fields": {
+            "code": "parent_folder_not_found.",
+            "english": "Parent folder not found.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0627\u0644\u0645\u062c\u0644\u062f \u0627\u0644\u0623\u0633\u0627\u0633\u064a."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 836,
+        "fields": {
+            "code": "folder_updated_successfully.",
+            "english": "Folder updated successfully.",
+            "arabic": "\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u0627\u0644\u0645\u062c\u0644\u062f \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 837,
+        "fields": {
+            "code": "folder_details_retrieved_successfully.",
+            "english": "Folder details retrieved successfully.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u062a\u0641\u0627\u0635\u064a\u0644 \u0627\u0644\u0645\u062c\u0644\u062f \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 838,
+        "fields": {
+            "code": "invalid_language.",
+            "english": "Invalid language.",
+            "arabic": "\u0627\u0644\u0644\u063a\u0629 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 839,
+        "fields": {
+            "code": "category_list_retrieved_successfully.",
+            "english": "Category list retrieved successfully.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0641\u0626\u0627\u062a \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 840,
+        "fields": {
+            "code": "category_id_required.",
+            "english": "Category ID required",
+            "arabic": "\u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0641\u0626\u0629 \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 841,
+        "fields": {
+            "code": "category_id_does_not_exist.",
+            "english": "Category ID does not exist",
+            "arabic": "\u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0641\u0626\u0629 \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 842,
+        "fields": {
+            "code": "template_list_successfully_fetched.",
+            "english": "Template list successfully fetched.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0642\u0648\u0627\u0644\u0628 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 843,
+        "fields": {
+            "code": "no_template_for_the_specified_category_id_was_found.",
+            "english": "No template for the specified category ID was found.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0642\u0648\u0627\u0644\u0628 \u0644\u0645\u0639\u0631\u0641 \u0627\u0644\u0641\u0626\u0629 \u0627\u0644\u0645\u0639\u0637\u0649."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 844,
+        "fields": {
+            "code": "contract_start_date_and_contract_end_date_are_required_if_contract_term_is_checked.",
+            "english": "Contract Start Date and Contract End Date are required if Contract Term is checked.",
+            "arabic": "\u062a\u0627\u0631\u064a\u062e \u0628\u062f\u0621 \u0627\u0644\u0639\u0642\u062f \u0648\u062a\u0627\u0631\u064a\u062e \u0627\u0646\u062a\u0647\u0627\u0621 \u0627\u0644\u0639\u0642\u062f \u0645\u0637\u0644\u0648\u0628 \u0639\u0646\u062f\u0645\u0627 \u064a\u062a\u0645 \u0625\u062e\u062a\u064a\u0627\u0631 \u062d\u0642\u0644 \u0645\u062f\u0629 \u0627\u0644\u0639\u0642\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 845,
+        "fields": {
+            "code": "at_least_one_arbitration_or_jurisdiction_is_required.",
+            "english": "At least one arbitration or jurisdiction is required.",
+            "arabic": "\u0645\u0637\u0644\u0648\u0628 \u0625\u062e\u062a\u064a\u0627\u0631 \u0623\u062d\u062f \u0627\u0644\u0628\u0646\u062f\u064a\u0646 \u0625\u0645\u0627 \u0627\u0644\u062a\u062d\u0643\u064a\u0645 \u0623\u0648 \u0627\u0644\u0625\u062e\u062a\u0635\u0627\u0635."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 846,
+        "fields": {
+            "code": "contract_end_date_must_be_greater_than_the_start_date.",
+            "english": "Contract End Date must be greater than the Start Date.",
+            "arabic": "\u064a\u062c\u0628 \u0623\u0646 \u064a\u0643\u0648\u0646 \u062a\u0627\u0631\u064a\u062e \u0625\u0646\u062a\u0647\u0627\u0621 \u0627\u0644\u0639\u0642\u062f \u0623\u0643\u062b\u0631 \u0645\u0646 \u062a\u0627\u0631\u064a\u062e \u0627\u0644\u0628\u062f\u0621."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 847,
+        "fields": {
+            "code": "the_contract_start_date_cannot_be_in_the_past.",
+            "english": "The contract start date cannot be in the past.",
+            "arabic": "\u0644\u0627 \u064a\u0645\u0643\u0646 \u0623\u0646 \u064a\u0643\u0648\u0646 \u062a\u0627\u0631\u064a\u062e \u0628\u062f\u0621 \u0627\u0644\u0639\u0642\u062f \u0641\u064a \u0627\u0644\u0645\u0627\u0636\u064a."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 848,
+        "fields": {
+            "code": "a_contract_has_already_been_created_with_this_name._please_try_another_name.",
+            "english": "A contract has already been created with this name. Please try another name.",
+            "arabic": "\u0644\u0642\u062f \u0642\u0645\u062a \u0628\u0625\u0646\u0634\u0627\u0621 \u0639\u0642\u062f \u0628\u0647\u0630\u0627 \u0627\u0644\u0625\u0633\u0645 \u0645\u0646 \u0642\u0628\u0644 \u060c \u064a\u0631\u062c\u0649 \u062a\u062c\u0631\u0628\u0629 \u0625\u0633\u0645 \u0622\u062e\u0631."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 849,
+        "fields": {
+            "code": "cannot_find_business_information_for_this_user.",
+            "english": "Cannot find business information for this user.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0627\u0644\u0645\u0639\u0644\u0648\u0645\u0627\u062a \u0627\u0644\u062a\u062c\u0627\u0631\u064a\u0629 \u0644\u0647\u0630\u0627 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 850,
+        "fields": {
+            "code": "you_have_reached_the_maximum_number_of_subscriptions_allowed_for_your_business_membership_type.",
+            "english": "You have reached the maximum number of subscriptions allowed for your business membership type.",
+            "arabic": "\u0644\u0642\u062f \u0648\u0635\u0644\u062a \u0625\u0644\u0649 \u0627\u0644\u062d\u062f \u0627\u0644\u0623\u0642\u0635\u0649 \u0644\u0639\u062f\u062f \u0627\u0644\u0639\u0642\u0648\u062f \u0627\u0644\u0645\u0633\u0645\u0648\u062d \u0644\u0643 \u0628\u0647\u0627 \u0644\u0646\u0648\u0639 \u0639\u0636\u0648\u064a\u062a\u0643."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 851,
+        "fields": {
+            "code": "contract_has_been_successfully_added.",
+            "english": "Contract has been successfully added.",
+            "arabic": "\u062a\u0645\u062a \u0625\u0636\u0627\u0641\u0629 \u0627\u0644\u0639\u0642\u062f \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 852,
+        "fields": {
+            "code": "you_are_not_authorized_to_renew_this_contract.",
+            "english": "You are not authorized to renew this contract.",
+            "arabic": "\u0644\u064a\u0633 \u0644\u062f\u064a\u0643 \u0625\u0630\u0646 \u0644\u062a\u062d\u062f\u064a\u062b \u0647\u0630\u0627 \u0627\u0644\u0639\u0642\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 853,
+        "fields": {
+            "code": "contract_has_been_successfully_renewed.",
+            "english": "Contract has been successfully renewed.",
+            "arabic": "\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u0627\u0644\u0639\u0642\u062f \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 854,
+        "fields": {
+            "code": "no_first_and_or_second_party_data_has_been_provided.",
+            "english": "No first and/or second party data has been provided.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u062a\u0642\u062f\u064a\u0645 \u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0637\u0631\u0641 \u0627\u0644\u0623\u0648\u0644 \u0648/\u0623\u0648 \u0627\u0644\u0637\u0631\u0641 \u0627\u0644\u062b\u0627\u0646\u064a."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 855,
+        "fields": {
+            "code": "you_have_reached_the_maximum_number_of_parties_allowed_for_your_membership_type.",
+            "english": "You have reached the maximum number of parties allowed for your membership type.",
+            "arabic": "\u0644\u0642\u062f \u0648\u0635\u0644\u062a \u0625\u0644\u0649 \u0627\u0644\u062d\u062f \u0627\u0644\u0623\u0642\u0635\u0649 \u0644\u0639\u062f\u062f \u0627\u0644\u0623\u0637\u0631\u0627\u0641 \u0627\u0644\u0645\u0633\u0645\u0648\u062d \u0628\u0647\u0627 \u0644\u0646\u0648\u0639 \u0639\u0636\u0648\u064a\u062a\u0643."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 856,
+        "fields": {
+            "code": "the_user_with_the_provided_first_party_email_does_not_exist.",
+            "english": "The user with the provided first party email does not exist.",
+            "arabic": "\u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a \u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u0627\u0644\u0637\u0631\u0641 \u0627\u0644\u0623\u0648\u0644 \u0627\u0644\u0630\u064a \u062a\u0645 \u0625\u0636\u0627\u0641\u062a\u0647 \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 857,
+        "fields": {
+            "code": "the_user_with_the_provided_first_party_citizen_id_does_not_exist.",
+            "english": "The user with the provided first party citizen ID does not exist.",
+            "arabic": "\u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u0644\u0631\u0642\u0645 \u0627\u0644\u0628\u0637\u0627\u0642\u0629 \u0627\u0644\u0645\u062f\u0646\u064a\u0629 \u0627\u0644\u062e\u0627\u0635 \u0628\u0627\u0644\u0637\u0631\u0641 \u0627\u0644\u0623\u0648\u0644 \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 858,
+        "fields": {
+            "code": "the_provided_first_party_email_does_not_match_the_citizen_id.",
+            "english": "The provided first party email does not match the citizen ID.",
+            "arabic": "\u0644\u0627 \u064a\u062a\u0637\u0627\u0628\u0642 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a \u0627\u0644\u0645\u0642\u062f\u0645 \u0644\u0644\u0637\u0631\u0641 \u0627\u0644\u0623\u0648\u0644 \u0645\u0639 \u0631\u0642\u0645 \u0627\u0644\u0628\u0637\u0627\u0642\u0629 \u0627\u0644\u0645\u062f\u0646\u064a\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 859,
+        "fields": {
+            "code": "the_user_with_the_provided_second_party_email_does_not_exist.",
+            "english": "The user with the provided second party email does not exist.",
+            "arabic": "\u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a \u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u0627\u0644\u0637\u0631\u0641 \u0627\u0644\u062b\u0627\u0646\u064a \u0627\u0644\u0630\u064a \u062a\u0645 \u0625\u0636\u0627\u0641\u062a\u0647 \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 860,
+        "fields": {
+            "code": "the_user_with_the_provided_second_party_citizen_id_does_not_exist.",
+            "english": "The user with the provided second party citizen ID does not exist.",
+            "arabic": "\u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u0644\u0631\u0642\u0645 \u0627\u0644\u0628\u0637\u0627\u0642\u0629 \u0627\u0644\u0645\u062f\u0646\u064a\u0629 \u0627\u0644\u062e\u0627\u0635 \u0628\u0627\u0644\u0637\u0631\u0641 \u0627\u0644\u062b\u0627\u0646\u064a \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 861,
+        "fields": {
+            "code": "the_provided_second_party_email_does_not_match_the_citizen_id.",
+            "english": "The provided second party email does not match the citizen ID.",
+            "arabic": "\u0644\u0627 \u064a\u062a\u0637\u0627\u0628\u0642 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a \u0627\u0644\u0645\u0642\u062f\u0645 \u0644\u0644\u0637\u0631\u0641 \u0627\u0644\u062b\u0627\u0646\u064a \u0645\u0639 \u0631\u0642\u0645 \u0627\u0644\u0628\u0637\u0627\u0642\u0629 \u0627\u0644\u0645\u062f\u0646\u064a\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 862,
+        "fields": {
+            "code": "party_successfully_added.",
+            "english": "Party successfully added.",
+            "arabic": "\u062a\u0645\u062a \u0625\u0636\u0627\u0641\u0629 \u0627\u0644\u0623\u0637\u0631\u0627\u0641 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 863,
+        "fields": {
+            "code": "party_details_not_found.",
+            "english": "Party details not found.",
+            "arabic": "\u062a\u0641\u0627\u0635\u064a\u0644 \u0627\u0644\u0637\u0631\u0641 \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 864,
+        "fields": {
+            "code": "party_details_successfully_retrieved.",
+            "english": "Party details successfully retrieved.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u062a\u0641\u0627\u0635\u064a\u0644 \u0627\u0644\u0637\u0631\u0641 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 865,
+        "fields": {
+            "code": "contract_id_requested.",
+            "english": "Contract ID requested.",
+            "arabic": "\u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0639\u0642\u062f \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 866,
+        "fields": {
+            "code": "party_not_found_for_the_specified_contract.",
+            "english": "Party not found for the specified contract.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0625\u064a\u062c\u0627\u062f \u0627\u0644\u0637\u0631\u0641 \u0644\u0644\u0639\u0642\u062f \u0627\u0644\u0645\u062d\u062f\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 867,
+        "fields": {
+            "code": "you_are_not_authorized_to_update_this_contract_party.",
+            "english": "You are not authorized to update this contract party.",
+            "arabic": "\u0644\u064a\u0633 \u0644\u062f\u064a\u0643 \u0627\u0644\u0625\u0630\u0646 \u0644\u062a\u062d\u062f\u064a\u062b \u0637\u0631\u0641 \u0647\u0630\u0627 \u0627\u0644\u0639\u0642\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 868,
+        "fields": {
+            "code": "party_details_updated_successfully.",
+            "english": "Party details updated successfully.",
+            "arabic": "\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u062a\u0641\u0627\u0635\u064a\u0644 \u0627\u0644\u0637\u0631\u0641 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 869,
+        "fields": {
+            "code": "status_required.",
+            "english": "Status required.",
+            "arabic": "\u0627\u0644\u062d\u0627\u0644\u0629 \u0645\u0637\u0644\u0648\u0628\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 870,
+        "fields": {
+            "code": "contract_status_updated_successfully.",
+            "english": "Contract status updated successfully.",
+            "arabic": "\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u062d\u0627\u0644\u0629 \u0627\u0644\u0639\u0642\u062f \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 871,
+        "fields": {
+            "code": "the_list_of_contract_statuses_was_successfully_retrieved.",
+            "english": "The list of contract statuses was successfully retrieved.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u062d\u0627\u0644\u0629 \u0627\u0644\u0639\u0642\u062f \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 872,
+        "fields": {
+            "code": "no_contracts_matching_the_specified_text_were_found.",
+            "english": "No contracts matching the specified text were found.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0639\u0642\u0648\u062f \u0645\u0637\u0627\u0628\u0642\u0629 \u0644\u0644\u0646\u0635 \u0627\u0644\u0645\u0642\u062f\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 873,
+        "fields": {
+            "code": "contract_list_successfully_retrieved.",
+            "english": "Contract list successfully retrieved.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0639\u0642\u0648\u062f \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 874,
+        "fields": {
+            "code": "user_id_required.",
+            "english": "User ID required.",
+            "arabic": "\u0645\u0637\u0644\u0648\u0628 \u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 875,
+        "fields": {
+            "code": "invalid_user_id.",
+            "english": "Invalid user ID.",
+            "arabic": "\u062a\u0639\u0631\u064a\u0641 \u0645\u0633\u062a\u062e\u062f\u0645 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 876,
+        "fields": {
+            "code": "appendix_file_not_provided.",
+            "english": "Appendix file not provided.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u062a\u0632\u0648\u064a\u062f \u0645\u0644\u0641 \u0627\u0644\u0645\u0644\u062d\u0642."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 877,
+        "fields": {
+            "code": "appendix_successfully_added.",
+            "english": "Appendix successfully added.",
+            "arabic": "\u062a\u0645\u062a \u0625\u0636\u0627\u0641\u0629 \u0627\u0644\u0645\u0644\u062d\u0642 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 878,
+        "fields": {
+            "code": "contract_cloned_successfully.",
+            "english": "Contract cloned successfully",
+            "arabic": "\u062a\u0645 \u0625\u0633\u062a\u0646\u0633\u0627\u062e \u0627\u0644\u0639\u0642\u062f \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 879,
+        "fields": {
+            "code": "contract_details_successfully_retrieved.",
+            "english": "Contract details successfully retrieved.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u062a\u0641\u0627\u0635\u064a\u0644 \u0627\u0644\u0639\u0642\u062f \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 880,
+        "fields": {
+            "code": "party_type_is_required.",
+            "english": "Party type is required.",
+            "arabic": "\u0646\u0648\u0639 \u0627\u0644\u0637\u0631\u0641 \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 881,
+        "fields": {
+            "code": "invalid_party_type.",
+            "english": "Invalid party type.",
+            "arabic": "\u0646\u0648\u0639 \u0627\u0644\u0637\u0631\u0641 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 882,
+        "fields": {
+            "code": "user_list_for_party_company_successfully_fetched.",
+            "english": "User list for party company successfully fetched.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u0645\u0633\u062a\u062e\u062f\u0645\u064a \u0637\u0631\u0641 \u0627\u0644\u0634\u0631\u0643\u0629 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 883,
+        "fields": {
+            "code": "user_does_not_have_a_valid_business_id.",
+            "english": "User does not have a valid business ID.",
+            "arabic": "\u0644\u064a\u0633 \u0644\u062f\u0649 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u062a\u0639\u0631\u064a\u0641 \u0639\u0645\u0644 \u0635\u0627\u0644\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 884,
+        "fields": {
+            "code": "regular_user_list_successfully_fetched.",
+            "english": "Regular user list successfully fetched.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\u064a\u0646 \u0627\u0644\u0645\u0635\u0631\u062d \u0644\u0647\u0645 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 885,
+        "fields": {
+            "code": "business_contract_party_successfully_created.",
+            "english": "Business contract party successfully created.",
+            "arabic": "\u062a\u0645 \u0625\u0646\u0634\u0627\u0621 \u0637\u0631\u0641 \u0639\u0642\u062f \u0627\u0644\u0639\u0645\u0644 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 886,
+        "fields": {
+            "code": "language_list_successfully_fetched.",
+            "english": "Language list successfully fetched.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0644\u063a\u0627\u062a \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 887,
+        "fields": {
+            "code": "nationality_list_successfully_fetched.",
+            "english": "Nationality list successfully fetched.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u062c\u0646\u0633\u064a\u0627\u062a \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 888,
+        "fields": {
+            "code": "label_code_field_is_required.",
+            "english": "Label Code field is required",
+            "arabic": "\u062d\u0642\u0644 \u0631\u0645\u0632 \u0627\u0644\u0645\u0644\u0635\u0642 \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 889,
+        "fields": {
+            "code": "label_english_field_is_required.",
+            "english": "Label English field is required",
+            "arabic": "\u062d\u0642\u0644 \u0627\u0644\u0644\u063a\u0629 \u0627\u0644\u0625\u0646\u062c\u0644\u064a\u0632\u064a\u0629 \u0644\u0644\u0645\u0644\u0635\u0642 \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 890,
+        "fields": {
+            "code": "label_arabic_field_is_required.",
+            "english": "Label Arabic field is required.",
+            "arabic": "\u062d\u0642\u0644 \u0627\u0644\u0644\u063a\u0629 \u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u0644\u0644\u0645\u0644\u0635\u0642 \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 891,
+        "fields": {
+            "code": "this_label_already_exists.",
+            "english": "This label already exists",
+            "arabic": "\u0647\u0630\u0627 \u0627\u0644\u0645\u0644\u0635\u0642 \u0645\u0648\u062c\u0648\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 892,
+        "fields": {
+            "code": "label_successfully_added.",
+            "english": "Label successfully added.",
+            "arabic": "\u062a\u0645\u062a \u0625\u0636\u0627\u0641\u0629 \u0627\u0644\u0645\u0644\u0635\u0642 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 893,
+        "fields": {
+            "code": "label_id_is_required.",
+            "english": "Label ID is required.",
+            "arabic": "\u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0645\u0644\u0635\u0642 \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 894,
+        "fields": {
+            "code": "label_not_found.",
+            "english": "Label not found.",
+            "arabic": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0627\u0644\u0645\u0644\u0635\u0642."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 895,
+        "fields": {
+            "code": "this_code_already_exists.",
+            "english": "This code already exists",
+            "arabic": "\u0647\u0630\u0627 \u0627\u0644\u0631\u0645\u0632 \u0645\u0648\u062c\u0648\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 896,
+        "fields": {
+            "code": "label_was_successfully_updated.",
+            "english": "Label was successfully updated.",
+            "arabic": "\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u0627\u0644\u0645\u0644\u0635\u0642 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 897,
+        "fields": {
+            "code": "language_required.",
+            "english": "Language required.",
+            "arabic": "\u0627\u0644\u0644\u063a\u0629 \u0645\u0637\u0644\u0648\u0628\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 898,
+        "fields": {
+            "code": "label_list_successfully_retrieved.",
+            "english": "Label list successfully retrieved.",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0644\u0635\u0642 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 899,
+        "fields": {
+            "code": "invalid_user_type.",
+            "english": "Invalid user type.",
+            "arabic": "\u0646\u0648\u0639 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 900,
+        "fields": {
+            "code": "membership_information_was_successfully_retrieved.",
+            "english": "Membership information was successfully retrieved",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u062a\u0641\u0627\u0635\u064a\u0644 \u0627\u0644\u0639\u0636\u0648\u064a\u0629 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 901,
+        "fields": {
+            "code": "country_name_is_required.",
+            "english": "Country name is required",
+            "arabic": "\u0625\u0633\u0645 \u0627\u0644\u0628\u0644\u062f \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 902,
+        "fields": {
+            "code": "please_enter_currency_name.",
+            "english": "Please enter currency name",
+            "arabic": "\u0625\u0633\u0645 \u0627\u0644\u0639\u0645\u0644\u0629 \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 903,
+        "fields": {
+            "code": "currency_successfully_added.",
+            "english": "Currency successfully added",
+            "arabic": "\u062a\u0645\u062a \u0625\u0636\u0627\u0641\u0629 \u0627\u0644\u0639\u0645\u0644\u0629 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 904,
+        "fields": {
+            "code": "currency_list_successfully_retrieved.",
+            "english": "Currency list successfully retrieved",
+            "arabic": "\u062a\u0645 \u062c\u0644\u0628 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0639\u0645\u0644\u0627\u062a \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 905,
+        "fields": {
+            "code": "currency_id_required.",
+            "english": "Currency ID required",
+            "arabic": "\u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0639\u0645\u0644\u0629 \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 906,
+        "fields": {
+            "code": "country_currency_has_been_successfully_updated.",
+            "english": "Country currency has been successfully updated",
+            "arabic": "\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u0639\u0645\u0644\u0629 \u0627\u0644\u0628\u0644\u062f \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 907,
+        "fields": {
+            "code": "invalid_payment_type.",
+            "english": "Invalid Payment Type",
+            "arabic": "\u0646\u0648\u0639 \u0627\u0644\u062f\u0641\u0639 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 908,
+        "fields": {
+            "code": "invalid_payment_method.",
+            "english": "Invalid Payment Method",
+            "arabic": "\u0637\u0631\u064a\u0642\u0629 \u062f\u0641\u0639 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 909,
+        "fields": {
+            "code": "amount_is_invalid.",
+            "english": "Amount is invalid",
+            "arabic": "\u0645\u0628\u0644\u063a \u063a\u064a\u0631 \u0635\u0627\u0644\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 910,
+        "fields": {
+            "code": "membership_type_purchase_id_is_invalid.",
+            "english": "Membership Type Purchase ID is invalid",
+            "arabic": "\u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0634\u0631\u0627\u0621 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d \u0644\u0646\u0648\u0639 \u0627\u0644\u0639\u0636\u0648\u064a\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 911,
+        "fields": {
+            "code": "payment_has_been_initiated._please_complete_the_payment_process.",
+            "english": "Payment has been initiated. Please complete the payment process.",
+            "arabic": "\u0628\u062f\u0623 \u0627\u0644\u062f\u0641\u0639. \u064a\u0631\u062c\u0649 \u062a\u0643\u0645\u0644\u0629 \u0639\u0645\u0644\u064a\u0629 \u0627\u0644\u062f\u0641\u0639."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 912,
+        "fields": {
+            "code": "payment_id_required.",
+            "english": "Payment ID required.",
+            "arabic": "\u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u062f\u0641\u0639 \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 913,
+        "fields": {
+            "code": "payment_failed.",
+            "english": "Payment failed.",
+            "arabic": "\u0641\u0634\u0644 \u0627\u0644\u062f\u0641\u0639."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 914,
+        "fields": {
+            "code": "membership_has_been_successfully_upgraded.",
+            "english": "Membership has been successfully upgraded.",
+            "arabic": "\u062a\u0645\u062a \u062a\u0631\u0642\u064a\u0629 \u0627\u0644\u0639\u0636\u0648\u064a\u0629 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 915,
+        "fields": {
+            "code": "additional_subscriptions_have_been_purchased.",
+            "english": "Additional subscriptions have been purchased.",
+            "arabic": "\u062a\u0645 \u0634\u0631\u0627\u0621 \u0639\u0642\u0648\u062f \u0625\u0636\u0627\u0641\u064a\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 916,
+        "fields": {
+            "code": "additional_business_users_purchased.",
+            "english": "Additional business users purchased.",
+            "arabic": "\u062a\u0645 \u0634\u0631\u0627\u0621 \u0645\u0633\u062a\u062e\u062f\u0645\u064a \u0623\u0639\u0645\u0627\u0644 \u0625\u0636\u0627\u0641\u064a\u064a\u0646 \u0628\u0646\u062c\u0627\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 917,
+        "fields": {
+            "code": "invalid_payment_response.",
+            "english": "Invalid payment response.",
+            "arabic": "\u0627\u0633\u062a\u062c\u0627\u0628\u0629 \u062f\u0641\u0639 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d\u0629."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 918,
+        "fields": {
+            "code": "purchase_type_is_required.",
+            "english": "Purchase Type is required.",
+            "arabic": "\u0646\u0648\u0639 \u0627\u0644\u0634\u0631\u0627\u0621 \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 919,
+        "fields": {
+            "code": "purchase_id_is_required.",
+            "english": "Purchase ID is required.",
+            "arabic": "\u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0634\u0631\u0627\u0621 \u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 920,
+        "fields": {
+            "code": "coupon_code_is_required.",
+            "english": "Coupon Code is required",
+            "arabic": "\u0631\u0645\u0632 \u0627\u0644\u0643\u0648\u0628\u0648\u0646 \u0627\u0644\u0645\u0637\u0644\u0648\u0628."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 921,
+        "fields": {
+            "code": "invalid_purchase_type.",
+            "english": "Invalid purchase type.",
+            "arabic": "\u0646\u0648\u0639 \u0627\u0644\u0634\u0631\u0627\u0621 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 922,
+        "fields": {
+            "code": "coupon_code_is_invalid.",
+            "english": "Coupon Code is Invalid",
+            "arabic": "\u0631\u0645\u0632 \u0627\u0644\u0643\u0648\u0628\u0648\u0646 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 923,
+        "fields": {
+            "code": "coupon_is_not_valid.",
+            "english": "Coupon is not valid.",
+            "arabic": "\u0644\u0645 \u064a\u0635\u0644\u062d \u0627\u0644\u0643\u0648\u0628\u0648\u0646 \u0628\u0639\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 924,
+        "fields": {
+            "code": "coupon_has_expired.",
+            "english": "Coupon has expired.",
+            "arabic": "\u0625\u0646\u062a\u0647\u062a \u0635\u0644\u0627\u062d\u064a\u0629 \u0627\u0644\u0643\u0648\u0628\u0648\u0646."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 925,
+        "fields": {
+            "code": "coupon_is_not_valid.",
+            "english": "Coupon is not valid.",
+            "arabic": "\u0627\u0644\u0643\u0648\u0628\u0648\u0646 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d \u0644\u0644\u0634\u0631\u0627\u0621."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 926,
+        "fields": {
+            "code": "coupon_is_not_valid.",
+            "english": "Coupon is not valid.",
+            "arabic": "\u0627\u0644\u0643\u0648\u0628\u0648\u0646 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d \u0644\u0647\u0630\u0627 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 927,
+        "fields": {
+            "code": "coupon_has_expired.",
+            "english": "Coupon has expired.",
+            "arabic": "\u062a\u0645 \u0627\u0644\u0648\u0635\u0648\u0644 \u0625\u0644\u0649 \u0627\u0644\u062d\u062f \u0627\u0644\u0645\u0633\u0645\u0648\u062d \u0628\u0647 \u0641\u064a \u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0627\u0644\u0643\u0648\u0628\u0648\u0646 \u0644\u0647\u0630\u0627 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 928,
+        "fields": {
+            "code": "invalid_member_id.",
+            "english": "Invalid member ID.",
+            "arabic": "\u062a\u0639\u0631\u064a\u0641 \u0639\u0636\u0648\u064a\u0629 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 929,
+        "fields": {
+            "code": "purchase_contract_add-on_price_not_found.",
+            "english": "Purchase contract add-on price not found.",
+            "arabic": "\u0644\u0645 \u064a\u0639\u062b\u0631 \u0639\u0644\u0649 \u0633\u0639\u0631 \u0625\u0636\u0627\u0641\u0629 \u0627\u0644\u0639\u0642\u062f."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 930,
+        "fields": {
+            "code": "purchase_user_add-on_price_not_found.",
+            "english": "Purchase User Add-On Price not found.",
+            "arabic": "\u0644\u0645 \u064a\u0639\u062b\u0631 \u0639\u0644\u0649 \u0633\u0639\u0631 \u0625\u0636\u0627\u0641\u0629 \u0645\u0633\u062a\u062e\u062f\u0645."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 931,
+        "fields": {
+            "code": "invalid_discount_type.",
+            "english": "Invalid discount type.",
+            "arabic": "\u0646\u0648\u0639 \u0627\u0644\u062e\u0635\u0645 \u063a\u064a\u0631 \u0635\u0627\u0644\u062d."
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 932,
+        "fields": {
+            "code": "coupon_successfully_applied.",
+            "english": "Coupon successfully applied.",
+            "arabic": "\u062a\u0645 \u062a\u0637\u0628\u064a\u0642 \u0627\u0644\u0643\u0648\u0628\u0648\u0646 \u0628\u0646\u062c\u0627\u062d."
+        }
+    }
+]

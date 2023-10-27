@@ -1,0 +1,137 @@
+@media screen and (max-width:1800px) {}
+
+@media screen and (max-width:1700px) {
+
+    .form .form__wrap {
+        width: unset;
+    }
+
+}
+
+@media screen and (max-width:1440px) {
+
+
+
+    .header-home .header-home__webapp-img {
+        position: absolute;
+        bottom: 0;
+        right: -85px;
+        height: auto;
+        width: calc(100% - 420px);
+    }
+
+    .form .form__wrap {
+        width: unset;
+    }
+
+
+
+}
+
+
+@media screen and (max-width:1300px) {
+
+
+    .form .form__wrap {
+        width: unset;
+    }
+
+    .header-home .header-home__btns-webapp {
+        margin-bottom: 60px;
+    }
+
+    .header-home .header-home__description {
+        width: 480px;
+        margin-bottom: 50px;
+    }
+
+    .header-home .header-home__title {
+        width: 480px;
+        margin-top: 50px;
+    }
+
+    h2.header-home__title {
+        font-size: 36px;
+        line-height: 60px;
+    }
+
+    .header-home .header-home__webapp-img {
+        width: calc(100% - 460px);
+        height: auto;
+        right: -30px;
+    }
+
+
+}
+
+
+@media screen and (max-width:1200px) {}
+
+
+@media screen and (max-width:1023px) {
+    .wrapper {
+        padding: 0 30px;
+    }
+
+
+
+}
+
+
+
+@media screen and (max-width:767px) {
+    .wrapper {
+        padding: 0 15px;
+    }
+
+
+
+
+}
+
+
+
+@media screen and (max-width:479px) {
+    .wrapper {
+        padding: 0 10px;
+    }
+
+
+}
+
+
+/* Chetan CSS 17-11-22 */
+
+.lable-bg {
+    background: #f7f7f7;
+    padding: 15px;
+    text-align: left;
+}
+
+.lable-bg h1 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.myDiv {
+    display: none;
+}
+
+.myDiv1 {
+    display: none;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.civilcard {
+    height: 150px !important;
+    width: 300px !important;
+}
+
+@media screen and (max-width: 1023px) {
+    .wrapper {
+        padding: 0 0px;
+    }
+}

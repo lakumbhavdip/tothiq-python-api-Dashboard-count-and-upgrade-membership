@@ -1,0 +1,870 @@
+{% include "header.html" %}
+
+<div class="content d-flex flex-column p-0 vh-100 " id="kt_content">
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <div id="kt_content_container" class="container-fluid ">
+            <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+                <!--begin::Toolbar container-->
+                <div id="kt_app_toolbar_container" class="app-container px-3 d-flex flex-stack">
+                    <!--begin::Page title-->
+                    <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                        <!--begin::Title-->
+                        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+                            Settings</h1>
+                        <!--end::Title-->
+                    </div>
+                </div>
+                <!--end::Toolbar container-->
+                {% for message in messages %}
+                    <div class="alert alert-primary mt-1 messageclass hide-after-delay" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="kt_content_containe_inr d-flex justify-content-between my-5 card">
+                <div class="card-body">
+
+                    <div class="fv-row  col-12 ">
+                        <ul
+                            class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold text-center">
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary fs-6 fw-bolder text-dark py-1 active"
+                                    data-bs-toggle="tab" id="individual-tab" href="#general">Maintenance
+                                    </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary fs-6 fw-bolder text-dark py-1"
+                                    data-bs-toggle="tab" id="business-tab" href="#membership">Application
+                                    </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary fs-6 fw-bolder text-dark py-1"
+                                    data-bs-toggle="tab" id="business-tab" href="#BusinessUser">Company
+                                    </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary fs-6 fw-bolder text-dark py-1"
+                                    data-bs-toggle="tab" id="business-tab" href="#custome">Payment
+                                    Gateway</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary fs-6 fw-bolder text-dark py-1"
+                                    data-bs-toggle="tab" id="business-tab" href="#smtp">SMTP & FCM</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary fs-6 fw-bolder text-dark py-1"
+                                    data-bs-toggle="tab" id="business-tab" href="#price">Contract & User Price</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary fs-6 fw-bolder text-dark py-1"
+                                    data-bs-toggle="tab" id="business-tab" href="#paci">PACI Authentication</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content ms-2 mb-20" id="myTabContent">
+                {% for stg  in stg_tab %}
+                <div class="tab-pane fade active show card" id="general" role="tabpanel">
+                    <div class=" card-body px-10 ">
+                        <form action="{% url 'superadminapp:Maintenance_Mode_Setting' %}" enctype="multipart/form-data" method="POST">
+                        
+                        {% csrf_token %}
+                        <div class="d-flex justify-content-between">
+                            <h1 class="text-primary">Maintenance</h1>
+                            <input type="submit" id="mupdate" class="btn btn-primary btn-sm" value="Update">  
+                        </div>
+                        <div class="row my-7">
+                            <div class="col-3">
+                                <label class="form-check-label" for="flexSwitchChecked">
+                                    Maintenance Enable
+                                </label>
+                                <!-- <select class="form-select form-select-md form-select-solid" value="{{enable}}"  data-control="select2"
+                                    data-allow-clear="true" multiple="multiple">
+                                    <option></option>
+                                    <option value="1" {% if enable == Active %}selected{% endif %}>Active</option>
+                                    <option value="2" {% if enable == Inactive %}selected{% endif %}>Inactive</option>
+                                </select> -->
+                                <select name="enable" class="form-select form-select-md form-select-solid" value="{{ enable }}">
+                                    <option value="Active" {% if enable == 'Active' %}selected{% endif %}>Active</option>
+                                    <option value="Inactive" {% if enable == 'Inactive' %}selected{% endif %}>Inactive</option>
+                                </select>
+
+
+                            </div>
+                        </div>
+                        <div class="settings_me_block my-10 d-flex">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="induser" value="true" id="flexCheckDefault" {% if stg.individual_user%} checked {% endif %}>
+
+                                <label class="form-check-label" for="induser">
+
+                                    Individual User
+                                </label>
+                            </div>
+                            <div class="form-check mx-10">
+                                <input class="form-check-input" type="checkbox" name="busiuser" value="true" id="flexCheckDefault"   {% if stg.business_user%} checked {% endif %}>
+                                <label class="form-check-label" for="busiuser">
+                                    Business User
+                                </label>
+                            </div>
+
+
+                            <div class="form-check mx-10">
+                                <input class="form-check-input" type="checkbox" name="busadmin" value="true" id="flexCheckDefault" {% if stg.business_admin%} checked {% endif %}>
+                                <label class="form-check-label" for="busadmin">
+                                    Business Admin
+                                </label>
+                            </div>
+
+                        </div>
+                        <h5>Maintenance mode web panel Image</h5> <br>
+
+                       
+
+                        {% if stg.maintenance_mode_web_panel_image and stg.maintenance_mode_web_panel_image.url and maintenance_mode_web_panel_image_file_exists %}
+                            <img src="{{ stg.maintenance_mode_web_panel_image.url }}" alt="Maintenance Mode Image"  width="100%" height="350" class="border border-dashed border-secondary" id="temp_pic">
+                        {% else %}
+                            <img src="/static/images/img_default.jpg" alt="Maintenance Mode Image" width="100%" height="350" class="border border-dashed border-secondary" id="temp_pic">
+                        {% endif %}
+
+                        <!-- <a href="#." class="text-center "><i
+                                class="fas fa-image text-dark bg-secondary py-20 w-100 fs-1"></i></a> -->
+
+                        <input type="file" id="imageInput" name="mmwpiimageInput" accept="image/*"  {% if stg.maintenance_mode_web_panel_image and stg.maintenance_mode_web_panel_image.url %} value="{{stg.maintenance_mode_web_panel_image}}"  {% endif %} style="display: none;">
+
+                        <label for="imageInput" class="btn btn-primary mt-7 mx-3 btn-sm" >Click to Upload Image</label>
+                        <!-- <p id="errorMessage" style="display: none; color: red;">Please select an image.</p> -->
+
+                        <input type="text" class="form-control my-10" name="miantitle" value="{{stg.maintenance_page_title}}" placeholder="Maintenance page title" />
+                        <textarea class="form-control rounded-0" name="mainconte" value="{{stg.maintenance_page_contain}}" id="exampleFormControlTextarea1" rows="7"
+                            placeholder="Maintenance page contain">{{stg.maintenance_page_contain}}</textarea>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade card" id="membership" role="tabpanel">
+                    <div class=" card-body">
+                        <form action="{% url 'superadminapp:Application_Setting' %}" method="post">
+                        {% csrf_token %}
+                        <div class="d-flex justify-content-between mb-5">
+                            <h1 class="text-primary">Application </h1>
+                            <a href="#" type="button"><BUtton class="btn btn-primary btn-sm" >
+                                    Update</BUtton></a>
+                        </div>
+                        <h6>General Mobile Configuration</h6>
+                        <div class="row my-5">
+                            <div class="col-6">
+                                <label for="exampleFormControlInput1" class="form-label">Production Server
+                                    API-End Point</label>
+                                <input type="text" name="psaep" class="form-control form-control-solid"
+                                    value="{{stg.production_server_API_end_point}}" />
+                            </div>
+                            <div class="col-6">
+                                <label for="exampleFormControlInput1" class="form-label">Pre-Production
+                                    Server API-End Point</label>
+                                <input type="text" name="ppseaep" class="form-control form-control-solid"
+                                    value="{{stg.pre_production_server_API_end_point}}" />
+                            </div>
+                        </div>
+                        <div class="row my-5">
+                            <div class="col-6">
+                                <label for="exampleFormControlInput1" class="form-label">Test Server API-End
+                                    Point</label>
+                                <input type="text" name="tsaep" class="form-control form-control-solid"
+                                    value="{{stg.test_server_API_end_point}}" />
+                            </div>
+                        </div>
+                        <div class="separator border-3 my-10"></div>
+                        <div class="d-flex">
+                            <div class="col-6  pe-15">
+                                <h5 class="text-primary">iPhone Mobile Application </h5>
+                                <label class="form-check-label mt-5 mb-3" for="flexSwitchChecked">
+                                    Application Update
+                                </label>
+
+                                <!-- <select class="form-select form-select-md form-select-solid" data-control="select2"
+                                    data-placeholder="Inactive" data-allow-clear="true" multiple="multiple"  value="{{ i_app_update }}>
+                                    <option></option>
+                                    <option value="1">Active</option>
+                                    <option value="2">Inactive</option>
+                                </select> -->
+
+                                <select name="app_update" class="form-select form-select-md form-select-solid" value="{{ i_app_update }}">
+                                    <option value="Active" {% if i_app_update == 'Active' %}selected{% endif %}>Active</option>
+                                    <option value="Inactive" {% if i_app_update == 'Inactive' %}selected{% endif %}>Inactive</option>
+                                </select>
+
+                                <h6 class="mt-5 mb-3">Update Mandatory</h6>
+                                
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="ium" value="YES"
+                                        id="flexRadioDefault1" {% if stg.iphone_update_mandatory == True %} checked {% endif %}>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Yes
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check my-3">
+                                    <input class="form-check-input" type="radio"  name="ium" value="NO"
+                                        id="flexRadioDefault1" {% if stg.iphone_update_mandatory == False %} checked {% endif %}>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        No
+                                    </label>
+                                </div>
+
+                             
+                               
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="exampleFormControlInput1" class="form-label">iPhone
+                                            Current Version
+                                        </label>
+                                        <input type="text" name="icv" class="form-control form-control-solid"
+                                            placeholder="23.0.4" value="{{ stg.iphone_current_version }}" />
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="exampleFormControlInput1" class="form-label">iPhone New
+                                            Version
+                                        </label>
+                                        <input type="text" name="inv" class="form-control form-control-solid" placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 ">
+                                <h5 class="text-primary">Android Mobile Application </h5>
+                                <label class="form-check-label mt-5 mb-3" for="flexSwitchChecked">
+                                    Application Update
+                                </label>
+                                <!-- <select class="form-select form-select-md form-select-solid" data-control="select2"
+                                    data-placeholder="Inactive" data-allow-clear="true" multiple="multiple">
+                                    <option></option>
+                                    <option value="1">Active</option>
+                                    <option value="2">Inactive</option>
+                                </select> -->
+
+                                <select name="amas" class="form-select form-select-md form-select-solid" value="{{ a_app_update }}">
+                                    <option value="Active" {% if a_app_update == 'Active' %}selected{% endif %}>Active</option>
+                                    <option value="Inactive" {% if a_app_update == 'Inactive' %}selected{% endif %}>Inactive</option>
+                                </select>
+                                <h6 class="mt-5 mb-3">Update Mandatory</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input"  type="radio" name="aum" value="YES"
+                                        id="flexRadioDefault1" {% if stg.android_update_mandatory == True %} checked {% endif %}>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="form-check my-3">
+                                    <input class="form-check-input"  type="radio" name="aum" value="NO"
+                                        id="flexRadioDefault1" {% if stg.android_update_mandatory == False %} checked {% endif %}>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        No
+                                    </label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="exampleFormControlInput1" class="form-label">Android
+                                            Current Version
+                                        </label>
+                                        <input type="text" name="acv" class="form-control form-control-solid"
+                                            placeholder="21.0.4" value="{{ stg.android_current_version }}"  />
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="exampleFormControlInput1" class="form-label">Android New
+                                            Version
+                                        </label>
+                                        <input type="text" name="anv" class="form-control form-control-solid" placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    </div>
+                </div>
+                <div class="tab-pane fade card" id="BusinessUser" role="tabpanel">
+                    <div class=" card-body px-10">
+                        <form action="{% url 'superadminapp:Company_Setting' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <div class="d-flex justify-content-between">
+                            <h1 class="text-primary">Company </h1>
+                            <BUtton class="btn btn-primary btn-sm" >
+                                    Update</BUtton>
+                        </div>
+                        <h5>Logo Management</h5>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="d-flex mt-7 p-5">
+                                    <div class="p-5">
+                                        <p>Web Panel Header Logo</p>
+        
+                                        <!-- <img src="" class="h-75 w-25" id="temp_pic1" alt="Image not exits"> -->
+                                        {% if stg.web_panel_header_logo and stg.web_panel_header_logo.url and web_panel_header_logo_file_exists %}
+                                        <img src="{{stg.web_panel_header_logo.url}}" alt="Maintenance Mode Image" width="200" height="100" class="new-border new-border-dashed new-border-secondary" id="new_temp_pic1"><br>
+                                        {% else %}
+                                        <img src="/static/images/img_default.jpg" alt="Maintenance Mode Image" width="200" height="100" class="border border-dashed border-secondary" id="new_temp_pic1"> <br>
+                                        {% endif %}
+        
+                                        <input type="file" id="new_imageInput" name="new_imageInput1" accept="image/*" value="{{stg.web_panel_header_logo}}" style="display: none;">
+                                        <label for="new_imageInput" class="btn btn-primary mt-7 mx-3 btn-sm">Click to Upload Image</label>
+                                        
+                                    </div>
+                                    <div class="p-5">
+                                        <p>Login Page Logo</p>
+                                        <!-- <img src="" class="h-75 w-25" alt="Image not exits"> -->
+                                        {% if stg.login_page_logo and stg.login_page_logo.url and login_page_logo_file_exists %}
+                                        <img src="{{stg.login_page_logo.url}}" alt="Maintenance Mode Image" width="200" height="100" class="new-border new-border-dashed new-border-secondary" id="new_temp_pic2"><br>
+                                        {% else %}
+                                        <img src="/static/images/img_default.jpg" alt="Maintenance Mode Image" width="200" height="100" class="border border-dashed border-secondary" id="new_temp_pic2"> <br>
+                                        {% endif %}
+                                        <input type="file" id="new_imageInput1" name="new_imageInput2" accept="image/*" value="{{stg.login_page_logo}}" style="display: none;">
+                                        <label for="new_imageInput1" class="btn btn-primary mt-7 mx-3 btn-sm">Click to Upload Image</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex mt-7 p-5">
+                                    <div class="p-5">
+                                        <p>Arabic Web Panel Header Logo</p>
+                                        <!-- <img src="" class="h-75 w-25" id="temp_pic1" alt="Image not exits"> -->
+                                        {% if stg.web_panel_header_logo_arabic and stg.web_panel_header_logo_arabic.url and web_panel_header_logo_arabic_file_exists %}
+                                        <img src="{{stg.web_panel_header_logo_arabic.url}}" alt="Maintenance Mode Image" width="200" height="100" class="new-border new-border-dashed new-border-secondary" id="arabic_new_temp_pic1"><br>
+                                        {% else %}
+                                        <img src="/static/images/img_default.jpg" alt="Maintenance Mode Image"  width="200" height="100" class="border border-dashed border-secondary" id="arabic_new_temp_pic1"> <br>
+                                        {% endif %}
+                                        <input type="file" id="arabic_new_imageInput" name="new_imageInput13" accept="image/*" value="{{stg.web_panel_header_logo}}" style="display: none;">
+                                        <label for="arabic_new_imageInput" class="btn btn-primary mt-7 mx-3 btn-sm">Click to Upload Image</label>
+                                        
+                                    </div>
+                                    <div class="p-5">
+                                        <p>Arabic Login Page Logo</p>
+                                        <!-- <img src="" class="h-75 w-25" alt="Image not exits"> -->
+                                        {% if stg.login_page_logo_arabic and stg.login_page_logo_arabic.url and login_page_logo_arabic_file_exists %}
+                                        <img src="{{stg.login_page_logo_arabic.url}}" alt="Maintenance Mode Image" width="200" height="100" class="new-border new-border-dashed new-border-secondary" id="arabic_new_temp_pic2"><br>
+                                        {% else %}
+                                        <img src="/static/images/img_default.jpg" alt="Maintenance Mode Image" width="200" height="100" class="border border-dashed border-secondary" id="arabic_new_temp_pic2"> <br>
+                                        {% endif %}
+                                        <input type="file" id="arabic_new_imageInput1" name="new_imageInput23" accept="image/*" value="{{stg.login_page_logo}}" style="display: none;">
+                                        <label for="arabic_new_imageInput1" class="btn btn-primary mt-7 mx-3 btn-sm">Click to Upload Image</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="my-10">
+                            <label for="exampleFormControlInput1" class="form-label">WebPanel Title
+                                Text</label>
+                            <input type="text" value="{{stg.webpanel_title_text}}" name="wpt" class="form-control form-control-solid w-50" placeholder="WebPanel Title Text" />
+                        </div>
+                        <div>
+                            <label for="exampleFormControlInput1" class="form-label">WebPanel Copyright
+                                Text</label>
+                            <input type="text" name="wpcr" value="{{stg.webPanel_copyright_text}}" class="form-control form-control-solid w-50" placeholder="WebPanel Copyright" />
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade card" id="custome" role="tabpanel">
+                    <div class=" card-body">
+                        <form action="{% url 'superadminapp:My_Fatoorah_Payment_Gateway_Setting' %}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                            <div class="d-flex justify-content-between">
+                                <h1 class="text-primary">Payment Gateway</h1>
+                                <BUtton class="btn btn-primary btn-sm">
+                                    Update</BUtton>
+                            </div>
+                            <div class="form-check form-check-solid mt-3 form-switch form-check-custom fv-row" style="margin-right: 10px;">
+                                <label class="form-check-label fs-6" for="allowmarketing"> Test Mode : </label>
+                                <input class="form-check-input w-45px h-30px ms-3" {% if stg.payment_test_mode  %}checked{% endif %} type="checkbox" name="payment_test_mode_myfatoorah" value="True" id="allowmarketing">
+                            </div>
+                            <div class="my-10">
+                                <label for="exampleFormControlInput1" class="form-label">MyFatoorah API
+                                    Url</label>
+                                <input type="text" name="mfau" class="form-control form-control-solid w-100"
+                                    placeholder="Enter MyFatoorah API Url" {% if stg.myfatoorah_api_url is not none %} value="{{stg.myfatoorah_api_url}}" {% endif %}/>
+                            </div>
+                            <div class="my-10">
+                                <label for="exampleFormControlInput1" class="form-label">MyFatoorah API
+                                    Key</label>
+
+                                <textarea class="form-control form-control-solid rounded-0" name="mfak" rows="4" placeholder="Enter MyFatoorah API Key">{% if stg.myfatoorah_api_url_key is not none %}{{stg.myfatoorah_api_url_key}}{% endif %}</textarea>
+                                <!-- <input type="text" name="mfak" class="form-control form-control-solid w-100"
+                                    placeholder="Enter MyFatoorah Api Key" value="{{stg.myfatoorah_api_url_key}}" /> -->
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="tab-pane fade card" id="smtp" role="tabpanel">
+                    <div class=" card-body">
+                        <form action="{% url 'superadminapp:Smtp_Fcm_Setting' %}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                            <div class="d-flex justify-content-between">
+                                <h1 class="text-primary">SMTP</h1>
+                                <BUtton class="btn btn-primary btn-sm">
+                                    Update</BUtton>
+                            </div>
+                            <div class="row my-5">
+                                
+                                <div class="col-6">
+                                    <label for="exampleFormControlInput1" class="form-label">SMTP Host Name</label>
+                                    <input type="text" name="smtp-hostname" class="form-control form-control-solid w-50"
+                                        placeholder="Enter SMTP Hostname"  {% if stg.smtp_host_name is not none %} value="{{stg.smtp_host_name}}" {% endif %}  />
+                                </div>
+                                <div class="col-6">
+                                    <label for="exampleFormControlInput1" class="form-label">SMTP Port</label>
+                                    <input type="text" name="smtp-port" class="form-control form-control-solid w-50"
+                                        placeholder="Enter SMTP Port" {% if stg.smtp_port is not none %} value="{{stg.smtp_port}}" {% endif %} />
+                                </div>
+                            </div>
+                            <div class="row my-5 mb-5">
+                                <div class="col-6">
+                                    <label for="exampleFormControlInput1" class="form-label">SMTP Username</label>
+                                    <input type="text" name="smtp-username" class="form-control form-control-solid w-50"
+                                        placeholder="Enter SMTP Username" {% if stg.smtp_username is not none %} value="{{stg.smtp_username}}" {% endif %} />
+                                </div>
+                                <div class="col-6">
+                                    <label for="exampleFormControlInput1" class="form-label">SMTP Password</label>
+                                    <input type="text" name="smtp-password" class="form-control form-control-solid w-50"
+                                        placeholder="Enter SMTP Password" {% if stg.smtp_password is not none %} value="{{stg.smtp_password}}" {% endif %}/>
+                                </div>
+                            </div>
+                            <div class="row my-5 mb-5">
+                                <div class="col-6">
+                                    <label for="exampleFormControlInput1" class="form-label">SMTP Sender Email</label>
+                                    <input type="email" name="sender-email" class="form-control form-control-solid w-50"
+                                        placeholder="Enter Sender Email" {% if stg.smtp_sender_email is not none %} value="{{stg.smtp_sender_email}}" {% endif %}/>
+                                </div>
+                                <div class="col-3" style="padding-right: 0;">
+                                    <label class="form-check-label" for="flexSwitchChecked">
+                                        Security
+                                    </label>
+                                    <select class="form-select form-select form-select-sm form-select-solid" data-control="select2"
+                                    data-placeholder="Security" data-allow-clear="true" name="security_type"  data-minimum-results-for-search="Infinity">                            
+                                    <option value="ssl" {% if stg.smtp_security == "ssl" %} selected {% endif %}>SSL</option>
+                                        <option value="tls" {% if stg.smtp_security == "tls" %} selected {% endif %}> TLS<option>                         
+                                       
+                                    </select>
+                                </div>
+                            </div>
+
+                            <h1 class="text-primary mt-6">FCM</h1>    
+                            <div class="row my-5">
+                                <div class="col-12">
+                                    <label for="exampleFormControlInput1" class="form-label">FCM Server Key</label>
+
+                                    <textarea class="form-control form-control-solid rounded-0" name="fcm-server-key" rows="4" placeholder="Enter FCM Server Key">{% if stg.fcm_server_key is not none %}{{stg.fcm_server_key}}{% endif %}</textarea>
+
+                                    <!-- <input type="text" name="fcm-server-key" class="form-control form-control-solid w-100"
+                                        placeholder="Enter FCM Server Key" value="{{stg.fcm_server_key}}" /> -->
+                                </div>
+                                
+                            </div>
+
+                          
+                        </form>
+
+                    </div>
+                </div>
+                <div class="tab-pane fade card" id="price" role="tabpanel">
+                    <div class=" card-body">
+                        <form action="{% url 'superadminapp:Contract_User_price_Setting' %}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                            <div class="d-flex justify-content-between">
+                                <h1 class="text-primary">Contract & User Price</h1>
+                                <BUtton class="btn btn-primary btn-sm">
+                                    Update</BUtton>
+                            </div>
+                            <div class="row my-5">
+                                
+                                <div class="col-6">
+                                    <label for="exampleFormControlInput1" class="form-label">Contract Price</label>
+                                    <input type="text" name="contract-price" class="form-control form-control-solid w-50"
+                                        placeholder="Enter SMTP Hostname"  value="{{stg.contracts_price|floatformat:2}}" />
+                                </div>
+                                <div class="col-6">
+                                    <label for="exampleFormControlInput1" class="form-label">User Price</label>
+                                    <input type="text" name="user-price" class="form-control form-control-solid w-50"
+                                        placeholder="Enter SMTP Port" value="{{stg.users_price|floatformat:2}}" />
+                                </div>
+                            </div>
+                           
+                          
+                        </form>
+
+                    </div>
+                </div>
+                <div class="tab-pane fade card" id="paci" role="tabpanel">
+                    <div class=" card-body">
+                        <form action="{% url 'superadminapp:Paci Authantication' %}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                            <div class="d-flex justify-content-between">
+                                <h1 class="text-primary">PACI Authentication</h1>
+                                <BUtton class="btn btn-primary btn-sm">
+                                    Update</BUtton>
+                            </div>
+                            <div class="row my-5">
+                                
+                                <div class="col-6">
+                                    <label for="exampleFormControlInput1" class="form-label">PACI Recall Time  <span class="text-secondary">(Seconds)</span></label>
+                                    <input type="number" min="0" name="pacirecall_time" class="form-control form-control-solid w-50" placeholder="Enter PACI Recall Time"  value="{{stg.paci_recall_time |default:"0"}}"/>
+                                </div>
+                                <div class="col-6">
+                                    <label for="exampleFormControlInput1" class="form-label">PACI Expire Time <span class="text-secondary">(Seconds)</span></label>
+                                    <input type="number" min="0" name="paci_expiretime" class="form-control form-control-solid w-50" placeholder="Enter PACI Expire Time" value="{{stg.paci_expire_time|default:"0"}}"/>
+                                </div>
+                            </div>
+                           
+                          
+                        </form>
+
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- payment gateway knet applepay creadit/debit  -->
+                <!-- <div class="tab-pane fade card" id="custome" role="tabpanel">
+                    <div class=" card-body">
+                        <form action="{% url 'superadminapp:Payment_Gateway_Setting' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="d-flex justify-content-between">
+                            <h1 class="text-primary">Payment Gateway</h1>
+                            <BUtton class="btn btn-primary btn-sm">
+                                    Update</BUtton>
+                        </div>
+                        <div class="row mt-3 p-4 mb-5">
+                                <div class="col-6 p-3">
+                                    <div class="Knet">
+                                     
+                                    
+                                    {% for knetp in knettable %}
+
+                                    <input type="text" class="form-control form-control-solid w-50" name="idpayment" value="{{knetp.id}}" placeholder="Enter ID" hidden/>
+                                    <h3 > {{knetp.payment_name}}</h3>
+        
+                                  
+                                     
+                                     <div class="form-check form-check-solid mt-3 form-switch form-check-custom fv-row" style="margin-right: 10px;">
+                                        <label class="form-check-label fs-6" for="allowmarketing"> Status : </label>
+                                        <input class="form-check-input w-45px h-30px ms-3" type="checkbox" name="knetstatus" value="true" {% if knetp.payment_status %}checked{% endif %} id="allowmarketing">
+                                    </div>
+                                     <div class="my-10">
+                                        <label for="exampleFormControlInput1" class="form-label">Transportal ID</label>
+                                        <input type="text" class="form-control form-control-solid w-50" name="knet_transportalid" value="{{knetp.payment_transportal_id}}" placeholder="Enter ID" />
+                                    </div>
+                                    <div class="my-10">
+                                        <label for="exampleFormControlInput1" class="form-label">Transportal
+                                            Password</label>
+                                        <input type="text"  name="knet_transportalpass" value="{{knetp.payment_transportal_password}}" class="form-control form-control-solid w-50"
+                                            placeholder="Enter Password" />
+                                    </div>
+                                    <div class="my-10">
+                                        <label for="exampleFormControlInput1" class="form-label">Terminal Resource
+                                            Key</label>
+                                        <input type="text"  name="knet_trk" value="{{knetp.payment_terminal_resource_key}}" class="form-control form-control-solid w-50"
+                                            placeholder="Enter Resource Key" />
+                                    </div>
+                                    <div class="form-check form-check-solid mt-3 form-switch form-check-custom fv-row" style="margin-right: 10px;">
+                                        <label class="form-check-label fs-6" for="allowmarketing"> Test Mode : </label>
+                                        <input class="form-check-input w-45px h-30px ms-3" {% if knetp.payment_test_mode %}checked{% endif %} type="checkbox" name="knet_test_mode" value="true" id="allowmarketing">
+                                    </div>
+                                    {% endfor %}
+
+                                    </div>
+                                </div>
+                                <div class="col-6 p-3">
+                                    <div class="Knet">
+                                        
+                                        {% for cdcp in cdctable %}
+
+                                    <input type="text" class="form-control form-control-solid w-50" name="idpayment" value="{{cdcp.id}}" placeholder="Enter ID" hidden/>
+                                    <h3 > {{cdcp.payment_name}}</h3>
+        
+                                
+                                     
+                                     <div class="form-check form-check-solid mt-3 form-switch form-check-custom fv-row" style="margin-right: 10px;">
+                                        <label class="form-check-label fs-6" for="allowmarketing"> Status : </label>
+                                        <input class="form-check-input w-45px h-30px ms-3" type="checkbox" name="cdcstatus" value="true" {% if cdcp.payment_status %}checked{% endif %} id="allowmarketing">
+                                    </div>
+                                     <div class="my-10">
+                                        <label for="exampleFormControlInput1" class="form-label">Transportal ID</label>
+                                        <input type="text" class="form-control form-control-solid w-50" name="cdcp_transportalid" value="{{cdcp.payment_transportal_id}}" placeholder="Enter ID" />
+                                    </div>
+                                    <div class="my-10">
+                                        <label for="exampleFormControlInput1" class="form-label">Transportal
+                                            Password</label>
+                                        <input type="text"  name="cdcp_transportalpass" value="{{cdcp.payment_transportal_password}}" class="form-control form-control-solid w-50"
+                                            placeholder="Enter Password" />
+                                    </div>
+                                    <div class="my-10">
+                                        <label for="exampleFormControlInput1" class="form-label">Terminal Resource
+                                            Key</label>
+                                        <input type="text"  name="cdcp_trk" value="{{cdcp.payment_terminal_resource_key}}" class="form-control form-control-solid w-50"
+                                            placeholder="Enter Resource Key" />
+                                    </div>
+                                    <div class="form-check form-check-solid mt-3 form-switch form-check-custom fv-row" style="margin-right: 10px;">
+                                        <label class="form-check-label fs-6" for="allowmarketing"> Test Mode : </label>
+                                        <input class="form-check-input w-45px h-30px ms-3" {% if cdcp.payment_test_mode %}checked{% endif %} type="checkbox" name="cdcp_test_mode" value="true" id="allowmarketing">
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                        </div>
+                        <div class="row mt-3 p-4 mb-5">
+                            <div class="col-6 p-3">
+                                <div class="Knet">
+                                   
+                                    {% for gpp in gptable %}
+
+                                    <input type="text" class="form-control form-control-solid w-50" name="idpayment" value="{{cdcp.id}}" placeholder="Enter ID" hidden/>
+                                    <h3 > {{gpp.payment_name}}</h3>
+        
+                                   
+                                     
+                                     <div class="form-check form-check-solid mt-3 form-switch form-check-custom fv-row" style="margin-right: 10px;">
+                                        <label class="form-check-label fs-6" for="allowmarketing"> Status : </label>
+                                        <input class="form-check-input w-45px h-30px ms-3" type="checkbox" name="gppstatus" value="true" {% if gpp.payment_status %}checked{% endif %} id="allowmarketing">
+                                    </div>
+                                     <div class="my-10">
+                                        <label for="exampleFormControlInput1" class="form-label">Transportal ID</label>
+                                        <input type="text" class="form-control form-control-solid w-50" name="gpp_transportalid" value="{{gpp.payment_transportal_id}}" placeholder="Enter ID" />
+                                    </div>
+                                    <div class="my-10">
+                                        <label for="exampleFormControlInput1" class="form-label">Transportal
+                                            Password</label>
+                                        <input type="text"  name="gpp_transportalpass" value="{{gpp.payment_transportal_password}}" class="form-control form-control-solid w-50"
+                                            placeholder="Enter Password" />
+                                    </div>
+                                    <div class="my-10">
+                                        <label for="exampleFormControlInput1" class="form-label">Terminal Resource
+                                            Key</label>
+                                        <input type="text"  name="gpp_trk" value="{{gpp.payment_terminal_resource_key}}" class="form-control form-control-solid w-50"
+                                            placeholder="Enter Resource Key" />
+                                    </div>
+                                    <div class="form-check form-check-solid mt-3 form-switch form-check-custom fv-row" style="margin-right: 10px;">
+                                        <label class="form-check-label fs-6" for="allowmarketing"> Test Mode : </label>
+                                        <input class="form-check-input w-45px h-30px ms-3" {% if gpp.payment_test_mode %}checked{% endif %} type="checkbox" name="gpp_test_mode" value="true" id="allowmarketing">
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                            <div class="col-6 p-3">
+                                <div class="Knet">
+                                   
+                                    {% for app in aptable %}
+
+                                    <input type="text" class="form-control form-control-solid w-50" name="idpayment" value="{{app.id}}" placeholder="Enter ID" hidden/>
+                                    <h3 > {{app.payment_name}}</h3>
+        
+                                     <div class="form-check form-check-solid mt-3 form-switch form-check-custom fv-row" style="margin-right: 10px;">
+                                        <label class="form-check-label fs-6" for="allowmarketing"> Status : </label>
+                                        <input class="form-check-input w-45px h-30px ms-3" type="checkbox" name="appstatus" value="true" {% if app.payment_status %}checked{% endif %} id="allowmarketing">
+                                    </div>
+                                     <div class="my-10">
+                                        <label for="exampleFormControlInput1" class="form-label">Transportal ID</label>
+                                        <input type="text" class="form-control form-control-solid w-50" name="app_transportalid" value="{{app.payment_transportal_id}}" placeholder="Enter ID" />
+                                    </div>
+                                    <div class="my-10">
+                                        <label for="exampleFormControlInput1" class="form-label">Transportal
+                                            Password</label>
+                                        <input type="text"  name="app_transportalpass" value="{{app.payment_transportal_password}}" class="form-control form-control-solid w-50"
+                                            placeholder="Enter Password" />
+                                    </div>
+                                    <div class="my-10">
+                                        <label for="exampleFormControlInput1" class="form-label">Terminal Resource
+                                            Key</label>
+                                        <input type="text"  name="app_trk" value="{{app.payment_terminal_resource_key}}" class="form-control form-control-solid w-50"
+                                            placeholder="Enter Resource Key" />
+                                    </div>
+                                    <div class="form-check form-check-solid mt-3 form-switch form-check-custom fv-row" style="margin-right: 10px;">
+                                        <label class="form-check-label fs-6" for="allowmarketing"> Test Mode : </label>
+                                        <input class="form-check-input w-45px h-30px ms-3" {% if app.payment_test_mode %}checked{% endif %} type="checkbox" name="app_test_mode" value="true" id="allowmarketing">
+                                    </div>
+                                    {% endfor %}
+                            </div>
+                    </div>
+                    </form>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="kt_scrolltop" class="scrolltop mb-3" data-kt-scrolltop="true">
+    <span class="svg-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+            <path
+                d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+                fill="black" />
+        </svg>
+    </span>
+</div>
+
+<!--Start image input script in Maintenance mode web panel Image page -->
+<script>
+	let temp_pic = document.getElementById("temp_pic");
+	let imageInput = document.getElementById("imageInput");
+	
+	imageInput.onchange = function() {
+		let file = imageInput.files[0];
+		let reader = new FileReader();
+
+		reader.onload = function(e) {
+			temp_pic.src = e.target.result;
+		};
+
+		reader.readAsDataURL(file);
+	};
+</script>
+
+<!-- web panel log -->
+<script>
+    document.getElementById('arabic_new_imageInput').addEventListener('change', function(event) {
+      var selectedImage = event.target.files[0];
+      var reader = new FileReader();
+  
+      reader.onload = function(e) {
+        document.getElementById('arabic_new_temp_pic1').src = e.target.result;
+      }
+  
+      reader.readAsDataURL(selectedImage);
+    });
+</script>
+<script>
+    document.getElementById('new_imageInput').addEventListener('change', function(event) {
+      var selectedImage = event.target.files[0];
+      var reader = new FileReader();
+  
+      reader.onload = function(e) {
+        document.getElementById('new_temp_pic1').src = e.target.result;
+      }
+  
+      reader.readAsDataURL(selectedImage);
+    });
+</script>
+<!-- web panel log -->
+
+<!-- web panel log -->
+<script>
+    document.getElementById('new_imageInput1').addEventListener('change', function(event) {
+      var selectedImage = event.target.files[0];
+      var reader = new FileReader();
+  
+      reader.onload = function(e) {
+        document.getElementById('new_temp_pic2').src = e.target.result;
+      }
+  
+      reader.readAsDataURL(selectedImage);
+    });
+  </script>
+<script>
+    document.getElementById('arabic_new_imageInput1').addEventListener('change', function(event) {
+      var selectedImage = event.target.files[0];
+      var reader = new FileReader();
+  
+      reader.onload = function(e) {
+        document.getElementById('arabic_new_temp_pic2').src = e.target.result;
+      }
+  
+      reader.readAsDataURL(selectedImage);
+    });
+  </script>
+<!-- web panel log -->
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_1'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_2'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_3'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    // $(document).ready(function () {
+    //     $(".companyform").click(function () {
+    //         var test = $(this).val();
+    //         if(test =='yes'){
+    //             $("div.desc2").hide();
+    //             $("div.desc1").show();
+    //         }else{
+    //             $("div.desc1").hide();
+    //             $("div.desc2").show();
+
+    //         }
+    //     });
+    // });
+    $("#business-tab").click(function () {
+        $("div#myTabContent1").hide();
+        $("div#myTabContent2").show();
+    });
+    $("#individual-tab").click(function () {
+        $("div#myTabContent1").show();
+        $("div#myTabContent2").hide();
+    });
+    $(document).ready(function () {
+        $('#addresstype').on('change', function () {
+            var demovalue = $(this).val();
+            $("div.myDiv").hide();
+            $("#show" + demovalue).show();
+        });
+        $('#addresstype1').on('change', function () {
+            var demovalue1 = $(this).val();
+            $("div.myDiv1").hide();
+            $("#show" + demovalue1).show();
+        });
+    });
+    // var profileborder = "border-danger";
+    $(".userprofile").addClass("border-danger");
+    // function changeuserborder() {
+    //     $(".userprofile").removeClass(profileborder);
+    //     var profileborder = "border-success";
+    // }
+    $("#userheaderchange").click(function () {
+        $(".userprofile").removeClass("border-danger");
+        $(".userprofile").addClass("border-success");
+        $("#headererror").addClass("d-none");
+
+    });
+</script>
+<script>
+    $.fn.equalHeights = function () {
+        var max_height = 0;
+        $(this).each(function () {
+            max_height = Math.max($(this).height(), max_height);
+        });
+        $(this).each(function () {
+            $(this).height(max_height);
+        });
+    };
+
+    $(document).ready(function () {
+        $('.userdasboardbox ul li a .card').equalHeights();
+    });
+</script>
+
+
+
+
+
+{% include "footer.html" %}

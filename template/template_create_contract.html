@@ -1,0 +1,376 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Tothiq - Digital Contracts Platform</title>
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <!--end::Fonts-->
+    <!--begin::Page Vendor Stylesheets(used by this page)-->
+    <link href="{% static '../static/plugins/custom/fullcalendar/fullcalendar.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <!--end::Page Vendor Stylesheets-->
+    <!--begin::Global Stylesheets Bundle(used by all pages)-->
+    <link href="{% static '../static/plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static '../static/css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <!--end::Global Stylesheets Bundle-->
+    <link href="{% static '../static/css/media.css' %}" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="{% static '../static/images/Favicon.png' %}" />
+  </head>
+
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed aside-enabled aside-fixed"
+    style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+    <div class="d-flex flex-column flex-root">
+        <div class="page d-flex flex-row">
+            <div class="d-flex flex-column flex-row-fluid" id="kt_wrapper">
+                <div id="new_draft kt_header" class="header align-items-stretch">
+                    <!-- <div class="row m-0 align-items-center border border-3"> -->
+                    <div class="col-9 d-flex align-items-center p-5">
+                        <a href="{% url 'superadminapp:Template' %}"><i class="fas fa-angle-double-left fs-1"></i></i></a>
+                        <i class="fas fa-pen-square fa-lg text-primary ms-10"></i>
+                        <h4 class="mb-0 ms-4">Rental Aggrement Template</h4>
+                    </div>
+                    <div class="col-3 p-3 d-flex justify-content-end align-items-center">
+                        <div class="create_contract_btn">
+                            <a href="#" class="btn btn-sm me-5"
+                                style="border: 1px solid #0b3856;">Save
+                                as draft</a>
+                            <a href="{% url 'superadminapp:Template_Create_Category' %}" class="btn btn-sm btn-primary">Publish Template</a>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                    <div id="new_draft kt_aside" class="aside aside-light aside-hoverable" data-kt-drawer="true"
+                        data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}"
+                        data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}"
+                        data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
+                        <div class="aside-menu flex-column-fluid">
+                            <div class="aside-menu flex-column-fluid">
+                                <div class="contract_left_sec border border-top-0 border-3 p-0 bg-white">
+                                    <ul class="nav border-0 flex-row flex-md-column mb-3 mb-md-0 fs-6">
+                                        <li class="nav-item  me-0 border-bottom border-3 p-4">
+                                            <a class="fs-3 fw-bold text-warning">Select Input</a>
+                                        </li>
+                                        <li class="nav-item  me-0 border-bottom-dashed border-secondary border-3">
+                                            <a class="fs-5 fw-bold nav-link active" data-bs-toggle="tab"
+                                                href="#kt_vtab_pane_1"><i class="fas fa-text-height me-5 fa-lg"></i>
+                                                Single Line Content</a>
+                                        </li>
+                                        <li class="nav-item  me-0 border-bottom-dashed border-secondary border-3">
+                                            <a class="fs-5 fw-bold nav-link" data-bs-toggle="tab"
+                                                href="#kt_vtab_pane_2"><i class="fas fa-paragraph fa-lg me-7"></i>
+                                                Paragraph</a>
+                                        </li>
+                                        <li class="nav-item  me-0">
+                                            <a class="fs-5 fw-bold nav-link active" data-bs-toggle="tab"
+                                                href="#kt_vtab_pane_1"><i class="fas fa-text-height me-5 fa-lg"></i>
+                                                Contact Title</a>
+                                        </li>
+                                        <li class="nav-item  me-0">
+                                            <a class="fs-5 fw-bold nav-link active" data-bs-toggle="tab"
+                                                href="#kt_vtab_pane_1"><i class="fas fa-text-height me-5 fa-lg"></i>
+                                                First Party</a>
+                                        </li>
+                                        <li class="nav-item  me-0">
+                                            <a class="fs-5 fw-bold nav-link active" data-bs-toggle="tab"
+                                                href="#kt_vtab_pane_1"><i class="fas fa-text-height me-5 fa-lg"></i>
+                                                Second Party</a>
+                                        </li>
+                                        <li class="nav-item  me-0">
+                                            <a class="fs-5 fw-bold nav-link active" data-bs-toggle="tab"
+                                                href="#kt_vtab_pane_1"><i class="fas fa-text-height me-5 fa-lg"></i>
+                                                Preface</a>
+                                        </li>
+                                        <li class="nav-item  me-0">
+                                            <a class="fs-5 fw-bold nav-link active" data-bs-toggle="tab"
+                                                href="#kt_vtab_pane_1"><i class="fas fa-text-height me-5 fa-lg"></i>
+                                                Company Name</a>
+                                        </li>
+                                        <li class="nav-item  me-0">
+                                            <a class="fs-5 fw-bold nav-link active" data-bs-toggle="tab"
+                                                href="#kt_vtab_pane_1"><i class="fas fa-text-height me-5 fa-lg"></i>
+                                                Authorised Person</a>
+                                        </li>
+                                        <li class="nav-item  me-0">
+                                            <a class="fs-5 fw-bold nav-link active" data-bs-toggle="tab"
+                                                href="#kt_vtab_pane_1"><i class="fas fa-text-height me-5 fa-lg"></i>
+                                                Address Field</a>
+                                        </li>
+                                        <li class="nav-item  me-0">
+                                            <a class="fs-5 fw-bold nav-link active" data-bs-toggle="tab"
+                                                href="#kt_vtab_pane_1"><i class="fas fa-text-height me-5 fa-lg"></i>
+                                                Country Name</a>
+                                        </li>
+                                        <li class="nav-item  me-0">
+                                            <a class="fs-5 fw-bold nav-link active" data-bs-toggle="tab"
+                                                href="#kt_vtab_pane_1"><i class="fas fa-text-height me-5 fa-lg"></i>
+                                                Day</a>
+                                        </li>
+                                        <li class="nav-item  me-0">
+                                            <a class="fs-5 fw-bold nav-link active" data-bs-toggle="tab"
+                                                href="#kt_vtab_pane_1"><i class="fas fa-text-height me-5 fa-lg"></i>
+                                                Date</a>
+                                        </li>
+                                        <li class="nav-item  me-0">
+                                            <a class="fs-5 fw-bold nav-link active" data-bs-toggle="tab"
+                                                href="#kt_vtab_pane_1"><i class="fas fa-text-height me-5 fa-lg"></i>
+                                                Time</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="position-relative">
+            <div class="wrapper d-flex flex-column flex-row-fluid mb-20" id="kt_wrapper">
+                <div class="post d-flex flex-column-fluid" id="kt_post">
+                    <div id="kt_content_container">
+                        <div class="card m-5">
+                            <div class="card-body">
+                                <form class="row g-2 mb-15">
+                                    <div class="d-flex flex-row mb-10 fv-row">
+                                        <!--begin::Label-->
+                                        <label class="d-flex align-items-center fs-5 fw-bolder mb-2 col-3">
+                                            <span>Contract Title</span>
+                                        </label>
+                                        <!--end::Label-->
+                                        <input type="text" class="form-control w-50" placeholder="Enter Contract Title">
+                                    </div>
+                                    <p class="fs-5">Name of Parties</p>
+                                    <div class="d-flex flex-row mb-7 fv-row">
+                                        <!--begin::Label-->
+                                        <label class="d-flex align-items-center fs-5 fw-bolder mb-2 col-3">
+                                            <span>Company Name</span>
+                                        </label>
+                                        <!--end::Label-->
+                                        <input type="text" class="form-control w-50" placeholder="Enter Company Name">
+                                    </div>
+                                    <div class="d-flex flex-row mb-10 fv-row">
+                                        <!--begin::Label-->
+                                        <label class="d-flex align-items-center fs-5 fw-bolder mb-2 col-3">
+                                            <span>Authorised Person</span>
+                                        </label>
+                                        <!--end::Label-->
+                                        <input type="text" class="form-control w-50" placeholder="Enter Authorised Person Name">
+                                    </div>
+                                    <p class="fs-5">Contract Period Information</p>
+                                    <div class="d-flex flex-row mb-10 fv-row">
+                                        <label class="d-flex align-items-center fs-5 fw-bolder mb-2 col-3">
+                                            <span>Day</span>
+                                        </label>
+                                        <select class="form-select w-50 cursor-pointer" data-placeholder="Select Day">
+                                            <option></option>
+                                            <option value="1">Monday</option>
+                                            <option value="2">Tuesday</option>
+                                            <option value="3">Wednesday</option>
+                                            <option value="4">Thrusday</option>
+                                            <option value="5">Friday</option>
+                                            <option value="6">Saturday</option>
+                                            <option value="7">Sunday</option>
+                                        </select>
+                                    </div>
+                                    <div class="d-flex flex-row mb-10 fv-row">
+                                        <label class="d-flex align-items-center fs-5 fw-bolder mb-2 col-3">
+                                            <span>Date</span>
+                                        </label>
+                                        <input class="form-control w-50" placeholder="Pick date rage"
+                                            id="kt_daterangepicker_3">
+                                    </div>
+                                    <div class="d-flex flex-row mb-10 fv-row">
+                                        <label class="d-flex align-items-center fs-5 fw-bolder mb-2 col-3">
+                                            <span>Time</span>
+                                        </label>
+                                        <input type="time" class="form-control w-50">
+                                    </div>
+                                </form>
+                                <p class="fs-5 lh-3 mt-15 mb-10">That the expression of the term, Lessor/Owner and the
+                                    Lessee/Tenant Shall
+                                    mean and include their legal heirs successors, assigns, representative etc. Whereas
+                                    the Lessor
+                                    /Owner is the owner and in possession of the property (registered address of the
+                                    company) and
+                                    has agreed to let out the one office Room, one Toilet & Bathroom Set on said
+                                    property, to the
+                                    Lessee/Tenant and the Lessee/Tenant has agreed to take the same on rent of (in
+                                    words) per month.
+                                </p>
+                                <div class="d-flex flex-column mb-10 fv-row">
+                                    <label class="form-label fs-6 fw-bolder text-dark ">Rent Amount</label>
+                                    <input class="form-control w-50" type="text" placeholder="Enter Amount" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer py-4 d-flex  flex-lg-column app-footer mt-10 position-absolute bottom-0 end-0 w-100" id="kt_footer">
+                <!--begin::Container-->
+                <div
+                    class="app-container container-fluid  d-flex flex-column flex-md-row flex-center flex-md-stack py-3 justify-content-end">
+                    <!--begin::Copyright-->
+                    <div class="text-dark order-2 order-md-1">
+                        <span class="text-muted fw-bold me-1">© 2023</span>
+                        <a href="#" target="_blank" class="text-gray-800 text-hover-primary">TOTHIQ / All Right
+                            Reserved</a>
+                    </div>
+                </div>
+                <!--end::Container-->
+            </div>
+        </div>
+    </div>
+    <!-- Modal Invite Contact  -->
+    <div class="modal fade " id="invitecontactmodal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xs">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Invite User</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form w-100">
+                        <div class=" d-flex flex-wrap">
+                            <div class="fv-row p-5 col-12">
+                                <label class="form-label required fs-6 fw-bolder text-dark">Email Address</label>
+                                <input class="form-control form-control-lg form-control-solid" type="email"
+                                    placeholder="Email Address" autocomplete="off" />
+                            </div>
+                        </div>
+                        <div class="text-center btncolorblue pt-10">
+                            <a href="contacts.php" class="btn btncolorblues mb-5">Invite User</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Modal Invite Contact  -->
+
+    <!--end::Modals-->
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop mb-3" data-kt-scrolltop="true">
+        <span class="svg-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)"
+                    fill="black" />
+                <path
+                    d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+                    fill="black" />
+            </svg>
+        </span>
+    </div>
+    <!--end::Scrolltop-->
+
+
+
+
+    <script>
+        var hostUrl = "../static/";
+     </script>
+     <script src="../static/plugins/global/plugins.bundle.js"></script>
+     <script src="../static/js/scripts.bundle.js"></script>
+     <script src="../static/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+     <script src="../static/js/custom/widgets.js"></script>
+     <script src="../static/js/custom/apps/chat/chat.js"></script>
+     <script src="../static/js/custom/modals/create-app.js"></script>
+     <script src="../static/js/custom/modals/upgrade-plan.js"></script>
+     <script src="../static/plugins/custom/ckeditor/ckeditor-classic.bundle.js"></script>
+     <script src="../static/plugins/custom/ckeditor/ckeditor-inline.bundle.js"></script>
+     <script src="../static/plugins/custom/ckeditor/ckeditor-balloon.bundle.js"></script>
+     <script src="../static/plugins/custom/ckeditor/ckeditor-balloon-block.bundle.js"></script>
+     <script src="../static/plugins/custom/ckeditor/ckeditor-document.bundle.js"></script>
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#ckeditor_1'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#ckeditor_2'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#ckeditor_3'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+
+        $("#business-tab").click(function () {
+            $("div#myTabContent1").hide();
+            $("div#myTabContent2").show();
+        });
+        $("#individual-tab").click(function () {
+            $("div#myTabContent1").show();
+            $("div#myTabContent2").hide();
+        });
+        $(document).ready(function () {
+            $('#addresstype').on('change', function () {
+                var demovalue = $(this).val();
+                $("div.myDiv").hide();
+                $("#show" + demovalue).show();
+            });
+            $('#addresstype1').on('change', function () {
+                var demovalue1 = $(this).val();
+                $("div.myDiv1").hide();
+                $("#show" + demovalue1).show();
+            });
+        });
+        $(".userprofile").addClass("border-danger");
+        $("#userheaderchange").click(function () {
+            $(".userprofile").removeClass("border-danger");
+            $(".userprofile").addClass("border-success");
+            $("#headererror").addClass("d-none");
+        });
+    </script>
+    <script>
+        $.fn.equalHeights = function () {
+            var max_height = 0;
+            $(this).each(function () {
+                max_height = Math.max($(this).height(), max_height);
+            });
+            $(this).each(function () {
+                $(this).height(max_height);
+            });
+        };
+
+        $(document).ready(function () {
+            $('.userdasboardbox ul li a .card').equalHeights();
+        });
+    </script>
+    <script>
+        $("#kt_daterangepicker_3").daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            minYear: 1901,
+            maxYear: parseInt(moment().format("YYYY"), 10)
+        }, function (start, end, label) {
+            var years = moment().diff(start, "years");
+            alert("You are " + years + " years old!");
+        }
+        );
+    </script>
+
+</body>
+
+</html>

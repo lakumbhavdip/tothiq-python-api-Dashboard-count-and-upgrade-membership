@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <title>Tothiq - Digital Contracts Platform</title>
+    <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+    <link rel="shortcut icon" href="{% static '../static/images/Favicon.png' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <link href="{% static '../static/plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css' %}" />
+    <link href="{% static '../static/css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+</head>
+
+<body id="kt_body" class="bg-body">
+    <div class="d-flex flex-column flex-root">
+        <div class="d-flex flex-column flex-lg-row flex-column-fluid align-items-center">
+            <div class="d-flex flex-lg-row-fluid w-lg-50 bgi-size-cover bgi-position-center h-100">
+                <!--begin::Content-->
+                <div class="d-flex flex-column flex-center py-7 py-lg-15 px-5 px-md-15 w-100 "
+                    style="background-color:#eff6ff;">
+                    <!--begin::Logo-->
+                    <!-- <a href="/metronic8/demo1/../demo1/index.html" class="mb-0 mb-lg-12">
+                    </a> -->
+                    <!-- <a href="/metronic8/demo1/../demo1/index.html" class="mb-0 mb-lg-12"> -->
+                        <h1 class="text-primary" style="font-size: 86px;">
+                            Coming Soon
+                          </h1> 
+                       
+                    
+                        
+                            
+                            
+                    
+                            <!-- <img alt="Logo" src="{% static '../static/images/lg.png' %}" style="width: 250px; height: auto;"> -->
+                       
+                        
+                        <!-- </a> -->
+                    <!-- <h1 class="d-none d-lg-block fs-2qx fw-bolder text-center mb-7 " style="color: #0b3856;">Welcome to
+                        Tothiq</h1> -->
+                    <!--end::Text-->
+                </div>
+                <!--end::Content-->
+            </div>
+            
+        </div>
+    </div>
+    
+    <script>var hostUrl = "{% static '../static/' %}";</script>
+    <script src="{% static '../static/plugins/global/plugins.bundle.js' %}"></script>
+    <script src="{% static '../static/js/scripts.bundle.js' %}"></script>
+    <script src="{% static '../static/js/custom/authentication/sign-in/general.js' %}"></script>
+
+    <!-- Email and Login Required -->
+    <script>
+        document.getElementById("kt_sign_in_form").addEventListener("submit", function(event) {
+            var emailInput = document.querySelector('input[name="email"]');
+            
+            if (emailInput.value.trim() === "") {
+              event.preventDefault(); // Prevent form submission
+              document.getElementById("email-error-message").style.display = "block";
+            }
+          });
+          
+          document.querySelector('input[name="email"]').addEventListener("input", function() {
+            var emailInput = document.querySelector('input[name="email"]');
+            
+            if (emailInput.value.trim() !== "") {
+              document.getElementById("email-error-message").style.display = "none";
+            }
+          });
+
+        document.getElementById("kt_sign_in_form").addEventListener("submit", function(event) {
+            var emailInput = document.querySelector('input[name="pw"]');
+            
+            if (emailInput.value.trim() === "") {
+              event.preventDefault(); // Prevent form submission
+              document.getElementById("pw-error-message").style.display = "block";
+            }
+          });
+          
+          document.querySelector('input[name="pw"]').addEventListener("input", function() {
+            var emailInput = document.querySelector('input[name="email"]');
+            
+            if (emailInput.value.trim() !== "") {
+              document.getElementById("pw-error-message").style.display = "none";
+            }
+          });
+          
+    </script>
+
+    <!-- Email and Login Required -->
+    
+    <script>
+        $(document).ready(function() {
+          // Set a delay of 2 seconds (2000 milliseconds) before hiding the message
+          setTimeout(function() {
+            $('#message').fadeOut('slow');
+          }, 2000);
+        });
+      </script>
+      
+      
+</body>
+
+</html>

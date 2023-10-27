@@ -1,0 +1,142 @@
+.userdasboardbox li.nav-item.h-100 {
+  width: 20%;
+}
+
+.templetesetting ul.nav-tabs li.nav-item a.nav-link.active {
+  background-color: #0a3857;
+  color: #fff;
+}
+.templetesetting ul.nav-tabs li.nav-item a.nav-link {
+  color: #0a3857;
+}
+
+.rolegiven {
+  color: #50cd89;
+}
+.btncolorblue a,
+button.btn.btncolorblue {
+  background-color: #0a3857;
+  color: #fff;
+}
+
+.btncolorblue a:hover {
+  background-color: #ccc;
+  color: #0a3857;
+}
+@media screen and (max-width: 1800px) {
+  .card-body.d-flex.align-items-center.justify-content-around {
+    padding: 20px 15px;
+  }
+  .card
+    .card-body
+    .col-12.d-flex.flex-wrap.justify-content-center
+    .col-4.p-5
+    a {
+    margin: 0 !important;
+  }
+}
+@media screen and (max-width: 1700px) {
+  .card-body.d-flex.align-items-center.justify-content-around {
+    padding: 20px 10px;
+  }
+  .nav-line-tabs.nav-line-tabs-2x .nav-item .nav-link {
+    margin: 0 10px;
+  }
+
+  .card-body.pb-0.pt-3.userdasboardbox { padding: 0;}
+  .card-body.pb-0.pt-3.userdasboardbox .p-5 {
+    padding: 15px 0!important; justify-content: space-around!important;
+}
+}
+@media screen and (max-width: 1440px) {
+  .card-body.d-flex.align-items-center.justify-content-around {
+    padding: 20px 10px;
+  }
+
+  .nav-line-tabs.nav-line-tabs-2x .nav-item.col-3 {
+    width: 50%;
+  }
+
+  .symboltext .mt-5.p-5.text-center {
+    padding: 10px !important;
+    margin: 0 !important;
+  }
+
+  .card-body.pb-0.pt-3.userdasboardbox .p-5 {
+    padding: 15px 0!important; justify-content: space-around!important;
+}
+.row.d-flex.justify-content-between.p-5 {
+  padding: 0!important;
+}
+.nav-line-tabs.nav-line-tabs-2x .nav-item .nav-link {
+  margin: 0 5px;
+}
+}
+
+@media screen and (max-width: 1300px) {
+  .nav-line-tabs .nav-item .nav-link {
+    margin: 0 5px;
+  }
+  .card-body.d-flex.align-items-center.justify-content-around {
+    padding: 10px;
+  }
+
+  .nav-line-tabs .nav-item:first-child .nav-link {
+    margin-left: 10px;
+  }
+  .nav-line-tabs .nav-item:last-child .nav-link {
+    margin-right: 10px;
+  }
+
+  .card .card-body .col-12.d-flex.flex-wrap.justify-content-center .col-4.p-5 {
+    padding: 10px !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 1023px) {
+  .wrapper {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding: 0 15px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .wrapper {
+    padding: 0 10px;
+  }
+}
+
+/* Chetan CSS 17-11-22 */
+
+.lable-bg {
+  background: #f7f7f7;
+  padding: 15px;
+  text-align: left;
+}
+.lable-bg h1 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.myDiv {
+  display: none;
+}
+.myDiv1 {
+  display: none;
+}
+.text-right {
+  text-align: right;
+}
+.civilcard {
+  height: 150px !important;
+}
+.justify-content-around{
+  justify-content: space-between!important;
+}

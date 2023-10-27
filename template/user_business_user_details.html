@@ -1,0 +1,523 @@
+{% include "header.html" %}
+{%for i in userdetail%}
+            <div class="content d-flex flex-column p-0 mb-20" id="kt_content">
+                <div class="post d-flex flex-column-fluid" id="kt_post">
+                    <div id="kt_content_container" class="container-xxl p-0">
+                        <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+							<!--begin::Toolbar container-->
+							<div id="kt_app_toolbar_container" class="app-container px-7 d-flex flex-stack">
+								<!--begin::Page title-->
+								<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+									<!--begin::Title-->
+									<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">User Detail</h1>
+									<!--end::Title-->
+								</div>
+								<!--end::Page title-->
+								<!--begin::Actions-->
+								<div class="d-flex align-items-center gap-2 gap-lg-3">
+									<!--begin::Secondary button-->
+									
+									<!--end::Secondary button-->
+									<!--begin::Primary button-->
+									
+									<!--end::Primary button-->
+								</div>
+								<!--end::Actions-->
+							</div>
+							<!--end::Toolbar container-->
+						</div>
+                        
+                        <div class="kt_content_containe_inr d-flex justify-content-between m-5 card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-10">
+                                    <div class="text-primary">
+                                        <h2 class="text-primary"><i
+                                                class="fas fa-user fa-sm me-5 text-primary"></i>{{i.full_name}}</h2>
+                                    </div>
+                                    <div>
+                                        <!-- <a href="#." class="btn btn-primary btn-sm me-5">Upgrade Membership</a> -->
+                                        <!-- <a  onclick="blockUser('{{i.id}}','{{i.full_name}}')"  class="btn btn-outline  btn-outline-danger btn-active-light-danger btn-sm">Block User</a> -->
+                                        {%if i.active_status == "active"%}<a  onclick="blockUser('{{i.id}}','{{i.full_name}}','{{i.active_status}}')"
+                                        class="btn btn-outline  btn-outline-danger btn-active-light-danger btn-sm">Block
+                                        User</a> {%elif i.active_status == "blocked"%}<a onclick="blockUser('{{i.id}}','{{i.full_name}}','{{i.active_status}}')"
+                                        class="btn btn-outline  btn-outline-success btn-active-light-success btn-sm">Unblock
+                                        User</a> {%endif%}
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="d-flex mb-10 row">
+                                    <div class="col-5 mt-5">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                {% if i.image %}
+                                                <img src="/media/{{ i.image }}" alt="Image not found" width="100%" height="250" class="border border-dashed border-secondary" id="temp_pic-{{ your_model_instance.id }}">
+                                            {% else %}
+                                                <i class="fas fa-user-circle fa-3x p-15 border border-2"></i>
+                                            {% endif %}
+                                                </div>
+                                            <div class="col-md-7">
+                                                <div class="d-flex ">
+                                                    <h3>{{i.full_name}}</h3><i
+                                                        class="far fa-check-circle text-success ms-1"></i>
+                                                </div>
+                                                <div class="d-flex w-100">
+                                                    <div>
+                                                        <p><i
+                                                                class="fas fa-envelope-open-text me-5 text-dark"></i>{{i.email}}
+                                                        </p>
+                                                        <p><i class="fas fa-mobile me-5 text-dark"></i> {{i.phone_number}}</p>
+                                                        <p><i class="fas fa-briefcase  me-5 text-dark"></i>{{i.company_name}}</p>
+                                                    </div>
+                                                </div>
+                                                <h5 class="text-primary">{{i.membership_type}} Membership</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="row g-5 g-xxl-8 m-0">
+                                            <div class="col-xl-6 col-md-6">
+                                                <a  class="card mb-xl-0">
+                                                    <!--begin::Body-->
+                                                    <div class="card-body p-3 bg-primary bg-opacity-25">
+                                                        <div class="text-dark fw-bold fs-5 mb-2"><i
+                                                                class="fas fa-edit fa-1x"></i> Draft</div>
+                                                        <div
+                                                            class="fw-bolder fs-1 d-flex justify-content-end text-dark">
+                                                            {{draft}}</div>
+                                                    </div>
+                                                    <!--end::Body-->
+                                                </a>
+                                            </div>
+                                            <div class="col-xl-6 col-md-6">
+                                                <a  class="card mb-xl-0">
+                                                    <!--begin::Body-->
+                                                    <div class="card-body p-3 bg-secondary bg-opacity-25">
+                                                        <div class="text-dark fw-bold fs-5 mb-2"><i
+                                                                class="fas fa-eye fa-1x"></i> Review
+                                                        </div>
+                                                        <div
+                                                            class="fw-bolder fs-1 d-flex justify-content-end text-dark">
+                                                            {{review}}</div>
+                                                    </div>
+                                                    <!--end::Body-->
+                                                </a>
+                                            </div>
+                                            <div class="col-xl-6 col-md-6">
+                                                <a  class="card mb-xl-0">
+                                                    <!--begin::Body-->
+                                                    <div class="card-body p-3 bg-info bg-opacity-25">
+                                                        <div class="text-dark fw-bold fs-5 mb-2"><i
+                                                            class="fas fa-check fa-1x text-success"></i> Ready</div>
+                                                        <div
+                                                            class="fw-bolder fs-1 d-flex justify-content-end text-dark">
+                                                            {{ready}}</div>
+                                                    </div>
+                                                    <!--end::Body-->
+                                                </a>
+                                            </div>
+                                            <div class="col-xl-6 col-md-6">
+                                                <a  class="card mb-xl-0">
+                                                    <!--begin::Body-->
+                                                    <div class="card-body p-3 bg-success bg-opacity-25">
+                                                        <div class="text-dark fw-bold fs-5 mb-2"><i
+                                                            class="fas fa-pencil fa-1x text-primary"></i> Signed</div>
+                                                        <div
+                                                            class="fw-bolder fs-1 d-flex justify-content-end text-dark">
+                                                            {{signed}}</div>
+                                                    </div>
+                                                    <!--end::Body-->
+                                                </a>
+                                            </div>
+                                            <div class="col-xl-12">
+                                                <a  class="card mb-xl-0">
+                                                    <!--begin::Body-->
+                                                    <div class="card-body p-3 bg-danger bg-opacity-25">
+                                                        <div class="text-dark fw-bold fs-5 mb-2"><i
+                                                            class="fas fa-ban fa-1x text-danger"></i>
+                                                        Deleted/Cancelled/Rejected</div>
+                                                        <div
+                                                            class="fw-bolder fs-1 d-flex justify-content-end text-dark">
+                                                            {{cancel}}</div>
+                                                    </div>
+                                                    <!--end::Body-->
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                        <div class="kt_content_containe_inr m-5 card">
+                            <div class="card-body">
+                                <div class="fv-row px-5 col-12">
+                                    <ul
+                                        class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold text-center">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-active-primary fs-4 fw-bolder text-dark py-1 active"
+                                                data-bs-toggle="tab" id="individual-tab" href="#general">General</a>
+                                        </li>
+                                        <!-- <li class="nav-item">
+                                            <a class="nav-link text-active-primary fs-4 fw-bolder text-dark py-1"
+                                                data-bs-toggle="tab" id="business-tab" href="#membership">Membership
+                                                History</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-active-primary fs-4 fw-bolder text-dark py-1"
+                                                data-bs-toggle="tab" id="business-tab" href="#custome">Custom
+                                                Package</a>
+                                        </li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content m-5 " id="myTabContent">
+                            <div class="tab-pane fade active show card" id="general" role="tabpanel">
+                                <div class=" card-body p-15">
+                                    <div class="mb-10">
+                                        <p>PACI Number</p>
+                                        <h3>{{i.civil_id}}</h3>
+                                    </div>
+                                    <div class="d-flex mb-10">
+                                        <div class="me-20">
+                                            <p>Nationality</p>
+                                            {%for a in nationality%}
+                                            <h3>{%if a.id == i.nationality_id %}{{a.name}}{%endif%}</h3>
+                                            {%endfor%}
+                                        </div>
+                                        <div class="ms-10">
+                                            <p>Gender</p>
+                                            <h3>{{i.gender}}</h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p>Date of Birth</p>
+                                        <h3>{{i.date_of_birth|date:"d-m-Y"}}</h3>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="tab-pane fade card" id="membership" role="tabpanel">
+                                <div class="tab_2_heading p-6">
+                                    <h3 class="text-primary">Membership History</h3>
+                                </div>
+                                <div class="row row-cols-1 row-cols-md-12 g-4 mx-0">
+                                    <div class="col px-5">
+                                        <div class="card border border-2">
+                                            <div class="card-body p-0">
+                                                <div class="row mx-0 ">
+                                                    <div class="col-4 p-10">
+                                                        <div class="card_body_block_1">
+                                                            <h4 class="mb-5">Membership Renewal</h4>
+                                                            <p>Purchase Date-01-12-2022</p>
+                                                            <p>Next Renewal: 30-11-2023</p>
+                                                            <p>Duration: Yearly</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4 p-10">
+                                                        <div class="card_body_block_2 mt-11">
+                                                            <h6 class="mb-0">Payment Mode</h6>
+                                                            <p>Knet</p>
+                                                            <h6 class="mb-0">Transaction ID</h6>
+                                                            <p>#2305812dhw49320</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4 p-10 bg-light-primary text-center">
+                                                        <div class="card_body_block_3 mt-11">
+                                                            <p class="mb-0">Membership Amount</p>
+                                                            <h5>KD 49.000</h5>
+                                                            <h6 class="text-decoration-line-through text-gray-400">KD
+                                                                69.000</h6>
+                                                            <p class="text-gray-400">Discount-KD 20.000</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col px-5">
+                                        <div class="card border border-2">
+                                            <div class="card-body p-0">
+                                                <div class="row mx-0">
+                                                    <div class="col-4 p-10">
+                                                        <div class="card_body_block_1">
+                                                            <h4 class="mb-5">Additional Contract Purchase</h4>
+                                                            <p>Purchase Date-01-12-2022</p>
+                                                            <p>Number of Contract Purchase - 30</p>
+                                                            <p>Cost of Per Contract - KD 02.000</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4 p-10">
+                                                        <div class="card_body_block_2 mt-11">
+                                                            <h6 class="mb-0">Payment Mode</h6>
+                                                            <p>Knet</p>
+                                                            <h6 class="mb-0">Transaction ID</h6>
+                                                            <p>#2305812dhw49320</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4 p-10 bg-light-primary text-center">
+                                                        <div class="card_body_block_3 mt-11">
+                                                            <p class="mb-0">Paid Amount</p>
+                                                            <h5>KD 49.000</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col px-5 mb-5">
+                                        <div class="card border border-2">
+                                            <div class="card-body p-0">
+                                                <div class="row mx-0">
+                                                    <div class="col-4 p-10">
+                                                        <div class="card_body_block_1">
+                                                            <h4 class="mb-5">Individual Premium Membership Purchase</h4>
+                                                            <p>Purchase Date-01-12-2022</p>
+                                                            <p>Next Renewal: 30-11-2023</p>
+                                                            <p>Duration: Yearly</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4 p-10">
+                                                        <div class="card_body_block_2 mt-11">
+                                                            <h6 class="mb-0">Payment Mode</h6>
+                                                            <p>Knet</p>
+                                                            <h6 class="mb-0">Transaction ID</h6>
+                                                            <p>#2305812dhw49320</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4 p-10 bg-light-primary text-center">
+                                                        <div class="card_body_block_3 mt-11">
+                                                            <h5 class="mb-0">Membership Amount</h5>
+                                                            <h5>KD 49.000</h5>
+                                                            <h6 class="text-decoration-line-through text-gray-400">KD
+                                                                69.000</h6>
+                                                            <p class="text-gray-400">Discount-KD 20.000</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div> -->
+
+                            <!-- <div class="tab-pane fade card" id="custome" role="tabpanel">
+                                <div class=" card-body">
+                                    <h3 class="text-primary my-8">Custom Package</h3>
+                                    <table class="table border border-gray-400 mb-20">
+                                        <tr class="fw-bolder  border-bottom  border-gray-400 ">
+                                            <th class="border-end  border-gray-400 ps-2">Particular</th>
+                                            <th class="border-end  border-gray-400 ">Qty</th>
+                                            <th class="border-end  border-gray-400 "></th>
+                                            <th class="border-end  border-gray-400 ">Per Contract</th>
+                                            <th class="border-end  border-gray-400 "></th>
+                                            <th class="border-end  border-gray-400 ">Total</th>
+                                            <th>Price after discount</th>
+                                        </tr>
+                                        <tr class="border-bottom  border-gray-400 ">
+                                            <td class="border-end  border-gray-400 ps-2">Contracts</td>
+                                            <td class="border-end  border-gray-400 ">20</td>
+                                            <td class="border-end  border-gray-400 ">X</td>
+                                            <td class="border-end  border-gray-400 ">KD 2.000</td>
+                                            <td class="border-end  border-gray-400 ">=</td>
+                                            <td class="border-end  border-gray-400 ">KD 40.000</td>
+                                            <td class="d-flex">KD <input type="text"
+                                                    class="form-control form-control-xsm w-25 h-25px ms-5"
+                                                    placeholder="35.000"></td>
+                                        </tr>
+                                        <tr class="border-bottom  border-gray-400 ">
+                                            <td class="border-end  border-gray-400 ps-2">Users</td>
+                                            <td class="border-end  border-gray-400 ">20</td>
+                                            <td class="border-end  border-gray-400 ">X</td>
+                                            <td class="border-end  border-gray-400 ">KD 1.000</td>
+                                            <td class="border-end  border-gray-400 ">=</td>
+                                            <td class="border-end  border-gray-400 ">KD 20.000</td>
+                                            <td class="d-flex">KD <input type="text"
+                                                    class="form-control form-control-xsm w-25 h-25px ms-5"
+                                                    placeholder="15.000"></td>
+                                        </tr>
+                                        <tr class="border-bottom  border-gray-400 ">
+                                            <td class="border-end  border-gray-400 "></td>
+                                            <td class="border-end  border-gray-400 "></td>
+                                            <td class="border-end  border-gray-400 "></td>
+                                            <td class="border-end  border-gray-400 "></td>
+                                            <td class="border-end  border-gray-400 "></td>
+                                            <td class="border-end  border-gray-400 ">Total Amount</td>
+                                            <td class="">KD 50.000</td>
+                                        </tr>
+                                    </table>
+                                    <div class="d-flex justify-content-end ">
+                                        <a href="#"
+                                            class="btn btn-outline btn-outline-danger btn-active-light-danger btn-sm">Send
+                                            Package</a>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+
+    <div id="kt_scrolltop" class="scrolltop mb-3" data-kt-scrolltop="true">
+        <span class="svg-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)"
+                    fill="black" />
+                <path
+                    d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+                    fill="black" />
+            </svg>
+        </span>
+    </div>
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#ckeditor_1'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#ckeditor_2'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#ckeditor_3'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        $("#business-tab").click(function () {
+            $("div#myTabContent1").hide();
+            $("div#myTabContent2").show();
+        });
+        $("#individual-tab").click(function () {
+            $("div#myTabContent1").show();
+            $("div#myTabContent2").hide();
+        });
+        $(document).ready(function () {
+            $('#addresstype').on('change', function () {
+                var demovalue = $(this).val();
+                $("div.myDiv").hide();
+                $("#show" + demovalue).show();
+            });
+            $('#addresstype1').on('change', function () {
+                var demovalue1 = $(this).val();
+                $("div.myDiv1").hide();
+                $("#show" + demovalue1).show();
+            });
+        });
+        $(".userprofile").addClass("border-danger");
+        $("#userheaderchange").click(function () {
+            $(".userprofile").removeClass("border-danger");
+            $(".userprofile").addClass("border-success");
+            $("#headererror").addClass("d-none");
+
+        });
+    </script>
+    <script>
+        $.fn.equalHeights = function () {
+            var max_height = 0;
+            $(this).each(function () {
+                max_height = Math.max($(this).height(), max_height);
+            });
+            $(this).each(function () {
+                $(this).height(max_height);
+            });
+        };
+
+        $(document).ready(function () {
+            $('.userdasboardbox ul li a .card').equalHeights();
+        });
+    </script>
+    <script>
+    function blockUser(id,name,status){
+        var i = id;
+        var status = status;
+        console.log(status)
+      
+
+             // Send the password to the server for validation using AJAX
+     fetch('/block_user/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': '{{ csrf_token }}',  // If you are using CSRF protection
+        },
+        body:JSON.stringify({ password: i }),
+      })
+      .then(response => response.json())
+      
+      .then(data => {
+        
+        if (status === "active"){
+        var alertBox = document.createElement("div");
+	  alertBox.classList.add("custom-alert");
+	  alertBox.innerHTML = name + " is blocked.";
+	
+	  // Style the alert box
+	  alertBox.style.position = "absolute";
+	  alertBox.style.top = "15%";
+	  alertBox.style.left = "60%";
+	  alertBox.style.transform = "translate(-50%, -50%)";
+	  alertBox.style.padding = "10px";
+	  alertBox.style.background = "#FFCCCB";
+	  alertBox.style.boxShadow = "0 0 10px rgba(0.3, 0, 0, 0.3)";
+	
+	  // Append the alert box to the document body
+	  document.body.appendChild(alertBox);
+        console.log('blocked')
+        setTimeout(function () {
+            alertBox.remove(); // Remove the alert box after the duration
+        }, 3000);
+        }
+        else if(status === "blocked"){
+            var alertBox = document.createElement("div");
+          alertBox.classList.add("custom-alert");
+          alertBox.innerHTML = name + " is unblocked.";
+        
+          // Style the alert box
+          alertBox.style.position = "absolute";
+          alertBox.style.top = "15%";
+          alertBox.style.left = "60%";
+          alertBox.style.transform = "translate(-50%, -50%)";
+          alertBox.style.padding = "10px";
+          alertBox.style.background = " #90EE90";
+          alertBox.style.boxShadow = "0 0 10px rgba(0.3, 0, 0, 0.3)";
+        
+          // Append the alert box to the document body
+          document.body.appendChild(alertBox);
+            console.log('blocked')
+            setTimeout(function () {
+                alertBox.remove(); // Remove the alert box after the duration
+            }, 3000);
+            
+            }
+            setTimeout(function () {
+                location.reload(); // Reload the current page
+            }, 500);
+           
+      })
+      .catch(error => {
+        console.log("error")
+        console.error('Error occurred:', error);
+      });
+    }
+
+    </script>
+
+{% include "footer.html" %}

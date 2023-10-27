@@ -1,0 +1,1730 @@
+[
+    {
+      "model": "masterapp.languages_label",
+      "pk": 109,
+      "fields": {
+        "code": "individual_user",
+        "english": "Individual User",
+        "arabic": "مستخدم فردي"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 110,
+      "fields": {
+        "code": "business_admin",
+        "english": "Business Admin",
+        "arabic": "مسؤول الاعمال"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 111,
+      "fields": {
+        "code": "business_user",
+        "english": "Business User",
+        "arabic": "مستخدم الأعمال"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 112,
+      "fields": {
+        "code": "home",
+        "english": "Home",
+        "arabic": "منزل"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 113,
+      "fields": {
+        "code": "pricing",
+        "english": "Pricing",
+        "arabic": "التسعير"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 114,
+      "fields": {
+        "code": "get_in_touch",
+        "english": "Get In Touch",
+        "arabic": "ابقى على تواصل"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 115,
+      "fields": {
+        "code": "arbic",
+        "english": "Arbic",
+        "arabic": "أربيك"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 116,
+      "fields": {
+        "code": "sign_up",
+        "english": "Sign Up",
+        "arabic": "اشتراك"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 117,
+      "fields": {
+        "code": "login",
+        "english": "Login",
+        "arabic": "تسجيل الدخول"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 118,
+      "fields": {
+        "code": "individual_memberships",
+        "english": "Individual Memberships",
+        "arabic": "العضويات الفردية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 119,
+      "fields": {
+        "code": "business_memberships",
+        "english": "Business Memberships",
+        "arabic": "عضويات الأعمال"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 120,
+      "fields": {
+        "code": "year",
+        "english": "Year",
+        "arabic": "سنة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 121,
+      "fields": {
+        "code": "free",
+        "english": "Free",
+        "arabic": "مجاني"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 122,
+      "fields": {
+        "code": "basic",
+        "english": "Basic",
+        "arabic": "أساسي"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 123,
+      "fields": {
+        "code": "premium",
+        "english": "Premium",
+        "arabic": "بريميوم "
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 124,
+      "fields": {
+        "code": "lets_start",
+        "english": "Let's Start",
+        "arabic": "لنبدأ"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 125,
+      "fields": {
+        "code": "high_volume_contracts",
+        "english": "High-volume Contracts",
+        "arabic": "عقود كبيرة الحجم"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 126,
+      "fields": {
+        "code": "for_high_volume_contracts_kindly_submit_an_inquiry",
+        "english": "For High-volume Contracts kindly submit an Inquiry.",
+        "arabic": "بالنسبة للعقود كبيرة الحجم ، يرجى تقديم استفسار."
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 127,
+      "fields": {
+        "code": "submit_inquiry",
+        "english": "Submit Inquiry",
+        "arabic": "إرسال الاستفسار"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 128,
+      "fields": {
+        "code": "yearly_membership",
+        "english": "Yearly Membership",
+        "arabic": "العضوية السنوية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 129,
+      "fields": {
+        "code": "individual_primum_membership",
+        "english": "Individual Primum Membership",
+        "arabic": "العضوية الأساسية الفردية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 130,
+      "fields": {
+        "code": "enter_coupon_code",
+        "english": "Enter Coupon Code",
+        "arabic": "أدخل رمز القسيمة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 131,
+      "fields": {
+        "code": "my_fatoorah_knet_charges",
+        "english": "My Fatoorah Knet Charges",
+        "arabic": "فاتورة كنيت خاصتي"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 132,
+      "fields": {
+        "code": "total",
+        "english": "Total",
+        "arabic": "المجموع"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 133,
+      "fields": {
+        "code": "free_membership",
+        "english": "Free MEmbership",
+        "arabic": "اشتراك مجاني"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 134,
+      "fields": {
+        "code": "member_information",
+        "english": "Member Information",
+        "arabic": "معلومات الاعضاء"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 135,
+      "fields": {
+        "code": "register_account_with_tothiq_screen?",
+        "english": "Register Account with Tothiq screen",
+        "arabic": "تسجيل الحساب مع شاشة توثيق"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 136,
+      "fields": {
+        "code": "civil_id",
+        "english": "Civil ID",
+        "arabic":"البطاقة المدنية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 137,
+      "fields": {
+        "code": "already_have_a_tothiq_account?",
+        "english": "Already have a Tothiq account?",
+        "arabic":"لديك حساب وثيق بالفعل؟"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 138,
+      "fields": {
+        "code": "log_in",
+        "english": "Log in",
+        "arabic":"تسجيل الدخول"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 139,
+      "fields": {
+        "code": "complete_registration_for",
+        "english": "Complete Registration For",
+        "arabic":"التسجيل الكامل لـ"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 140,
+      "fields": {
+        "code": "create_password",
+        "english": "Create Password",
+        "arabic":"أنشئ كلمة مرور"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 141,
+      "fields": {
+        "code": "retype_password",
+        "english": "Retype Password",
+        "arabic":"أعد إدخال كلمة السر"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 142,
+      "fields": {
+        "code": "sign_in",
+        "english": "Sign In",
+        "arabic":"تسجيل الدخول"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 143,
+      "fields": {
+        "code": "log_in_to_your_tothiq_account",
+        "english": "Log In to your Tothiq Account",
+        "arabic":"قم بتسجيل الدخول إلى ملف حساب توثيق"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 144,
+      "fields": {
+        "code": "register_now",
+        "english": "Register now",
+        "arabic":"سجل الان"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 145,
+      "fields": {
+        "code": "enter_coupon_code",
+        "english": "Enter Coupon Code",
+        "arabic":"أدخل رمز القسيمة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 146,
+      "fields": {
+        "code": "personal_details",
+        "english": "Personal Details",
+        "arabic":"تفاصيل شخصية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 147,
+      "fields": {
+        "code": "civil_id_number",
+        "english": "Civil ID Number",
+        "arabic":"رقم البطاقة المدنية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 148,
+      "fields": {
+        "code": "language",
+        "english": "Language",
+        "arabic":"لغة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 149,
+      "fields": {
+        "code": "gender",
+        "english": "Gender",
+        "arabic":"جنس"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 150,
+      "fields": {
+        "code": "date_of_birth",
+        "english": "Date Of Birth",
+        "arabic":"تاريخ الميلاد"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 151,
+      "fields": {
+        "code": "save",
+        "english": "Save",
+        "arabic":"يحفظ"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 152,
+      "fields": {
+        "code": "get_notification_for_new_comments",
+        "english": "Get notification for new comments.",
+        "arabic":"الحصول على إشعار للتعليقات الجديدة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 153,
+      "fields": {
+        "code": "get_notification_for_status_changes",
+        "english": "Get notification for status changes.",
+        "arabic":"احصل على إخطار لتغييرات الحالة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 154,
+      "fields": {
+        "code": "get_notification_for_status_changes",
+        "english": "Get notification for status changes.",
+        "arabic":"احصل على إخطار لتغييرات الحالة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 155,
+      "fields": {
+        "code": "get_notification_for_membership_expriration",
+        "english": "Get notification for membership expriration.",
+        "arabic":"احصل على إخطار لانتهاء العضوية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 156,
+      "fields": {
+        "code": "get_notification_for_users_add_on",
+        "english": "Get notification for users add on.",
+        "arabic":"الحصول على إشعار للمستخدمين إضافة على"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 157,
+      "fields": {
+        "code": "get_notification_on_deleting_contract",
+        "english": "Get Notification on deleting contract.",
+        "arabic":"احصل على إشعار بشأن حذف العقد."
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 158,
+      "fields": {
+        "code": "get_notification_on_reviewed_contract",
+        "english": "Get notification on reviewed contract.",
+        "arabic":"احصل على إخطار بشأن العقد الذي تمت مراجعته"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 159,
+      "fields": {
+        "code": "get_notification_on_signature",
+        "english": "Get notification on signature.",
+        "arabic":"احصل على إخطار بالتوقيع."
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 160,
+      "fields": {
+        "code": "get_notification_on_new_or_draft_contract",
+        "english": "Get notification on new or draft contract",
+        "arabic":"الحصول على إشعار بشأن عقد جديد أو مسودة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 161,
+      "fields": {
+        "code": "when_you_receive_a_chat_message",
+        "english": "When you receive a chat message",
+        "arabic":"عندما تتلقى رسالة دردشة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 162,
+      "fields": {
+        "code": "play_a_sound",
+        "english": "Play a sound",
+        "arabic":"قم بتشغيل صوت"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 163,
+      "fields": {
+        "code": "highlight_the_bell_icon_in_the_system_tray",
+        "english": "Highlight the bell icon in the system tray",
+        "arabic":"قم بتمييز رمز الجرس في علبة النظام"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 164,
+      "fields": {
+        "code": "reminders",
+        "english": "Reminders",
+        "arabic":"تذكير"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 165,
+      "fields": {
+        "code": "push",
+        "english": "Push",
+        "arabic":"يدفع"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 166,
+      "fields": {
+        "code": "membership&contracts",
+        "english": "Membership & Contracts",
+        "arabic":"العضوية والعقود"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 167,
+      "fields": {
+        "code": "current_membership",
+        "english": "Current Membership",
+        "arabic":"العضوية الحالية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 168,
+      "fields": {
+        "code": "buy_additional_contract",
+        "english": "Buy Additional Contract",
+        "arabic":"شراء عقد إضافي"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 169,
+      "fields": {
+        "code": "upgrade_membership",
+        "english": "Upgrade Membership",
+        "arabic":"ترقية العضوية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 170,
+      "fields": {
+        "code": "pay_now",
+        "english": "Pay Now",
+        "arabic":"ادفع الآن"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 171,
+      "fields": {
+        "code": "print_report",
+        "english": "Print Report",
+        "arabic":"اطبع تقرير"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 171,
+      "fields": {
+        "code": "additional_contracts",
+        "english": "Additional Contracts",
+        "arabic":"عقود إضافية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 172,
+      "fields": {
+        "code": "enter_coupon_code",
+        "english": "Enter Coupon Code",
+        "arabic":"أدخل رمز القسيمة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 173,
+      "fields": {
+        "code": "my_fatoorah_knet_charges",
+        "english": "My Fatoorah Knet Charges",
+        "arabic":"فاتورة كنيت خاصتي"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 174,
+      "fields": {
+        "code": "upgrade_membership",
+        "english": "Upgrade Membership",
+        "arabic":"ترقية العضوية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 175,
+      "fields": {
+        "code": "upgrading_yearly_membership",
+        "english": "Upgrading Yearly Membership",
+        "arabic":"ترقية العضوية السنوية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 176,
+      "fields": {
+        "code": "id",
+        "english": "ID",
+        "arabic":"بطاقة تعريف"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 177,
+      "fields": {
+        "code": "free_membership",
+        "english": "Free Membership",
+        "arabic":"اشتراك مجاني"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 177,
+      "fields": {
+        "code": "verified",
+        "english": "Verified",
+        "arabic":"تم التحقق"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 178,
+      "fields": {
+        "code": "not_verified",
+        "english": "Not Verified",
+        "arabic":"لم يتم التحقق منه"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 179,
+      "fields": {
+        "code": "creation_date",
+        "english": "Creation Date",
+        "arabic":"تاريخ الإنشاء"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 180,
+      "fields": {
+        "code": "account_role",
+        "english": "Account Role",
+        "arabic":"دور الحساب"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 181,
+      "fields": {
+        "code": "last_activity",
+        "english": "Last Activity",
+        "arabic":"النشاط الاخير"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 182,
+      "fields": {
+        "code": "contracts_summary",
+        "english": "Contracts Summary",
+        "arabic":"ملخص العقود"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 183,
+      "fields": {
+        "code": "contracts_status",
+        "english": "Contracts Status",
+        "arabic":"حالة العقود"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 184,
+      "fields": {
+        "code": "payment_summary",
+        "english": "Payment Summary",
+        "arabic":"ملخص الدفع"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 185,
+      "fields": {
+        "code": "ready",
+        "english": "Ready",
+        "arabic":"مستعد"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 186,
+      "fields": {
+        "code": "waiting_for_sign",
+        "english": "Waiting for Sign",
+        "arabic":"في انتظار التوقيع"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 187,
+      "fields": {
+        "code": "cancelled",
+        "english": "Cancelled",
+        "arabic":"ألغيت"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 188,
+      "fields": {
+        "code": "usage_percentage",
+        "english": "Usage Percentage",
+        "arabic":"نسبة الاستخدام"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 189,
+      "fields": {
+        "code": "usage_percentage",
+        "english": "Usage Percentage",
+        "arabic":"نسبة الاستخدام"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 190,
+      "fields": {
+        "code": "membership-basic",
+        "english": "Membership - Basic",
+        "arabic":"العضوية - أساسية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 191,
+      "fields": {
+        "code": "membership-basic",
+        "english": "Membership - Basic",
+        "arabic":"العضوية - أساسية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 192,
+      "fields": {
+        "code": "view-all",
+        "english": "View All",
+        "arabic":"مشاهدة الكل"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 193,
+      "fields": {
+        "code": "create_contract",
+        "english": "Create Contract",
+        "arabic":"إنشاء عقد"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 194,
+      "fields": {
+        "code": "step-1",
+        "english": "Step-1",
+        "arabic":"الخطوة 1"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 195,
+      "fields": {
+        "code": "categories",
+        "english": "Categories",
+        "arabic":"فئات"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 196,
+      "fields": {
+        "code": "catcrate_blank_contractegories",
+        "english": "Crate Blank Contract",
+        "arabic":"عقد فارغ للصندوق"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 197,
+      "fields": {
+        "code": "upload_document",
+        "english": "Upload Document",
+        "arabic":"تحميل المستند"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 198,
+      "fields": {
+        "code": "step-2",
+        "english": "Step-2",
+        "arabic":"الخطوة 2"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 199,
+      "fields": {
+        "code": "edit",
+        "english": "Edit",
+        "arabic":"يحرر"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 200,
+      "fields": {
+        "code": "contract_information",
+        "english": "Contract Information",
+        "arabic":"معلومات العقد"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 201,
+      "fields": {
+        "code": "contract_title",
+        "english": "Contract Title",
+        "arabic":"عنوان العقد"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 202,
+      "fields": {
+        "code": "contract_folders ",
+        "english": "Contract Folders ",
+        "arabic":"مجلدات العقد"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 203,
+      "fields": {
+        "code": "contract_description ",
+        "english": "Contract Description ",
+        "arabic":"وصف العقد"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 204,
+      "fields": {
+        "code": "contract_duration ",
+        "english": "Contract Duration  ",
+        "arabic":"مدة العقد"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 205,
+      "fields": {
+        "code": "end",
+        "english": "End",
+        "arabic":"نهاية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 206,
+      "fields": {
+        "code": "contract_valuation",
+        "english": "Contract Valuation ",
+        "arabic":"تقييم العقد"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 207,
+      "fields": {
+        "code": "kwd",
+        "english": "KWD",
+        "arabic":"دينار كويتي"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 208,
+      "fields": {
+        "code": "step-3",
+        "english": "Step-3",
+        "arabic":"الخطوة 3"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 209,
+      "fields": {
+        "code": "first_parties",
+        "english": "First Parties ",
+        "arabic":"الأطراف الأولى"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 210,
+      "fields": {
+        "code": "party_email",
+        "english": "Party Email ",
+        "arabic":"البريد الإلكتروني للحزب"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 211,
+      "fields": {
+        "code": "party_full_name",
+        "english": "Party Full Name",
+        "arabic":"الاسم الكامل للحزب"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 212,
+      "fields": {
+        "code": "second_parties",
+        "english": "Second Parties",
+        "arabic":"الأطراف الثانية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 213,
+      "fields": {
+        "code": "civil_id_number",
+        "english": "Civil ID Number",
+        "arabic":"رقم البطاقة المدنية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 214,
+      "fields": {
+        "code": "etrieving_data_wait_a_few_seconds_and_try_to_cut_or_copy_again",
+        "english": "Want to include more parties in the contract?",
+        "arabic":"هل تريد تضمين المزيد من الأطراف في العقد؟"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 215,
+      "fields": {
+        "code": "add_new_folder",
+        "english": "Add New Folder",
+        "arabic":"إضافة مجلد جديد"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 216,
+      "fields": {
+        "code": "create_folder",
+        "english": "Create Folder",
+        "arabic":"أنشئ مجلد"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 217,
+      "fields": {
+        "code": "select_parent_folder",
+        "english": "Select Parent Folder",
+        "arabic":"حدد المجلد الأصل"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 218,
+      "fields": {
+        "code": "folder_name",
+        "english": "Folder Name",
+        "arabic":"إسم الملف"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 219,
+      "fields": {
+        "code": "folder_name",
+        "english": "Folder Name",
+        "arabic":"إسم الملف"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 220,
+      "fields": {
+        "code": "my_folders",
+        "english": "My Folders",
+        "arabic":"مجلداتي"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 221,
+      "fields": {
+        "code": "general_folders",
+        "english": "General Folders",
+        "arabic":"المجلدات العامة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 222,
+      "fields": {
+        "code": "rent_agreement",
+        "english": "Rent Agreement",
+        "arabic":"عقد الإيجار"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 223,
+      "fields": {
+        "code": "home_rent_agreement",
+        "english": "Home Rent Agreement",
+        "arabic":"اتفاقية إيجار المنزل"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 224,
+      "fields": {
+        "code": "office_rent_agreement",
+        "english": "Office Rent Agreement",
+        "arabic":"اتفاقية إيجار المكتب"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 225,
+      "fields": {
+        "code": "redy",
+        "english": "Ready",
+        "arabic":"مستعد"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 226,
+      "fields": {
+        "code": "recently_updated",
+        "english": "Recently Updated",
+        "arabic":"تم تحديثه مؤخرا"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 227,
+      "fields": {
+        "code": "recently_updated",
+        "english": "Recently Updated",
+        "arabic":"تم تحديثه مؤخرا"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 228,
+      "fields": {
+        "code": "last_month",
+        "english": "Last Month",
+        "arabic":"الشهر الماضي"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 229,
+      "fields": {
+        "code": "last_quarter",
+        "english": "Last Quarter",
+        "arabic":"الربع الأخير"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 301,
+      "fields": {
+        "code": "last_year",
+        "english": "Last Year",
+        "arabic":"العام الماضي"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 302,
+      "fields": {
+        "code": "add_appendix",
+        "english": "Add Appendix",
+        "arabic":"أضف الملحق"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 303,
+      "fields": {
+        "code": "clone",
+        "english": "Clone",
+        "arabic":"استنساخ"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 304,
+      "fields": {
+        "code": "signatory",
+        "english": "Signatory",
+        "arabic":"موقعة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 305,
+      "fields": {
+        "code": "viewed",
+        "english": "Viewed",
+        "arabic":"ينظر"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 306,
+      "fields": {
+        "code": "not_viewed",
+        "english": "Not Viewed",
+        "arabic":"لا ينظر"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 307,
+      "fields": {
+        "code": "address_book",
+        "english": "Address Book",
+        "arabic":"دليل العناوين"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 308,
+      "fields": {
+        "code": "create_contact",
+        "english": "Create Contact",
+        "arabic":"إنشاء اتصال"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 309,
+      "fields": {
+        "code": "enter_civil_id",
+        "english": "Enter Civil ID",
+        "arabic":"أدخل الرقم المدني"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 310,
+      "fields": {
+        "code": "invite_contact",
+        "english": "Invite Contact",
+        "arabic":"دعوة جهة الاتصال"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 311,
+      "fields": {
+        "code": "contact_details",
+        "english": "Contact Details",
+        "arabic":"بيانات المتصل"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 312,
+      "fields": {
+        "code": "report_a_user",
+        "english": "Report a user",
+        "arabic":"أبلغ عن مستخدم"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 313,
+      "fields": {
+        "code": "business_user",
+        "english": "Business User",
+        "arabic":"مستخدم الأعمال"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 314,
+      "fields": {
+        "code": "log_out",
+        "english": "Log Out",
+        "arabic":"تسجيل خروج"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 315,
+      "fields": {
+        "code": "name",
+        "english": "Name",
+        "arabic":"تسجيل خروج"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 316,
+      "fields": {
+        "code": "year",
+        "english": "Year",
+        "arabic":"سنة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 317,
+      "fields": {
+        "code": "submit_inquiry",
+        "english": "Submit Inquiry",
+        "arabic":"إرسال الاستفسار"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 318,
+      "fields": {
+        "code": "sign_up",
+        "english": "SIGN UP",
+        "arabic":"اشتراك"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 319,
+      "fields": {
+        "code": "sign_up",
+        "english": "SIGN UP",
+        "arabic":"اشتراك"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 320,
+      "fields": {
+        "code": "business_account_registration",
+        "english": "Business Account Registration",
+        "arabic":"تسجيل حساب الأعمال"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 321,
+      "fields": {
+        "code": "company_name",
+        "english": "Company Name",
+        "arabic":"اسم الشركة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 322,
+      "fields": {
+        "code": "complete_registration_for",
+        "english": "Complete Registration For",
+        "arabic":"التسجيل الكامل لـ"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 323,
+      "fields": {
+        "code": "login_in_to_your_tothiq_account",
+        "english": "Login in to your Tothiq account",
+        "arabic":"تسجيل الدخول إلى حساب Tothiq الخاص بك"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 324,
+      "fields": {
+        "code": "password",
+        "english": "Password",
+        "arabic":"كلمة المرور"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 325,
+      "fields": {
+        "code": "dont_have_a_account",
+        "english": "Don't have a account",
+        "arabic":"ليس لديك حساب؟"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 326,
+      "fields": {
+        "code": "business_panel",
+        "english": "Business Panel",
+        "arabic":"لوحة الأعمال"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 327,
+      "fields": {
+        "code": "business_profile",
+        "english": "Business Profile",
+        "arabic":"الملف التجاري"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 327,
+      "fields": {
+        "code": "user_management",
+        "english": "User Management",
+        "arabic":"إدارةالمستخدم"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 328,
+      "fields": {
+        "code": "membership_management",
+        "english": "Membership Management",
+        "arabic":"إدارة العضوية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 329,
+      "fields": {
+        "code": "business_information",
+        "english": "Business Information",
+        "arabic":"معلومات العمل"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 330,
+      "fields": {
+        "code": "business_name",
+        "english": "Business Name",
+        "arabic":"الاسم التجاري"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 331,
+      "fields": {
+        "code": "business_email_address",
+        "english": "Business Email Address",
+        "arabic":"عنوان البريد الإلكتروني الخاص بالعمل"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 332,
+      "fields": {
+        "code": "business_contact_number",
+        "english": "Business Contact Number",
+        "arabic":"رقم الاتصال التجاري"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 333,
+      "fields": {
+        "code": "extension_number",
+        "english": "Extension Number",
+        "arabic":"رقم التوصيلة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 334,
+      "fields": {
+        "code": "business_address",
+        "english": "Business Address",
+        "arabic":"عنوان العمل"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 335,
+      "fields": {
+        "code": "licence_expiry_date",
+        "english": "Licence Expiry Date",
+        "arabic":"تاريخ انتهاء الترخيص"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 336,
+      "fields": {
+        "code": "authorized_signatory_expiry_date",
+        "english": "Authorized Signatory Expiry Date",
+        "arabic":"تاريخ انتهاء الصلاحية المفوض بالتوقيع"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 337,
+      "fields": {
+        "code": "licence",
+        "english": "Licence",
+        "arabic":"رخصة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 338,
+      "fields": {
+        "code": "authorized_signatory",
+        "english": "Authorized Signatory",
+        "arabic":"المفوض بالتوقيع"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 339,
+      "fields": {
+        "code": "total_users",
+        "english": "Total Users",
+        "arabic":"إجمالي المستخدمين"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 340,
+      "fields": {
+        "code": "authorized_person",
+        "english": "Authorized Person",
+        "arabic":"الشخص المرخص"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 341,
+      "fields": {
+        "code": "restricted_users",
+        "english": "Restricted Users",
+        "arabic":"المستخدمون المقيدة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 342,
+      "fields": {
+        "code": "create_user",
+        "english": "Create User",
+        "arabic":"إنشاء مستخدم"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 343,
+      "fields": {
+        "code": "select_department",
+        "english": "Select Department",
+        "arabic":"حدد القسم"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 344,
+      "fields": {
+        "code": "create_users",
+        "english": "Create Users",
+        "arabic":"أنشئ مستخدمين"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 345,
+      "fields": {
+        "code": "general_department",
+        "english": "General Department",
+        "arabic":"الإدارة العامة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 346,
+      "fields": {
+        "code": "hr_department",
+        "english": "HR Department",
+        "arabic":"قسم الموارد البشرية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 347,
+      "fields": {
+        "code": "sales_department",
+        "english": "Sales Department",
+        "arabic":"قسم المبيعات"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 348,
+      "fields": {
+        "code": "purchase_department",
+        "english": "Purchase Department",
+        "arabic":"قسم المشتريات"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 349,
+      "fields": {
+        "code": "department_management",
+        "english": "Department Management",
+        "arabic":"إدارة القسم"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 350,
+      "fields": {
+        "code": "add_department",
+        "english": "Add Department",
+        "arabic":"اضافة قسم"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 351,
+      "fields": {
+        "code": "department_name",
+        "english": "Department Name",
+        "arabic":"اسم القسم"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 352,
+      "fields": {
+        "code": "create_department",
+        "english": "Create Department",
+        "arabic":"إنشاء قسم"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 353,
+      "fields": {
+        "code": "membership_free",
+        "english": "Membership - Free",
+        "arabic":"العضوية - مجانية"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 354,
+      "fields": {
+        "code": "print_report",
+        "english": "Print Report",
+        "arabic":"اطبع تقرير"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 355,
+      "fields": {
+        "code": "add_contract",
+        "english": "Add Contract",
+        "arabic":"أضف العقد"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 356,
+      "fields": {
+        "code": "number_of_contracts",
+        "english": "Number of Contracts",
+        "arabic":"عدد العقود"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 357,
+      "fields": {
+        "code": "number_of_contracts",
+        "english": "Number of Contracts",
+        "arabic":"عدد العقود"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 358,
+      "fields": {
+        "code": "current_contract",
+        "english": "Current Contract",
+        "arabic":"العقد الحالي"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 359,
+      "fields": {
+        "code": "add_user",
+        "english": "Add User",
+        "arabic":"إضافة مستخدم"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 360,
+      "fields": {
+        "code": "number_of_users",
+        "english": "Number of Users",
+        "arabic":"عدد المستخدمين"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 361,
+      "fields": {
+        "code": "used_contracts",
+        "english": "Used Contracts",
+        "arabic":"العقود المستعملة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 362,
+      "fields": {
+        "code": "draft_contracts",
+        "english": "Draft Contracts",
+        "arabic":"صياغة العقود"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 363,
+      "fields": {
+        "code": "under_review",
+        "english": "Under-Review",
+        "arabic":"قيد المراجعة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 364,
+      "fields": {
+        "code": "ready_contracts",
+        "english": "Ready Contracts",
+        "arabic":"عقود جاهزة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 365,
+      "fields": {
+        "code": "rejected_contracts",
+        "english": "Rejected Contracts",
+        "arabic":"العقود المرفوضة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 366,
+      "fields": {
+        "code": "deleted_contracts",
+        "english": "Deleted Contracts",
+        "arabic":"العقود المحذوفة"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 367,
+      "fields": {
+        "code": "total_contracts",
+        "english": "Total Contracts",
+        "arabic":"إجمالي العقود"
+      }
+    },
+    {
+      "model": "masterapp.languages_label",
+      "pk": 368,
+      "fields": {
+        "code": "available_contracts",
+        "english": "Available Contracts",
+        "arabic":"العقود المتاحة"
+      }
+    }
+]

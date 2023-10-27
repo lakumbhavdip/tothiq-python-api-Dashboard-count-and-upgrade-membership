@@ -1,0 +1,283 @@
+{% include "header.html" %}
+{% load static %}
+{% load custom_filters %}
+
+<div class="content d-flex flex-column p-0 mb-20 vh-100" id="kt_content">
+	<div class="post d-flex flex-column-fluid" id="kt_post">
+		<div id="kt_content_container" class="container-fluid">
+			<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+				<!--begin::Toolbar container-->
+				<div id="kt_app_toolbar_container" class="app-container px-3 d-flex flex-stack">
+					<!--begin::Page title-->
+					<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+						<!--begin::Title-->
+						<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+							Templates </h1>
+							<!-- {% for message in messages  %}
+							<div class="alert alert-danger mt-1 messageclass" role="alert">
+								{{ message }}
+							</div>
+							{% endfor %} -->
+
+							
+						<!--end::Title-->
+					</div>
+					<!--end::Page title-->
+					<!--begin::Actions-->
+					<div class="d-flex align-items-center gap-2 gap-lg-3">
+						{% for message in messages %}
+							<div class="alert alert-primary mt-1 messageclass hide-after-delay" role="alert">
+								{{ message }}
+							</div>
+						{% endfor %}
+						<!--begin::Secondary button-->
+
+						<!--end::Secondary button-->
+						<!--begin::Primary button-->
+						<a href="{% url 'superadminapp:Template_Create' %}"
+							class="btn btn-primary btn-sm text-capitalize">Create
+							Template</a>
+							
+						<!--end::Primary button-->
+					</div>
+					<!--end::Actions-->
+				</div>
+				<!--end::Toolbar container-->
+			</div>
+			<div class="tab-content ms-2" id="myTabContent">
+				<!--begin:::Tab pane-->
+				<div class="tab-pane fade active show" id="all_contrcats" role="tabpanel">
+					<div class="row gy-5 g-xl-8">
+						<!--begin::Col-->
+						<div class="col-xl-3">
+							<!--begin::List Widget 3-->
+							<div class="card card-xl-stretch mb-xl-8">
+								<!--begin::Header-->
+								
+								<div class="card-header p-0 min-h-0 m-5">
+									<form data-kt-search-element="form" class="d-none d-lg-block mb-5 mb-lg-0 position-relative"
+										  autocomplete="off" method="post">
+										{% csrf_token %}
+										<div class="position-relative">
+											<input type="text" id="myInput" onkeyup="myFunction()"
+												   class="search_input form-control form-control-solid h-40px bg-body ps-13 fs-7 pl-40"
+												   name="search" value="" placeholder="Search Category"
+												   data-kt-search-element="input" />
+											<span class="svg-icon svg-icon-2 svg-icon-gray-700 position-absolute top-50 translate-middle-y ms-4 ">
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<rect opacity="0.5" x="17.0365" y="13.1223" width="8.15546" height="2" rx="1"
+														  transform="rotate(45 17.0365 15.1223)" fill="currentColor">
+													</rect>
+													<path
+														d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+														fill="currentColor"></path>
+												</svg>
+											</span>
+										</div>
+									</form>
+								</div>
+								
+								
+								<!--end::Header-->
+								<!--begin::Body-->
+								<div class="card-body p-0" id="changeCursorBtn">
+									<!--begin::Item-->
+									<ul id="changeCursorBtn"
+										class="contract_tab nav flex-row flex-md-column mb-3 mb-md-0">
+										
+										
+							
+										<li class="nav-item me-0">
+											<a id="changeCursorBtn" class="catclass fs-6 fw-bold nav-link {% if request.path == 'template/' or not request.GET.cat_name %}active{% endif %}" href="{% url 'superadminapp:Template' %}">All</a>
+										</li>
+										
+										{% for cat_name in cat_table %}
+											<li class="nav-item me-0">
+												<a class="fs-6 fw-bold nav-link {% if request.GET.cat_name|default:"" == cat_name.id|stringformat:"s" %}active{% endif %}"
+													href="{% url 'superadminapp:Template' %}?cat_name={{cat_name.id}}">{{ cat_name.category_name }}</a>
+											</li>
+										{% endfor %}
+									</ul>
+									<!--end:Item-->
+								</div>
+								<!--end::Body-->
+							</div>
+							<!--end:List Widget 3-->
+						</div>
+						<!--end::Col-->
+						<!--begin::Col-->
+						<div class="col-xl-9">
+							<!--begin::Tables Widget 9-->
+
+							<div class="tab-content ms-2" id="myTabContent">
+								<!--begin:::Tab pane-->
+								<div class="tab-pane fade active show " id="tab1_all" role="tabpanel">
+									<div class="templates_boxsec d-flex flex-wrap">
+										{% for row in table %}
+										<!-- <a href="/template_update/{{row.id}}/">  -->
+										<a href="{% url 'superadminapp:Template_Update' row.id %}">
+										<!-- <a href="http://192.168.1.19:8000/temp_update/{{row.id}}"> -->
+											<div class="grid_layout_slide_right_doc col-3 p-1">
+												<div class="template_img pb-3 position-relative">
+													{% if row.image|has_missing_image and row.image.url %}
+													<img src="{{ row.image.url }}" alt="Image not exits" class="w-100 h-100">
+													{% else %}
+													<img src="{% static 'images/temp_def.png' %}" alt="Image not exits" class="w-100 h-100">
+													{% endif %}
+														
+													<!-- {% if row.template_availability == "Premium Membership" %}
+													<span
+														class="text-danger position-absolute top-0 end-0 m-1 bg-warning bg-opacity-50">Premium</span>
+													{% elif row.template_availability == "Basic Membership" %}
+													<span
+														class="text-danger position-absolute top-0 end-0 m-1 bg-warning bg-opacity-50">Basic</span>
+													{% else %}
+													<span
+														class="text-danger position-absolute top-0 end-0 m-1 bg-warning bg-opacity-50">Free</span>
+													{% endif %} -->
+
+												</div>
+												<div class="template_lable_container">
+													<a href="{% url 'superadminapp:Template_Update' row.id %}"><span
+															class="template_lable fs-6 fw-bold">{{row.template_title}}</span></a>
+												</div>
+											</div>
+										</a>
+										{% endfor %}
+									</div>
+								</div>
+
+
+								
+								
+								<!--end:::Tab pane-->
+							</div>
+							
+							<!--end::Tables Widget 9-->
+						</div>
+						<!--end::Col-->
+					</div>
+				</div>
+				<!--end:::Tab pane-->
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade " id="invitecontactmodal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+	tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered modal-xs">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Invite User</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form class="form w-100">
+					<div class=" d-flex flex-wrap">
+						<div class="fv-row p-5 col-12">
+							<label class="form-label required fs-6 fw-bolder text-dark">Email Address</label>
+							<input class="form-control form-control-lg form-control-solid" type="email"
+								placeholder="Email Address" autocomplete="off" />
+						</div>
+					</div>
+					<div class="text-center btncolorblue pt-10">
+						<a href="contacts.php" class="btn btncolorblues mb-5">Invite User</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END Modal Invite Contact  -->
+
+<!--end::Modals-->
+<!--begin::Scrolltop-->
+<div id="kt_scrolltop" class="scrolltop mb-3" data-kt-scrolltop="true">
+	<span class="svg-icon">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+			<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+			<path
+				d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+				fill="black" />
+		</svg>
+	</span>
+</div>
+
+
+
+<script>
+	ClassicEditor
+		.create(document.querySelector('#ckeditor_1'))
+		.then(editor => {
+			console.log(editor);
+		})
+		.catch(error => {
+			console.error(error);
+		});
+	ClassicEditor
+		.create(document.querySelector('#ckeditor_2'))
+		.then(editor => {
+			console.log(editor);
+		})
+		.catch(error => {
+			console.error(error);
+		});
+	ClassicEditor
+		.create(document.querySelector('#ckeditor_3'))
+		.then(editor => {
+			console.log(editor);
+		})
+		.catch(error => {
+			console.error(error);
+		});
+</script>
+
+<script>
+	$("#business-tab").click(function () {
+		$("div#myTabContent1").hide();
+		$("div#myTabContent2").show();
+	});
+	$("#individual-tab").click(function () {
+		$("div#myTabContent1").show();
+		$("div#myTabContent2").hide();
+	});
+	$(document).ready(function () {
+		$('#addresstype').on('change', function () {
+			var demovalue = $(this).val();
+			$("div.myDiv").hide();
+			$("#show" + demovalue).show();
+		});
+		$('#addresstype1').on('change', function () {
+			var demovalue1 = $(this).val();
+			$("div.myDiv1").hide();
+			$("#show" + demovalue1).show();
+		});
+	});
+	// var profileborder = "border-danger";
+	$(".userprofile").addClass("border-danger");
+	$("#userheaderchange").click(function () {
+		$(".userprofile").removeClass("border-danger");
+		$(".userprofile").addClass("border-success");
+		$("#headererror").addClass("d-none");
+
+	});
+</script>
+<script>
+	$.fn.equalHeights = function () {
+		var max_height = 0;
+		$(this).each(function () {
+			max_height = Math.max($(this).height(), max_height);
+		});
+		$(this).each(function () {
+			$(this).height(max_height);
+		});
+	};
+
+	$(document).ready(function () {
+		$('.userdasboardbox ul li a .card').equalHeights();
+	});
+</script>
+
+{% include "footer.html" %}

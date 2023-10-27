@@ -1,0 +1,194 @@
+{% include "header.html" %}
+<div class="content d-flex flex-column p-0 mb-20" id="kt_content">
+	<div class="" id="">
+		<div id="kt_content_container">
+			<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+				<!--begin::Toolbar container-->
+				<div id="kt_app_toolbar_container" class="app-container px-7 d-flex flex-stack">
+					<!--begin::Page title-->
+					<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+						<!--begin::Title-->
+						<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+							Edit Email Template</h1>
+                           
+						<!--end::Title-->
+					</div>
+					<!--end::Page title-->
+					<!--begin::Actions-->
+					<div class="d-flex align-items-center gap-2 gap-lg-3">
+						<!--begin::Secondary button-->
+
+						<!--end::Secondary button-->
+						<!--begin::Primary button-->
+
+						<!--end::Primary button-->
+					</div>
+					<!--end::Actions-->
+				</div>
+				<!--end::Toolbar container-->
+			</div>
+            
+
+            {% for item in data %}
+			<form method="post" class="row register " enctype="multipart/form-data"
+            action="{% url 'superadminapp:Update_Email_Template' emailtempid=item.id %}">
+				{% csrf_token %}
+				<div class="kt_content_containe_inr d-flex justify-content-between m-5 card">
+					<div class="card-body">
+						{% for message in messages %}
+						<div class="alert alert-danger" role="alert">
+							{{ message }}
+						</div>
+						{% endfor %}
+
+
+						<div class="d-flex justify-content-between align-items-center">
+                            <h4 >Template Information</h4>
+                        <div>
+								<button type="submit" value="SAVE" class="btn btn-primary me-3 btn-sm ">UPDATE</button>
+
+                                <a href="{% url 'superadminapp:Email_Template' %}"class="btn btn-sm"
+								style=" background-color: red; color: white;">Cancel</a>
+
+							</div>
+						</div>
+
+						<div class="row ">
+                            <input type="text" class="form-control form-control-solid" value="{{ item.id }}" placeholder="Title"
+                            name="eid" hidden />
+							<div class="col-9">
+								<div class="fv-row mb-10 ">
+									<label class="form-label fs-6 fw-bolder text-dark w-100 mt-5">
+										<div class="d-flex justify-content-between">
+											<h5>Email Code</h5>
+										</div>
+									</label>
+									<input class="form-control form-control-lg form-control-solid border-secondary"
+										 type="text"placeholder="Email Code" value="{{ item.email_code }}"name="email_code"   autocomplete="off" />
+								</div>
+								<div class="fv-row mb-10 ">
+									<label class="form-label fs-6 fw-bolder text-dark w-100 mt-5">
+										<div class="d-flex justify-content-between">
+											<h5>Email Subject (ENGLISH)</h5>
+										</div>
+									</label>
+									<input class="form-control form-control-lg form-control-solid border-secondary"
+										 type="text"placeholder="Email SUbject" name="email_subject" value="{{ item.email_subject }}" autocomplete="off" />
+								</div>
+								<div class="fv-row mb-10 ">
+									<label class="form-label fs-6 fw-bolder text-dark w-100 mt-5">
+										<div class="d-flex justify-content-between">
+											<h5>Email Subject (عربي)</h5>
+										</div>
+									</label>
+									<input class="form-control form-control-lg form-control-solid border-secondary text-right"
+										 type="text" placeholder="Email SUbject" name="email_subject_arabic" value="{{ item.email_subject_arabic }}" autocomplete="off" />
+								</div>
+                            </div>
+							<div class="kt_content_containe_inr d-flex justify-content-between my-5 card">
+								<div class="card-body">
+									<div class="fv-row  col-12">
+										<ul
+											class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold text-center">
+											<li class="nav-item">
+												<a class="nav-link text-active-primary fs-4 fw-bolder text-dark py-1 active"
+													data-bs-toggle="tab" id="individual-tab" onclick="reloadPage()"
+													href="#Individualform">
+													Content (ENGLISH)</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link text-active-primary fs-4 fw-bolder text-dark py-1"
+													data-bs-toggle="tab" id="business-tab" onclick="reloadPage()"
+													href="#Businessform">
+													Content (عربي)</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="tab-content mb-20" id="myTabContent">
+								<div class="tab-pane fade show active card" id="Individualform" role="tabpanel">
+									<div class=" card-body">
+										<div id="kt_ecommerce_report_sales_table_wrpeapr"
+											class="dataTables_wrapper dt-bootstrap4 no-footer">
+											<div class="mb-10">
+												<p for="exampleFormControlInput1" class="form-label">Email Content (ENGLISH)</p>
+												<textarea class="form-control form-control-solid" name="email_content" required>{{ item.email_content}}</textarea>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+								<div class="tab-pane fade card" id="Businessform" role="tabpanel">
+									<div class=" card-body">
+										<div id="kt_ecommerce_report_sales_table_wrapper"
+											class="dataTables_wrapper dt-bootstrap4 no-footer">
+											<div class="mb-10">
+												<p for="exampleFormControlInput2" class="form-label text-end">Email Content (عربي)</p>
+												<textarea class="form-control form-control-solid" name="email_content_arabic" required>{{ item.email_content_arabic}}</textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="row">
+								<div class="col-6">
+									<div class="mb-10">
+										<p for="exampleFormControlInput1" class="form-label">Email Content (ENGLISH)</p>
+										<textarea class="form-control form-control-solid" name="email_content" required>{{ item.email_content}}</textarea>
+									</div>
+								</div>
+								<div class="col-6">
+									
+									<div class="mb-10">
+										<p for="exampleFormControlInput2" class="form-label text-end">Email Content (عربي)</p>
+										<textarea class="form-control form-control-solid" name="email_content_arabic" required>{{ item.email_content_arabic}}</textarea>
+									</div>
+								</div>
+							</div> -->
+						</div>
+						<div>
+						</div>
+					</div>
+				</div>
+			</form>
+            {% endfor %}
+
+		</div>
+	</div>
+</div>
+
+<!-- END Modal Invite Contact  -->
+
+<!--end::Modals-->
+<!--begin::Scrolltop-->
+<div id="kt_scrolltop" class="scrolltop mb-3" data-kt-scrolltop="true">
+	<span class="svg-icon">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+			<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+			<path
+				d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+				fill="black" />
+		</svg>
+	</span>
+</div>
+
+
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('email_content', {
+		height: 350,
+        toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | heading | blockquote'
+    });
+</script>
+
+<script>
+    CKEDITOR.replace('email_content_arabic', {
+        height: 350,
+        toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | heading | blockquote',
+        contentsLangDirection: 'rtl', // Set the direction to RTL
+        language: 'ar' // Set the language to Arabic
+    });
+</script>
+
+{% include "footer.html" %}

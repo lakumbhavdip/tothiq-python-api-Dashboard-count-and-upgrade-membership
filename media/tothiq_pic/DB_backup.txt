@@ -1,0 +1,8 @@
+How to create a database file in postgres 
+
+--> cd c
+--> cd program files
+--> cd postgreSQL
+--> cd 15
+--> cd bin 
+--> now write a command for db file (DUMP command-->pg_dump -U username -d database_name -f backup.sql)

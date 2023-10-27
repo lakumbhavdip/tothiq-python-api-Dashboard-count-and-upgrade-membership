@@ -1,0 +1,666 @@
+{% include "header.html" %}
+<div class="content d-flex flex-column p-0 position-relative" id="kt_content">
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <div id="kt_content_container" class="container-xxl">
+            <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+                <!--begin::Toolbar container-->
+                <div id="kt_app_toolbar_container" class="app-container px-3 d-flex flex-stack">
+                    <!--begin::Page title-->
+                    <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                        <!--begin::Title-->
+                        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+                            Coupon Details</h1>
+                        <!--end::Title-->
+                    </div>
+                    <!--end::Page title-->
+                    <!--begin::Actions-->
+                    <div class="d-flex align-items-center gap-2 gap-lg-3">
+                        <!--begin::Secondary button-->
+
+                        <!--end::Secondary button-->
+                        <!--begin::Primary button-->
+                        <a type="button" class="btn btn-sm btn-primary me-3">Deactivate Coupons</a>
+                        <a href="coupon_management" type="button" class="btn btn-sm btn-primary ">Edit Coupons</a>
+                        <!--end::Primary button-->
+                    </div>
+                    <!--end::Actions-->
+                </div>
+                <!--end::Toolbar container-->
+            </div>
+            <div class="kt_content_containe_inr d-flex justify-content-between my-5 card position-relative">
+                <div class="card-body pb-20">
+
+                    <h4>Coupon Name</h4>
+                    <div class="row ">
+                        <div class="col-6 p-5 border-bottom border-3">
+                            <h4> {{info.coupon_name}} </h4>
+                        </div>
+                        <div class="col-6 px-15">
+                            <h6>Schedule</h6>
+                            <div class="row my-5 ">
+                                <div class="col-6">
+                                    <div class="mb-0">
+                                        <label class="form-label">Start Date & Time</label>
+                                        <input class="form-control form-control-solid" placeholder="Pick date rage" id="kt_daterangepicker_3" value="{{ info.start_datetime }}" >
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-0">
+                                        <label class="form-label">End Date & Time</label>
+                                        <input class="form-control form-control-solid" placeholder="Pick date rage"
+                                            id="kt_daterangepicker_4" value="{{ info.end_datetime }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-15">
+                        <div class="col-6">
+                            <div class="d-flex">
+                                <div class="col-auto text-center border p-5 border-dark">
+                                    <h6>Coupon Used</h6>
+                                    <h1>{{info.used}}</h1>
+                                </div>
+                                <div class="col-auto text-center border p-5 mx-4 border-dark">
+                                    <h6>Total Discount Amount</h6>
+                                    <div class="d-flex">
+                                        <h1>31.250</h1>
+                                        <h6>KD</h6>
+                                    </div>
+                                </div>
+                                <div class="col-auto text-center border p-5 border-dark">
+                                    <h6>Total Business Generator</h6>
+                                    <div class="d-flex">
+                                        <h1>125.000</h1>
+                                        <h6>KD</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-100 bg-secondary p-2 text-center my-5 p-15">
+                                <i class="fas fa-chart-bar fa-3x mb-5"></i>
+                                <p>Daily/Monthly/Yearly Discount Used Graph</p>
+                            </div>
+                            <div class="w-100 bg-secondary p-2 text-center my-5 p-15">
+                                <i class="fas fa-chart-bar fa-3x mb-5"></i>
+                                <p>Country-Wise Coupon Used Graph</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-6 ps-20 pt-20">
+                            <h4 class="ps-10">Coupon Configuration</h4>
+                            <div class="ps-10 pt-5">
+                                <table class="table border border-gray-400 mb-20 ">
+                                    <tr class="  border-bottom  border-gray-400 text-center">
+                                        <th class="border-end fw-bolder border-gray-400 ">No. of Coupon</th>
+                                        <th class="border-end  border-gray-400 ">Unlimited</th>
+                                    </tr>
+                                    <tr class="  border-bottom  border-gray-400 text-center">
+                                        <th class="border-end fw-bolder border-gray-400 ">Limited Coupon per
+                                            Customer</th>
+                                        <th class="border-end  border-gray-400 ">{{info.limited_coupon_code}}</th>
+                                    </tr>
+                                </table>
+                                <h4 class=" pb-5">Discount Configuration </h4>
+                                <table class="table border border-gray-400 mb-20 pt-10">
+                                    <tr class="  border-bottom  border-gray-400 text-center">
+                                        <th class="border-end fw-bolder border-gray-400 ">Discount Type</th>
+                                        <th class="border-end  border-gray-400 ">(%) Percentage</th>
+                                    </tr>
+                                    <tr class="  border-bottom  border-gray-400 text-center">
+                                        <th class="border-end fw-bolder border-gray-400 ">Value of Discount
+                                        </th>
+                                        <th class="border-end  border-gray-400 ">25</th>
+                                    </tr>
+                                    <tr class="  border-bottom  border-gray-400 text-center">
+                                        <th class="border-end fw-bolder border-gray-400 ">Discount for</th>
+                                        <th class="border-end  border-gray-400 ">{{info.discount_for}}</th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-10 ">
+                            <h5>Coupon Used By</h5>
+                            <div>
+                                <a href="#" class="btn btn-primary btn-sm me-5"><i
+                                        class="fas fa-file-alt me-2"></i>CSV</a>
+                                <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-file-alt me-2"></i>PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table border border-gray-400  ">
+                        <tr class="fw-bolder  border-bottom  border-gray-400">
+                            <th class="border-end  border-gray-400 ps-2">Date</th>
+                            <th class="border-end  border-gray-400 ">Admin Name</th>
+                            <th class="border-end  border-gray-400 ">Contact Number</th>
+                            <th class="border-end  border-gray-400 ">No. of Subscription</th>
+                            <th class="border-end  border-gray-400 ">Invoice Amount</th>
+                            <th>Discount Amount</th>
+                        </tr>
+                        <tr class="fw-bolder  border-bottom  border-gray-400">
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                        </tr>
+                        <tr class="fw-bolder  border-bottom  border-gray-400">
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                        </tr>
+                        <tr class="fw-bolder  border-bottom  border-gray-400">
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                        </tr>
+                        <tr class="fw-bolder  border-bottom  border-gray-400">
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                        </tr>
+                        <tr class="fw-bolder  border-bottom  border-gray-400">
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="kt_scrolltop" class="scrolltop mb-3" data-kt-scrolltop="true">
+    <span class="svg-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+            <path
+                d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+                fill="black" />
+        </svg>
+    </span>
+</div>
+
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_1'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_2'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_3'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    $("#business-tab").click(function () {
+        $("div#myTabContent1").hide();
+        $("div#myTabContent2").show();
+    });
+    $("#individual-tab").click(function () {
+        $("div#myTabContent1").show();
+        $("div#myTabContent2").hide();
+    });
+    $(document).ready(function () {
+        $('#addresstype').on('change', function () {
+            var demovalue = $(this).val();
+            $("div.myDiv").hide();
+            $("#show" + demovalue).show();
+        });
+        $('#addresstype1').on('change', function () {
+            var demovalue1 = $(this).val();
+            $("div.myDiv1").hide();
+            $("#show" + demovalue1).show();
+        });
+    });
+    // var profileborder = "border-danger";
+    $(".userprofile").addClass("border-danger");
+    // function changeuserborder() {
+    //     $(".userprofile").removeClass(profileborder);
+    //     var profileborder = "border-success";
+    // }
+    $("#userheaderchange").click(function () {
+        $(".userprofile").removeClass("border-danger");
+        $(".userprofile").addClass("border-success");
+        $("#headererror").addClass("d-none");
+
+    });
+</script>
+<script>
+    $.fn.equalHeights = function () {
+        var max_height = 0;
+        $(this).each(function () {
+            max_height = Math.max($(this).height(), max_height);
+        });
+        $(this).each(function () {
+            $(this).height(max_height);
+        });
+    };
+
+    $(document).ready(function () {
+        $('.userdasboardbox ul li a .card').equalHeights();
+    });
+</script>
+<script>
+    $("#kt_daterangepicker_3").daterangepicker({
+        singleDatePicker: true,
+        timePicker: true,
+        singleDatePicker: true,
+        showDropdowns: true,
+        opens: "center",
+        drops: "up",
+        locale: {
+            format: "YYYY-MM-DD hh:mm A"
+        }
+    }
+    );
+</script>
+<script>
+    $("#kt_daterangepicker_4").daterangepicker({
+        singleDatePicker: true,
+        timePicker: true,
+        singleDatePicker: true,
+        showDropdowns: true,
+        opens: "center",
+        drops: "up",
+        locale: {
+            format: "YYYY-MM-DD hh:mm A"
+        }
+    }
+    );
+</script>
+<script>
+    $("#kt_daterangepicker_3").daterangepicker({
+        singleDatePicker: true,
+        timePicker: true,
+        singleDatePicker: true,
+        showDropdowns: true,
+        opens: "center",
+        drops: "down",
+        locale: {
+            format: "YYYY-MM-DD hh:mm A"
+        }
+    }
+    );
+</script>
+<script>
+    $("#kt_daterangepicker_4").daterangepicker({
+        singleDatePicker: true,
+        timePicker: true,
+        singleDatePicker: true,
+        showDropdowns: true,
+        opens: "center",
+        drops: "down",
+        locale: {
+            format: "YYYY-MM-DD hh:mm A"
+        }
+    }
+    );
+</script>
+
+{% include "footer.html" %}
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content d-flex flex-column p-0 position-relative" id="kt_content">
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <div id="kt_content_container" class="container-xxl">
+            <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+                <!--begin::Toolbar container-->
+                <div id="kt_app_toolbar_container" class="app-container px-3 d-flex flex-stack">
+                    <!--begin::Page title-->
+                    <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                        <!--begin::Title-->
+                        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+                            Coupon Details</h1>
+                        <!--end::Title-->
+                    </div>
+                    <!--end::Page title-->
+                    <!--begin::Actions-->
+                    <div class="d-flex align-items-center gap-2 gap-lg-3">
+                        <!--begin::Secondary button-->
+
+                        <!--end::Secondary button-->
+                        <!--begin::Primary button-->
+                        <a type="button" class="btn btn-sm btn-primary me-3">Deactivate Coupons</a>
+                        <a href="{% url 'superadminapp:Coupon_Management' %}" type="button" class="btn btn-sm btn-primary ">Edit Coupons</a>
+                        <!--end::Primary button-->
+                    </div>
+                    <!--end::Actions-->
+                </div>
+                <!--end::Toolbar container-->
+            </div>
+            <div class="kt_content_containe_inr d-flex justify-content-between my-5 card position-relative">
+                <div class="card-body pb-20">
+
+                    <h4>Coupon Name</h4>
+                    <div class="row ">
+                        <div class="col-6 p-5 border-bottom border-3">
+                            <h4> {{info.coupon_name}} </h4>
+                        </div>
+                        <div class="col-6 px-15">
+                            <h6>Schedule</h6>
+                            <div class="row my-5 ">
+                                <div class="col-6">
+                                    <div class="mb-0">
+                                        <label class="form-label">Start Date & Time</label>
+                                        <input class="form-control form-control-solid" placeholder="Pick date rage"
+                                            id="kt_daterangepicker_3" value="{{ info.start_datetime }}" >
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-0">
+                                        <label class="form-label">End Date & Time</label>
+                                        <input class="form-control form-control-solid" placeholder="Pick date rage"
+                                            id="kt_daterangepicker_4" value="{{ info.end_datetime }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-15">
+                        <div class="col-6">
+                            <div class="d-flex">
+                                <div class="col-auto text-center border p-5 border-dark">
+                                    <h6>Coupon Used</h6>
+                                    <h1>{{info.used}}</h1>
+                                </div>
+                                <div class="col-auto text-center border p-5 mx-4 border-dark">
+                                    <h6>Total Discount Amount</h6>
+                                    <div class="d-flex">
+                                        <h1>31.250</h1>
+                                        <h6>KWD</h6>
+                                    </div>
+                                </div>
+                                <div class="col-auto text-center border p-5 border-dark">
+                                    <h6>Total Business Generator</h6>
+                                    <div class="d-flex">
+                                        <h1>125.000</h1>
+                                        <h6>KWD</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-100 bg-secondary p-2 text-center my-5 p-15">
+                                <i class="fas fa-chart-bar fa-3x mb-5"></i>
+                                <p>Daily/Monthly/Yearly Discount Used Graph</p>
+                            </div>
+                            <div class="w-100 bg-secondary p-2 text-center my-5 p-15">
+                                <i class="fas fa-chart-bar fa-3x mb-5"></i>
+                                <p>Country-Wise Coupon Used Graph</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-6 ps-20 pt-20">
+                            <h4 class="ps-10">Coupon Configuration</h4>
+                            <div class="ps-10 pt-5">
+                                <table class="table border border-gray-400 mb-20 ">
+                                    <tr class="  border-bottom  border-gray-400 text-center">
+                                        <th class="border-end fw-bolder border-gray-400 ">No. of Coupon</th>
+                                        <th class="border-end  border-gray-400 ">Unlimited</th>
+                                    </tr>
+                                    <tr class="  border-bottom  border-gray-400 text-center">
+                                        <th class="border-end fw-bolder border-gray-400 ">Limited Coupon per
+                                            Customer</th>
+                                        <th class="border-end  border-gray-400 ">{{info.limited_coupon_code}}</th>
+                                    </tr>
+                                </table>
+                                <h4 class=" pb-5">Discount Configuration </h4>
+                                <table class="table border border-gray-400 mb-20 pt-10">
+                                    <tr class="  border-bottom  border-gray-400 text-center">
+                                        <th class="border-end fw-bolder border-gray-400 ">Discount Type</th>
+                                        <th class="border-end  border-gray-400 ">(%) Percentage</th>
+                                    </tr>
+                                    <tr class="  border-bottom  border-gray-400 text-center">
+                                        <th class="border-end fw-bolder border-gray-400 ">Value of Discount
+                                        </th>
+                                        <th class="border-end  border-gray-400 ">25</th>
+                                    </tr>
+                                    <tr class="  border-bottom  border-gray-400 text-center">
+                                        <th class="border-end fw-bolder border-gray-400 ">Discount for</th>
+                                        <th class="border-end  border-gray-400 ">{{info.discount_for}}</th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-10 ">
+                            <h5>Coupon Used By</h5>
+                            <div>
+                                <a href="#" class="btn btn-primary btn-sm me-5"><i
+                                        class="fas fa-file-alt me-2"></i>CSV</a>
+                                <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-file-alt me-2"></i>PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table border border-gray-400  ">
+                        <tr class="fw-bolder  border-bottom  border-gray-400">
+                            <th class="border-end  border-gray-400 ps-2">Date</th>
+                            <th class="border-end  border-gray-400 ">Admin Name</th>
+                            <th class="border-end  border-gray-400 ">Contact Number</th>
+                            <th class="border-end  border-gray-400 ">No. of Subscription</th>
+                            <th class="border-end  border-gray-400 ">Invoice Amount</th>
+                            <th>Discount Amount</th>
+                        </tr>
+                        <tr class="fw-bolder  border-bottom  border-gray-400">
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                        </tr>
+                        <tr class="fw-bolder  border-bottom  border-gray-400">
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                        </tr>
+                        <tr class="fw-bolder  border-bottom  border-gray-400">
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                        </tr>
+                        <tr class="fw-bolder  border-bottom  border-gray-400">
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                        </tr>
+                        <tr class="fw-bolder  border-bottom  border-gray-400">
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                            <td class="border-end  border-gray-400 p-6"></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+    <span class="svg-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+            <path
+                d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+                fill="black" />
+        </svg>
+    </span>
+</div>
+
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_1'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_2'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#ckeditor_3'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    $("#business-tab").click(function () {
+        $("div#myTabContent1").hide();
+        $("div#myTabContent2").show();
+    });
+    $("#individual-tab").click(function () {
+        $("div#myTabContent1").show();
+        $("div#myTabContent2").hide();
+    });
+    $(document).ready(function () {
+        $('#addresstype').on('change', function () {
+            var demovalue = $(this).val();
+            $("div.myDiv").hide();
+            $("#show" + demovalue).show();
+        });
+        $('#addresstype1').on('change', function () {
+            var demovalue1 = $(this).val();
+            $("div.myDiv1").hide();
+            $("#show" + demovalue1).show();
+        });
+    });
+    // var profileborder = "border-danger";
+    $(".userprofile").addClass("border-danger");
+    // function changeuserborder() {
+    //     $(".userprofile").removeClass(profileborder);
+    //     var profileborder = "border-success";
+    // }
+    $("#userheaderchange").click(function () {
+        $(".userprofile").removeClass("border-danger");
+        $(".userprofile").addClass("border-success");
+        $("#headererror").addClass("d-none");
+
+    });
+</script>
+<script>
+    $.fn.equalHeights = function () {
+        var max_height = 0;
+        $(this).each(function () {
+            max_height = Math.max($(this).height(), max_height);
+        });
+        $(this).each(function () {
+            $(this).height(max_height);
+        });
+    };
+
+    $(document).ready(function () {
+        $('.userdasboardbox ul li a .card').equalHeights();
+    });
+</script>
+<script>
+    $("#kt_daterangepicker_3").daterangepicker({
+        singleDatePicker: true,
+        timePicker: true,
+        singleDatePicker: true,
+        showDropdowns: true,
+        opens: "center",
+        drops: "up",
+        locale: {
+            format: "YYYY-MM-DD hh:mm A"
+        }
+    }
+    );
+</script>
+<script>
+    $("#kt_daterangepicker_4").daterangepicker({
+        singleDatePicker: true,
+        timePicker: true,
+        singleDatePicker: true,
+        showDropdowns: true,
+        opens: "center",
+        drops: "up",
+        locale: {
+            format: "YYYY-MM-DD hh:mm A"
+        }
+    }
+    );
+</script>
+<script>
+    $("#kt_daterangepicker_3").daterangepicker({
+        singleDatePicker: true,
+        timePicker: true,
+        singleDatePicker: true,
+        showDropdowns: true,
+        opens: "center",
+        drops: "down",
+        locale: {
+            format: "YYYY-MM-DD hh:mm A"
+        }
+    }
+    );
+</script>
+<script>
+    $("#kt_daterangepicker_4").daterangepicker({
+        singleDatePicker: true,
+        timePicker: true,
+        singleDatePicker: true,
+        showDropdowns: true,
+        opens: "center",
+        drops: "down",
+        locale: {
+            format: "YYYY-MM-DD hh:mm A"
+        }
+    }
+    );
+</script>
+
+{% endblock %}
+
+{% comment %} 
+            document.getElementById('editLabelCode').value = LabelCode;
+            document.getElementById('editLabel').value = UniqueLabel;
+            document.getElementById('editEnglish').value = EnglishLabel;
+            document.getElementById('editArabic').value = ArabicLabel;
+            document.getElementById('updateForm').action = `/myrender/label/update/${labelId}/`;
+            document.getElementById('editForm').style.display = 'block'; 
+{% endcomment %}

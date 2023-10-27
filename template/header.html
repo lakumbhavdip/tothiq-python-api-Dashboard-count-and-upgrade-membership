@@ -1,0 +1,775 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- <title>Tothiq - Digital Contracts Platform</title> -->
+  <title>{{ profile_data.wptx }}</title>
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+  <!--end::Fonts-->
+  <!--begin::Page Vendor Stylesheets(used by this page)-->
+  <link href="{% static '../static/plugins/custom/fullcalendar/fullcalendar.bundle.css' %}" rel="stylesheet" type="text/css" />
+  <!--end::Page Vendor Stylesheets-->
+  <!--begin::Global Stylesheets Bundle(used by all pages)-->
+  <link href="{% static '../static/plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static '../static/css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+  <!--end::Global Stylesheets Bundle-->
+  <link href="{% static '../static/css/media.css' %}" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="{% static '../static/images/Favicon.png' %}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+  <!-- <link href="{%static '../static/js/data table/datatables.min.css'%}" rel="stylesheet" type="text/css"/> -->
+
+  <!-- Datatable plugin CSS file -->
+  
+  <link rel="stylesheet" href=
+   "https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+  <!-- jQuery library file -->
+  <script type="text/javascript" 
+  src="https://code.jquery.com/jquery-3.5.1.js">
+  </script>
+
+   <!-- Datatable plugin JS library file -->
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  <!-- <style>
+    .custom-cursor {
+        cursor: pointer; /* Set the cursor style to pointer */
+    }
+  </style> -->
+  <style>
+    .dropdown-toggle_1::after {
+      display: inline-block;
+      margin-left: 0.255em;
+      vertical-align: 0.255em;
+      content: none;
+      border-top: 0.3em solid;
+      border-right: 0.3em solid transparent;
+      border-bottom: 0;
+      border-left: 0.3em solid transparent;
+  }
+  </style>
+ 
+<style>
+  
+/*Arabin font in lable*/
+.arabic-font {
+  font-family: "Ping"; 
+}
+/*Arabin font in lable*/
+
+  /*Profile Pic Start*/
+.picture-container{
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+}
+.picture{
+  width: 106px;
+  height: 106px;
+  background-color: #999999;
+  border: 4px solid #CCCCCC;
+  color: #FFFFFF;
+  border-radius: 50%;
+  margin: 0px auto;
+  overflow: hidden;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+}
+.picture:hover{
+  border-color: #2ca8ff;
+}
+.content.ct-wizard-green .picture:hover{
+  border-color: #05ae0e;
+}
+.content.ct-wizard-blue .picture:hover{
+  border-color: #3472f7;
+}
+.content.ct-wizard-orange .picture:hover{
+  border-color: #ff9500;
+}
+.content.ct-wizard-red .picture:hover{
+  border-color: #ff3b30;
+}
+.picture input[type="file"] {
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: 0 !important;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.picture-src{
+  width: 100%;
+  
+}
+
+/*  Loader in Template Update */
+.loader-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px; /* Adjust this height as needed */
+}
+
+.loader {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #3498db;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  animation: spin 2s linear infinite;
+}
+
+.loading-text {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/*  Loader in Template Update */
+
+</style>
+
+
+</head>
+
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+  <!--begin::Main-->
+  <!--begin::Root-->
+  <div class="d-flex flex-column flex-root">
+    <!--begin::Page-->
+    <div class="page d-flex flex-row">
+      <!--begin::Aside-->
+      <div id="kt_aside" class="aside aside-light aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
+        <!--begin::Brand-->
+        <div class="aside-logo flex-column-auto h-125px" id="kt_aside_logo">
+          <!--begin::Logo-->
+          <a href="{% url 'superadminapp:home' %}" class="open_sidebar_logo">
+            <!-- <img src="{% static '../static/images/logo.png' %}" alt=""> -->
+            
+            {% if profile_data.hlg.url and web_panel_header_logo_file_exists %}
+              <img src="{{profile_data.hlg.url }}"  width="150" height="45" alt="">
+              
+            {% else %}
+            <img src="/static/images/img_default.jpg" alt="Maintenance Mode Image" width="150" height="45"  class="border border-dashed border-secondary" id="new_temp_pic1">
+              
+            {% endif %}
+              
+          </a>
+          <a href="dashboard.png" class="close_sidebar_logo"><img src="{% static '../static/images/T_logo.png' %}" alt=""></a>
+          <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle" data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body" data-kt-toggle-name="aside-minimize">
+            <!--begin::Svg Icon | path: icons/duotune/arrows/arr079.svg-->
+            <span class="svg-icon svg-icon-1 rotate-180">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path opacity="0.5" d="M14.2657 11.4343L18.45 7.25C18.8642 6.83579 18.8642 6.16421 18.45 5.75C18.0358 5.33579 17.3642 5.33579 16.95 5.75L11.4071 11.2929C11.0166 11.6834 11.0166 12.3166 11.4071 12.7071L16.95 18.25C17.3642 18.6642 18.0358 18.6642 18.45 18.25C18.8642 17.8358 18.8642 17.1642 18.45 16.75L14.2657 12.5657C13.9533 12.2533 13.9533 11.7467 14.2657 11.4343Z" fill="black" />
+                <path d="M8.2657 11.4343L12.45 7.25C12.8642 6.83579 12.8642 6.16421 12.45 5.75C12.0358 5.33579 11.3642 5.33579 10.95 5.75L5.40712 11.2929C5.01659 11.6834 5.01659 12.3166 5.40712 12.7071L10.95 18.25C11.3642 18.6642 12.0358 18.6642 12.45 18.25C12.8642 17.8358 12.8642 17.1642 12.45 16.75L8.2657 12.5657C7.95328 12.2533 7.95328 11.7467 8.2657 11.4343Z" fill="black" />
+              </svg>
+            </span>
+            <!--end::Svg Icon-->
+          </div>
+        </div>
+        <!--end::Brand-->
+        <!--begin::Aside menu-->
+        <div class="aside-menu flex-column-fluid">
+          <!--begin::Aside Menu-->
+          <div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0">
+            <!--begin::Menu-->
+            <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
+              <!-- Dashboard -->
+              <div class="menu-item">
+                <a class="menu-link" href="{% url 'superadminapp:home' %}">
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500">
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: #183052;
+                          }
+                        </style>
+                      </defs>
+                      <path class="cls-1" d="m65.28,241.34c-6.65,5.52-12.12,10.33-17.89,14.76-6.06,4.66-12.57,8.43-20.74,5.99-8.39-2.51-12.32-8.93-13.85-16.9-1.42-7.42,2.19-13.22,7.61-17.82,32.59-27.62,65.25-55.16,97.89-82.72,39.09-33.01,78.18-66.01,117.26-99.03,10.65-9,19.38-9.09,29.91-.17,71.35,60.5,142.68,121,214.02,181.51,12.67,10.74,9.87,29.51-5.23,34.97-7.77,2.81-13.94-.92-19.75-5.25-6.27-4.67-12.29-9.68-19.45-15.36v6.9c0,47.7.11,95.4-.06,143.09-.05,14.47-2.78,28.39-11.09,40.75-11.13,16.55-26.72,25.78-46.37,27.96-8.17.91-16.46,1.06-24.69,1.07-72.66.08-145.32.14-217.98-.03-17.45-.04-33.64-4.3-47.25-16.25-12.48-10.95-19.36-24.67-21.19-40.91-.92-8.17-1.07-16.45-1.09-24.69-.1-43.48-.05-86.96-.05-130.44v-7.46Zm105.71,180.06v-7.15c0-38.17-.02-76.34,0-114.5.01-22.87,13.76-36.54,36.75-36.55,28.26-.02,56.54.58,84.78-.19,21.71-.59,37.43,16.22,37.02,37.23-.74,38.15-.21,76.33-.21,114.5v7c12.45,0,24.32,0,36.2,0,20.44-.01,30.09-9.6,30.1-29.94,0-59.45-.04-118.91.09-178.36,0-4.23-1.22-7.01-4.49-9.77-34.18-28.91-68.21-58-102.29-87.03-12.82-10.92-25.66-21.83-38.63-32.86-1.16.86-2.05,1.45-2.86,2.14-46.51,39.61-93.05,79.2-139.43,118.96-1.86,1.59-3.19,4.89-3.2,7.4-.18,60.19-.14,120.37-.13,180.56,0,2.02,0,4.05.22,6.05,1.29,11.68,9.89,21.56,21.57,22.3,14.57.92,29.25.22,44.5.22Zm39.8-118.61v118.56h78.75v-118.56h-78.75Z" />
+                    </svg>
+                    <!--end::Svg Icon-->
+                  </span>
+                  
+                  <span class="menu-title fs-5 ms-2 {% if request.path == '/home/'%} text-primary {% endif %}">Dashboard</span>
+                </a>
+              </div>
+              <!-- Dashboard -->
+              <!-- User -->
+              <div class="menu-item">
+                <a class="menu-link" href="{% url 'superadminapp:User' %}">
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500">
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: #183052;
+                          }
+                        </style>
+                      </defs>
+                      <path class="cls-1" d="m178.77,440.26c-45.94,0-91.88-.02-137.81.02-9.57,0-18.45-2.22-23.59-10.78-2.83-4.71-5.04-10.78-4.86-16.15,1.09-33.73,12.38-63.64,36.19-88.05,20.09-20.59,44.4-33.56,73.07-37.44,9.94-1.34,20.05-1.84,30.09-2,19.49-.3,39-.15,58.49-.08,30.52.11,58.85,7.42,83.39,26.34,26,20.04,42.68,46,48.54,78.51,1.28,7.13,2.04,14.36,2.73,21.58,1.51,15.92-10.48,27.98-27.94,28.02-29.41.08-58.83.02-88.24.02-16.69,0-33.38,0-50.07,0Zm131-35.76c-2.87-9.7-4.39-19.37-8.47-27.8-17.7-36.6-47.23-55.2-88.04-55.41-23.46-.12-46.93-.11-70.39.04-5.76.04-11.59.36-17.26,1.34-26.71,4.66-47.93,17.96-62.73,40.91-7.99,12.38-12.42,26.03-14.31,40.92h261.2Z" />
+                      <path class="cls-1" d="m284.05,100.79c32.22-25.55,83.93-23.2,114.77,14.5,26.26,32.1,21.92,83.76-9.28,112.63-32.92,30.46-86.91,27.4-115.11-2.82,12.99-17.96,20.64-38.11,22.69-60.47,2.07-22.57-3.12-43.5-13.06-63.85Z" />
+                      <path class="cls-1" d="m178.47,59.72c54.37,1.53,94.82,39.6,94.92,94.95.11,54.52-39.51,94.75-94.71,94.79-53.9.04-94.37-38.82-94.68-94.33-.3-53.9,38.65-93.48,94.46-95.41Zm.16,154.64c33.36.06,59.4-25.8,59.67-59.26.27-33.47-25.94-59.84-59.52-59.91-33.37-.06-59.4,25.79-59.67,59.26-.27,33.47,25.94,59.84,59.52,59.91Z" />
+                      <path class="cls-1" d="m316.5,298.32c18.75,0,38.68-.41,58.59.12,19.81.53,38.44,6.27,55.29,16.62,29.12,17.89,47.75,43.63,54.6,77.27,1.76,8.63,2.99,17.71,2.35,26.42-.95,12.83-9.74,21.1-22.47,21.27-33.99.46-67.99.16-102.87.16,8.22-12.9,7.75-26.61,6.41-40.53-2.35-24.45-9.71-47.23-23.87-67.26-8.61-12.18-18.95-23.13-28.03-34.06Z" />
+                    </svg>
+                    <!--end::Svg Icon-->
+                  </span>
+                  <span class="menu-title fs-5 ms-2 {% if request.path == '/user' or 'user_individual_user_details/'  in request.path or 'user_business_user_details/'  in request.path or 'user_business_admin_details/'  in request.path  %} text-primary {% endif %}">Users</span>
+                </a>
+              </div>
+              <!-- User -->
+              <!-- Report -->
+              <div class="menu-item dropdown ">
+                <a class="menu-link report" id="reportsDropdownButton">
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500">
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: #183052;
+                          }
+                        </style>
+                      </defs>
+                      <path class="cls-1"
+                        d="m182.3,248.72c0-60.29-.03-120.59.03-180.88.01-12.47,2.89-24.18,10.12-34.62,9.32-13.44,22.98-19.64,38.45-20.5,15.42-.86,31.22-1.04,46.41,1.34,24.67,3.86,40.37,25.61,40.41,52.91.08,61.47.02,122.94.02,184.42,0,59.82.24,119.65-.25,179.47-.07,9.14-2.13,18.84-5.68,27.27-7.81,18.54-23.78,26.91-43,28.31-13.31.97-26.97,1.24-40.13-.62-30.41-4.29-46.35-23.88-46.37-54.79-.03-60.77-.01-121.53-.01-182.3Zm51.08-185.75v372.85h33.27V62.97h-33.27Z" />
+                     
+                      <path class="cls-1"
+                        d="m148.07,352.03c0,26.84.1,53.68-.03,80.52-.13,26.35-14.05,46.12-38.14,51.85-19.36,4.6-39.4,4.63-58.73.06-24.23-5.72-38.34-24.99-38.46-50.85-.25-54.86-.29-109.72.01-164.57.17-30.29,20.29-51.45,50.88-53.04,14.72-.76,29.83-.74,44.29,1.71,24.52,4.15,40.03,25.53,40.16,52.39.13,27.31.03,54.62.03,81.93Zm-50.88-85.24h-33.51v169.06h33.51v-169.06Z" />
+                      <path class="cls-1"
+                        d="m351.98,283.5c0-49.22-.36-98.45.31-147.66.13-9.76,3.05-19.96,6.81-29.08,6.14-14.86,19.15-23.17,34.41-24.97,15.97-1.88,32.5-2.27,48.45-.45,28.17,3.21,45.31,23.43,45.37,51.93.22,100.09.23,200.18,0,300.27-.07,30.46-20.03,51.46-50.82,53.08-14.95.78-30.36.86-44.97-1.9-24.92-4.7-39.51-25.56-39.55-52.86-.07-49.46-.02-98.91-.02-148.37Zm50.93,152.22h33.33V131.18h-33.33v304.54Z" />
+                    </svg>
+                    <!--end::Svg Icon-->
+                  </span>
+                  <span class="menu-title fs-5 ms-2 {% if request.path == '/user_report/' or request.path == '/finance_reports/' %} text-primary {% endif %}">Reports</span>
+                </a>
+                <div class="collapse p-3 {% if request.path == '/user_report/' or request.path == '/finance_reports/' %} show {% endif %}" id="reportsmenu">
+                  <ul class="nav flex-column pl-3">
+                    <li class="nav-item">
+                      <div class="menu-item" id="user_report">
+                        <a class="menu-link" href="{% url 'superadminapp:User_Report' %}">
+                          <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500">
+                              <defs>
+                                <style>
+                                  .cls-1 {
+                                    fill: #183052;
+                                  }
+                                </style>
+                              </defs>
+                              <path class="cls-1"
+                                d="m182.3,248.72c0-60.29-.03-120.59.03-180.88.01-12.47,2.89-24.18,10.12-34.62,9.32-13.44,22.98-19.64,38.45-20.5,15.42-.86,31.22-1.04,46.41,1.34,24.67,3.86,40.37,25.61,40.41,52.91.08,61.47.02,122.94.02,184.42,0,59.82.24,119.65-.25,179.47-.07,9.14-2.13,18.84-5.68,27.27-7.81,18.54-23.78,26.91-43,28.31-13.31.97-26.97,1.24-40.13-.62-30.41-4.29-46.35-23.88-46.37-54.79-.03-60.77-.01-121.53-.01-182.3Zm51.08-185.75v372.85h33.27V62.97h-33.27Z" />
+                              <path class="cls-1"
+                                d="m351.98,283.5c0-49.22-.36-98.45.31-147.66.13-9.76,3.05-19.96,6.81-29.08,6.14-14.86,19.15-23.17,34.41-24.97,15.97-1.88,32.5-2.27,48.45-.45,28.17,3.21,45.31,23.43,45.37,51.93.22,100.09.23,200.18,0,300.27-.07,30.46-20.03,51.46-50.82,53.08-14.95.78-30.36.86-44.97-1.9-24.92-4.7-39.51-25.56-39.55-52.86-.07-49.46-.02-98.91-.02-148.37Zm50.93,152.22h33.33V131.18h-33.33v304.54Z" />
+                              <path class="cls-1"
+                                d="m148.07,352.03c0,26.84.1,53.68-.03,80.52-.13,26.35-14.05,46.12-38.14,51.85-19.36,4.6-39.4,4.63-58.73.06-24.23-5.72-38.34-24.99-38.46-50.85-.25-54.86-.29-109.72.01-164.57.17-30.29,20.29-51.45,50.88-53.04,14.72-.76,29.83-.74,44.29,1.71,24.52,4.15,40.03,25.53,40.16,52.39.13,27.31.03,54.62.03,81.93Zm-50.88-85.24h-33.51v169.06h33.51v-169.06Z" />
+                            </svg>
+                            <!--end::Svg Icon-->
+                          </span>
+                          <span class="menu-title fs-5 ms-2 {% if request.path == '/user_report/' %} text-primary {% endif %}">User Reports</span>
+                        </a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <div class="menu-item" id="Finance_report">
+                        <a class="menu-link" href="{% url 'superadminapp:finance_reports' %}">
+                          <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500">
+                              <defs>
+                                <style>
+                                  .cls-1 {
+                                    fill: #183052;
+                                  }
+                
+                                </style>
+                              </defs>
+                              <path class="cls-1"
+                                d="m182.3,248.72c0-60.29-.03-120.59.03-180.88.01-12.47,2.89-24.18,10.12-34.62,9.32-13.44,22.98-19.64,38.45-20.5,15.42-.86,31.22-1.04,46.41,1.34,24.67,3.86,40.37,25.61,40.41,52.91.08,61.47.02,122.94.02,184.42,0,59.82.24,119.65-.25,179.47-.07,9.14-2.13,18.84-5.68,27.27-7.81,18.54-23.78,26.91-43,28.31-13.31.97-26.97,1.24-40.13-.62-30.41-4.29-46.35-23.88-46.37-54.79-.03-60.77-.01-121.53-.01-182.3Zm51.08-185.75v372.85h33.27V62.97h-33.27Z" />
+                              <path class="cls-1"
+                                d="m351.98,283.5c0-49.22-.36-98.45.31-147.66.13-9.76,3.05-19.96,6.81-29.08,6.14-14.86,19.15-23.17,34.41-24.97,15.97-1.88,32.5-2.27,48.45-.45,28.17,3.21,45.31,23.43,45.37,51.93.22,100.09.23,200.18,0,300.27-.07,30.46-20.03,51.46-50.82,53.08-14.95.78-30.36.86-44.97-1.9-24.92-4.7-39.51-25.56-39.55-52.86-.07-49.46-.02-98.91-.02-148.37Zm50.93,152.22h33.33V131.18h-33.33v304.54Z" />
+                              <path class="cls-1"
+                                d="m148.07,352.03c0,26.84.1,53.68-.03,80.52-.13,26.35-14.05,46.12-38.14,51.85-19.36,4.6-39.4,4.63-58.73.06-24.23-5.72-38.34-24.99-38.46-50.85-.25-54.86-.29-109.72.01-164.57.17-30.29,20.29-51.45,50.88-53.04,14.72-.76,29.83-.74,44.29,1.71,24.52,4.15,40.03,25.53,40.16,52.39.13,27.31.03,54.62.03,81.93Zm-50.88-85.24h-33.51v169.06h33.51v-169.06Z" />
+                            </svg>
+                            <!--end::Svg Icon-->
+                          </span>
+                          <span class="menu-title fs-5 ms-2 {% if request.path == '/finance_reports/' %} text-primary {% endif %}">Finance Reports</span>
+                        </a>
+                      </div>
+                  </ul>
+                </div>
+                
+              </div>
+              <!-- Report -->
+              <!-- Notifications -->
+              <div class="menu-item">
+                <a class="menu-link" href="{% url 'superadminapp:General Notifications' %}">
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <span class="menu-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500">
+                        <defs>
+                          <style>
+                            .cls-1 {
+                              fill: #183052;
+                            }
+                          </style>
+                        </defs>
+                        <path class="cls-1"
+                          d="m219.83,57.41c.42-6.52.45-14.16,1.51-21.66,1.95-13.74,13.96-23.25,28.49-23.25,14.53,0,26.54,9.52,28.49,23.25,1.06,7.5,1.09,15.14,1.6,22.99,7.39,2.08,15.03,3.74,22.32,6.37,51.87,18.71,83.3,55.33,93.24,109.49,2.73,14.85,2.55,30.35,2.6,45.56.09,30.07,4.87,59.04,17.56,86.47,9.08,19.62,21.89,36.76,35.33,53.51,9.84,12.26,9.22,25.33-2.62,33.25-4.92,3.29-11.9,4.89-17.95,4.91-102.06.29-204.12.21-306.18.21-19.18,0-38.35.13-57.52-.05-14.75-.14-25.85-10.36-24.43-23.46.58-5.32,3.64-10.92,7-15.29,13.71-17.83,27.3-35.59,36.36-56.47,10.66-24.58,15.28-50.2,15.95-76.87.48-19.1.36-38.51,3.8-57.18,7.92-42.97,32.95-74.55,71.11-95.05,13.26-7.12,28.25-11.01,43.33-16.71Zm171.25,296.44c-2.49-4.18-4.38-7.34-6.26-10.52-17.99-30.54-28.18-63.48-29.94-98.9-.97-19.55-.3-39.25-2.41-58.66-3.82-35.06-22.42-60.68-54.51-75.35-25.47-11.64-52.54-12.14-79.27-5.63-36.78,8.96-59.93,32.61-69.63,69.37-4.39,16.62-3.26,33.56-3.29,50.42-.05,37.67-7.29,73.68-24.57,107.36-3.72,7.25-8.01,14.22-12.37,21.91h282.24Z" />
+                        <path class="cls-1"
+                          d="m308.81,428.92c-.55,33.65-28.35,58.34-58.65,58.58-29.66.23-58.64-23.89-59.3-58.58h117.95Z" />
+                      </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                  </span>
+                  <span class="menu-title fs-5 ms-2 {% if request.path == '/general_notifications/'  %} text-primary {% endif %}">Notifications</span>
+                </a>
+              </div>
+              <!-- Notifications -->
+              <!-- category -->
+              <div class="menu-item">
+                <a class="menu-link" href="{% url 'superadminapp:Category' %}">
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500">
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: #183052;
+                          }
+                        </style>
+                      </defs>
+                      <!-- <path class="cls-1" d="m178.77,440.26c-45.94,0-91.88-.02-137.81.02-9.57,0-18.45-2.22-23.59-10.78-2.83-4.71-5.04-10.78-4.86-16.15,1.09-33.73,12.38-63.64,36.19-88.05,20.09-20.59,44.4-33.56,73.07-37.44,9.94-1.34,20.05-1.84,30.09-2,19.49-.3,39-.15,58.49-.08,30.52.11,58.85,7.42,83.39,26.34,26,20.04,42.68,46,48.54,78.51,1.28,7.13,2.04,14.36,2.73,21.58,1.51,15.92-10.48,27.98-27.94,28.02-29.41.08-58.83.02-88.24.02-16.69,0-33.38,0-50.07,0Zm131-35.76c-2.87-9.7-4.39-19.37-8.47-27.8-17.7-36.6-47.23-55.2-88.04-55.41-23.46-.12-46.93-.11-70.39.04-5.76.04-11.59.36-17.26,1.34-26.71,4.66-47.93,17.96-62.73,40.91-7.99,12.38-12.42,26.03-14.31,40.92h261.2Z" />
+                      <path class="cls-1" d="m284.05,100.79c32.22-25.55,83.93-23.2,114.77,14.5,26.26,32.1,21.92,83.76-9.28,112.63-32.92,30.46-86.91,27.4-115.11-2.82,12.99-17.96,20.64-38.11,22.69-60.47,2.07-22.57-3.12-43.5-13.06-63.85Z" />
+                      <path class="cls-1" d="m178.47,59.72c54.37,1.53,94.82,39.6,94.92,94.95.11,54.52-39.51,94.75-94.71,94.79-53.9.04-94.37-38.82-94.68-94.33-.3-53.9,38.65-93.48,94.46-95.41Zm.16,154.64c33.36.06,59.4-25.8,59.67-59.26.27-33.47-25.94-59.84-59.52-59.91-33.37-.06-59.4,25.79-59.67,59.26-.27,33.47,25.94,59.84,59.52,59.91Z" />
+                      <path class="cls-1" d="m316.5,298.32c18.75,0,38.68-.41,58.59.12,19.81.53,38.44,6.27,55.29,16.62,29.12,17.89,47.75,43.63,54.6,77.27,1.76,8.63,2.99,17.71,2.35,26.42-.95,12.83-9.74,21.1-22.47,21.27-33.99.46-67.99.16-102.87.16,8.22-12.9,7.75-26.61,6.41-40.53-2.35-24.45-9.71-47.23-23.87-67.26-8.61-12.18-18.95-23.13-28.03-34.06Z" /> -->
+                     <path class="cls-1" fill="currentColor" d="M224 80c0-26.5-21.5-48-48-48H80C53.5 32 32 53.5 32 80v96c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48V80zm0 256c0-26.5-21.5-48-48-48H80c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48V336zM288 80v96c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48H336c-26.5 0-48 21.5-48 48zM480 336c0-26.5-21.5-48-48-48H336c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48V336z" />
+                    </svg>
+                    <!--end::Svg Icon-->
+                  </span>
+                  <span class="menu-title fs-5 ms-2 {% if request.path == '/category/' or request.path == '/template_create_category/' %} text-primary {% endif %}">Categories</span>
+                </a>
+              </div>
+              <!-- category -->
+              <!-- Template -->
+              <div class="menu-item">
+                <a class="menu-link" href= "{% url 'superadminapp:Template' %}">
+
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500">
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: #183052;
+                          }
+                        </style>
+                      </defs>
+                      <path class="cls-1" d="m427.95,284.81c0,46.38.07,92.77-.04,139.15-.04,14.54-3.61,28.17-12.64,39.86-12.33,15.94-29.21,23.37-48.86,23.45-77.68.3-155.36.29-233.04.03-29.5-.1-51.84-17.9-59.27-46.46-1.43-5.51-1.97-11.39-1.98-17.1-.11-115.86-.1-231.71-.07-347.57,0-30.73,16.5-53.11,45.5-61.28,5.66-1.59,11.76-2.28,17.65-2.29,53.37-.17,106.73-.09,160.1-.11,19.24,0,35.57,6.35,49.2,20.4,20.66,21.3,41.67,42.28,62.93,62.98,14.16,13.78,20.61,30.26,20.56,49.78-.11,46.38-.03,92.77-.03,139.15ZM279.8,56.79h-6.31c-46.17,0-92.33-.01-138.5,0-13.11,0-18.7,5.67-18.7,18.91,0,116.3-.01,232.59,0,348.89,0,13.56,5.03,18.51,18.77,18.51,76.67.01,153.34.01,230.01,0,14.04,0,18.43-4.64,17.71-18.43-.09-1.65-.02-3.3-.02-4.95,0-83.51,0-167.02,0-250.53v-8.46c-2.93,0-5.15,0-7.37,0-21.02,0-42.05.38-63.06-.23-6.53-.19-13.6-1.89-19.35-4.94-10.62-5.63-13.11-16.27-13.15-27.47-.09-23.48-.03-46.96-.03-71.31Z" />
+                      <path class="cls-1" d="m249.92,220.39c23.91,0,47.82-.07,71.73.03,15.54.06,25.77,6.47,29.95,19.09,1.4,4.22,2,8.86,2.05,13.32.23,17.73.15,35.47.08,53.2-.08,21.46-11.42,32.83-32.88,32.86-47.2.06-94.4.06-141.6,0-21.51-.02-32.91-11.37-33.01-32.74-.08-17.73-.09-35.47,0-53.2.11-21.05,11.51-32.47,32.57-32.55,23.7-.09,47.41-.02,71.11-.02Z" />
+                      <path class="cls-1" d="m197.71,131.03c-11.72,0-23.45.16-35.16-.07-6.19-.12-11.95-1.89-14.64-8.27-2.31-5.46-2.22-11.11,2.08-15.49,2.27-2.32,5.8-4.75,8.79-4.8,26.07-.4,52.17-.89,78.22,0,10.42.35,15.03,10.04,11.41,19.94-2.65,7.25-9.04,8.47-15.53,8.62-11.72.27-23.44.08-35.16.07Z" />
+                      <path class="cls-1" d="m197.67,190.42c-11.72,0-23.45.17-35.16-.07-6.19-.12-11.94-1.92-14.61-8.31-2.29-5.46-2.4-11.42,2.18-15.41,3.28-2.86,8.17-5.3,12.39-5.39,23.64-.51,47.29-.45,70.94-.16,12.33.15,18.67,8.98,15.18,20.1-1.82,5.8-7.26,9.12-15.75,9.21-11.72.13-23.44.03-35.16.02Z" />
+                      <path class="cls-1" d="m301.75,398.3c-11.72,0-23.45.21-35.16-.06-12.15-.28-18.78-8.96-15.32-19.5,1.97-5.99,7.01-9.72,14.88-9.78,23.85-.2,47.71-.32,71.56.03,11.99.18,18.12,8.96,14.82,19.88-1.79,5.92-7.12,9.29-15.6,9.4-11.72.14-23.44.04-35.16.03Z" />
+                    </svg>
+                    <!--end::Svg Icon-->
+                  </span>
+                  <span class="menu-title fs-5 ms-2 {% if request.path == '/template/' or request.path == '/template_create/' or 'temp_update/'  in request.path  %} text-primary {% endif %}">Templates</span>
+                </a>
+              </div>
+              <!-- Template -->
+              <!-- Coupon -->
+              <div class="menu-item">
+                <a class="menu-link" href="{% url 'superadminapp:Coupon_Management' %}">
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500">
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: #183052;
+                          }
+                        </style>
+                      </defs>
+                      <path class="cls-1" d="M374.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-320 320c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l320-320zM128 128c0-35.3-28.7-64-64-64S0 92.7 0 128s28.7 64 64 64s64-28.7 64-64zM384 384c0-35.3-28.7-64-64-64s-64 28.7-64 64s28.7 64 64 64s64-28.7 64-64z" />
+                    </svg>
+                    <!--end::Svg Icon-->
+                  </span>
+                  <span class="menu-title fs-5 ms-2 {% if request.path == '/coupon_management/' %} text-primary {% endif %}">Coupons</span>
+                </a>
+              </div>
+              <!-- Coupon -->
+              <!-- Memebership -->
+              <div class="menu-item">
+                <a class="menu-link" href="{% url 'superadminapp:Membership' %}">
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500">
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: #183052;
+                          }
+                        </style>
+                      </defs>
+                      <path class="cls-1" d="m250.02,434.61c-60.49,0-120.99.2-181.48-.1-22.37-.11-40.45-9.16-50.07-30.22-3.54-7.75-5.64-16.87-5.68-25.38-.41-85.96-.29-171.91-.22-257.87.02-26.79,15.26-46.88,40.79-53.69,5.06-1.35,10.47-1.93,15.73-1.93,120.62-.1,241.24-.09,361.86-.07,27.56,0,47.83,15.15,54.61,41.05,1.28,4.9,1.85,10.12,1.86,15.19.11,85.59.1,171.18.06,256.77-.01,27.15-14.92,47.1-40.81,54.22-5.22,1.43-10.83,1.94-16.27,1.96-60.13.13-120.25.08-180.38.08ZM51.91,223.74v6.06c0,49.47,0,98.94,0,148.41,0,12.78,4.29,17.03,17.21,17.03,120.59,0,241.17,0,361.76,0,13.31,0,17.23-3.98,17.24-17.48,0-49.29,0-98.58,0-147.86,0-1.96,0-3.93,0-6.16H51.91Zm396.21-79.44c0-7.72,0-14.85,0-21.97,0-13.6-4.06-17.64-17.72-17.64-120.26,0-240.52,0-360.78.01-2.37,0-4.8-.03-7.11.42-5.61,1.08-9.7,4.69-10.09,10.18-.67,9.58-.19,19.24-.19,29h395.88Z" />
+                      <path class="cls-1" d="m262.91,355.43c-14.48,0-28.96.09-43.44-.03-10.94-.09-18.66-5.49-20.96-14.3-3.43-13.15,4.89-24.62,19.37-24.85,30.23-.5,60.48-.38,90.72,0,8.7.11,16.05,3.96,18.98,13.11,2.59,8.05,1.2,15.81-5.58,20.73-4.27,3.1-10.33,4.86-15.68,5.11-14.45.68-28.95.23-43.43.23Z" />
+                      <path class="cls-1" d="m130.84,355.43c-5.86,0-11.73.15-17.59-.03-12.42-.38-20.78-7.98-21.35-19.21-.51-9.95,6.53-18.79,18.32-19.54,14.91-.95,30.02-.67,44.9.7,11.58,1.07,15.25,10.28,15.19,18.51-.06,8.23-3.83,16.25-15.39,18.59-1.43.29-2.85.86-4.29.88-6.6.1-13.19.04-19.79.04,0,.02,0,.03,0,.05Z" />
+                    </svg>
+                    <!--end::Svg Icon-->
+                  </span>
+                  <span class="menu-title fs-5 ms-2 {% if request.path == '/membarship/'%} text-primary {% endif %}">Memberships</span>
+                </a>
+             </div>
+              <!-- Memebership -->
+              <!-- Email Template -->
+              <div class="menu-item" id="email_template">
+                <a class="menu-link" href="{% url 'superadminapp:Email_Template' %}">
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path d="M22 4H2C0.9 4 0.01 4.9 0.01 6L0 18C0 19.1 0.9 20 2 20H22C23.1 20 24 19.1 24 18V6C24 4.9 23.1 4 22 4ZM22 8L12 13L2 8V6L12 11L22 6V8ZM2 18V10L12 15L22 10V18H2Z" fill="#183052"/>
+                    </svg>
+                    <!--end::Svg Icon-->
+                  </span>
+                  <span class="menu-title fs-5 ms-2 {% if request.path == '/email_template/' or 'update_email_template/'  in request.path %} text-primary {% endif %}">Email Templates</span>
+                </a>
+              </div>
+              <!-- Email Template -->
+              <!-- Notifications Template -->
+              <div class="menu-item" id="notification_template">
+                <a class="menu-link" href="{% url 'superadminapp:get_notification_template' %}">
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <svg xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512">
+                      <path d="M64 208.1L256 65.9 448 208.1v47.4L289.5 373c-9.7 7.2-21.4 11-33.5 11s-23.8-3.9-33.5-11L64 255.5V208.1zM256 0c-12.1 0-23.8 3.9-33.5 11L25.9 156.7C9.6 168.8 0 187.8 0 208.1V448c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V208.1c0-20.3-9.6-39.4-25.9-51.4L289.5 11C279.8 3.9 268.1 0 256 0z" fill="#183052"/>
+                    </svg>
+                    <!--end::Svg Icon-->
+                  </span>
+                  <span class="menu-title fs-5 ms-2 {% if request.path == '/get_notification_template/' or 'update_notification_template/'  in request.path %} text-primary {% endif %}">Notification Templates</span>
+                </a>
+              </div>
+              <!-- Notifications Template -->
+              <!-- Label -->
+              <div class="menu-item">
+                <a class="menu-link" href="{% url 'superadminapp:Label_Management' %}">
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500">
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: #183052;
+                          }
+                        </style>
+                      </defs>
+                      <path class="cls-1" d="m12.58,146.95c0-26.35-.14-52.7.04-79.04.18-26.79,14.61-46.15,39.58-52.99,5.51-1.51,11.4-2.28,17.12-2.3,51.5-.17,103-.09,154.5-.1,21.29,0,39.44,7.13,54.65,22.4,62.45,62.69,124.93,125.33,187.74,187.66,28.9,28.68,27.93,74.6-.43,102.46-47.26,46.42-94.05,93.31-140.55,140.49-24.23,24.58-60.75,28.11-86.33,12.79-6.15-3.68-11.93-8.3-17.02-13.36-62.01-61.75-123.73-123.8-185.83-185.46-16.07-15.96-23.66-34.73-23.51-57.12.17-25.14.04-50.28.04-75.42Zm52.29-82.5c-.16,1.98-.33,3.14-.33,4.3-.01,52.47-.23,104.93.31,157.4.05,5.33,3.39,11.84,7.28,15.75,62.15,62.66,124.61,125.01,187.09,187.35,9.69,9.67,19.36,9.55,29.13-.2,47.08-46.96,94.1-93.97,141.07-141.04,9.48-9.5,9.66-19.2.29-28.59-62.51-62.65-125.13-125.18-187.71-187.75-5.04-5.04-10.89-7.39-18.2-7.31-24.42.26-48.85.1-73.27.1-28.28,0-56.56,0-85.65,0Z" />
+                      <path class="cls-1" d="m168.93,134.6c-.36,19.53-15.46,34.4-34.76,34.23-19.84-.18-35.13-15.87-34.41-35.29.74-19.85,15.83-34.4,35.11-33.86,19.63.55,34.41,15.71,34.05,34.93Z" />
+                    </svg>
+                    <!--end::Svg Icon-->
+                  </span>
+                  <span class="menu-title fs-5 ms-2 {% if request.path == '/label_management' %} text-primary {% endif %}">Labels</span>
+                </a>
+              </div> 
+              <!-- Label -->
+              <!-- Super User -->
+              <div class="menu-item">
+                <a class="menu-link" href="{% url 'superadminapp:Tothiq_User' %}">
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500">
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: #183052;
+                          }
+                        </style>
+                      </defs>
+                      <path class="cls-1" d="m223.5,443.27c4.15-17.7,8.05-33.86,11.61-50.09.41-1.86-.76-4.35-1.8-6.21-7.66-13.66-15.47-27.24-23.22-40.84-1.19-2.08-2.31-4.2-3.74-6.82h88.04c-7.76,13.62-14.56,27.04-22.81,39.49-5.66,8.54-6.36,16.5-3.64,25.97,3.49,12.18,5.95,24.66,9.25,38.66,1.91-3.1,3.05-4.92,4.16-6.75,18.55-30.71,37.13-61.4,55.59-92.17,1.76-2.94,3.37-4.56,7.21-4.17,23.67,2.46,45.57,9.61,64.51,24.34,28.57,22.22,45.96,50.85,48.62,87.48.44,6.07.66,12.46-.73,18.3-2.39,10.13-11.75,16.16-24.03,17.01-1.03.07-2.06.02-3.1.02-119.33,0-238.67.01-358,0-17.28,0-27.02-7.87-28.78-24.08-.64-5.85.24-11.96,1.06-17.86,3.67-26.34,14.62-49.4,33.14-68.4,17.58-18.03,39.2-29.27,63.9-34.34,5.44-1.12,10.98-2.12,16.5-2.22,2.14-.04,5.14,2.11,6.36,4.11,18.72,30.61,37.21,61.36,55.76,92.07,1.05,1.73,2.17,3.41,4.16,6.51Zm-84.59-55.41c-25.74,10.67-41.97,28.49-49.32,54.82h81.83c-11.02-18.58-21.6-36.43-32.51-54.82Zm190.22,54.95h82.03c-7.6-26.58-23.83-44.52-49.46-54.89-10.82,18.24-21.42,36.09-32.57,54.89Z" />
+                      <path class="cls-1" d="m253.53,175.12c-48.69-1.01-91.83-7.64-132.72-25.73-3.76-1.66-5.39-3.31-5.24-7.58.34-10.11.4-20.25-.07-30.35-.14-3.1-1.72-6.67-3.78-9.04-4.73-5.44-10.23-10.2-15.27-15.38-14.22-14.57-8.76-34.42,10.98-39.55,43.86-11.39,87.71-22.82,131.7-33.72,6.34-1.57,13.72-1.72,20.03-.16,44.59,11.02,89.05,22.58,133.5,34.16,16.31,4.25,24.17,20.23,16.1,33.28-3.4,5.5-8.31,10.38-13.41,14.43-8.35,6.64-11.75,14.51-10.54,25.14.83,7.34.43,14.87-.02,22.28-.12,2.04-1.96,4.97-3.77,5.77-30.42,13.49-62.34,21.25-95.45,24.14-12.13,1.06-24.28,1.77-32.04,2.33Zm31.29-98.36c.31-5.07-1.09-7.48-5.99-9.51-8.37-3.46-16.77-6.88-25.27-10-1.91-.7-4.51-.72-6.41-.03-8.69,3.19-17.44,6.38-25.75,10.4-2.56,1.24-5.5,5.19-5.42,7.82.59,19.64,6.2,37.24,22.53,49.98,8.36,6.52,12.87,6.73,21.67.8,17.58-11.85,23.38-29.5,24.65-49.47Z" />
+                      <path class="cls-1" d="m131.47,187.13c14.59,3.49,28.44,6.67,42.17,10.29,1.65.44,3.45,3.18,3.83,5.11,3.8,19.25,13.57,34.61,28.7,47.02,26.68,21.89,71.04,19.04,95.11-5.92,11.25-11.67,18.85-24.86,21.78-40.81.35-1.91,1.63-4.79,3.04-5.18,13.29-3.63,26.7-6.82,40.88-10.34-.34,40.33-14.36,74.29-46.84,97.89-40.57,29.49-84.95,32.11-128.79,8.12-40.9-22.37-58.44-59.77-59.88-106.19Z" />
+                    </svg>
+                    <!--end::Svg Icon-->
+                  </span>
+                  <span class="menu-title fs-5 ms-2 {% if request.path == '/tothiq_user/'  %} text-primary {% endif %}">Super Admin Users</span>
+                </a>
+              </div>
+              <!-- Super User -->
+              <!-- Settings -->     
+              <div class="menu-item">
+                <a class="menu-link" href="{% url 'superadminapp:Setting' %}">
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500">
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: #183052;
+                          }
+                        </style>
+                      </defs>
+                      <path class="cls-1" d="m102.7,79.44c7.8,2.01,19.61,4.68,31.17,8.19,6.03,1.83,11.15,1.99,15.93-2.41.15-.14.32-.28.51-.34,13.23-4.06,17.45-14.44,19.47-26.82,1.05-6.44,2.71-12.98,5.31-18.94,7.65-17.5,22.06-25.76,40.57-26.23,22.86-.58,45.75-.45,68.61-.05,22.29.39,37.89,13.2,43.59,34.9,2.14,8.15,3.89,16.4,6.31,24.46.73,2.44,2.88,4.61,4.8,6.47,1.43,1.38,3.8,1.76,5.28,3.11,9.49,8.64,19.72,7.72,30.7,3.27,5.29-2.14,11.04-3.21,16.65-4.45,18.42-4.07,33.67,2.3,43.53,17.41,13.8,21.16,26.37,43.22,38.17,65.58,10.1,19.14,5.2,39.64-10.88,54.35-5.32,4.87-10.89,9.5-15.82,14.74-1.98,2.1-3.11,5.41-3.69,8.36-3.18,16.16,2.9,28.1,16,37.93,11.16,8.38,18.43,19.75,19.21,34.48.53,10.04-2.1,19.14-6.98,27.68-10.62,18.58-21.26,37.14-32.13,55.58-12.03,20.4-29.99,27.55-53.06,21.48-3.18-.84-6.34-1.74-9.51-2.61q-20.49-5.65-38.29,6.16c-1.81,1.21-3.35,3.59-3.95,5.73-2.39,8.5-4.18,17.17-6.52,25.68-5.84,21.32-21.43,33.74-43.63,34.09-22.66.36-45.34.36-68,0-22.4-.35-37.96-12.92-43.79-34.64-2.18-8.13-4.14-16.33-6.19-24.5-.15-.6-.18-1.23-.36-1.81-1.52-4.74-22.42-16.26-27.25-14.97-9.13,2.44-18.22,5.05-27.37,7.4-19.96,5.13-36.5-.69-47.46-18.31-12.71-20.43-24.7-41.33-36.28-62.42-10.59-19.29-6.81-39.24,9.36-55.1,5.73-5.63,11.78-10.95,17.29-16.78,1.74-1.84,2.58-4.8,3.19-7.4,4.18-17.93-4.69-29.7-18.24-39.79-10.18-7.58-16.36-18.27-16.73-31.07-.21-7.37.18-15.78,3.49-22.04,12.02-22.71,25.04-44.92,38.38-66.9,7.91-13.03,20.7-19.52,38.59-19.46Zm112.82,363.43h68.83c.58-1.98,1.21-3.9,1.7-5.85,3.39-13.55,6.65-27.14,10.24-40.64.61-2.28,2.21-5.42,4.07-6.05,16.24-5.52,30.31-14.72,43.64-25.15,3.85-3.01,7.23-3.23,11.8-1.8,14.66,4.59,29.5,8.64,44.62,13,11.06-19.12,22.04-37.92,32.7-56.91.73-1.3-.36-4.63-1.68-5.92-10.58-10.39-21.55-20.39-32.05-30.86-1.75-1.75-2.46-5.21-2.49-7.89-.19-16.41.29-32.83-.27-49.21-.14-4,.42-6.41,3.24-9.02,10.28-9.52,20.22-19.4,30.6-28.8,3.51-3.18,4.35-5.57,1.57-9.73-4.11-6.15-7.53-12.75-11.24-19.16-6.78-11.71-13.55-23.42-20.39-35.23-15.3,4.42-30.14,8.51-44.83,13.08-4.58,1.43-7.86.73-11.8-1.95-10.35-7.04-20.4-15.32-31.88-19.67-12.06-4.57-16.97-11.62-18.85-23.61-1.82-11.64-5.62-22.96-8.51-34.27h-68.99c-3.75,15.93-7.4,31.72-11.29,47.44-.47,1.88-1.97,4.5-3.53,4.97-16.9,5.08-31.17,14.78-44.87,25.39-3.74,2.89-6.97,3.01-11.24,1.7-14.87-4.55-29.85-8.72-44.93-13.07-11.1,19.17-21.82,37.9-32.8,56.49-2,3.39-.04,4.82,1.9,6.66,10.31,9.79,20.52,19.68,30.98,29.3,3.16,2.91,3.83,5.55,3.63,10.04-.7,15.97-.64,32.02.03,47.99.18,4.23-.44,6.77-3.41,9.53-10.58,9.79-21.04,19.73-31.32,29.85-1.32,1.3-2.46,4.62-1.74,5.91,10.65,18.99,21.63,37.8,32.71,56.96,15.08-4.35,29.93-8.33,44.56-13.01,4.92-1.58,8.22-.55,12.35,2.06,12.64,7.99,25.3,16.12,38.69,22.68,5.73,2.81,9.09,5.11,10.35,11.62,2.8,14.46,6.52,28.73,9.89,43.13Z" />
+                      <path class="cls-1" d="m249.89,161.14c48.92-.23,88.46,39.18,89.02,88.72.55,48.55-39.59,88.85-88.71,89.06-48.91.21-88.95-39.71-89.03-88.75-.07-49.07,39.51-88.8,88.71-89.03Zm44.78,88.75c-.08-24.07-20.55-44.48-44.62-44.48-24.06,0-44.6,20.47-44.62,44.47-.03,24.36,20.71,45.02,44.92,44.76,24.19-.25,44.4-20.67,44.32-44.75Z" />
+                    </svg>
+                    <!--end::Svg Icon-->
+                  </span>
+                  <span class="menu-title fs-5 ms-2 {% if request.path == '/setting/' %} text-primary {% endif %}">Settings</span>
+                </a>
+              </div>
+              <!-- Settings -->
+              <!-- Activity Log -->
+              <div class="menu-item">
+                <a class="menu-link" href="{% url 'superadminapp:user_activity_logs' %}">
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <svg xmlns="http://www.w3.org/2000/svg" height="Layer_1" viewBox="0 0 500 500">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500"> -->
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill: #183052;
+                          }
+                        </style>
+                      </defs>
+                      <path class="cls-1" d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"/>
+                    </svg>
+                    <!--end::Svg Icon-->
+                  </span>
+                  <span class="menu-title fs-5 ms-2 {% if request.path == '/user_activity_logs/'  %} text-primary {% endif %}">Activity Logs</span>
+                </a>
+              </div>
+              <!-- Activity Log -->
+              <!-- Logout -->
+              <div class="menu-item">
+                <a class="menu-link" href="{% url 'superadminapp:Logout' %}">
+                  <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                      <path class="cls-1" d="M534.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L434.7 224 224 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM192 96c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-53 0-96 43-96 96l0 256c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
+                    </svg>
+                    <!--end::Svg Icon-->
+                  </span>
+                  <span class="menu-title fs-5 ms-2">Log Out</span>
+                </a>
+              </div>
+              <!-- Logout -->
+            </div> 
+        </div>
+        <div class="separator  text-dark"></div>
+          <div class="aside-footer flex-column-auto pt-4 pb-4 menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="kt_aside_footer">
+            <div class="menu-item">
+              <a class="menu-link pe-none justify-content-center">
+                <span class="menu-icon">
+                  <div class="cursor-pointer symbol symbol-30px symbol-md-40px position-relative show menu-dropdown" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+                    
+                    <!-- <img src="../static/images/150-2.jpg" alt="" class="h-40x w-40px rounded-circle"> -->
+                    
+                    {% if profile_data.img  and file_exists  %}
+
+                    <img src="{{profile_data.img.url}}" alt="" class="h-40x w-40px rounded-circle">
+                    {% else %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" >
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg>
+                    {% endif %}
+                  </div>
+                </span>
+                <div class="align-items-center p-3">
+                  <div class="fw-bolder d-flex align-items-center fs-5  cursor-default"> Tothiq User
+                  </div>
+                  <p class="fw-bold text-muted text-hover-primary fs-7 mb-0 "> Super Admin
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+  <div id="kt_header" class="header justify-content-end align-items-stretch">
+    <div class="menu-item d-flex align-items-center">
+      <a class="nav-link dropdown-toggle_1 dropdown-toggle-no-caret" data-bs-toggle="dropdown"   role="button" aria-expanded="false">
+        <!--  -->
+        {%if profile_data.img and file_exists %}
+        <img src="{{ profile_data.img.url }}" width="30" height="30" class="rounded-circle">
+        {%else%}
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="36" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" >
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+          </svg>
+        {%endif%}
+      </a>
+      <ul class="dropdown-menu" id="changecuresor" >
+        <li class="p-2"><a class="dropdown-item" id="kt_drawer_chat_profile_1" style="cursor: pointer;"><i class="fas fa-user-alt pe-2"></i>Profile</a></li>
+        <li class="p-2"><a class="dropdown-item" id="kt_drawer_chat_profile_2" style="cursor: pointer;"><i class="fa fa-key pe-2"></i>Change Password</a></li>
+      </ul>
+    </div>
+    <div class="menu-item d-flex align-items-center">
+      <a class="menu-link" href="{% url 'superadminapp:Notification_Bell' %}">
+        <span class="menu-icon">
+          <span class="menu-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 500 500">
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: #183052;
+                  }
+                </style>
+              </defs>
+              <path class="cls-1"
+                d="m219.83,57.41c.42-6.52.45-14.16,1.51-21.66,1.95-13.74,13.96-23.25,28.49-23.25,14.53,0,26.54,9.52,28.49,23.25,1.06,7.5,1.09,15.14,1.6,22.99,7.39,2.08,15.03,3.74,22.32,6.37,51.87,18.71,83.3,55.33,93.24,109.49,2.73,14.85,2.55,30.35,2.6,45.56.09,30.07,4.87,59.04,17.56,86.47,9.08,19.62,21.89,36.76,35.33,53.51,9.84,12.26,9.22,25.33-2.62,33.25-4.92,3.29-11.9,4.89-17.95,4.91-102.06.29-204.12.21-306.18.21-19.18,0-38.35.13-57.52-.05-14.75-.14-25.85-10.36-24.43-23.46.58-5.32,3.64-10.92,7-15.29,13.71-17.83,27.3-35.59,36.36-56.47,10.66-24.58,15.28-50.2,15.95-76.87.48-19.1.36-38.51,3.8-57.18,7.92-42.97,32.95-74.55,71.11-95.05,13.26-7.12,28.25-11.01,43.33-16.71Zm171.25,296.44c-2.49-4.18-4.38-7.34-6.26-10.52-17.99-30.54-28.18-63.48-29.94-98.9-.97-19.55-.3-39.25-2.41-58.66-3.82-35.06-22.42-60.68-54.51-75.35-25.47-11.64-52.54-12.14-79.27-5.63-36.78,8.96-59.93,32.61-69.63,69.37-4.39,16.62-3.26,33.56-3.29,50.42-.05,37.67-7.29,73.68-24.57,107.36-3.72,7.25-8.01,14.22-12.37,21.91h282.24Z" />
+              <path class="cls-1"
+                d="m308.81,428.92c-.55,33.65-28.35,58.34-58.65,58.58-29.66.23-58.64-23.89-59.3-58.58h117.95Z" />
+            </svg>
+          </span>
+        </span>
+      </a>
+    </div>
+  </div>
+  <div id="kt_drawer_chat_1" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat"
+    data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}"
+    data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_drawer_chat_profile_1"
+    data-kt-drawer-close="#kt_drawer_chat_close">
+    <div class="card w-100 rounded-0" id="kt_drawer_chat_messenger">
+      <div class="card-body">
+         <form method="post" action="{% url 'superadminapp:profile_update' %}" enctype="multipart/form-data" >
+          {% csrf_token %}
+              <div class="modal-header d-flex justify-content-between">
+                  <h3 class="text-capitalize">Profile</h3>
+                  <div class="btn btn-sm btn-icon btn-active-light-primary" id="kt_drawer_chat_close">
+                      <span class="svg-icon svg-icon-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                              fill="none">
+                              <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                  transform="rotate(-45 6 17.3137)" fill="black" />
+                              <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                  fill="black" />
+                          </svg>
+                      </span>
+                  </div>
+              </div>
+              <div class="modal-body">
+              
+              <div class="row mt-5">
+                <!-- <label class="form-label">Profile picture</label> -->
+                <div class="col-12 justify-content-center">
+
+                  <div class="container">
+                    <div class="picture-container">
+                        <div class="picture">
+                          {%if profile_data.img and file_exists  %}
+                            <img src="{{profile_data.img.url}}" class="picture-src" id="wizardPicturePreview" >
+                          {% else %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" >
+                              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                            </svg>
+                          {%endif%}
+                            <input type="file" id="wizard-picture"  accept="image/*" name="user_profile_pic"    {%if data.img %} value="{{data.img}}"{%endif%}/>
+                        </div>
+                         <h6 class="p-3">Change Picture</h6>
+                
+                    </div>
+                </div>
+                    <!-- <input type="file" id="couponimageInput" name="couponimageInput" accept="image/*"
+                        style="display: none;" required="True" name="banner_image"> -->
+                </div>
+               </div>
+                  <div class="mb-10">
+                      <label for="exampleFormControlInput1" class="form-label 1">Name</label>
+                      <input type="text" class="form-control form-control-solid w-100" placeholder="Name"
+                          name="user_name" value="{{profile_data.name}}" />
+                  </div>
+                  <div class="mb-10">
+                      <label for="exampleFormControlInput1" class="form-label 1">Email</label>
+                      <input type="email" class="form-control form-control-solid w-100"
+                          placeholder="Enter Email" name="user_email" value="{{profile_data.email}}" data-old-email="{{ profile_data.email }}"  onkeyup="validate_email_update(this)"/>
+                          <p class="email_validation_msg_superuser_update" id="email_validation_msg_superuser_update"  style="display: none;  color: red;"></p>
+                  </div>
+                  <div class="mb-10">
+                    <label for="exampleFormControlInput1" class="form-label 1">Phone Number</label>
+                    <input type="text" class="form-control form-control-solid w-100" placeholder="Enter Phone"
+                        name="user_phone_number" pattern="[0-9]*" min="10" maxlength="10" value="{{profile_data.number}}"  onkeyup="validate_phone_update(this)"/>
+                        <p class="phone_validation_msg_superuser_update" id="phone_validation_msg_superuser_update"  style="display: none;  color: red;"></p>
+
+                </div>
+                  <div class="pt-3 text-center">
+                      <button type="submit" id="updatesuperuser"  class="btn btn-primary btn-sm updatesuperuser">Update</button>
+                  </div>
+              
+            </div>
+         </form>
+      </div>
+  </div>
+</div>
+<div id="kt_drawer_chat_2" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat"
+data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}"
+data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_drawer_chat_profile_2"
+data-kt-drawer-close="#kt_drawer_chat_close">
+<div class="card w-100 rounded-0" id="kt_drawer_chat_messenger">
+  <div class="card-body">
+     <form method="post" action="{% url 'superadminapp:update_password' %}" >
+      {% csrf_token %}
+          <div class="modal-header d-flex justify-content-between">
+              <h3 class="text-capitalize">Change Password</h3>
+              <div class="btn btn-sm btn-icon btn-active-light-primary" id="kt_drawer_chat_close">
+                  <span class="svg-icon svg-icon-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                          fill="none">
+                          <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                              transform="rotate(-45 6 17.3137)" fill="black" />
+                          <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                              fill="black" />
+                      </svg>
+                  </span>
+              </div>
+          </div>
+          <div class="fv-row p-2 mt-10 mb-10">
+            <label class="form-label fs-6 fw-bolder text-dark required">Current Password</label>
+            <input class="form-control form-control-lg form-control-solid" type="password" name="curent_password" placeholder="Password" autocomplete="off" onclick="curent_password_bg()" id="curent_password" required />
+            <p class="error" id="error-msg" style="display: none;  color: red;"></p>
+            <div id="pw-error-message" style="color: red; display: none;">Password is required</div>
+        </div>
+        <div class="fv-row p-2 mb-10">
+          <label class="form-label fs-6 fw-bolder text-dark required">New Password</label>
+          <input class="form-control form-control-lg form-control-solid" type="password" name="new_password" oninput="checkPassword()" placeholder="Password" autocomplete="off" required="True" />
+          <div id="pw-error-message" style="color: red; display: none;">Password is required</div>
+        </div>
+              <div class="pt-3 text-center">
+                  <button type="submit"  id="update_btn" class="btn btn-primary btn-sm">Update</button>
+              </div>
+          </div> 
+        </form>
+  </div>
+  </div>
+    
+    {% block content %}
+    
+    {% endblock %}

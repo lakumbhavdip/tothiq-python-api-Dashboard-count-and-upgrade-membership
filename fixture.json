@@ -1,0 +1,1649 @@
+[
+    {
+        "model": "masterapp.languages_label",
+        "pk": 547,
+        "fields": {
+            "code": "civil_id_is_required_field.",
+            "english": "Civil ID is required field.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 548,
+        "fields": {
+            "code": "email_id_is_required_field.",
+            "english": "Email ID is required field.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 549,
+        "fields": {
+            "code": "users_with_this_civil_id_already_exist.",
+            "english": "Users with this civil id already exist.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 550,
+        "fields": {
+            "code": "registration_successfully.",
+            "english": "Registration successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 551,
+        "fields": {
+            "code": "otp_is_required.",
+            "english": "OTP is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 552,
+        "fields": {
+            "code": "login_successfully.",
+            "english": "Login successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 553,
+        "fields": {
+            "code": "civil_id_is_not_valid.",
+            "english": "Civil id is not valid.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 554,
+        "fields": {
+            "code": "profile_data_fetched_successfully.",
+            "english": "Profile data fetched successfully. ",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 555,
+        "fields": {
+            "code": "view_profile_data_fetched_successfully.",
+            "english": "View profile data fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 556,
+        "fields": {
+            "code": "profile_updated_successfully.",
+            "english": "Profile updated successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 557,
+        "fields": {
+            "code": "password_created_successfully.",
+            "english": "Password created successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 558,
+        "fields": {
+            "code": "image_not_found.",
+            "english": "Image not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 559,
+        "fields": {
+            "code": "image_uploaded_successfully.",
+            "english": "Image uploaded successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 560,
+        "fields": {
+            "code": "signature_image_not_found.",
+            "english": "Signature image not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 561,
+        "fields": {
+            "code": "signature_image_uploaded_successfully.",
+            "english": "Signature image uploaded successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 562,
+        "fields": {
+            "code": "notifications_list_retrieved_successfully.",
+            "english": "Notifications list retrieved successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 563,
+        "fields": {
+            "code": "notification_not_found.",
+            "english": "Notification not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 564,
+        "fields": {
+            "code": "notifications_updated_successfully.",
+            "english": "Notifications updated successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 565,
+        "fields": {
+            "code": "invalid_data.",
+            "english": "Invalid data.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 566,
+        "fields": {
+            "code": "notifications_retrieved_successfully.",
+            "english": "Notifications retrieved successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 567,
+        "fields": {
+            "code": "notification_id_is_required.",
+            "english": "Notification id is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 568,
+        "fields": {
+            "code": "invalid_input_for_status.",
+            "english": "Invalid input for status.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 569,
+        "fields": {
+            "code": "notification_status_updated_successfully.",
+            "english": "Notification status updated successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 570,
+        "fields": {
+            "code": "notification_does_not_exist.",
+            "english": "Notification does not exist.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 571,
+        "fields": {
+            "code": "notification_deleted_successfully.",
+            "english": "Notification deleted successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 572,
+        "fields": {
+            "code": "notification_is_already_deleted.",
+            "english": "Notification is already deleted.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 573,
+        "fields": {
+            "code": "dashboard_data_fetched_successfully.",
+            "english": "Dashboard data fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 574,
+        "fields": {
+            "code": "switch_account_details_fetched_successfully.",
+            "english": "Switch account details fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 575,
+        "fields": {
+            "code": "user_id_is_not_valid.",
+            "english": "User ID is not valid.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 576,
+        "fields": {
+            "code": "this_civil_id_is_not_allowed_to_add_in_your_own_address_book.",
+            "english": "This Civil ID is not allowed to add in your own address book.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 577,
+        "fields": {
+            "code": "you_have_already_added_this_user_in_your_address_book.",
+            "english": "You have already added this user in your address book.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 578,
+        "fields": {
+            "code": "this_civil_id_added_in_address_book.",
+            "english": "This Civil ID added in Address book.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 579,
+        "fields": {
+            "code": "user_filtered_successfully.",
+            "english": "User filtered successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 580,
+        "fields": {
+            "code": "user_not_found.",
+            "english": "User not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 581,
+        "fields": {
+            "code": "invalid_civil_id_provided.",
+            "english": "Invalid Civil ID provided.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 582,
+        "fields": {
+            "code": "contact_list_fetched_successfully.",
+            "english": "Contact list fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 583,
+        "fields": {
+            "code": "addressbook_id_is_required.",
+            "english": "Addressbook ID is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 584,
+        "fields": {
+            "code": "invitee_deleted_successfully.",
+            "english": "Invitee deleted successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 585,
+        "fields": {
+            "code": "contact_id_is_required.",
+            "english": "Contact ID is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 586,
+        "fields": {
+            "code": "contact_record_not_found.",
+            "english": "Contact record not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 587,
+        "fields": {
+            "code": "this_contact_od_is_not_available_for_this_user.",
+            "english": "This Contact OD is not available for this user.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 588,
+        "fields": {
+            "code": "contact_details_fetched_successfully.",
+            "english": "Contact details fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 589,
+        "fields": {
+            "code": "company_name_is_required.",
+            "english": "Company name is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 590,
+        "fields": {
+            "code": "a_record_with_the_same_company_name_or_email_address_already_exists.",
+            "english": "A record with the same company name or email address already exists.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 591,
+        "fields": {
+            "code": "you_are_registered_successfully._we_have_sent_you_verification_email,_kindly_verify_your_email.",
+            "english": "You are registered successfully. We have sent you verfiication email, kindly verify your email.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 592,
+        "fields": {
+            "code": "email_id_is_already_registered.",
+            "english": "Email ID is already registered.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 593,
+        "fields": {
+            "code": "create_password_is_required.",
+            "english": "Create password is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 594,
+        "fields": {
+            "code": "retype_password_is_required.",
+            "english": "Retype password is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 595,
+        "fields": {
+            "code": "passwords_do_not_match.",
+            "english": "Passwords do not match.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 596,
+        "fields": {
+            "code": "business_record_not_found.",
+            "english": "Business record not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 597,
+        "fields": {
+            "code": "password_is_required.",
+            "english": "Password is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 598,
+        "fields": {
+            "code": "password_is_incorrect.",
+            "english": "Password is incorrect.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 599,
+        "fields": {
+            "code": "business_profile_fetched_successfully.",
+            "english": "Business profile fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 600,
+        "fields": {
+            "code": "business_profile_not_found.",
+            "english": "Business profile not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 601,
+        "fields": {
+            "code": "required_fields_are_missing.",
+            "english": "Required fields are missing.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 602,
+        "fields": {
+            "code": "business_profile_updated_successfully.",
+            "english": "Business profile updated successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 603,
+        "fields": {
+            "code": "department_name_is_required.",
+            "english": "Department name is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 604,
+        "fields": {
+            "code": "business_info_not_found.",
+            "english": "Business info not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 605,
+        "fields": {
+            "code": "a_department_with_this_name_already_exists.",
+            "english": "A department with this name is already exists.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 606,
+        "fields": {
+            "code": "cannot_create_a_user_in_the_'general'_department.",
+            "english": "Cannot create a user in the 'General' department.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 607,
+        "fields": {
+            "code": "parent_department_not_found.",
+            "english": "Parent department not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 608,
+        "fields": {
+            "code": "department_created_successfully.",
+            "english": "Department created successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 609,
+        "fields": {
+            "code": "department_list_fetched_successfully.",
+            "english": "Department list fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 610,
+        "fields": {
+            "code": "department_name_list_fetched_successfully.",
+            "english": "Department name list fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 611,
+        "fields": {
+            "code": "department_id_is_required.",
+            "english": "Department id is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 612,
+        "fields": {
+            "code": "department_not_found.",
+            "english": "Department not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 613,
+        "fields": {
+            "code": "the_general_department_cannot_be_deleted.",
+            "english": "The General department cannot be deleted.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 614,
+        "fields": {
+            "code": "department_is_deleted_successfully._all_the_associated_members_are_moved_to_general_department.",
+            "english": "Department is deleted successfully. All the associated members are moved to General Department.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 615,
+        "fields": {
+            "code": "cannot_change_the_name_of_the_general_department.",
+            "english": "Cannot change the name of the General Department.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 616,
+        "fields": {
+            "code": "department_updated_successfully.",
+            "english": "Department updated successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 617,
+        "fields": {
+            "code": "department_details_fetched_successfully.",
+            "english": "Department details fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 618,
+        "fields": {
+            "code": "user_is_already_added_to_the_business.",
+            "english": "User is already added to the business.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 619,
+        "fields": {
+            "code": "user_added_successfully.",
+            "english": "User added successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 620,
+        "fields": {
+            "code": "user_is_already_added_to_the_business_as_an_invitee.",
+            "english": "User is already added to the business as an invitee.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 621,
+        "fields": {
+            "code": "user_invited_successfully._invitation_has_been_sent_to_the_given_email.",
+            "english": "User invited successfully. Invitation has been sent to the given email.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 622,
+        "fields": {
+            "code": "invited_users_list_retrieved_successfully.",
+            "english": "Invited users list retrieved successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 623,
+        "fields": {
+            "code": "folder_list_fetched_successfully.",
+            "english": "Folder list fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 624,
+        "fields": {
+            "code": "folders_name_list_fetched_successfully.",
+            "english": "Folders name list fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 625,
+        "fields": {
+            "code": "folder_id_is_required.",
+            "english": "Folder id is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 626,
+        "fields": {
+            "code": "the_general_folder_cannot_be_deleted.",
+            "english": "The General folder cannot be deleted.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 627,
+        "fields": {
+            "code": "folder_is_deleted_successfully._all_the_associated_contracts_are_moved_to_general_folder.",
+            "english": "Folder is deleted successfully. All the associated contracts are moved to General Folder",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 628,
+        "fields": {
+            "code": "folder_name_is_required.",
+            "english": "Folder name is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 629,
+        "fields": {
+            "code": "folder_name_arabic_is_required.",
+            "english": "Folder name arabic is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 630,
+        "fields": {
+            "code": "folder_not_found.",
+            "english": "Folder not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 631,
+        "fields": {
+            "code": "cannot_change_the_name_of_the_general_folder.",
+            "english": "Cannot change the name of the General folder.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 632,
+        "fields": {
+            "code": "parent_folder_not_found.",
+            "english": "Parent folder not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 633,
+        "fields": {
+            "code": "folder_updated_successfully.",
+            "english": "Folder updated successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 634,
+        "fields": {
+            "code": "folder_details_fetched_successfully.",
+            "english": "Folder details fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 635,
+        "fields": {
+            "code": "invalid_language.",
+            "english": "Invalid language.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 636,
+        "fields": {
+            "code": "categories_list_fetched_successfully.",
+            "english": "Categories list fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 637,
+        "fields": {
+            "code": "category_id_is_required.",
+            "english": "Category ID is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 638,
+        "fields": {
+            "code": "category_id_does_not_exist.",
+            "english": "Category ID does not exist.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 639,
+        "fields": {
+            "code": "template_list_fetched_successfully.",
+            "english": "Template list fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 640,
+        "fields": {
+            "code": "no_templates_found_for_the_given_category_id.",
+            "english": "No templates found for the given category id.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 641,
+        "fields": {
+            "code": "contract_start_date_and_contract_end_date_are_required_when_contract_duration_is_checked.",
+            "english": "Contract start date and Contract end date are required when Contract Duration is checked",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 642,
+        "fields": {
+            "code": "at_least_one_of_arbitration_or_jurisdiction_must_be_required.",
+            "english": "At least one of arbitration or jurisdiction must be required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 643,
+        "fields": {
+            "code": "contract_end_date_must_be_greater_than_start_date.",
+            "english": "Contract end date must be greater than start date.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 644,
+        "fields": {
+            "code": "contract_start_date_cannot_be_in_the_past.",
+            "english": "Contract start date cannot be in the past.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 645,
+        "fields": {
+            "code": "you_have_already_created_a_contract_with_this_name,_please_try_another_name.",
+            "english": "You have already created a contract with this name, please try another name.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 646,
+        "fields": {
+            "code": "business_information_not_found_for_this_user.",
+            "english": "Business information not found for this user.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 647,
+        "fields": {
+            "code": "you_have_reached_the_maximum_number_of_contracts_allowed_for_your_business_membership_type.",
+            "english": "You have reached the maximum number of contracts allowed for your business membership type",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 648,
+        "fields": {
+            "code": "contract_added_successfully.",
+            "english": "Contract added successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 649,
+        "fields": {
+            "code": "you_do_not_have_permission_to_update_this_contract.",
+            "english": "You do not have permission to update this contract.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 650,
+        "fields": {
+            "code": "contract_updated_successfully.",
+            "english": "Contract updated successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 651,
+        "fields": {
+            "code": "first_party_and/or_second_party_data_not_provided.",
+            "english": "First party and/or second party data not provided.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 652,
+        "fields": {
+            "code": "you_have_reached_the_maximum_number_of_parties_allowed_for_your_membership_type.",
+            "english": "You have reached the maximum number of parties allowed for your membership type.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 653,
+        "fields": {
+            "code": "user_with_the_provided_first_party_email_does_not_exist.",
+            "english": "User with the provided first party email does not exist.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 654,
+        "fields": {
+            "code": "user_with_the_provided_first_party_civil_id_does_not_exist.",
+            "english": "User with the provided first party civil ID does not exist.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 655,
+        "fields": {
+            "code": "the_provided_first_party_email_does_not_match_the_civil_id.",
+            "english": "The provided first party email does not match the civil ID.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 656,
+        "fields": {
+            "code": "user_with_the_provided_second_party_email_does_not_exist.",
+            "english": "User with the provided second party email does not exist.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 657,
+        "fields": {
+            "code": "user_with_the_provided_second_party_civil_id_does_not_exist.",
+            "english": "User with the provided second party civil ID does not exist.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 658,
+        "fields": {
+            "code": "the_provided_second_party_email_does_not_match_the_civil_id.",
+            "english": "The provided second party email does not match the civil ID.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 659,
+        "fields": {
+            "code": "parties_added_successfully.",
+            "english": "Parties added successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 660,
+        "fields": {
+            "code": "party_details_not_found.",
+            "english": "Party details not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 661,
+        "fields": {
+            "code": "party_details_fetched_successfully.",
+            "english": "Party details fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 662,
+        "fields": {
+            "code": "contract_id_is_required.",
+            "english": "Contract ID is requried.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 663,
+        "fields": {
+            "code": "party_not_found_for_the_given_contract.",
+            "english": "Party not found for the given contract.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 664,
+        "fields": {
+            "code": "you_do_not_have_permission_to_update_this_contract_party.",
+            "english": "You do not have permission to update this contract party.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 665,
+        "fields": {
+            "code": "party_details_updated_successfully.",
+            "english": "Party details updated successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 666,
+        "fields": {
+            "code": "status_is_required.",
+            "english": "Status is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 667,
+        "fields": {
+            "code": "contract_status_updated_successfully.",
+            "english": "Contract status updated successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 668,
+        "fields": {
+            "code": "contract_status_list_fetched_successfully.",
+            "english": "Contract status list fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 669,
+        "fields": {
+            "code": "no_contracts_found_matching_the_provided_text.",
+            "english": "No contracts found matching the provided text.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 670,
+        "fields": {
+            "code": "contracts_list_fetched_successfully.",
+            "english": "Contracts list fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 671,
+        "fields": {
+            "code": "user_id_is_required.",
+            "english": "User id is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 672,
+        "fields": {
+            "code": "invalid_user_id.",
+            "english": "Invalid user id.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 673,
+        "fields": {
+            "code": "appendix_file_not_provided.",
+            "english": "Appendix file not provided.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 674,
+        "fields": {
+            "code": "appendix_added_successfully.",
+            "english": "Appendix added successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 675,
+        "fields": {
+            "code": "contract_cloned_successfully.",
+            "english": "Contract cloned successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 676,
+        "fields": {
+            "code": "contract_details_fetch_successfully.",
+            "english": "Contract details fetch successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 677,
+        "fields": {
+            "code": "party_type_is_required.",
+            "english": "Party type is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 678,
+        "fields": {
+            "code": "invalid_party_type.",
+            "english": "Invalid Party Type",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 679,
+        "fields": {
+            "code": "party_company_users_list_fetched_successfully.",
+            "english": "Party company users list fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 680,
+        "fields": {
+            "code": "user_does_not_have_a_valid_business_id.",
+            "english": "User does not have a valid business ID",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 681,
+        "fields": {
+            "code": "authorized_users_list_fetched_successfully.",
+            "english": "Authorized users list fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 682,
+        "fields": {
+            "code": "business_contract_party_created_successfully.",
+            "english": "Business contract party created successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 683,
+        "fields": {
+            "code": "language_list_fetched_successfully.",
+            "english": "Language list fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 684,
+        "fields": {
+            "code": "nationalities_list_fetched_successfully.",
+            "english": "Nationalities list fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 685,
+        "fields": {
+            "code": "label_code_field_required.",
+            "english": "Label Code field required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 686,
+        "fields": {
+            "code": "label_english_field_required.",
+            "english": "Label English field requried.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 687,
+        "fields": {
+            "code": "label_arabic_field_required.",
+            "english": "Label Arabic field requried.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 688,
+        "fields": {
+            "code": "this_label_already_exists.",
+            "english": "This label already exists",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 689,
+        "fields": {
+            "code": "label_added_successfully.",
+            "english": "Label added successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 690,
+        "fields": {
+            "code": "label_id_required.",
+            "english": "Label id required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 691,
+        "fields": {
+            "code": "label_not_found.",
+            "english": "Label not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 692,
+        "fields": {
+            "code": "this_code_already_exists.",
+            "english": "This code already exists.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 693,
+        "fields": {
+            "code": "label_updated_successfully.",
+            "english": "Label updated successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 694,
+        "fields": {
+            "code": "language_is_required.",
+            "english": "Language is requried.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 695,
+        "fields": {
+            "code": "label_list_fetch_successfully.",
+            "english": "Label list fetch successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 696,
+        "fields": {
+            "code": "invalid_user_type.",
+            "english": "Invalid user type.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 697,
+        "fields": {
+            "code": "membership_details_fetched_successfully.",
+            "english": "Membership details fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 698,
+        "fields": {
+            "code": "country_name_is_required.",
+            "english": "Country name is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 699,
+        "fields": {
+            "code": "currency_name_is_required.",
+            "english": "Currency name is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 700,
+        "fields": {
+            "code": "currency_added_successfully.",
+            "english": "Currency added successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 701,
+        "fields": {
+            "code": "currencies_list_fetched_successfully.",
+            "english": "Currencies list fetched successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 702,
+        "fields": {
+            "code": "currency_id_is_required.",
+            "english": "Currency ID is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 703,
+        "fields": {
+            "code": "country_currency_updated_successfully.",
+            "english": "Country Currency updated successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 704,
+        "fields": {
+            "code": "invalid_payment_type.",
+            "english": "Invalid payment type.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 705,
+        "fields": {
+            "code": "invalid_payment_method.",
+            "english": "Invalid payment method.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 706,
+        "fields": {
+            "code": "invalid_amount.",
+            "english": "Invalid Amount.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 707,
+        "fields": {
+            "code": "invalid_purchase_id_for_membership_type.",
+            "english": "Invalid purchase id for membership type.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 708,
+        "fields": {
+            "code": "payment_initiated._kindly_process_the_payment.",
+            "english": "Payment initiated. Kindly process the payment.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 709,
+        "fields": {
+            "code": "payment_id_is_required.",
+            "english": "Payment id is requried.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 710,
+        "fields": {
+            "code": "payment_failed.",
+            "english": "Payment failed.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 711,
+        "fields": {
+            "code": "membership_has_been_upgraded_successfully.",
+            "english": "Membership has been upgraded successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 712,
+        "fields": {
+            "code": "additional_contracts_purchased.",
+            "english": "Additional contracts purchased.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 713,
+        "fields": {
+            "code": "additional_business_users_purchased_successfully.",
+            "english": "Additional business users purchased successfully.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 714,
+        "fields": {
+            "code": "invalid_payment_response.",
+            "english": "Invalid payment response.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 715,
+        "fields": {
+            "code": "purchase_type_is_required.",
+            "english": "Purchase type is required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 716,
+        "fields": {
+            "code": "purchase_id_required.",
+            "english": "Purchase id required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 717,
+        "fields": {
+            "code": "coupon_code_required.",
+            "english": "Coupon code required.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 718,
+        "fields": {
+            "code": "invalid_purchase_type.",
+            "english": "Invalid purchase type.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 719,
+        "fields": {
+            "code": "invalid_coupon_code.",
+            "english": "Invalid coupon code.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 720,
+        "fields": {
+            "code": "coupon_is_not_yet_valid.",
+            "english": "Coupon is not yet valid.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 721,
+        "fields": {
+            "code": "coupon_has_expired.",
+            "english": "Coupon has expired.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 722,
+        "fields": {
+            "code": "coupon_is_not_valid_for_purchase.",
+            "english": "Coupon is not valid for purchase.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 723,
+        "fields": {
+            "code": "coupon_is_not_valid_for_this_user.",
+            "english": "Coupon is not valid for this user.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 724,
+        "fields": {
+            "code": "coupon_usage_limit_reached_for_this_user.",
+            "english": "Coupon usage limit reached for this user.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 725,
+        "fields": {
+            "code": "invalid_membership_id.",
+            "english": "Invalid membership id.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 726,
+        "fields": {
+            "code": "purchase_contract_add-on_price_not_found.",
+            "english": "Purchase Contract Add-on price not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 727,
+        "fields": {
+            "code": "purchase_user_add-on_price_not_found.",
+            "english": "Purchase User Add-on price not found.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 728,
+        "fields": {
+            "code": "invalid_discount_type.",
+            "english": "Invalid discount type.",
+            "arabic": null
+        }
+    },
+    {
+        "model": "masterapp.languages_label",
+        "pk": 729,
+        "fields": {
+            "code": "coupon_applied_successfully.",
+            "english": "Coupon applied successfully.",
+            "arabic": null
+        }
+    }
+]

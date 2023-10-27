@@ -1,0 +1,410 @@
+{% block content %}
+{% endblock %}
+<div class="footer py-4 d-flex flex-lg-column app-footer position-fixed bottom-0 end-0 w-100" id="kt_footer">
+  <!--begin::Container-->
+  <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-end">
+    <!--begin::Copyright-->
+    <div class="text-dark order-2 order-md-1">
+      
+      <span class="text-muted fw-bold me-1">© 2023</span>
+      <!-- <a href="{% url 'superadminapp:Tothiq_User' %}" target="_blank" class="text-gray-800 text-hover-primary">tothiq.com</a> -->
+      <a href="{% url 'superadminapp:Tothiq_User' %}" target="_blank" class="text-gray-800 text-hover-primary">{{ crtx }}</a>
+    </div>
+    <!--end::Copyright-->
+  </div>
+  <!--end::Container-->
+</div>
+</div>
+
+
+
+<script>
+  var hostUrl = "../static/";
+</script>
+<script src="/static/plugins/global/plugins.bundle.js"></script>
+<script src="/static/js/scripts.bundle.js"></script>
+<script src="/static/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+<script src="/static/js/custom/widgets.js"></script>
+<script src="/static/js/custom/apps/chat/chat.js"></script>
+<script src="/static/js/custom/modals/create-app.js"></script>
+<script src="/static/js/custom/modals/upgrade-plan.js"></script>
+<script src="/static/plugins/custom/ckeditor/ckeditor-classic.bundle.js"></script>
+<script src="/static/plugins/custom/ckeditor/ckeditor-inline.bundle.js"></script>
+<script src="/static/plugins/custom/ckeditor/ckeditor-balloon.bundle.js"></script>
+<script src="/static/plugins/custom/ckeditor/ckeditor-balloon-block.bundle.js"></script>
+<script src="/static/plugins/custom/ckeditor/ckeditor-document.bundle.js"></script>
+<script src="../static/plugins/custom/ckeditor/ckeditor-balloon-block.bundle.js"></script>
+<script src="../static/plugins/custom/ckeditor/ckeditor-document.bundle.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- report toggle -->
+<script>
+  $(document).ready(function() {
+    $('#reportsDropdownButton').click(function() {
+      $('#reportsDropdownMenu').toggle();
+    });
+  });
+</script>
+<!-- report toggle -->
+
+<!-- coupon managemnet -->
+<script>
+  function populate(s){
+    var optionSelect = document.getElementById(s);
+    var selectedOption = optionSelect.value;
+
+    if(selectedOption == "1"){
+      var divElement = document.getElementById("select_all");
+      divElement.removeAttribute("style");
+      var divElement1 = document.getElementById("individual_User");
+      divElement1.style.cssText = "display: none;";
+      var divElement2 = document.getElementById("Business_Users");
+      divElement2.style.cssText = "display: none;";
+    }
+    else if(selectedOption == "2"){
+      var divElement = document.getElementById("individual_User");
+      divElement.removeAttribute("style");
+      var divElement1 = document.getElementById("select_all");
+      divElement1.style.cssText = "display: none;";
+      var divElement2 = document.getElementById("Business_Users");
+      divElement2.style.cssText = "display: none;";
+    }
+    else if(selectedOption == '3'){
+      var divElement = document.getElementById("Business_Users");
+      divElement.removeAttribute("style");
+      var divElement1 = document.getElementById("individual_User");
+      divElement1.style.cssText = "display: none;";
+      var divElement2 = document.getElementById("select_all");
+      divElement2.style.cssText = "display: none;";
+    }
+  }
+</script>
+
+<script>
+  function populate2(s,i){
+    var id = i
+    console.log(id,"........................")
+    var optionSelect = document.getElementById(s);
+    var selectedOption = optionSelect.value;
+
+    if(selectedOption == "1"){
+      console.log(id,"..............1..........")
+      var divElement = document.getElementById("select_all_"+id);
+      divElement.removeAttribute("style");
+      var divElement1 = document.getElementById("individual_User_"+id);
+      divElement1.style.cssText = "display: none;";
+      var divElement2 = document.getElementById("Business_Users_"+id);
+      divElement2.style.cssText = "display: none;";
+    }
+    else if(selectedOption == "2"){
+      console.log(id,"................2........")
+      var divElement = document.getElementById("individual_User_"+id);
+      divElement.removeAttribute("style");
+      var divElement1 = document.getElementById("select_all_"+id);
+      divElement1.style.cssText = "display: none;";
+      var divElement2 = document.getElementById("Business_Users_"+id);
+      divElement2.style.cssText = "display: none;";
+    }
+    else if(selectedOption == '3'){
+      console.log(id,"................3........")
+      var divElement = document.getElementById("Business_Users_"+id);
+      divElement.removeAttribute("style");
+      var divElement1 = document.getElementById("individual_User_"+id);
+      divElement1.style.cssText = "display: none;";
+      var divElement2 = document.getElementById("select_all_"+id);
+      divElement2.style.cssText = "display: none;";
+    }
+  }
+</script>
+
+<script>
+  function toggleInputFieldcreat() {
+      var checkbox = document.getElementById("flexSwitchChecked");
+      var inputField = document.getElementById("couponCodeInput");
+      if (checkbox.checked) {
+          inputField.disabled = false;
+      } else {
+          inputField.disabled = true;
+      }
+  }
+</script>
+
+<script>
+  const imageInputs = document.querySelectorAll('.imgInp');
+  imageInputs.forEach(function(imageInput) {
+    imageInput.addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      const imagePreview = document.getElementById('temp_pic-' + imageInput.id.split('-')[1]);
+      reader.addEventListener('load', function() {
+        imagePreview.src = reader.result;
+      });
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    });
+  });
+</script>
+<!-- coupon managemnet -->
+
+<!-- search button -->
+<script>
+  function myFunction() {
+    var input, filter, i, txtValue;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("changeCursorBtn");
+    li = ul.getElementsByTagName('li');
+
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+</script>
+<!-- search button -->
+
+<!-- click active category -->
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var catclassElement = document.querySelector('.catclass');
+    catclassElement.classList.remove('active');
+    catclassElement.classList.add('active');
+  });
+</script> -->
+
+<!-- click active category -->
+
+<!-- category -->
+<script>
+  function toggleContent(itemId) {
+      const toggleContent = document.getElementById(`toggle-content-${itemId}`);
+      toggleContent.style.display = toggleContent.style.display === 'none' ? 'block' : 'none';
+    }
+  function fetchCategoryId(categoryId,categoryname) {
+      $.ajax({
+          url: "{% url 'superadminapp:Category' %}",
+          data: {
+              category_id: categoryId,
+              category_name: categoryname,
+              csrfmiddlewaretoken: "{{ csrf_token }}"
+          },
+          type : "get",
+          dataType: "json",
+          success: function(data) {
+              console.log(response);
+              $("")
+          },
+          error: function(xhr, errmsg, err) {
+              console.log(xhr.status + ": " + xhr.responseText);
+          }
+      });
+  }
+</script>
+
+<!-- for search bar in category -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterInput = document.getElementById('Search');
+    const labelTable = document.getElementById('kt_ecommerce_report_sales_table mytable');
+    const rows = labelTable.getElementsByTagName('tr');
+
+    filterInput.addEventListener('keyup', function() {
+        const filterValue = filterInput.value.toLowerCase();
+
+        for (let i = 0; i < rows.length; i++) {
+          const label = rows[i].getElementsByTagName('td')[0];
+          const label1 = rows[i].getElementsByTagName('td')[1];
+          if (label || label1) {
+            const labelValue = label ? label.textContent || label.innerText : '';
+            const label1Value = label1 ? label1.textContent || label1.innerText : '';
+            if (
+              labelValue.toLowerCase().indexOf(filterValue) > -1 ||
+              label1Value.toLowerCase().indexOf(filterValue) > -1
+            ) {
+              rows[i].style.display = '';
+            } else {
+              rows[i].style.display = 'none';
+            }
+          }
+        }
+    });
+});
+</script>
+<!-- category -->
+
+
+<!-- Hide message after few second in template page -->
+<script>
+  $(document).ready(function() {
+    $(".hide-after-delay").each(function() {
+      var messageElement = $(this);
+		  setTimeout(function() {
+        messageElement.fadeOut();
+		  }, 3000); 
+		});
+  });  
+</script>
+<!-- Hide message after few second in template page -->
+
+
+<!-- image not input  -->
+<script>
+  function checkFileUpload() {
+      const fileInput = document.getElementById('imageInput');
+      const errorMessage = document.getElementById('errorMessage');
+
+      if (!fileInput.value) {
+          errorMessage.style.display = 'block';
+      } else {
+          errorMessage.style.display = 'none';
+      }
+  }
+</script>
+<!-- image not input  -->
+
+
+<script>
+  function toggleDivDisabled(isLimited) {
+      var limitedDiv = document.getElementById('limitedDiv');
+      limitedDiv.disabled = ! isLimited;
+  }
+</script>
+<!-- for tothiq user srearch  -->
+<script>
+  function filterTable3() {
+    let input, filter, table, tr, td, j;
+    input = document.getElementById('Searcht');
+    filter = input.value.toUpperCase();
+    table = document.getElementById('kt_ecommerce_report_sales_table Tothiq');
+    tr = table.getElementsByTagName('tr');
+    let msg = document.getElementById("no-data");
+    let found = false;
+
+    for (j = 0; j < tr.length; j++) {
+        td = tr[j].getElementsByTagName("td");
+        let matchFound = false;
+
+        if (td.length > 0) {
+            for (let i = 0; i < td.length; i++) {
+                let cellValue = td[i].innerHTML;
+                if (cellValue && cellValue.toUpperCase().indexOf(filter) > -1) {
+                    matchFound = true;
+                    break;
+                }
+            }
+
+            if (matchFound) {
+                tr[j].style.display = "";
+                found = true;
+            } else {
+                tr[j].style.display = "none";
+            }
+        }
+    }
+
+    if (!found) {
+        msg.innerHTML = "Not found";
+    } else {
+        msg.innerHTML = "";
+    }
+}
+
+// Trigger search function with a slight delay on input event
+document.getElementById('Search').addEventListener('input', searchFunction);
+</script>
+
+<!-- fro edite active_status in tothiq user  -->
+<script>
+  function fetchId2(u_Id,u_active_status) {
+
+    // Make an AJAX request to the Django view
+    $.ajax({
+        url: "{% url 'superadminapp:Tothiq_User' %}",
+        data: {
+            user_id: u_Id,
+            active_status: u_active_status,
+            csrfmiddlewaretoken: "{{ csrf_token }}"
+        },
+        type : "get",
+        dataType: "json",
+        success: function(data) {
+            // Handle the response from the Django view
+            console.log(response);
+            $("")
+            
+        },
+        error: function(xhr, errmsg, err) {
+            console.log(xhr.status + ": " + xhr.responseText);
+        }
+
+    });
+    setTimeout(function() {
+      location.reload();
+    }, 300);
+  }
+
+</script>
+
+<script>
+  function fetchId(u_Id) {
+    $.ajax({
+        url: "{% url 'superadminapp:tothiq_user_update' %}",
+        data: {
+            update_user_id: u_Id,
+            csrfmiddlewaretoken: "{{ csrf_token }}"
+        },
+        type : "get",
+        dataType: "json",
+        success: function(data) {
+            console.log(response);
+            $("")
+            
+        },
+        error: function(xhr, errmsg, err) {
+            console.log(xhr.status + ": " + xhr.responseText);
+        }
+    });
+  }
+</script>
+
+<!-- discouted price when dropdown selected -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.discount-type').on('change', function () {
+            calculateDiscount($(this));
+        });
+
+        $('.percentage-input').on('input', function () {
+            calculateDiscount($(this));
+        });
+
+        function calculateDiscount(element) {
+            var row = element.closest('.card-body');
+            var originalPrice = parseFloat(row.find('.membership-amount2').val());
+            var discountType = row.find('.discount-type').val();
+            var action = parseFloat(row.find('.percentage-input').val());
+            var discountInput = row.find('.discount-input2');
+
+            if (discountType === "Discount Percentage") {
+                discountInput.val(originalPrice - (originalPrice * action / 100));
+            } else if (discountType === "Fixed-Discount") {
+                discountInput.val(originalPrice - action);
+            }
+        }
+    });
+</script>
+<!-- discouted price when dropdown selected -->
+
+
+
+
+
+</body>
+</html>
